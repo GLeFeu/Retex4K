@@ -1103,7 +1103,7 @@ body.fx-off #water-canvas { display: none; }
 .fd-timeline::before {
   content: '';
   position: absolute;
-  left: 52px;
+  left: 68px;
   top: 10px;
   bottom: 10px;
   width: 1px;
@@ -1120,7 +1120,7 @@ body.fx-off #water-canvas { display: none; }
 .fd-tl-item::before {
   content: '';
   position: absolute;
-  left: 46px;
+  left: 62px;
   width: 13px;
   height: 13px;
   border-radius: 50%;
@@ -1147,7 +1147,7 @@ body.fx-off #water-canvas { display: none; }
   font-size: 1.05rem;
   letter-spacing: 0.05em;
   color: var(--ember);
-  width: 62px;
+  width: 58px;
   flex-shrink: 0;
   text-align: right;
 }
