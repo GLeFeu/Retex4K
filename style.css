@@ -469,6 +469,22 @@ body.fx-off #water-canvas { display: none; }
   transform: translateY(-2px);
 }
 
+.btn-soon {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  position: relative;
+}
+.btn-soon-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.15);
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 4px;
+}
+
 .scroll-cue {
   position: absolute;
   bottom: 36px;
