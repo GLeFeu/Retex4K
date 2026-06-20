@@ -55,12 +55,14 @@
     if (!siteBgReveal) return;
     if (viewName === 'fragile-dreams') {
       siteBgReveal.classList.add('active');
-      document.documentElement.style.setProperty('--particle-color', '#FF9DEB');
-      document.documentElement.style.setProperty('--particle-glow', 'rgba(255, 157, 235, 0.6)');
+      document.documentElement.style.setProperty('--particle-color', '#FBAAFF');
+      document.documentElement.style.setProperty('--particle-glow', 'rgba(251, 170, 255, 0.6)');
+      document.documentElement.style.setProperty('--particle-center', '#F49CCB');
     } else {
       siteBgReveal.classList.remove('active');
       document.documentElement.style.removeProperty('--particle-color');
       document.documentElement.style.removeProperty('--particle-glow');
+      document.documentElement.style.removeProperty('--particle-center');
     }
   }
 
@@ -128,8 +130,13 @@
 
     const slides = [
       { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-      { before: 'Capture 02 (Normal).webp',  after: 'Capture 02 (4K).webp'  },
-      { before: 'before_03.jpg',            after: 'after_03.jpg'          },
+      { before: 'Capture 02 (Normal).webp', after: 'Capture 02 (4K).webp' },
+      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
     ];
 
     function goTo(idx) {
@@ -596,14 +603,16 @@
   if (availableCard) {
     availableCard.addEventListener('mouseenter', () => {
       if (siteBgReveal) siteBgReveal.classList.add('active');
-      document.documentElement.style.setProperty('--particle-color', '#FF9DEB');
-      document.documentElement.style.setProperty('--particle-glow', 'rgba(255, 157, 235, 0.6)');
+      document.documentElement.style.setProperty('--particle-color', '#FBAAFF');
+      document.documentElement.style.setProperty('--particle-glow', 'rgba(251, 170, 255, 0.6)');
+      document.documentElement.style.setProperty('--particle-center', '#F49CCB');
     });
     availableCard.addEventListener('mouseleave', () => {
       if (currentView !== 'fragile-dreams') {
         if (siteBgReveal) siteBgReveal.classList.remove('active');
         document.documentElement.style.removeProperty('--particle-color');
         document.documentElement.style.removeProperty('--particle-glow');
+        document.documentElement.style.removeProperty('--particle-center');
       }
     });
   }

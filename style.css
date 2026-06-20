@@ -22,7 +22,7 @@
   --font-body: 'Jost', sans-serif;
 
   --ease: cubic-bezier(0.65, 0, 0.35, 1);
-  --particle-center: #F49CCB;
+  --particle-center: #e0c294;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -727,8 +727,9 @@ body.fx-off #water-canvas { display: none; }
 
 /* ---------- Fragile Dreams page ---------- */
 #view-fragile-dreams {
-  --ember: #FF9DEB;
-  --ember-bright: #ffb3f0;
+  --ember: #FBAAFF;
+  --ember-bright: #fcc0ff;
+  --particle-center: #F49CCB;
 }
 
 .fd-hero {
@@ -742,8 +743,26 @@ body.fx-off #water-canvas { display: none; }
 .fd-hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, #1d2532 0%, #0a0d12 65%);
   z-index: -1;
+}
+.fd-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('Cover_Fragile_Dreams.webp');
+  background-size: cover;
+  background-position: center 28%;
+  filter: blur(8px);
+  transform: scale(1.08);
+  opacity: 0.7;
+}
+.fd-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10,13,18,0.55) 0%, rgba(10,13,18,0.85) 60%, #0a0d12 100%),
+    linear-gradient(to right, #0a0d12 0%, transparent 20%, transparent 80%, #0a0d12 100%);
 }
 
 .fd-crumb {
@@ -864,19 +883,33 @@ body.fx-off #water-canvas { display: none; }
 .compare-thumbs {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #0a0d12;
-  padding: 10px 16px;
-  justify-content: center;
-  border-radius: 0 0 4px 4px;
+  gap: 6px;
+  padding: 10px 0;
   margin: 0 100px;
+  position: relative;
+}
+.compare-thumbs::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, #0a0d12, transparent);
+  z-index: 0;
+  pointer-events: none;
+}
+.compare-thumb {
+  position: relative;
+  z-index: 1;
 }
 
 .compare-thumb {
-  width: 140px;
+  flex: 1;
+  min-width: 0;
   aspect-ratio: 16/10;
   overflow: hidden;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   cursor: pointer;
   opacity: 0.45;
   transition: opacity 0.2s, border-color 0.2s;
@@ -891,9 +924,10 @@ body.fx-off #water-canvas { display: none; }
   display: block;
 }
 
-.compare-thumb:hover { opacity: 0.75; }
+.compare-thumb { opacity: 0.7; }
+.compare-thumb:hover { opacity: 1; }
 .compare-thumb.active {
-  border-color: var(--ember);
+  border-color: #000;
   opacity: 1;
 }
 
