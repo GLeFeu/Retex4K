@@ -1115,7 +1115,7 @@ body.fx-off #water-canvas { display: none; }
   gap: 18px;
   padding: 10px 0;
   position: relative;
-  opacity: 0.4;
+  opacity: 0.65;
 }
 .fd-tl-item::before {
   content: '';
@@ -1185,8 +1185,8 @@ body.fx-off #water-canvas { display: none; }
 }
 
 .fd-download-card p {
-  color: var(--text-dim);
-  font-size: 0.9rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.6;
   margin-bottom: 26px;
@@ -1202,8 +1202,8 @@ body.fx-off #water-canvas { display: none; }
   margin-top: 22px;
   padding-top: 22px;
   border-top: 1px solid var(--line);
-  font-size: 0.78rem;
-  color: var(--fog-light);
+  font-size: 0.82rem;
+  color: var(--text-dim);
   display: flex;
   justify-content: space-between;
 }
