@@ -630,6 +630,10 @@ body.fx-off #water-canvas { display: none; }
   transition: transform 0.6s var(--ease);
 }
 
+.game-card[data-view-link="starfox-adventure"] .game-card-bg {
+  background-position: center 100% !important;
+}
+
 .game-card.available:hover .game-card-bg {
   transform: none;
 }
@@ -733,6 +737,12 @@ body.fx-off #water-canvas { display: none; }
   --particle-center: #F49CCB;
 }
 
+#view-starfox-adventure {
+  --ember: #FFD166;
+  --ember-bright: #FFE7AD;
+  --particle-center: #FFE39B;
+}
+
 .fd-hero {
   position: relative;
   padding: 72px 48px 28px;
@@ -763,6 +773,21 @@ body.fx-off #water-canvas { display: none; }
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(10,13,18,0.55) 0%, rgba(10,13,18,0.85) 60%, #0a0d12 100%),
+    linear-gradient(to right, #0a0d12 0%, transparent 20%, transparent 80%, #0a0d12 100%);
+}
+
+#view-starfox-adventure .fd-hero-bg::before {
+  background-image: url('Cover_Starfox_Adventures.webp');
+  background-size: cover;
+  background-position: center 40%;
+  filter: blur(8px);
+  transform: scale(1.08);
+  opacity: 0.78;
+}
+
+#view-starfox-adventure .fd-hero-bg::after {
+  background:
+    linear-gradient(to bottom, rgba(10,13,18,0.35) 0%, rgba(10,13,18,0.78) 60%, #0a0d12 100%),
     linear-gradient(to right, #0a0d12 0%, transparent 20%, transparent 80%, #0a0d12 100%);
 }
 
@@ -1133,6 +1158,38 @@ body.fx-off #water-canvas { display: none; }
   border-radius: 50%;
   background: var(--ember);
   box-shadow: 0 0 8px 2px rgba(201,168,118,0.5);
+}
+
+.fd-compact-info {
+  list-style: none;
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.fd-compact-info li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.02);
+  color: var(--text-dim);
+  font-size: 0.94rem;
+}
+
+.fd-compact-info span {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fog-light);
+  font-size: 0.72rem;
+}
+
+.fd-compact-info strong {
+  color: var(--text-main);
+  font-weight: 500;
+  text-align: right;
 }
 
 .fd-timeline {

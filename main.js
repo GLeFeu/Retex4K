@@ -14,8 +14,27 @@
   let currentView = 'home';
   let isAnimating = false;
 
+  const PACK_THEMES = {
+    'fragile-dreams': {
+      backgroundImage: "url('Cover_Fragile_Dreams.webp')",
+      particleColor: '#FBAAFF',
+      particleGlow: 'rgba(251, 170, 255, 0.6)',
+      particleCenter: '#F49CCB',
+    },
+    'starfox-adventure': {
+      backgroundImage: "url('Cover_Starfox_Adventures.webp')",
+      backgroundPosition: 'center 50%',
+      particleColor: '#FFD166',
+      particleGlow: 'rgba(255, 209, 102, 0.55)',
+      particleCenter: '#FFE39B',
+    },
+  };
+
+  const defaultSiteBgImage = siteBgReveal ? siteBgReveal.style.backgroundImage : '';
+  const compareInstances = [];
+
   // Order of views, used to decide slide direction
-  const order = ['home', 'texture-packs', 'fragile-dreams'];
+  const order = ['home', 'texture-packs', 'fragile-dreams', 'starfox-adventure'];
 
   function go(viewName) {
     if (viewName === currentView || isAnimating) return;
@@ -53,13 +72,18 @@
 
   function updateBgReveal(viewName) {
     if (!siteBgReveal) return;
-    if (viewName === 'fragile-dreams') {
+    const theme = PACK_THEMES[viewName];
+    if (theme) {
       siteBgReveal.classList.add('active');
-      document.documentElement.style.setProperty('--particle-color', '#FBAAFF');
-      document.documentElement.style.setProperty('--particle-glow', 'rgba(251, 170, 255, 0.6)');
-      document.documentElement.style.setProperty('--particle-center', '#F49CCB');
+      siteBgReveal.style.backgroundImage = theme.backgroundImage;
+      siteBgReveal.style.backgroundPosition = theme.backgroundPosition || 'center bottom';
+      document.documentElement.style.setProperty('--particle-color', theme.particleColor);
+      document.documentElement.style.setProperty('--particle-glow', theme.particleGlow);
+      document.documentElement.style.setProperty('--particle-center', theme.particleCenter);
     } else {
       siteBgReveal.classList.remove('active');
+      siteBgReveal.style.backgroundImage = defaultSiteBgImage;
+      siteBgReveal.style.backgroundPosition = '';
       document.documentElement.style.removeProperty('--particle-color');
       document.documentElement.style.removeProperty('--particle-glow');
       document.documentElement.style.removeProperty('--particle-center');
@@ -114,134 +138,160 @@
   }
 
   // ---------- Before/After compare slider ----------
-  const compareSlider = document.getElementById('compare-main-slider');
-  if (compareSlider) {
-    const imgBefore = document.getElementById('cmp-before');
-    const imgAfter  = document.getElementById('cmp-after');
-    const after     = compareSlider.querySelector('.compare-after');
-    const handle    = compareSlider.querySelector('.compare-handle');
-    const thumbs     = document.querySelectorAll('.compare-thumb');
-    const prevBtn    = document.querySelector('.compare-arrow-ext.compare-prev');
-    const nextBtn    = document.querySelector('.compare-arrow-ext.compare-next');
-    const labelLeft  = compareSlider.querySelector('.compare-label-left');
-    const labelRight = compareSlider.querySelector('.compare-label-right');
-    let dragging    = false;
-    let currentIdx  = 0;
+  const compareSliders = document.querySelectorAll('.compare-slider');
+  if (compareSliders.length) {
+    compareSliders.forEach((compareSlider) => {
+      const compareMain = compareSlider.closest('.compare-main');
+      const imgBefore = compareSlider.querySelector('.compare-before img');
+      const imgAfter = compareSlider.querySelector('.compare-after img');
+      const after = compareSlider.querySelector('.compare-after');
+      const handle = compareSlider.querySelector('.compare-handle');
+      const thumbs = compareMain ? compareMain.querySelectorAll('.compare-thumb') : [];
+      const prevBtn = compareMain ? compareMain.querySelector('.compare-arrow-ext.compare-prev') : null;
+      const nextBtn = compareMain ? compareMain.querySelector('.compare-arrow-ext.compare-next') : null;
+      const labelLeft = compareSlider.querySelector('.compare-label-left');
+      const labelRight = compareSlider.querySelector('.compare-label-right');
+      const fsBtn = compareSlider.querySelector('.compare-fs-btn');
+      const inner = compareSlider.querySelector('.compare-inner');
+      const sliderView = compareSlider.closest('.view');
+      const viewName = sliderView ? sliderView.id.replace('view-', '') : '';
+      const slides = viewName === 'starfox-adventure'
+        ? [
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+            { before: 'Cover_Starfox_Adventures.webp', after: 'Cover_Starfox_Adventures.webp' },
+          ]
+        : [
+            { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+            { before: 'Capture 02 (Normal).webp', after: 'Capture 02 (4K).webp' },
+            { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+            { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+            { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+            { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+            { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+            { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
+          ];
+      let dragging = false;
+      let currentIdx = 0;
+      let isZoomed = false;
+      let panX = 0;
+      let panY = 0;
+      let panDrag = false;
+      let panStart = {};
+      const SCALE = 2.5;
 
-    const slides = [
-      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-      { before: 'Capture 02 (Normal).webp', after: 'Capture 02 (4K).webp' },
-      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-      { before: 'Capture 01 (Normal).webp', after: 'Capture 01 (4K).webp' },
-    ];
-
-    function goTo(idx) {
-      currentIdx = (idx + slides.length) % slides.length;
-      imgBefore.src = slides[currentIdx].before;
-      imgAfter.src  = slides[currentIdx].after;
-      setPos(compareSlider.getBoundingClientRect().left + compareSlider.offsetWidth * 0.5);
-      thumbs.forEach((t, i) => t.classList.toggle('active', i === currentIdx));
-    }
-
-    function setPos(x) {
-      const rect = compareSlider.getBoundingClientRect();
-      const pct  = Math.min(100, Math.max(0, (x - rect.left) / rect.width * 100));
-      after.style.clipPath = `polygon(0 0, ${pct}% 0, ${pct}% 100%, 0 100%)`;
-      handle.style.left    = pct + '%';
-      if (labelLeft)  labelLeft.style.opacity  = pct < 18 ? '0' : '1';
-      if (labelRight) labelRight.style.opacity = pct > 82 ? '0' : '1';
-    }
-
-    // ---------- Zoom dans le cadre (double-clic) ----------
-    const inner   = document.getElementById('compare-inner');
-    const SCALE   = 2.5;
-    let isZoomed  = false;
-    let panX = 0, panY = 0;
-    let panDrag = false, panStart = {};
-
-    function applyPan() {
-      const rect = compareSlider.getBoundingClientRect();
-      const maxX = rect.width  * (SCALE - 1) / 2;
-      const maxY = rect.height * (SCALE - 1) / 2;
-      panX = Math.min(maxX, Math.max(-maxX, panX));
-      panY = Math.min(maxY, Math.max(-maxY, panY));
-      inner.style.transform = `translate(${panX}px, ${panY}px) scale(${SCALE})`;
-    }
-
-    compareSlider.addEventListener('dblclick', e => {
-      if (e.target.closest('.compare-drag') || e.target.closest('.compare-fs-btn')) return;
-      isZoomed = !isZoomed;
-      if (isZoomed) {
-        inner.style.transition = 'transform 0.25s ease';
-        applyPan();
-        compareSlider.style.cursor = 'grab';
-      } else {
-        panX = 0; panY = 0;
-        inner.style.transition = 'transform 0.25s ease';
-        inner.style.transform = 'translate(0,0) scale(1)';
-        compareSlider.style.cursor = 'col-resize';
+      function setPos(x) {
+        const rect = compareSlider.getBoundingClientRect();
+        const pct = Math.min(100, Math.max(0, (x - rect.left) / rect.width * 100));
+        after.style.clipPath = `polygon(0 0, ${pct}% 0, ${pct}% 100%, 0 100%)`;
+        handle.style.left = pct + '%';
+        if (labelLeft) labelLeft.style.opacity = pct < 18 ? '0' : '1';
+        if (labelRight) labelRight.style.opacity = pct > 82 ? '0' : '1';
       }
-    });
 
-    compareSlider.addEventListener('mousedown', e => {
-      if (!isZoomed) return;
-      if (e.target.closest('.compare-drag') || e.target.closest('.compare-fs-btn')) return;
-      panDrag = true;
-      panStart = { mx: e.clientX, my: e.clientY, px: panX, py: panY };
-      inner.style.transition = 'none';
-      compareSlider.style.cursor = 'grabbing';
-    });
+      function applyPan() {
+        const rect = compareSlider.getBoundingClientRect();
+        const maxX = rect.width * (SCALE - 1) / 2;
+        const maxY = rect.height * (SCALE - 1) / 2;
+        panX = Math.min(maxX, Math.max(-maxX, panX));
+        panY = Math.min(maxY, Math.max(-maxY, panY));
+        inner.style.transform = `translate(${panX}px, ${panY}px) scale(${SCALE})`;
+      }
 
-    document.addEventListener('mousemove', e => {
-      if (!panDrag) return;
-      panX = panStart.px + (e.clientX - panStart.mx);
-      panY = panStart.py + (e.clientY - panStart.my);
-      applyPan();
-    });
+      function goTo(idx) {
+        currentIdx = (idx + slides.length) % slides.length;
+        imgBefore.src = slides[currentIdx].before;
+        imgAfter.src = slides[currentIdx].after;
+        setPos(compareSlider.getBoundingClientRect().left + compareSlider.offsetWidth * 0.5);
+        thumbs.forEach((t, i) => t.classList.toggle('active', i === currentIdx));
+      }
 
-    document.addEventListener('mouseup', () => {
-      if (!panDrag) return;
-      panDrag = false;
-      compareSlider.style.cursor = isZoomed ? 'grab' : 'col-resize';
-    });
+      goTo(0);
 
-    compareSlider.addEventListener('mousedown',  e => {
-      if (!e.target.closest('.compare-drag')) return;
-      dragging = true;
-    });
-    compareSlider.addEventListener('touchstart', e => {
-      if (!e.target.closest('.compare-drag')) return;
-      dragging = true;
-    }, { passive: true });
-    document.addEventListener('mousemove',  e => { if (dragging) setPos(e.clientX); });
-    document.addEventListener('touchmove',  e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
-    document.addEventListener('mouseup',   () => { dragging = false; });
-    document.addEventListener('touchend',  () => { dragging = false; });
-
-    prevBtn.addEventListener('click', () => goTo(currentIdx - 1));
-    nextBtn.addEventListener('click', () => goTo(currentIdx + 1));
-
-    const fsBtn = document.getElementById('compare-fs-btn');
-    if (fsBtn) {
-      fsBtn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-          compareSlider.requestFullscreen();
+      compareSlider.addEventListener('dblclick', e => {
+        if (e.target.closest('.compare-drag') || e.target.closest('.compare-fs-btn')) return;
+        isZoomed = !isZoomed;
+        if (isZoomed) {
+          inner.style.transition = 'transform 0.25s ease';
+          applyPan();
+          compareSlider.style.cursor = 'grab';
         } else {
-          document.exitFullscreen();
+          panX = 0;
+          panY = 0;
+          inner.style.transition = 'transform 0.25s ease';
+          inner.style.transform = 'translate(0,0) scale(1)';
+          compareSlider.style.cursor = 'col-resize';
         }
       });
-    }
-    thumbs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
+
+      compareSlider.addEventListener('mousedown', e => {
+        if (!isZoomed) return;
+        if (e.target.closest('.compare-drag') || e.target.closest('.compare-fs-btn')) return;
+        panDrag = true;
+        panStart = { mx: e.clientX, my: e.clientY, px: panX, py: panY };
+        inner.style.transition = 'none';
+        compareSlider.style.cursor = 'grabbing';
+      });
+
+      document.addEventListener('mousemove', e => {
+        if (!panDrag) return;
+        panX = panStart.px + (e.clientX - panStart.mx);
+        panY = panStart.py + (e.clientY - panStart.my);
+        applyPan();
+      });
+
+      document.addEventListener('mouseup', () => {
+        if (!panDrag) return;
+        panDrag = false;
+        compareSlider.style.cursor = isZoomed ? 'grab' : 'col-resize';
+      });
+
+      compareSlider.addEventListener('mousedown', e => {
+        if (!e.target.closest('.compare-drag')) return;
+        dragging = true;
+      });
+      compareSlider.addEventListener('touchstart', e => {
+        if (!e.target.closest('.compare-drag')) return;
+        dragging = true;
+      }, { passive: true });
+      document.addEventListener('mousemove', e => { if (dragging) setPos(e.clientX); });
+      document.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+      document.addEventListener('mouseup', () => { dragging = false; });
+      document.addEventListener('touchend', () => { dragging = false; });
+
+      if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIdx - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIdx + 1));
+
+      if (fsBtn) {
+        fsBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            compareSlider.requestFullscreen();
+          } else {
+            document.exitFullscreen();
+          }
+        });
+      }
+      thumbs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
+
+      compareInstances.push({
+        viewName,
+        goTo,
+        get currentIdx() {
+          return currentIdx;
+        },
+      });
+    });
 
     document.addEventListener('keydown', e => {
-      if (document.getElementById('view-fragile-dreams').classList.contains('active')) {
-        if (e.key === 'ArrowLeft')  goTo(currentIdx - 1);
-        if (e.key === 'ArrowRight') goTo(currentIdx + 1);
-      }
+      const activeInstance = compareInstances.find((instance) => instance.viewName === currentView);
+      if (!activeInstance) return;
+      if (e.key === 'ArrowLeft') activeInstance.goTo(activeInstance.currentIdx - 1);
+      if (e.key === 'ArrowRight') activeInstance.goTo(activeInstance.currentIdx + 1);
     });
   }
 
@@ -261,15 +311,14 @@
       'nav.home': 'Home', 'nav.packs': 'Texture Packs', 'nav.effects': 'Effets',
       'hero.eyebrow': 'Texture Pack 4K',
       'hero.title': 'Une lumière nouvelle<br>sur des <em>mondes oubliés</em>',
-      'hero.sub': 'Je retravaille les textures de jeux qui méritent d\'être revus à la lumière du jour. Pour l\'instant, un seul jeu : <em>Fragile Dreams</em>.',
-      'hero.cta': 'Voir le pack', 'scroll.cue': 'Défiler',
+      'hero.sub': 'Je retravaille les textures de jeux qui méritent d\'être revus à la lumière du jour. En ce moment, deux jeux en parallèle : <em>Fragile Dreams</em> et <em>Starfox Adventures</em>.',
+      'hero.cta': 'Voir les packs', 'scroll.cue': 'Défiler',
       'project.eyebrow': 'Le projet',
       'project.title': 'Pourquoi Retex<span class="lining">4K</span>',
-      'project.desc': 'Retex<span class="lining">4K</span>, c\'est un projet de retexturage en <span class="lining">4K</span>. Je commence par Fragile Dreams, un jeu qui mérite vraiment d\'être redécouvert. Je reprends ses textures en mixant upscale IA et retouches à la main, en essayant de rester fidèle à l\'ambiance d\'origine tout en y mettant un peu de ma patte. C\'est un projet perso, sur mon temps libre, donc ça avance tranquillement, mais si Fragile Dreams arrive au bout, j\'ai bien envie de continuer sur d\'autres jeux.',
-      'home.feat1': 'Upscale IA + retouches manuelles, certaines textures entièrement refaites à zéro.',
-      'home.feat2': 'Compatibilité testée sur Dolphin (version Europe de Fragile Dreams).',
-      'home.feat3': 'Contributions et discussions sur Discord.',
-      'home.feat4': 'Un doublage français de Fragile Dreams est prévu — les auditions se feront sur Discord, quand le projet approchera de la version 1.0.0.',
+      'project.desc': 'Retex<span class="lining">4K</span>, c\'est un projet de retexturage en <span class="lining">4K</span>. En ce moment je travaille sur deux jeux en parallèle : <em>Fragile Dreams</em>, un jeu méconnu qui mérite vraiment d\'être redécouvert, et <em>Starfox Adventures</em>. Dans les deux cas, même méthode : upscale IA et retouches à la main — et d\'autres textures sont entièrement recréées de zéro avec mes propres idées artistiques. C\'est un projet perso, sur mon temps libre, donc ça avance tranquillement.',
+      'home.feat1': 'Je travaille en ce moment sur <em>Fragile Dreams</em> et <em>Starfox Adventures</em> en parallèle.',
+      'home.feat2': 'Un doublage français de Fragile Dreams est prévu — <strong>après la version 1.0</strong> — les auditions se feront sur Discord.',
+      'home.feat3': 'Le site est encore en cours de révision — certaines sections évolueront pour être plus claires et mieux organisées.',
       'btn.discord': 'Serveur Discord', 'btn.discord.fd': 'Rejoindre le Discord', 'btn.mega': 'Télécharger sur MEGA',
       'footer.home': '© 2026 Retex4K by GLeFeu. Site non affilié aux développeurs ou éditeurs des jeux dont j\'améliore les textures.',
       'packs.eyebrow': 'Bibliothèque de Jeux Vidéo', 'packs.title': 'Choisis ton Texture Pack',
@@ -296,15 +345,14 @@
       'nav.home': 'Home', 'nav.packs': 'Texture Packs', 'nav.effects': 'Effects',
       'hero.eyebrow': '4K Texture Pack',
       'hero.title': 'A new light<br>on <em>forgotten worlds</em>',
-      'hero.sub': 'I rework the textures of games that deserve to be seen in a new light. For now, just one game: <em>Fragile Dreams</em>.',
-      'hero.cta': 'See the pack', 'scroll.cue': 'Scroll',
+      'hero.sub': 'I rework the textures of games that deserve to be seen in a new light. Currently working on two games in parallel: <em>Fragile Dreams</em> and <em>Starfox Adventures</em>.',
+      'hero.cta': 'See the packs', 'scroll.cue': 'Scroll',
       'project.eyebrow': 'The project',
       'project.title': 'Why Retex<span class="lining">4K</span>',
-      'project.desc': 'Retex<span class="lining">4K</span> is a <span class="lining">4K</span> retexturing project. I start with Fragile Dreams, a game that truly deserves to be rediscovered. I rework its textures by mixing AI upscaling and manual editing, staying true to the original atmosphere while adding my own touch. It\'s a personal project done in my free time, so progress is gradual — but if Fragile Dreams is completed, I\'d love to continue with other games.',
-      'home.feat1': 'AI upscale + manual retouching, some textures entirely remade from scratch.',
-      'home.feat2': 'Compatibility tested on Dolphin (European version of Fragile Dreams).',
-      'home.feat3': 'Contributions and discussions on Discord.',
-      'home.feat4': 'A French dub of Fragile Dreams is planned — auditions will be held on Discord when the project nears version 1.0.0.',
+      'project.desc': 'Retex<span class="lining">4K</span> is a <span class="lining">4K</span> retexturing project. I\'m currently working on two games in parallel: <em>Fragile Dreams</em>, an overlooked gem that truly deserves to be rediscovered, and <em>Starfox Adventures</em>. Same method for both: AI upscaling and manual retouching — and some textures are entirely recreated from scratch with my own artistic vision. It\'s a personal project done in my free time, so progress is steady but gradual.',
+      'home.feat1': 'Currently working on <em>Fragile Dreams</em> and <em>Starfox Adventures</em> in parallel.',
+      'home.feat2': 'A French dub of Fragile Dreams is planned — <strong>after version 1.0</strong> — auditions will be held on Discord.',
+      'home.feat3': 'The site is still being revised — some sections will evolve to be clearer and better organised.',
       'btn.discord': 'Discord Server', 'btn.discord.fd': 'Join Discord', 'btn.mega': 'Download on MEGA',
       'footer.home': '© 2026 Retex4K by GLeFeu. Not affiliated with the developers or publishers of the games I retexture.',
       'packs.eyebrow': 'Game Library', 'packs.title': 'Choose your Texture Pack',
@@ -331,15 +379,14 @@
       'nav.home': 'Inicio', 'nav.packs': 'Texture Packs', 'nav.effects': 'Efectos',
       'hero.eyebrow': 'Pack de Texturas 4K',
       'hero.title': 'Una nueva luz<br>sobre <em>mundos olvidados</em>',
-      'hero.sub': 'Retrabajo las texturas de juegos que merecen verse con una nueva luz. Por ahora, solo un juego: <em>Fragile Dreams</em>.',
-      'hero.cta': 'Ver el pack', 'scroll.cue': 'Desplazar',
+      'hero.sub': 'Retrabajo las texturas de juegos que merecen verse con una nueva luz. Actualmente, dos juegos en paralelo: <em>Fragile Dreams</em> y <em>Starfox Adventures</em>.',
+      'hero.cta': 'Ver los packs', 'scroll.cue': 'Desplazar',
       'project.eyebrow': 'El proyecto',
       'project.title': '¿Por qué Retex<span class="lining">4K</span>?',
-      'project.desc': 'Retex<span class="lining">4K</span> es un proyecto de retexturizado en <span class="lining">4K</span>. Empiezo con Fragile Dreams, un juego que merece ser redescubierto. Retrabajo sus texturas combinando upscale con IA y retoques manuales, manteniendo la atmósfera original con mi propio toque. Es un proyecto personal en mi tiempo libre — pero si Fragile Dreams llega al final, me gustaría continuar con otros juegos.',
-      'home.feat1': 'Upscale con IA + retoques manuales, algunas texturas completamente rehecho desde cero.',
-      'home.feat2': 'Compatibilidad probada en Dolphin (versión europea de Fragile Dreams).',
-      'home.feat3': 'Contribuciones y discusiones en Discord.',
-      'home.feat4': 'Se planea un doblaje francés de Fragile Dreams — las audiciones se realizarán en Discord cuando el proyecto se acerque a la versión 1.0.0.',
+      'project.desc': 'Retex<span class="lining">4K</span> es un proyecto de retexturizado en <span class="lining">4K</span>. Actualmente trabajo en dos juegos en paralelo: <em>Fragile Dreams</em>, un juego desconocido que merece ser redescubierto, y <em>Starfox Adventures</em>. Mismo método para ambos: upscale con IA y retoques manuales — y algunas texturas están completamente recreadas desde cero con mis propias ideas artísticas. Es un proyecto personal en mi tiempo libre.',
+      'home.feat1': 'Actualmente trabajando en <em>Fragile Dreams</em> y <em>Starfox Adventures</em> en paralelo.',
+      'home.feat2': 'Se planea un doblaje francés de Fragile Dreams — <strong>después de la versión 1.0</strong> — las audiciones se realizarán en Discord.',
+      'home.feat3': 'El sitio sigue en revisión — algunas secciones evolucionarán para ser más claras y organizadas.',
       'btn.discord': 'Servidor Discord', 'btn.discord.fd': 'Unirse al Discord', 'btn.mega': 'Descargar en MEGA',
       'footer.home': '© 2026 Retex4K by GLeFeu. No afiliado con los desarrolladores o editores de los juegos que retexturizo.',
       'packs.eyebrow': 'Biblioteca de Videojuegos', 'packs.title': 'Elige tu Texture Pack',
@@ -366,15 +413,14 @@
       'nav.home': 'Start', 'nav.packs': 'Texture Packs', 'nav.effects': 'Effekte',
       'hero.eyebrow': '4K Texture Pack',
       'hero.title': 'Ein neues Licht<br>auf <em>vergessene Welten</em>',
-      'hero.sub': 'Ich überarbeite die Texturen von Spielen, die es verdienen, in neuem Licht gesehen zu werden. Bisher nur ein Spiel: <em>Fragile Dreams</em>.',
-      'hero.cta': 'Pack ansehen', 'scroll.cue': 'Scrollen',
+      'hero.sub': 'Ich überarbeite die Texturen von Spielen, die es verdienen, in neuem Licht gesehen zu werden. Aktuell zwei Spiele parallel: <em>Fragile Dreams</em> und <em>Starfox Adventures</em>.',
+      'hero.cta': 'Packs ansehen', 'scroll.cue': 'Scrollen',
       'project.eyebrow': 'Das Projekt',
       'project.title': 'Warum Retex<span class="lining">4K</span>?',
-      'project.desc': 'Retex<span class="lining">4K</span> ist ein <span class="lining">4K</span>-Retexturierungsprojekt. Ich beginne mit Fragile Dreams, einem Spiel, das wirklich wiederentdeckt werden sollte. Ich überarbeite die Texturen durch KI-Upscaling und manuelle Bearbeitung, um die ursprüngliche Atmosphäre zu bewahren. Es ist ein persönliches Projekt in meiner Freizeit — wenn Fragile Dreams fertig ist, würde ich gerne weitere Spiele angehen.',
-      'home.feat1': 'KI-Upscale + manuelle Nachbearbeitung, einige Texturen komplett neu erstellt.',
-      'home.feat2': 'Kompatibilität mit Dolphin getestet (europäische Version von Fragile Dreams).',
-      'home.feat3': 'Beiträge und Diskussionen auf Discord.',
-      'home.feat4': 'Eine französische Synchronisation von Fragile Dreams ist geplant — Vorsprechtermine auf Discord, wenn das Projekt Version 1.0.0 nähert.',
+      'project.desc': 'Retex<span class="lining">4K</span> ist ein <span class="lining">4K</span>-Retexturierungsprojekt. Aktuell arbeite ich an zwei Spielen gleichzeitig: <em>Fragile Dreams</em>, ein verkanntes Spiel, das wirklich wiederentdeckt werden sollte, und <em>Starfox Adventures</em>. Gleiche Methode für beide: KI-Upscaling und manuelle Nachbearbeitung — einige Texturen werden komplett von Grund auf mit meinen eigenen künstlerischen Ideen neu gestaltet. Ein persönliches Projekt in meiner Freizeit.',
+      'home.feat1': 'Arbeite derzeit an <em>Fragile Dreams</em> und <em>Starfox Adventures</em> parallel.',
+      'home.feat2': 'Eine französische Synchronisation von Fragile Dreams ist geplant — <strong>nach Version 1.0</strong> — Vorsprechtermine auf Discord.',
+      'home.feat3': 'Die Website wird noch überarbeitet — einige Bereiche werden klarer und besser organisiert.',
       'btn.discord': 'Discord-Server', 'btn.discord.fd': 'Discord beitreten', 'btn.mega': 'Auf MEGA herunterladen',
       'footer.home': '© 2026 Retex4K by GLeFeu. Nicht verbunden mit den Entwicklern oder Publishern der Spiele, die ich retexturiere.',
       'packs.eyebrow': 'Spielebibliothek', 'packs.title': 'Wähle dein Texture Pack',
@@ -401,15 +447,14 @@
       'nav.home': 'Home', 'nav.packs': 'Texture Pack', 'nav.effects': 'Effetti',
       'hero.eyebrow': 'Texture Pack 4K',
       'hero.title': 'Una nuova luce<br>su <em>mondi dimenticati</em>',
-      'hero.sub': 'Rielaboro le texture di giochi che meritano di essere visti sotto una nuova luce. Per ora, un solo gioco: <em>Fragile Dreams</em>.',
-      'hero.cta': 'Vedi il pack', 'scroll.cue': 'Scorri',
+      'hero.sub': 'Rielaboro le texture di giochi che meritano di essere visti sotto una nuova luce. Attualmente, due giochi in parallelo: <em>Fragile Dreams</em> e <em>Starfox Adventures</em>.',
+      'hero.cta': 'Vedi i pack', 'scroll.cue': 'Scorri',
       'project.eyebrow': 'Il progetto',
       'project.title': 'Perché Retex<span class="lining">4K</span>?',
-      'project.desc': 'Retex<span class="lining">4K</span> è un progetto di retexturing in <span class="lining">4K</span>. Inizio con Fragile Dreams, un gioco che merita di essere riscoperto. Rielaboro le texture unendo upscale AI e ritocchi manuali, restando fedele all\'atmosfera originale. È un progetto personale nel mio tempo libero — se Fragile Dreams arriva al termine, mi piacerebbe continuare con altri giochi.',
-      'home.feat1': 'Upscale AI + ritocchi manuali, alcune texture completamente rifatte da zero.',
-      'home.feat2': 'Compatibilità testata su Dolphin (versione europea di Fragile Dreams).',
-      'home.feat3': 'Contributi e discussioni su Discord.',
-      'home.feat4': 'Un doppiaggio francese di Fragile Dreams è previsto — i provini si terranno su Discord quando il progetto si avvicinerà alla versione 1.0.0.',
+      'project.desc': 'Retex<span class="lining">4K</span> è un progetto di retexturing in <span class="lining">4K</span>. Attualmente lavoro su due giochi in parallelo: <em>Fragile Dreams</em>, un gioco poco conosciuto che merita di essere riscoperto, e <em>Starfox Adventures</em>. Stesso metodo per entrambi: upscale AI e ritocchi manuali — e alcune texture sono completamente ricreate da zero con le mie idee artistiche personali. Progetto personale nel mio tempo libero.',
+      'home.feat1': 'Attualmente lavoro su <em>Fragile Dreams</em> e <em>Starfox Adventures</em> in parallelo.',
+      'home.feat2': 'Un doppiaggio francese di Fragile Dreams è previsto — <strong>dopo la versione 1.0</strong> — i provini si terranno su Discord.',
+      'home.feat3': 'Il sito è ancora in revisione — alcune sezioni evolveranno per essere più chiare e organizzate.',
       'btn.discord': 'Server Discord', 'btn.discord.fd': 'Unisciti a Discord', 'btn.mega': 'Scarica su MEGA',
       'footer.home': '© 2026 Retex4K by GLeFeu. Non affiliato agli sviluppatori o editori dei giochi che riprocesso.',
       'packs.eyebrow': 'Libreria di Videogiochi', 'packs.title': 'Scegli il tuo Texture Pack',
@@ -436,15 +481,14 @@
       'nav.home': 'Início', 'nav.packs': 'Texture Packs', 'nav.effects': 'Efeitos',
       'hero.eyebrow': 'Pack de Texturas 4K',
       'hero.title': 'Uma nova luz<br>sobre <em>mundos esquecidos</em>',
-      'hero.sub': 'Retrabalho as texturas de jogos que merecem ser vistos sob uma nova luz. Por enquanto, apenas um jogo: <em>Fragile Dreams</em>.',
-      'hero.cta': 'Ver o pack', 'scroll.cue': 'Rolar',
+      'hero.sub': 'Retrabalho as texturas de jogos que merecem ser vistos sob uma nova luz. Atualmente, dois jogos em paralelo: <em>Fragile Dreams</em> e <em>Starfox Adventures</em>.',
+      'hero.cta': 'Ver os packs', 'scroll.cue': 'Rolar',
       'project.eyebrow': 'O projeto',
       'project.title': 'Por que Retex<span class="lining">4K</span>?',
-      'project.desc': 'Retex<span class="lining">4K</span> é um projeto de retexturização em <span class="lining">4K</span>. Começo com Fragile Dreams, um jogo que merece ser redescoberto. Retrabalhei suas texturas combinando upscale com IA e retoques manuais, mantendo a atmosfera original. É um projeto pessoal no meu tempo livre — se Fragile Dreams chegar ao fim, gostaria de continuar com outros jogos.',
-      'home.feat1': 'Upscale com IA + retoques manuais, algumas texturas completamente refeitas do zero.',
-      'home.feat2': 'Compatibilidade testada no Dolphin (versão europeia de Fragile Dreams).',
-      'home.feat3': 'Contribuições e discussões no Discord.',
-      'home.feat4': 'Uma dublagem francesa de Fragile Dreams está planejada — as audições serão no Discord quando o projeto se aproximar da versão 1.0.0.',
+      'project.desc': 'Retex<span class="lining">4K</span> é um projeto de retexturização em <span class="lining">4K</span>. Atualmente trabalho em dois jogos em paralelo: <em>Fragile Dreams</em>, um jogo pouco conhecido que merece ser redescoberto, e <em>Starfox Adventures</em>. Mesmo método para ambos: upscale com IA e retoques manuais — e algumas texturas são completamente recriadas do zero com minhas próprias ideias artísticas. Projeto pessoal no meu tempo livre.',
+      'home.feat1': 'Atualmente trabalhando em <em>Fragile Dreams</em> e <em>Starfox Adventures</em> em paralelo.',
+      'home.feat2': 'Uma dublagem francesa de Fragile Dreams está planejada — <strong>após a versão 1.0</strong> — as audições serão no Discord.',
+      'home.feat3': 'O site ainda está em revisão — algumas secções evoluirão para ser mais claras e organizadas.',
       'btn.discord': 'Servidor Discord', 'btn.discord.fd': 'Entrar no Discord', 'btn.mega': 'Baixar no MEGA',
       'footer.home': '© 2026 Retex4K by GLeFeu. Não afiliado aos desenvolvedores ou editores dos jogos que retexturizo.',
       'packs.eyebrow': 'Biblioteca de Videojogos', 'packs.title': 'Escolha o seu Texture Pack',
@@ -471,15 +515,14 @@
       'nav.home': 'ホーム', 'nav.packs': 'テクスチャパック', 'nav.effects': 'エフェクト',
       'hero.eyebrow': '4Kテクスチャパック',
       'hero.title': '忘れられた世界に<br><em>新しい光を</em>',
-      'hero.sub': 'もっと注目されるべきゲームのテクスチャを作り直しています。今は1つのゲームだけ：<em>Fragile Dreams</em>。',
-      'hero.cta': 'パックを見る', 'scroll.cue': 'スクロール',
+      'hero.sub': 'もっと注目されるべきゲームのテクスチャを作り直しています。現在、2つのゲームを同時進行：<em>Fragile Dreams</em>と<em>Starfox Adventures</em>。',
+      'hero.cta': 'パックを見る（全て）', 'scroll.cue': 'スクロール',
       'project.eyebrow': 'プロジェクト',
       'project.title': 'Retex<span class="lining">4K</span>とは',
-      'project.desc': 'Retex<span class="lining">4K</span>は<span class="lining">4K</span>リテクスチャリングプロジェクトです。まずFragile Dreamsから始めます。このゲームはもっと多くの人に発見されるべき作品です。AIアップスケールと手作業の編集を組み合わせてテクスチャを作り直し、オリジナルの雰囲気を大切にしながら取り組んでいます。個人プロジェクトなのでゆっくり進んでいますが、完成したら他のゲームも続けたいと思っています。',
-      'home.feat1': 'AIアップスケール＋手作業の修正、一部テクスチャはゼロから完全再制作。',
-      'home.feat2': 'Dolphinでの動作確認済み（Fragile Dreamsヨーロッパ版）。',
-      'home.feat3': 'Discordで貢献・議論が可能。',
-      'home.feat4': 'Fragile Dreamsのフランス語吹き替えを予定 — バージョン1.0.0に近づいた頃にDiscordでオーディションを行います。',
+      'project.desc': 'Retex<span class="lining">4K</span>は<span class="lining">4K</span>リテクスチャリングプロジェクトです。現在2つのゲームを同時制作中：<em>Fragile Dreams</em>（もっと多くの人に発見されるべき名作）と、<em>Starfox Adventures</em>。どちらも同じ手法：AIアップスケール＋手作業の修正。一部のテクスチャは自分のアーティスティックなビジョンでゼロから完全再制作。個人の趣味プロジェクトなのでゆっくり進んでいます。',
+      'home.feat1': '現在<em>Fragile Dreams</em>と<em>Starfox Adventures</em>を同時進行中。',
+      'home.feat2': 'Fragile Dreamsのフランス語吹き替えを予定 — <strong>バージョン1.0以降</strong> — オーディションはDiscordで行います。',
+      'home.feat3': 'サイトはまだ見直し中 — 今後、より分かりやすく整理される予定です。',
       'btn.discord': 'Discordサーバー', 'btn.discord.fd': 'Discordに参加', 'btn.mega': 'MEGAでダウンロード',
       'footer.home': '© 2026 Retex4K by GLeFeu. リテクスチャするゲームの開発者・出版社とは無関係です。',
       'packs.eyebrow': 'ゲームライブラリ', 'packs.title': 'テクスチャパックを選ぶ',
@@ -599,23 +642,16 @@
   }
 
   // ---------- Site background + particle color on card hover ----------
-  const availableCard = document.querySelector('.game-card.available');
-  if (availableCard) {
-    availableCard.addEventListener('mouseenter', () => {
-      if (siteBgReveal) siteBgReveal.classList.add('active');
-      document.documentElement.style.setProperty('--particle-color', '#FBAAFF');
-      document.documentElement.style.setProperty('--particle-glow', 'rgba(251, 170, 255, 0.6)');
-      document.documentElement.style.setProperty('--particle-center', '#F49CCB');
+  const availableCards = document.querySelectorAll('.game-card.available');
+  availableCards.forEach((card) => {
+    const themeName = card.dataset.viewLink;
+    card.addEventListener('mouseenter', () => {
+      updateBgReveal(themeName);
     });
-    availableCard.addEventListener('mouseleave', () => {
-      if (currentView !== 'fragile-dreams') {
-        if (siteBgReveal) siteBgReveal.classList.remove('active');
-        document.documentElement.style.removeProperty('--particle-color');
-        document.documentElement.style.removeProperty('--particle-glow');
-        document.documentElement.style.removeProperty('--particle-center');
-      }
+    card.addEventListener('mouseleave', () => {
+      updateBgReveal(currentView);
     });
-  }
+  });
 
   // ---------- Floating ember particles ----------
   const particleField = document.querySelector('.particles');
