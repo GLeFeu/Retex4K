@@ -630,7 +630,7 @@
   function detectLang() {
     const saved = localStorage.getItem('lang');
     if (saved && T[saved]) return saved;
-    const browser = (navigator.language || navigator.userLanguage || 'fr').toLowerCase().split('-')[0];
+    const browser = (navigator.language || navigator.userLanguage || 'en').toLowerCase().split('-')[0];
     return T[browser] ? browser : 'en';
   }
   applyLang(detectLang());
