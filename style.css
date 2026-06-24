@@ -389,6 +389,7 @@ body.fx-off #water-canvas { display: none; }
 .hero-title em {
   font-style: italic;
   color: var(--ember-bright);
+  font-variant-numeric: lining-nums;
 }
 
 .hero-sub {
