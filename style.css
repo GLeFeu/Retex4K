@@ -1267,6 +1267,60 @@ body.fx-off #water-canvas { display: none; }
   color: var(--text);
 }
 
+.fd-tl-has-video {
+  flex-direction: column;
+  align-items: stretch;
+  cursor: pointer;
+}
+.fd-tl-has-video:hover .fd-tl-video-badge {
+  background: rgba(224,130,80,0.25);
+  border-color: var(--ember-bright);
+  color: var(--ember-bright);
+}
+.fd-tl-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+.fd-tl-video-badge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  color: var(--ember);
+  border: 1px solid var(--ember);
+  border-radius: 20px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.fd-tl-item.fd-tl-open .fd-tl-video-badge {
+  background: rgba(224,130,80,0.15);
+}
+.fd-tl-video-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+  padding-left: 76px;
+}
+.fd-tl-item.fd-tl-open .fd-tl-video-wrap {
+  max-height: 520px;
+}
+.fd-tl-video-wrap iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  display: block;
+}
+
 .fd-download-card {
   background: transparent;
   border: none;

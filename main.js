@@ -777,6 +777,23 @@
   }
 
   // ---------- Scroll-reveal for sections ----------
+  // ---------- Timeline video accordion ----------
+  document.querySelectorAll('.fd-tl-item[data-video]').forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('fd-tl-open');
+      document.querySelectorAll('.fd-tl-item.fd-tl-open').forEach(i => {
+        i.classList.remove('fd-tl-open');
+        const iframe = i.querySelector('.fd-tl-video-wrap iframe');
+        if (iframe) iframe.src = '';
+      });
+      if (!isOpen) {
+        item.classList.add('fd-tl-open');
+        const iframe = item.querySelector('.fd-tl-video-wrap iframe');
+        if (iframe) iframe.src = `https://www.youtube.com/embed/${item.dataset.video}?autoplay=1`;
+      }
+    });
+  });
+
   const revealEls = document.querySelectorAll('.game-card, .fd-feature-list li, .fd-gallery-item');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
