@@ -369,6 +369,7 @@ const el = {
   hpFill: document.getElementById('hp-fill'),
   gameHint: document.getElementById('game-hint'),
   revealMessage: document.getElementById('reveal-message'),
+  revealCorrectTitle: document.getElementById('reveal-correct-title'),
   answersGrid: document.getElementById('answers-grid'),
   textAnswer: document.getElementById('text-answer'),
   answerTextInput: document.getElementById('answer-text-input'),
@@ -1484,6 +1485,7 @@ function startRound() {
   }
 
   el.revealMessage.hidden = true;
+  el.revealCorrectTitle.hidden = true;
 
   renderAnswers(track);
 
@@ -1618,7 +1620,7 @@ function updateTextSuggestions(query) {
   const matches = getUniqueTitledTracks()
     .filter((track) => !q || getDisplayTitle(track).toLowerCase().includes(q))
     .sort((a, b) => getDisplayTitle(a).localeCompare(getDisplayTitle(b)))
-    .slice(0, 8);
+    .slice(0, 40);
 
   el.answerSuggestions.innerHTML = '';
   matches.forEach((track) => {
@@ -1649,10 +1651,10 @@ el.answerTextInput.addEventListener('input', () => {
 
 el.answerTextInput.addEventListener('keydown', (e) => {
   if (e.key !== 'Enter') return;
-  const query = el.answerTextInput.value.trim().toLowerCase();
-  if (!query) return;
-  const exactMatch = getUniqueTitledTracks().find((track) => getDisplayTitle(track).toLowerCase() === query);
-  if (exactMatch) onTitleChosen(exactMatch.title);
+  /* Submit the first suggestion currently shown for the typed query, instead
+     of requiring an exact character-for-character match. */
+  const firstBtn = el.answerSuggestions.querySelector('.suggestion-btn');
+  if (firstBtn) onTitleChosen(firstBtn.dataset.title);
 });
 
 function onTitleChosen(title) {
@@ -1843,6 +1845,13 @@ function revealAnswer(selectedTitle, selectedGameId) {
     playSfx(sfxWrong);
   }
   el.revealMessage.hidden = false;
+
+  if (writeTitleMode && !(titleCorrect && gameCorrect)) {
+    el.revealCorrectTitle.textContent = getDisplayTitle(track);
+    el.revealCorrectTitle.hidden = false;
+  } else {
+    el.revealCorrectTitle.hidden = true;
+  }
 
   fadeOutAndPause();
   el.replayClipBtn.hidden = true;
@@ -2192,6 +2201,7 @@ function mpHandleRound(msg) {
   }
 
   el.revealMessage.hidden = true;
+  el.revealCorrectTitle.hidden = true;
   el.answersGrid.hidden = false;
   el.textAnswer.hidden = true;
   el.gameAnswer.hidden = true;
@@ -2298,6 +2308,13 @@ function mpHandleReveal(msg) {
     playSfx(sfxWrong);
   }
   el.revealMessage.hidden = false;
+
+  if (writeTitleMode && !(wasAnswered && mpAnsweredCorrect)) {
+    el.revealCorrectTitle.textContent = getDisplayTitle(track);
+    el.revealCorrectTitle.hidden = false;
+  } else {
+    el.revealCorrectTitle.hidden = true;
+  }
 
   fadeOutAndPause();
   el.replayClipBtn.hidden = true;

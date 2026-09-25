@@ -1216,6 +1216,14 @@ body {
   color: var(--soul-red);
 }
 
+.reveal-correct-title {
+  width: 100%;
+  font-size: 18px;
+  color: var(--gold);
+  text-align: center;
+  margin: -8px 0 0;
+}
+
 /* --- Text-answer (write the title) --- */
 .text-answer {
   width: 100%;
@@ -1248,8 +1256,26 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 260px;
+  max-height: 420px;
   overflow-y: auto;
+  padding-right: 4px;
+}
+
+.answer-suggestions::-webkit-scrollbar {
+  width: 10px;
+}
+
+.answer-suggestions::-webkit-scrollbar-track {
+  background: var(--bg);
+  border: 1px solid var(--muted);
+}
+
+.answer-suggestions::-webkit-scrollbar-thumb {
+  background: var(--muted);
+}
+
+.answer-suggestions::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
 }
 
 .suggestion-btn {
