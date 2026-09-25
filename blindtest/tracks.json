@@ -10639,157 +10639,188 @@
   {
     "title": "Undertale",
     "id": "1HIKNbnV8nw",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/f7/Newhomebox.png/revision/latest?cb=20160327165502&path-prefix=fr"
   },
   {
     "title": "Song That Might Play When You Fight Sans",
     "id": "x6OUm-HSeFQ",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/5a/Megalomania.png/revision/latest?cb=20160511081647&path-prefix=fr"
   },
   {
     "title": "The Choice",
     "id": "RWl8o-znLck",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/b/b2/Thechoice.png/revision/latest?cb=20160327165614&path-prefix=fr"
   },
   {
     "title": "Small Shock",
     "id": "I5MW-xF1Kec",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/d/d9/Smallshock.png/revision/latest?cb=20160327165543&path-prefix=fr"
   },
   {
     "title": "Barrier",
     "id": "r4NYGRzIItU",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/c/cc/Barrier.png/revision/latest?cb=20160327165133&path-prefix=fr"
   },
   {
-    "title": "Bergentr'ckung",
+    "title": "Bergentrückung",
     "id": "AhnAielizjs",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/b/b1/Bergentruckung.gif/revision/latest?cb=20160327170140&path-prefix=fr"
   },
   {
     "title": "ASGORE",
     "id": "42kI2lT0x6U",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/0/0b/Asgorebattle.png/revision/latest?cb=20160327170130&path-prefix=fr"
   },
   {
     "title": "You Idiot",
     "id": "MJE21c--duY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/56/Finalflowey.png/revision/latest?cb=20160327170311&path-prefix=fr"
   },
   {
     "title": "Your Best Nightmare",
     "id": "DxxLzJDARbo",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/53/Photoshopflowey.png/revision/latest?cb=20160327170421&path-prefix=fr"
   },
   {
     "title": "Finale",
     "id": "CANW8s9Lt4g",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/4/42/Photoflowey2.png/revision/latest?cb=20160327170404&path-prefix=fr"
   },
   {
     "title": "An Ending",
     "id": "9g6V67JzAHY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/6/6b/Sanscall.png/revision/latest?cb=20160327170513&path-prefix=fr"
   },
   {
     "title": "She's Playing Piano",
     "id": "raVKWF_Ifas",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/56/Undynehouse.png/revision/latest?cb=20160327170650&path-prefix=fr"
   },
   {
     "title": "Here We Are",
     "id": "52olsp3GUqY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/1/1f/Truelaboratory.png/revision/latest?cb=20160327170630&path-prefix=fr"
   },
   {
     "title": "Amalgam",
     "id": "p6qO-ONYEkg",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/9/93/Amalg.png/revision/latest?cb=20160327170121&path-prefix=fr"
   },
   {
     "title": "Fallen Down (Reprise)",
     "id": "qG5ZjezxIck",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/c/c4/Torielend.png/revision/latest?cb=20160327170557&path-prefix=fr"
   },
   {
     "title": "Don't Give Up",
     "id": "rpYoFaphxqQ",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/6/65/Monster_Encouragement.png/revision/latest?cb=20160302202421&path-prefix=fr"
   },
   {
-    "title": "Hopes And Dreams",
+    "title": "Hopes and Dreams",
     "id": "wbO3p7_Mf30",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/6/69/Hopesanddreams.png/revision/latest?cb=20160327170339&path-prefix=fr"
   },
   {
-    "title": "Burn In Despair!",
+    "title": "Burn in Despair!",
     "id": "HAnJX4uudqY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/0/08/Burnindespair.png/revision/latest?cb=20160327170151&path-prefix=fr"
   },
   {
-    "title": "SAVE The World",
+    "title": "SAVE the World",
     "id": "OEs6SGTkXMo",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/2/2d/Savetheworld.png/revision/latest?cb=20160327170521&path-prefix=fr"
   },
   {
     "title": "His Theme",
     "id": "pMXxxFeZAPg",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/1/1b/Chara-0.png/revision/latest?cb=20160321222118&path-prefix=fr"
   },
   {
     "title": "Final Power",
     "id": "6cVdl02AW_U",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/51/Destroyedbarrier.gif/revision/latest?cb=20160327170221&path-prefix=fr"
   },
   {
     "title": "Reunited",
     "id": "VUaeXgFlFFY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/e/ef/Reunited.png/revision/latest?cb=20160327170459&path-prefix=fr"
   },
   {
     "title": "Menu (Full)",
     "id": "_Rj24hkBkfw",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/e/ed/Fullmenu.png/revision/latest?cb=20160327170321&path-prefix=fr"
   },
   {
     "title": "Respite",
     "id": "1Tn1hbCXmD8",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/1/1a/Respite.png/revision/latest?cb=20160327170448&path-prefix=fr"
   },
   {
     "title": "Bring It In, Guys!",
     "id": "qOQz2gfWGaw",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/6/63/Undertalecredits.png/revision/latest?cb=20160327170640&path-prefix=fr"
   },
   {
     "title": "Last Goodbye",
     "id": "oiaO05_ImsA",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/2/20/TPEC.gif/revision/latest?cb=20160327170615&path-prefix=fr"
   },
   {
-    "title": "But The Earth Refused To Die",
+    "title": "But the Earth Refused to Die",
     "id": "b8ABGEr8oHs",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/2/28/Preundying.png/revision/latest?cb=20160327170433&path-prefix=fr"
   },
   {
-    "title": "Battle Against A True Hero",
+    "title": "Battle Against a True Hero",
     "id": "xV4pZgTe94E",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/8/81/Theheroine.png/revision/latest?cb=20160327170531&path-prefix=fr"
   },
   {
-    "title": "Power Of \"NEO\"",
+    "title": "Power of \"NEO\"",
     "id": "ZXG66exDoho",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/71/MettatonNEOB.png/revision/latest?cb=20160327170347&path-prefix=fr"
   },
   {
     "title": "MEGALOVANIA",
     "id": "KK3KXAECte4",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/5a/Megalomania.png/revision/latest?cb=20160511081647&path-prefix=fr"
   },
   {
     "title": "Good Night",
     "id": "9ZhG4XIqz9w",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/d/de/True_Pacifist_Route_screenshot_ending.png/revision/latest/scale-to-width-down/250?cb=20160212142426"
   },
   {
     "title": "ANOTHER HIM",

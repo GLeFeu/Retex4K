@@ -1246,7 +1246,9 @@ body {
   background: var(--bg);
   border: 3px solid var(--gold);
   cursor: pointer;
-  line-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .visual-answer-btn img {
@@ -1254,6 +1256,15 @@ body {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+}
+
+.visual-answer-caption {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--gold);
+  line-height: 1.2;
+  text-align: center;
+  text-transform: none;
 }
 
 .visual-answer-btn:hover:not(:disabled),

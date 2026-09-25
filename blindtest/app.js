@@ -1681,6 +1681,11 @@ function renderVisualAnswers(track) {
     img.loading = 'lazy';
     btn.appendChild(img);
 
+    const caption = document.createElement('span');
+    caption.className = 'visual-answer-caption';
+    caption.textContent = getDisplayTitle(opt);
+    btn.appendChild(caption);
+
     btn.addEventListener('click', () => onTitleChosen(opt.title));
     el.visualAnswersGrid.appendChild(btn);
   });
