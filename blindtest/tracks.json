@@ -3301,5 +3301,4682 @@
     "title": "Game Demo",
     "id": "VmV5zIguE7M",
     "game": "ww"
+  },
+  {
+    "title": "Title",
+    "id": "AWe8xzAQwd8",
+    "game": "fsa",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Select",
+    "id": "H8Uncfp61jI",
+    "game": "fsa"
+  },
+  {
+    "title": "Outline",
+    "id": "2rPDssTsnn8",
+    "game": "fsa"
+  },
+  {
+    "title": "Clouds",
+    "id": "a_wYSX9qKXw",
+    "game": "fsa"
+  },
+  {
+    "title": "Shade",
+    "id": "d5XDCc0uddM",
+    "game": "fsa"
+  },
+  {
+    "title": "Sword Fanfare",
+    "id": "hNXDIYqKXZU",
+    "game": "fsa"
+  },
+  {
+    "title": "Field - The Legend of Zelda: Four Swords Adventures",
+    "id": "1G-imWKvXyA",
+    "game": "fsa"
+  },
+  {
+    "title": "Inside a House",
+    "id": "1_6InjyfPl0",
+    "game": "fsa"
+  },
+  {
+    "title": "Item Fanfare",
+    "id": "ygO_9r0qbH4",
+    "game": "fsa"
+  },
+  {
+    "title": "Mini Boss Battle",
+    "id": "3Qu8Y0woY4I",
+    "game": "fsa"
+  },
+  {
+    "title": "Sword Level-Up Fanfare",
+    "id": "h_Tyd6t4wBY",
+    "game": "fsa"
+  },
+  {
+    "title": "Clear Fanfare",
+    "id": "c-XdLaNNrU4",
+    "game": "fsa"
+  },
+  {
+    "title": "Dungeon",
+    "id": "zlRevC5lv1c",
+    "game": "fsa"
+  },
+  {
+    "title": "Fortune-Telling",
+    "id": "IIzF_a7mXgY",
+    "game": "fsa"
+  },
+  {
+    "title": "Shadow Link Battle",
+    "id": "ihL1FRwQmA0",
+    "game": "fsa"
+  },
+  {
+    "title": "Tingle's Tower",
+    "id": "LqD6EiufxxE",
+    "game": "fsa"
+  },
+  {
+    "title": "Overworld",
+    "id": "aoN2ufODkDM",
+    "game": "fsa",
+    "title_fr": "Monde extérieur"
+  },
+  {
+    "title": "Hidden Dungeon",
+    "id": "ZM5rR2IjWmk",
+    "game": "fsa"
+  },
+  {
+    "title": "Hyrule Castle",
+    "id": "3ImskGkJLds",
+    "game": "fsa",
+    "title_fr": "Château d'Hyrule"
+  },
+  {
+    "title": "Boss Battle",
+    "id": "7f2BQn2rLwY",
+    "game": "fsa",
+    "title_fr": "Combat de boss"
+  },
+  {
+    "title": "Crystal Room",
+    "id": "XyI8cTHQ7sU",
+    "game": "fsa"
+  },
+  {
+    "title": "Maiden Rescue",
+    "id": "TutxVV3h37s",
+    "game": "fsa"
+  },
+  {
+    "title": "Goddess",
+    "id": "BWSC6C2z0eY",
+    "game": "fsa"
+  },
+  {
+    "title": "Village of the Blue Maiden (unsolved)",
+    "id": "Lzi1AaOUjMY",
+    "game": "fsa"
+  },
+  {
+    "title": "Guessing",
+    "id": "Vd0hKYX4uC8",
+    "game": "fsa"
+  },
+  {
+    "title": "Village of the Blue Maiden (solved)",
+    "id": "DRqk1ON_zEw",
+    "game": "fsa"
+  },
+  {
+    "title": "Temple",
+    "id": "PmU_j0edSrM",
+    "game": "fsa"
+  },
+  {
+    "title": "Tower of Flames",
+    "id": "88ucTkigwdI",
+    "game": "fsa"
+  },
+  {
+    "title": "Plain",
+    "id": "wTqXJUd43S4",
+    "game": "fsa"
+  },
+  {
+    "title": "Invincibility",
+    "id": "AxX2joW0Lw4",
+    "game": "fsa"
+  },
+  {
+    "title": "Jewel",
+    "id": "jIH1RScNH9U",
+    "game": "fsa"
+  },
+  {
+    "title": "Graveyard",
+    "id": "qmxvlYFeT4s",
+    "game": "fsa"
+  },
+  {
+    "title": "Inside a House (Dark)",
+    "id": "flP03rQvo60",
+    "game": "fsa"
+  },
+  {
+    "title": "Woods",
+    "id": "QaYKgdDUM2g",
+    "game": "fsa"
+  },
+  {
+    "title": "Discovery",
+    "id": "xZVJ59f0AjY",
+    "game": "fsa"
+  },
+  {
+    "title": "Desert",
+    "id": "07uYgcrm5ac",
+    "game": "fsa"
+  },
+  {
+    "title": "Snow",
+    "id": "AlhYPaAJ8n0",
+    "game": "fsa"
+  },
+  {
+    "title": "Princess Zelda Rescue",
+    "id": "_Qiiu_3gbgg",
+    "game": "fsa"
+  },
+  {
+    "title": "Heavens",
+    "id": "Ovxl86sTaSM",
+    "game": "fsa"
+  },
+  {
+    "title": "Palace of Winds",
+    "id": "hGlAG29Gwhk",
+    "game": "fsa"
+  },
+  {
+    "title": "Escape",
+    "id": "zEBuJvDkeuE",
+    "game": "fsa"
+  },
+  {
+    "title": "Ganon Battle",
+    "id": "qGbVScGqt6w",
+    "game": "fsa"
+  },
+  {
+    "title": "Ending",
+    "id": "bwyeyc5Ae6A",
+    "game": "fsa",
+    "title_fr": "Fin"
+  },
+  {
+    "title": "Staff Roll",
+    "id": "ss4JWjrjzKw",
+    "game": "fsa",
+    "title_fr": "Générique de fin"
+  },
+  {
+    "title": "SFX Collection",
+    "id": "tGbSisruPiU",
+    "game": "fsa"
+  },
+  {
+    "title": "Inside a House (alternate)",
+    "id": "kNlNNunc6MI",
+    "game": "fsa"
+  },
+  {
+    "title": "Garden",
+    "id": "civKrWOw-9U",
+    "game": "fsa"
+  },
+  {
+    "title": "Save",
+    "id": "GEtgnF4FL5k",
+    "game": "fsa"
+  },
+  {
+    "title": "Opening Fanfare",
+    "id": "c74XjphiRn0",
+    "game": "mc"
+  },
+  {
+    "title": "Hyrule Castle Fanfare",
+    "id": "7VDlAQz5U2g",
+    "game": "mc"
+  },
+  {
+    "title": "Victory Fanfare",
+    "id": "C6pJd_N-m8A",
+    "game": "mc"
+  },
+  {
+    "title": "Great Fairy's Fountain",
+    "id": "BC5j_OW-3no",
+    "game": "mc"
+  },
+  {
+    "title": "Game Over",
+    "id": "03GjrO9Qn54",
+    "game": "mc",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Victory Fanfare 2",
+    "id": "gokS7voM6OQ",
+    "game": "mc"
+  },
+  {
+    "title": "Vaati",
+    "id": "EVmQMLSqlZ0",
+    "game": "mc"
+  },
+  {
+    "title": "Ezlo",
+    "id": "NdFNDMUwJ_8",
+    "game": "mc"
+  },
+  {
+    "title": "The Minish Legend",
+    "id": "rio8iupY31c",
+    "game": "mc"
+  },
+  {
+    "title": "Beanstalk",
+    "id": "O9In1ZfKsUQ",
+    "game": "mc"
+  },
+  {
+    "title": "House",
+    "id": "FcwHdFTugW8",
+    "game": "mc"
+  },
+  {
+    "title": "Cucco Mini-Game",
+    "id": "WyfTDuvhWmM",
+    "game": "mc"
+  },
+  {
+    "title": "Syrup the Witch",
+    "id": "FY5s2WWGYio",
+    "game": "mc"
+  },
+  {
+    "title": "Cave",
+    "id": "9PSkajXKzqk",
+    "game": "mc"
+  },
+  {
+    "title": "The Wind Tribe",
+    "id": "Cvwpxvndamg",
+    "game": "mc"
+  },
+  {
+    "title": "Overworld Theme",
+    "id": "qmKMIxhVXXA",
+    "game": "mc"
+  },
+  {
+    "title": "Hyrule Castle",
+    "id": "5_Z38HWmT64",
+    "game": "mc",
+    "title_fr": "Château d'Hyrule"
+  },
+  {
+    "title": "Minish Village/Melari's Mine",
+    "id": "YGif5nqFG2A",
+    "game": "mc"
+  },
+  {
+    "title": "Minish Woods",
+    "id": "sN1F1v9n88Q",
+    "game": "mc"
+  },
+  {
+    "title": "Hyrule Town",
+    "id": "uVSHlTEuRYk",
+    "game": "mc",
+    "title_fr": "Bourg d'Hyrule"
+  },
+  {
+    "title": "Vs. Mid Boss",
+    "id": "oeXok7GkzdU",
+    "game": "mc"
+  },
+  {
+    "title": "Vs. Boss",
+    "id": "3nUPnYFUomc",
+    "game": "mc"
+  },
+  {
+    "title": "Vs. Vaati [1st Phase: Vaati's Attack]",
+    "id": "G1-xqUU0fjE",
+    "game": "mc"
+  },
+  {
+    "title": "Ambush",
+    "id": "txDmuGMkipU",
+    "game": "mc"
+  },
+  {
+    "title": "Swordsman School",
+    "id": "ZOZo9AICLMY",
+    "game": "mc"
+  },
+  {
+    "title": "Mt. Crenel",
+    "id": "kpi1ezwMwiI",
+    "game": "mc"
+  },
+  {
+    "title": "The Picori Festival",
+    "id": "7YBoKOUbJYg",
+    "game": "mc"
+  },
+  {
+    "title": "Fairy's Fountain",
+    "id": "1MYDuCBmDfE",
+    "game": "mc"
+  },
+  {
+    "title": "The Tournament Award Ceremony",
+    "id": "P2waW1xAkjI",
+    "game": "mc"
+  },
+  {
+    "title": "Ending",
+    "id": "ekjhevRZElQ",
+    "game": "mc"
+  },
+  {
+    "title": "Zelda Revived",
+    "id": "lH7i8W8Bqfk",
+    "game": "mc"
+  },
+  {
+    "title": "The Aftermath",
+    "id": "rFBX9ZvNYLE",
+    "game": "mc"
+  },
+  {
+    "title": "Rain on Mt. Crenel",
+    "id": "1KO4Z4QU6Io",
+    "game": "mc"
+  },
+  {
+    "title": "Castor Wilds",
+    "id": "YozhIATUsxY",
+    "game": "mc"
+  },
+  {
+    "title": "Royal Valley",
+    "id": "1ZdH7H0gYFs",
+    "game": "mc"
+  },
+  {
+    "title": "Cloud Tops",
+    "id": "ZfRTeS70C_I",
+    "game": "mc"
+  },
+  {
+    "title": "Dark Hyrule Castle",
+    "id": "_dfsuE43hkg",
+    "game": "mc"
+  },
+  {
+    "title": "Castle Underground",
+    "id": "EaB7eK2B2qY",
+    "game": "mc"
+  },
+  {
+    "title": "Deepwood Shrine",
+    "id": "FvzOgH-twns",
+    "game": "mc"
+  },
+  {
+    "title": "Cave of Flames",
+    "id": "U9HNg5uboRg",
+    "game": "mc"
+  },
+  {
+    "title": "Fortress of Winds",
+    "id": "dS4O3-3YPVY",
+    "game": "mc"
+  },
+  {
+    "title": "Temple of Droplets",
+    "id": "AjeJ0nHyAbI",
+    "game": "mc"
+  },
+  {
+    "title": "Palace of Winds",
+    "id": "2YsGiP_QjNE",
+    "game": "mc"
+  },
+  {
+    "title": "Ezlo's Story/Vaati's Betrayal",
+    "id": "Qc_e3ZObrjE",
+    "game": "mc"
+  },
+  {
+    "title": "Royal Crypt",
+    "id": "Tb57QiJYqJ0",
+    "game": "mc"
+  },
+  {
+    "title": "Elemental Sanctuary",
+    "id": "rwOoOo1Jtbw",
+    "game": "mc"
+  },
+  {
+    "title": "Vs. Vaati [2nd Phase: Vaati's Wrath]",
+    "id": "yBKsmvUD4Mw",
+    "game": "mc"
+  },
+  {
+    "title": "Escape from the Castle",
+    "id": "3yXRhZ6iDHQ",
+    "game": "mc"
+  },
+  {
+    "title": "Vs. Vaati [3rd Phase: Vaati's Return]",
+    "id": "HTybBUwuCmA",
+    "game": "mc"
+  },
+  {
+    "title": "Underground Tunnel",
+    "id": "FcEEEZEPBHM",
+    "game": "mc"
+  },
+  {
+    "title": "Princess Zelda/Peaceful Times",
+    "id": "fgqCEgxw43c",
+    "game": "mc",
+    "title_fr": "Princesse Zelda / Temps paisibles"
+  },
+  {
+    "title": "Wind Ruins",
+    "id": "71Zl1y0u6C4",
+    "game": "mc"
+  },
+  {
+    "title": "Road to the Picori Festival",
+    "id": "bj2QsHiMv-g",
+    "game": "mc"
+  },
+  {
+    "title": "Fairy's Fountain/File Select",
+    "id": "W7918ejMACk",
+    "game": "mc"
+  },
+  {
+    "title": "Channel Menu",
+    "id": "VryawVZMbnU",
+    "game": "tp"
+  },
+  {
+    "title": "Title Theme",
+    "id": "9KlUihc8vls",
+    "game": "tp",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Orchestra Piece #1",
+    "id": "rAlXnP4kQA0",
+    "game": "tp"
+  },
+  {
+    "title": "Orchestra Piece #2",
+    "id": "_fEmxXABnAw",
+    "game": "tp"
+  },
+  {
+    "title": "Orchestra Piece #3",
+    "id": "63sZ7piUfAU",
+    "game": "tp"
+  },
+  {
+    "title": "Menu Select",
+    "id": "KjFFcpOq6s0",
+    "game": "tp"
+  },
+  {
+    "title": "Opening Demo",
+    "id": "ArQao-P20JI",
+    "game": "tp"
+  },
+  {
+    "title": "Meet Ilia",
+    "id": "rUucD4ti0Ls",
+    "game": "tp"
+  },
+  {
+    "title": "Horse Grass (Epona's Song)",
+    "id": "xuRo9_IYSwc",
+    "game": "tp"
+  },
+  {
+    "title": "Ordon Village",
+    "id": "01pN6rnaJy8",
+    "game": "tp"
+  },
+  {
+    "title": "Ordon Ranch",
+    "id": "PDG0svEuwFU",
+    "game": "tp"
+  },
+  {
+    "title": "Herd Game",
+    "id": "qOdR-LvDWgY",
+    "game": "tp"
+  },
+  {
+    "title": "Mini Game Goal",
+    "id": "6iC-skQ37O8",
+    "game": "tp"
+  },
+  {
+    "title": "Inside a House",
+    "id": "RuwMGXtiLt0",
+    "game": "tp"
+  },
+  {
+    "title": "Hawk Grass",
+    "id": "1aJJEumgxqg",
+    "game": "tp"
+  },
+  {
+    "title": "The Hawk and the Cat",
+    "id": "-ByCaNLacjY",
+    "game": "tp"
+  },
+  {
+    "title": "Shop Theme",
+    "id": "d7wT0YLQ_zQ",
+    "game": "tp"
+  },
+  {
+    "title": "Instruction in the Art of the Sword",
+    "id": "Qi-C4BRcFEc",
+    "game": "tp"
+  },
+  {
+    "title": "Talo's Rescue",
+    "id": "cbM0zn1E3K4",
+    "game": "tp"
+  },
+  {
+    "title": "Battle First Half",
+    "id": "SAMwytXd7ZM",
+    "game": "tp"
+  },
+  {
+    "title": "Battle Second Half",
+    "id": "c3aYazx5cX4",
+    "game": "tp"
+  },
+  {
+    "title": "Cave Theme",
+    "id": "CwtxTadGK0Q",
+    "game": "tp"
+  },
+  {
+    "title": "Departure",
+    "id": "shLIZoen5kg",
+    "game": "tp"
+  },
+  {
+    "title": "Wild Goat",
+    "id": "Gyv4qMlj2js",
+    "game": "tp"
+  },
+  {
+    "title": "Ilia's Theme",
+    "id": "EXnw-5lXHsE",
+    "game": "tp"
+  },
+  {
+    "title": "Enter the Darkness",
+    "id": "ySTte5j81BQ",
+    "game": "tp"
+  },
+  {
+    "title": "Link's Transformation",
+    "id": "0nZ1NOhw_cc",
+    "game": "tp"
+  },
+  {
+    "title": "Midna's Theme",
+    "id": "edqQ41Cdr0Y",
+    "game": "tp"
+  },
+  {
+    "title": "A Helping Hand",
+    "id": "H5uqXheHm50",
+    "game": "tp"
+  },
+  {
+    "title": "Twilight",
+    "id": "gsfs5JtfMtw",
+    "game": "tp"
+  },
+  {
+    "title": "Twilit Battle",
+    "id": "pYyihxN6WLE",
+    "game": "tp"
+  },
+  {
+    "title": "Princess Zelda Appears",
+    "id": "tavQP1ssafo",
+    "game": "tp"
+  },
+  {
+    "title": "Succumbed to Twilight",
+    "id": "BwEbQ_iek8Q",
+    "game": "tp"
+  },
+  {
+    "title": "Meeting with Princess Zelda",
+    "id": "Qhy2EzjutQ4",
+    "game": "tp"
+  },
+  {
+    "title": "A Beast in the Village",
+    "id": "0Njyum7yo_o",
+    "game": "tp"
+  },
+  {
+    "title": "Hawk Grass (Howl)",
+    "id": "zd2-2aL87w8",
+    "game": "tp"
+  },
+  {
+    "title": "Shadow Beast Battle",
+    "id": "0-ozdng8f24",
+    "game": "tp"
+  },
+  {
+    "title": "The Light Spirit Appears",
+    "id": "--KnApnoWLM",
+    "game": "tp"
+  },
+  {
+    "title": "Reduced to a Netherworld",
+    "id": "b-Ko_OM2a-o",
+    "game": "tp"
+  },
+  {
+    "title": "Recover the Lost Light",
+    "id": "V99l_S8DlIw",
+    "game": "tp"
+  },
+  {
+    "title": "The Lamentation of the Spirit",
+    "id": "euf0cevJv6E",
+    "game": "tp"
+  },
+  {
+    "title": "The Vessel of Light Is Full of Tears",
+    "id": "EkOgBgrT9aA",
+    "game": "tp"
+  },
+  {
+    "title": "The Hero Chosen by the Gods",
+    "id": "-VAppnGG2-o",
+    "game": "tp"
+  },
+  {
+    "title": "Faron Woods",
+    "id": "IqlJ-vKyBuY",
+    "game": "tp"
+  },
+  {
+    "title": "Hidden Skill Training",
+    "id": "d3ZUoeUvuis",
+    "game": "tp"
+  },
+  {
+    "title": "Hidden Skill Get",
+    "id": "syCNoqlWx1Y",
+    "game": "tp"
+  },
+  {
+    "title": "Forest Temple",
+    "id": "eNHS9BQoDx4",
+    "game": "tp"
+  },
+  {
+    "title": "Treasure Chest Open",
+    "id": "_w8Uim1IpyI",
+    "game": "tp"
+  },
+  {
+    "title": "Item Get",
+    "id": "UYpTg_ge4Z4",
+    "game": "tp"
+  },
+  {
+    "title": "Small Item Get",
+    "id": "cCNofY93S4E",
+    "game": "tp"
+  },
+  {
+    "title": "Rupee Get",
+    "id": "hsgi9FdIgeU",
+    "game": "tp"
+  },
+  {
+    "title": "Ooccoo's Theme",
+    "id": "ruWMdS1UbeI",
+    "game": "tp"
+  },
+  {
+    "title": "Ook Appears",
+    "id": "ouM_9bAhbrU",
+    "game": "tp"
+  },
+  {
+    "title": "Ook Battle",
+    "id": "qK5sdhrG0eI",
+    "game": "tp"
+  },
+  {
+    "title": "Ook Defeated",
+    "id": "cbIsMxkhE_Q",
+    "game": "tp"
+  },
+  {
+    "title": "Diababa First Half",
+    "id": "e8Zwk7X_3Eg",
+    "game": "tp"
+  },
+  {
+    "title": "Diababa Second Half",
+    "id": "eMAw2A8-Xtc",
+    "game": "tp"
+  },
+  {
+    "title": "Diababa Defeated",
+    "id": "QC5t1igMC10",
+    "game": "tp"
+  },
+  {
+    "title": "Fused Shadow Get",
+    "id": "g-EJ11PgAbg",
+    "game": "tp"
+  },
+  {
+    "title": "Heart Container Get",
+    "id": "9AlaXilw3T0",
+    "game": "tp"
+  },
+  {
+    "title": "The Next Light Spirit",
+    "id": "1WJoRrknTfc",
+    "game": "tp"
+  },
+  {
+    "title": "Our Children Taken",
+    "id": "pP1MQ-2Nbt8",
+    "game": "tp"
+  },
+  {
+    "title": "Hyrule Field Morning",
+    "id": "rPQoYTaG4bs",
+    "game": "tp"
+  },
+  {
+    "title": "Hyrule Field",
+    "id": "7xf3b-dETYw",
+    "game": "tp"
+  },
+  {
+    "title": "Hyrule Field Night",
+    "id": "VZIYUVPvdpI",
+    "game": "tp"
+  },
+  {
+    "title": "Golden Bug Catch",
+    "id": "fgWriZmwcQw",
+    "game": "tp"
+  },
+  {
+    "title": "Postman's Theme",
+    "id": "nr6jRs_XZbM",
+    "game": "tp"
+  },
+  {
+    "title": "Scared",
+    "id": "ydnqTMgoSB8",
+    "game": "tp"
+  },
+  {
+    "title": "Having Faith in Link",
+    "id": "V9fGdeMjW94",
+    "game": "tp"
+  },
+  {
+    "title": "Burning Storehouse",
+    "id": "sLqJ8IgIafo",
+    "game": "tp"
+  },
+  {
+    "title": "Song of Healing (Howling Stone)",
+    "id": "HbHFgQw_MS4",
+    "game": "tp"
+  },
+  {
+    "title": "Song of Healing",
+    "id": "T2yXn8mXwKc",
+    "game": "tp"
+  },
+  {
+    "title": "Song of Healing (Duet)",
+    "id": "dRWcxXR52Mk",
+    "game": "tp"
+  },
+  {
+    "title": "Kakariko Saved",
+    "id": "iWF5FJc2730",
+    "game": "tp"
+  },
+  {
+    "title": "The Mountain-Dwelling Goron Tribe",
+    "id": "2OzmVC_5C1U",
+    "game": "tp"
+  },
+  {
+    "title": "Kakariko Village",
+    "id": "EwmUPNgs_x8",
+    "game": "tp"
+  },
+  {
+    "title": "Sanctuary",
+    "id": "F6cnAeU1a-s",
+    "game": "tp"
+  },
+  {
+    "title": "Graveyard",
+    "id": "ZfQCYSlFMr0",
+    "game": "tp"
+  },
+  {
+    "title": "Death Mountain",
+    "id": "n0RbK1BIJgw",
+    "game": "tp"
+  },
+  {
+    "title": "Epona Appears",
+    "id": "Ud03Loqhv4o",
+    "game": "tp"
+  },
+  {
+    "title": "Rodeo Game",
+    "id": "dsdigF_P5UU",
+    "game": "tp"
+  },
+  {
+    "title": "Seize Epona Fanfare",
+    "id": "jGXV3dN7zHk",
+    "game": "tp"
+  },
+  {
+    "title": "Sumo Wrestling",
+    "id": "R4_7m64USEk",
+    "game": "tp"
+  },
+  {
+    "title": "The Thundering Herd",
+    "id": "rp7qa_H1AFM",
+    "game": "tp"
+  },
+  {
+    "title": "Before the Battle at Eldin Bridge",
+    "id": "Tb5QIFN98eg",
+    "game": "tp"
+  },
+  {
+    "title": "Battle at Eldin Bridge",
+    "id": "KwjYadYdCGY",
+    "game": "tp"
+  },
+  {
+    "title": "King Bulblin Battle",
+    "id": "vvL_5Qx6aqM",
+    "game": "tp"
+  },
+  {
+    "title": "King Bulblin Clear Fanfare",
+    "id": "tndDLOcMjzw",
+    "game": "tp"
+  },
+  {
+    "title": "Courage",
+    "id": "2Xw96BeRXz8",
+    "game": "tp"
+  },
+  {
+    "title": "Inside Death Mountain",
+    "id": "lILHEx8JEiI",
+    "game": "tp"
+  },
+  {
+    "title": "Goron Mines",
+    "id": "jpJQYWDvL0k",
+    "game": "tp"
+  },
+  {
+    "title": "Before Battle with Dangoro",
+    "id": "g0dXiEdfFx8",
+    "game": "tp"
+  },
+  {
+    "title": "Dangoro Battle",
+    "id": "2ob_QCZLT3Q",
+    "game": "tp"
+  },
+  {
+    "title": "Fyrus Battle",
+    "id": "Zlz9huL7gBI",
+    "game": "tp"
+  },
+  {
+    "title": "Fyrus Clear Fanfare",
+    "id": "PT93seUf4rM",
+    "game": "tp"
+  },
+  {
+    "title": "Save Ilia",
+    "id": "QT1gP1c55Og",
+    "game": "tp"
+  },
+  {
+    "title": "Burning Bridge",
+    "id": "erNb38lj_ak",
+    "game": "tp"
+  },
+  {
+    "title": "Twilight Cargo Game",
+    "id": "5SaRkBRS5H8",
+    "game": "tp"
+  },
+  {
+    "title": "Queen Rutela's Theme",
+    "id": "FPlyiOq3Jn8",
+    "game": "tp"
+  },
+  {
+    "title": "Requiem of Spirit (Howling Stone)",
+    "id": "ypQWArkO48I",
+    "game": "tp"
+  },
+  {
+    "title": "Requiem of Spirit",
+    "id": "TZqmGlSM4Tw",
+    "game": "tp"
+  },
+  {
+    "title": "Requiem of Spirit (Duet)",
+    "id": "FY1HlKmMfOM",
+    "game": "tp"
+  },
+  {
+    "title": "Shadow Insect Battle",
+    "id": "ByjBFJyqpe4",
+    "game": "tp"
+  },
+  {
+    "title": "Hyrule Legend",
+    "id": "Cgu4JE_HraM",
+    "game": "tp"
+  },
+  {
+    "title": "Fyer's Cannon",
+    "id": "GxVPi6_5awE",
+    "game": "tp"
+  },
+  {
+    "title": "Lake Hylia",
+    "id": "IT1ec4vtMzg",
+    "game": "tp"
+  },
+  {
+    "title": "Falbi's House",
+    "id": "pWLDLRViqf8",
+    "game": "tp"
+  },
+  {
+    "title": "Castle Town",
+    "id": "0LZdjeNMXec",
+    "game": "tp"
+  },
+  {
+    "title": "Musicians",
+    "id": "MjL3GbKjML4",
+    "game": "tp"
+  },
+  {
+    "title": "Overpriced Shop",
+    "id": "_XLK_9APwi0",
+    "game": "tp"
+  },
+  {
+    "title": "STAR Tent",
+    "id": "x2nf_mZfj2o",
+    "game": "tp"
+  },
+  {
+    "title": "STAR Game",
+    "id": "9Xf3O079asQ",
+    "game": "tp"
+  },
+  {
+    "title": "Agitha's Castle",
+    "id": "-htrWGV9Uuk",
+    "game": "tp"
+  },
+  {
+    "title": "The Fortune-Telling Mansion",
+    "id": "SZ2EvC-AteE",
+    "game": "tp"
+  },
+  {
+    "title": "Reunion with Ilia",
+    "id": "Ugzio8qWQ_E",
+    "game": "tp"
+  },
+  {
+    "title": "Escorting Prince Ralis",
+    "id": "PmXF07J7oKc",
+    "game": "tp"
+  },
+  {
+    "title": "Ralis, Prince of the Zoras",
+    "id": "tXI8QkPJnpw",
+    "game": "tp"
+  },
+  {
+    "title": "Lakebed Temple",
+    "id": "OruWa2U5V2s",
+    "game": "tp"
+  },
+  {
+    "title": "Deku Toad Battle",
+    "id": "mVQdXBs3uxY",
+    "game": "tp"
+  },
+  {
+    "title": "Morpheel Battle, First Half",
+    "id": "GjivyZC5Rvc",
+    "game": "tp"
+  },
+  {
+    "title": "Morpheel Battle, Second Half",
+    "id": "oakAP3N-YZI",
+    "game": "tp"
+  },
+  {
+    "title": "Zant Appears",
+    "id": "CI2FesItya4",
+    "game": "tp"
+  },
+  {
+    "title": "Zant's Theme",
+    "id": "ko1DoPrJrEw",
+    "game": "tp"
+  },
+  {
+    "title": "Light and Shadow",
+    "id": "IP15KhSgZCY",
+    "game": "tp"
+  },
+  {
+    "title": "Midna's Lament",
+    "id": "FUQKP0pt8Mg",
+    "game": "tp",
+    "title_fr": "Complainte de Midna"
+  },
+  {
+    "title": "Reunion with Princess Zelda",
+    "id": "loFFrurGkbY",
+    "game": "tp"
+  },
+  {
+    "title": "Sacrifice",
+    "id": "KOO7kRmYmLI",
+    "game": "tp"
+  },
+  {
+    "title": "The Barrier Around the Castle",
+    "id": "8oNIpvRafqU",
+    "game": "tp"
+  },
+  {
+    "title": "Prelude of Light (Howling Stone)",
+    "id": "Wj_oK169aNA",
+    "game": "tp"
+  },
+  {
+    "title": "Prelude of Light",
+    "id": "Sx5M-ZKZrbs",
+    "game": "tp"
+  },
+  {
+    "title": "Prelude of Light (Duet)",
+    "id": "0o0zhAA4nmI",
+    "game": "tp"
+  },
+  {
+    "title": "Zelda's Lullaby (Howling Stone)",
+    "id": "EZBdd_zEPhM",
+    "game": "tp"
+  },
+  {
+    "title": "Zelda's Lullaby",
+    "id": "ULKMkn4KC44",
+    "game": "tp"
+  },
+  {
+    "title": "Sacred Grove",
+    "id": "FqpYZNCRqYc",
+    "game": "tp"
+  },
+  {
+    "title": "Guardians of the Sacred Grove",
+    "id": "D9p7E0kn_Ag",
+    "game": "tp"
+  },
+  {
+    "title": "Master Sword",
+    "id": "5j7yzzTb_t0",
+    "game": "tp"
+  },
+  {
+    "title": "Midna's Request",
+    "id": "4M1Mo9xosls",
+    "game": "tp"
+  },
+  {
+    "title": "Horse Grass (Howl)",
+    "id": "bbhYV4CYbx0",
+    "game": "tp"
+  },
+  {
+    "title": "Song of Heroes (Howling Stone)",
+    "id": "r1p3s83GGTA",
+    "game": "tp"
+  },
+  {
+    "title": "Song of Heroes",
+    "id": "yWL-PWX5McI",
+    "game": "tp"
+  },
+  {
+    "title": "Song of Heroes (Duet)",
+    "id": "LnDLMkKguDc",
+    "game": "tp"
+  },
+  {
+    "title": "The Twilight Realm",
+    "id": "ruqFGDDNvHM",
+    "game": "tp"
+  },
+  {
+    "title": "Gerudo Desert",
+    "id": "9Yak_KtjMr4",
+    "game": "tp"
+  },
+  {
+    "title": "Arbiter's Grounds",
+    "id": "vkBNOl8FQ-Y",
+    "game": "tp"
+  },
+  {
+    "title": "Death Sword Appears",
+    "id": "0reuxjcekIw",
+    "game": "tp"
+  },
+  {
+    "title": "Death Sword Battle",
+    "id": "oVENuXIWKCM",
+    "game": "tp"
+  },
+  {
+    "title": "Stallord First Half",
+    "id": "BhAddFWDAnQ",
+    "game": "tp"
+  },
+  {
+    "title": "Stallord Second Half",
+    "id": "OXRznnORbHk",
+    "game": "tp"
+  },
+  {
+    "title": "Mirror of Twilight Shattered",
+    "id": "K7ZAUD-WHKw",
+    "game": "tp"
+  },
+  {
+    "title": "The Sage's Theme",
+    "id": "OQykMlpalZ4",
+    "game": "tp"
+  },
+  {
+    "title": "The Demon Thief",
+    "id": "bOyZIKqZD3w",
+    "game": "tp"
+  },
+  {
+    "title": "Cargo Game",
+    "id": "6Z6IHpUPIWA",
+    "game": "tp"
+  },
+  {
+    "title": "River Game",
+    "id": "RNrqZcEdleg",
+    "game": "tp"
+  },
+  {
+    "title": "Fishing Hit",
+    "id": "DvC37lTgKh0",
+    "game": "tp"
+  },
+  {
+    "title": "Fishing Hole",
+    "id": "SwUs0bpx_Ks",
+    "game": "tp"
+  },
+  {
+    "title": "Fish Catch",
+    "id": "PutF2z-uEgI",
+    "game": "tp"
+  },
+  {
+    "title": "Ordon Catfish Catch",
+    "id": "x87_7njsWaQ",
+    "game": "tp"
+  },
+  {
+    "title": "Rollgoal",
+    "id": "dhHmkoo7Q48",
+    "game": "tp"
+  },
+  {
+    "title": "Rollgoal Failure",
+    "id": "B8uZo7YyUpc",
+    "game": "tp"
+  },
+  {
+    "title": "Zora's Domain",
+    "id": "1inzt7o6VWE",
+    "game": "tp"
+  },
+  {
+    "title": "Entering the Zora Prince's Throne Room",
+    "id": "TCYwxIe5V0Y",
+    "game": "tp"
+  },
+  {
+    "title": "Snowpeak",
+    "id": "9jdmz1bnwLo",
+    "game": "tp"
+  },
+  {
+    "title": "Wind's Requiem (Howling Stone)",
+    "id": "myACYQ7RrRg",
+    "game": "tp"
+  },
+  {
+    "title": "Wind's Requiem",
+    "id": "PWD0ZarGq78",
+    "game": "tp"
+  },
+  {
+    "title": "Wind's Requiem (Duet)",
+    "id": "BZtTXsQfDX8",
+    "game": "tp"
+  },
+  {
+    "title": "Snowpeak Ruins",
+    "id": "3gUQ6cqhgRQ",
+    "game": "tp"
+  },
+  {
+    "title": "Darkhammer Appears",
+    "id": "VrW_QZmK608",
+    "game": "tp"
+  },
+  {
+    "title": "Blizzeta First Half",
+    "id": "OG4uA3YZDJM",
+    "game": "tp"
+  },
+  {
+    "title": "Blizzeta Second Half",
+    "id": "cfIdPSlR24U",
+    "game": "tp"
+  },
+  {
+    "title": "Love",
+    "id": "2LbQg8BNjTY",
+    "game": "tp"
+  },
+  {
+    "title": "Boss Defeated",
+    "id": "zaM3lUEKN2U",
+    "game": "tp"
+  },
+  {
+    "title": "Snowboarding",
+    "id": "EH-J4lXKsvo",
+    "game": "tp"
+  },
+  {
+    "title": "Snowboarding Goal",
+    "id": "RAHQRovnfCg",
+    "game": "tp"
+  },
+  {
+    "title": "Snowboarding Failure",
+    "id": "HgF4N95KYhk",
+    "game": "tp"
+  },
+  {
+    "title": "Chamber of Stone (Past)",
+    "id": "NhC-4aBDSfw",
+    "game": "tp"
+  },
+  {
+    "title": "Temple of Time",
+    "id": "rEcwNAUcwBs",
+    "game": "tp"
+  },
+  {
+    "title": "Darknut Battle",
+    "id": "v9bHxOhes9g",
+    "game": "tp"
+  },
+  {
+    "title": "Armogohma First Half",
+    "id": "XnBFe2hzEc0",
+    "game": "tp"
+  },
+  {
+    "title": "Armogohma Clear...",
+    "id": "nbJvb5uJM88",
+    "game": "tp"
+  },
+  {
+    "title": "Armogohma Second Half",
+    "id": "AZzv5SXRkOc",
+    "game": "tp"
+  },
+  {
+    "title": "Armogohma Clear",
+    "id": "dRJyX0ZHEUA",
+    "game": "tp"
+  },
+  {
+    "title": "The Hidden Village",
+    "id": "7G59rSdIKAs",
+    "game": "tp"
+  },
+  {
+    "title": "Ballad of Twilight (Howling Stone)",
+    "id": "HVxmNHl4yk0",
+    "game": "tp"
+  },
+  {
+    "title": "Ballad of Twilight",
+    "id": "tE0hHCUCvt8",
+    "game": "tp"
+  },
+  {
+    "title": "Ballad of Twilight (Duet)",
+    "id": "GfcCCC8IGII",
+    "game": "tp"
+  },
+  {
+    "title": "Ilia's Memory Restored",
+    "id": "385ku7BczZw",
+    "game": "tp"
+  },
+  {
+    "title": "Jovani's House",
+    "id": "-iPLYiO3Pqw",
+    "game": "tp"
+  },
+  {
+    "title": "Malo's Mart",
+    "id": "pa1AxC0lRHA",
+    "game": "tp"
+  },
+  {
+    "title": "Sky Character Get",
+    "id": "EACVmnvsrTo",
+    "game": "tp"
+  },
+  {
+    "title": "The Sky Cannon",
+    "id": "ccmoBtxRay8",
+    "game": "tp"
+  },
+  {
+    "title": "Cannon Repair",
+    "id": "csjkLytAcd8",
+    "game": "tp"
+  },
+  {
+    "title": "City in the Sky",
+    "id": "WOgjv7dFOF0",
+    "game": "tp"
+  },
+  {
+    "title": "Aeralfos Appears",
+    "id": "Fyah4WnPDcs",
+    "game": "tp"
+  },
+  {
+    "title": "Argorok First Half",
+    "id": "OvPG4qTag4Y",
+    "game": "tp"
+  },
+  {
+    "title": "Argorok Second Half",
+    "id": "OnC9JsbDDJc",
+    "game": "tp"
+  },
+  {
+    "title": "Great Fairy's Fountain",
+    "id": "nAj_FQbL5eE",
+    "game": "tp"
+  },
+  {
+    "title": "Mirror of Twilight Completed",
+    "id": "77E7LSD84cE",
+    "game": "tp"
+  },
+  {
+    "title": "The Twilight Princess",
+    "id": "AKbF-ogKQLs",
+    "game": "tp"
+  },
+  {
+    "title": "Entering the Twilight Realm",
+    "id": "VzARECArkAk",
+    "game": "tp"
+  },
+  {
+    "title": "Palace of Twilight",
+    "id": "N9TCc0MNqKw",
+    "game": "tp"
+  },
+  {
+    "title": "Phantom Zant Battle",
+    "id": "YvIuOsSdaxA",
+    "game": "tp"
+  },
+  {
+    "title": "Confrontation with Zant",
+    "id": "AXFmsx2Y0dA",
+    "game": "tp"
+  },
+  {
+    "title": "Usurper King, Zant Battle",
+    "id": "6Os2FauUZBs",
+    "game": "tp"
+  },
+  {
+    "title": "Zant's Death",
+    "id": "4dhh3rVRM4o",
+    "game": "tp"
+  },
+  {
+    "title": "Game Over",
+    "id": "00eIEP7zjc8",
+    "game": "tp"
+  },
+  {
+    "title": "Shattering the Barrier",
+    "id": "O9dBH9MnHRg",
+    "game": "tp"
+  },
+  {
+    "title": "Hyrule Castle",
+    "id": "JjfhHY94Kwc",
+    "game": "tp",
+    "title_fr": "Château d'Hyrule"
+  },
+  {
+    "title": "Resistance",
+    "id": "6LYKeZzuLJM",
+    "game": "tp"
+  },
+  {
+    "title": "Hyrule Castle Tower",
+    "id": "XBIazvYAd68",
+    "game": "tp"
+  },
+  {
+    "title": "Entering the Throne Room",
+    "id": "SSEryq4Xay8",
+    "game": "tp"
+  },
+  {
+    "title": "Ganon's Puppet Zelda Battle",
+    "id": "kD_oMbkHItU",
+    "game": "tp"
+  },
+  {
+    "title": "Zelda Rescued",
+    "id": "i53Mq4U3_ro",
+    "game": "tp"
+  },
+  {
+    "title": "Ganon Transforms",
+    "id": "qgtEi3zCgKk",
+    "game": "tp"
+  },
+  {
+    "title": "Dark Beast Ganon Battle",
+    "id": "mafceb-Dzl8",
+    "game": "tp"
+  },
+  {
+    "title": "Combining the Fused Shadows",
+    "id": "qzZuQ6qhLB0",
+    "game": "tp"
+  },
+  {
+    "title": "Midna's Sacrifice",
+    "id": "G3Ez3ZGJgA4",
+    "game": "tp"
+  },
+  {
+    "title": "The Light Arrows",
+    "id": "kKyXvDHnMJw",
+    "game": "tp"
+  },
+  {
+    "title": "Princess Zelda's Theme",
+    "id": "UTXkihbXw_M",
+    "game": "tp"
+  },
+  {
+    "title": "Ganondorf Battle First Half",
+    "id": "a4XyNNvALhA",
+    "game": "tp"
+  },
+  {
+    "title": "Ganondorf Battle Second Half",
+    "id": "r5lEBdJ6Z90",
+    "game": "tp"
+  },
+  {
+    "title": "Ganondorf's End",
+    "id": "i27LYGDHMRE",
+    "game": "tp",
+    "title_fr": "La fin de Ganondorf"
+  },
+  {
+    "title": "Ending",
+    "id": "ObYh5Grwebk",
+    "game": "tp",
+    "title_fr": "Fin"
+  },
+  {
+    "title": "Staff Credits",
+    "id": "xDOl3YTfGcQ",
+    "game": "tp",
+    "title_fr": "Générique de fin"
+  },
+  {
+    "title": "Set Sail for Adventure (Title Theme)",
+    "id": "G3gfqPdF7eQ",
+    "game": "ph",
+    "title_fr": "En route pour l'aventure (Écran-titre)"
+  },
+  {
+    "title": "Introduction - The Storyteller's Memories",
+    "id": "rNg38ZNmRt4",
+    "game": "ph"
+  },
+  {
+    "title": "Outset Island - The Storyteller's Memories",
+    "id": "1FCSM0Ctlgs",
+    "game": "ph"
+  },
+  {
+    "title": "Zelda's Lullaby - The Storyteller's Memories",
+    "id": "-teegEn4HjA",
+    "game": "ph"
+  },
+  {
+    "title": "Dark King Ganon - The Storyteller's Memories",
+    "id": "iV8bEtUi-gw",
+    "game": "ph"
+  },
+  {
+    "title": "The Hero of the Winds - The Storyteller's Memories",
+    "id": "ZxxVbggcu0I",
+    "game": "ph"
+  },
+  {
+    "title": "Off to the Seas! - The Storyteller's Memories",
+    "id": "XDydt1QC9PQ",
+    "game": "ph"
+  },
+  {
+    "title": "The Pirate Ship",
+    "id": "j3Zp9M5XwOY",
+    "game": "ph"
+  },
+  {
+    "title": "The King of the Oceans",
+    "id": "rnHJjROtot4",
+    "game": "ph"
+  },
+  {
+    "title": "In The Dark Dungeon",
+    "id": "YmUzpYaxNIc",
+    "game": "ph"
+  },
+  {
+    "title": "Magic in the Air",
+    "id": "spc6gQKBU54",
+    "game": "ph"
+  },
+  {
+    "title": "The Sands of Time",
+    "id": "UShZobWtAbE",
+    "game": "ph"
+  },
+  {
+    "title": "Island Life",
+    "id": "vtloaU8cE0Q",
+    "game": "ph"
+  },
+  {
+    "title": "Dark Memories",
+    "id": "4v4kTr3unso",
+    "game": "ph"
+  },
+  {
+    "title": "Return of the Ocean King",
+    "id": "gg1hVWGJigs",
+    "game": "ph"
+  },
+  {
+    "title": "Princess Zelda",
+    "id": "MMu79gKkPbM",
+    "game": "ph"
+  },
+  {
+    "title": "Bellum",
+    "id": "D5icm0yZL2A",
+    "game": "ph"
+  },
+  {
+    "title": "Bellum Scene",
+    "id": "Awb1CVBt8Ag",
+    "game": "ph"
+  },
+  {
+    "title": "Dark Waters",
+    "id": "l2tU1GSLZe0",
+    "game": "ph"
+  },
+  {
+    "title": "The Legend of Zelda Phantom Hourglass OST 21   The Virtue of a Hero",
+    "id": "QVYHn97ZSt0",
+    "game": "ph"
+  },
+  {
+    "title": "Indoors Melody",
+    "id": "MvWDvHQDrv4",
+    "game": "ph"
+  },
+  {
+    "title": "Lithovores",
+    "id": "m5sD27lC_l0",
+    "game": "ph"
+  },
+  {
+    "title": "Astra's Theme",
+    "id": "hP4f-xKm5cs",
+    "game": "ph"
+  },
+  {
+    "title": "Fairy Fountain",
+    "id": "6GsNTxv7OCg",
+    "game": "ph"
+  },
+  {
+    "title": "Beedle's Ship Shop",
+    "id": "sDkbPX9dCHM",
+    "game": "ph"
+  },
+  {
+    "title": "Danger in the Great Blue Sea",
+    "id": "CTQpTJA6xHg",
+    "game": "ph"
+  },
+  {
+    "title": "The Dark Caves",
+    "id": "PnchDZNagko",
+    "game": "ph"
+  },
+  {
+    "title": "Enemy Battle - Night of Fate",
+    "id": "2rA4kj5zpug",
+    "game": "ph"
+  },
+  {
+    "title": "Game Over",
+    "id": "7n8IGF7Gv-I",
+    "game": "ph",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Uncharted Territory",
+    "id": "iFoXxaj1bSU",
+    "game": "ph"
+  },
+  {
+    "title": "The Gorons",
+    "id": "rRPA3_d8SxA",
+    "game": "ph"
+  },
+  {
+    "title": "The Great Sea",
+    "id": "ONsNjmLluAk",
+    "game": "ph"
+  },
+  {
+    "title": "Ghost Ship Theme",
+    "id": "weZgD3jgeNs",
+    "game": "ph"
+  },
+  {
+    "title": "Chasing the Ghost Ship",
+    "id": "g21M5IBvboI",
+    "game": "ph"
+  },
+  {
+    "title": "Combat",
+    "id": "S6KXIXPm97E",
+    "game": "ph"
+  },
+  {
+    "title": "Jolene Appears!",
+    "id": "voSv4sLcB5A",
+    "game": "ph"
+  },
+  {
+    "title": "Jolene vs. Link Medley",
+    "id": "9bZHVHYSQQI",
+    "game": "ph"
+  },
+  {
+    "title": "Fencing Practice Medley",
+    "id": "8SGcE0RFj8s",
+    "game": "ph"
+  },
+  {
+    "title": "Tropical Slacking",
+    "id": "q9I6CQ9OpFw",
+    "game": "ph"
+  },
+  {
+    "title": "Take Chase!",
+    "id": "Q7vwr1Ls2hw",
+    "game": "ph"
+  },
+  {
+    "title": "Dread of Sorrow",
+    "id": "6ecssiBaP-s",
+    "game": "ph"
+  },
+  {
+    "title": "Spin Spin Spin!",
+    "id": "z5pQ0OZ0rcM",
+    "game": "ph"
+  },
+  {
+    "title": "Bellum and the Ghost Ship",
+    "id": "nRJw1Ldkr7c",
+    "game": "ph"
+  },
+  {
+    "title": "Versus Linebeck",
+    "id": "rgLSvvsofZw",
+    "game": "ph"
+  },
+  {
+    "title": "Boss Battle - Night of Fate",
+    "id": "SlNfhloSssE",
+    "game": "ph"
+  },
+  {
+    "title": "Versus Bellum",
+    "id": "g1dunnNiQBY",
+    "game": "ph"
+  },
+  {
+    "title": "Attack Dirge",
+    "id": "Fdoep-4BBos",
+    "game": "ph"
+  },
+  {
+    "title": "Linebeck's Return",
+    "id": "yW8Uh2Pw9V4",
+    "game": "ph"
+  },
+  {
+    "title": "Into The Crystal Ball",
+    "id": "U6WGQyJO72Y",
+    "game": "ph"
+  },
+  {
+    "title": "A Battle Across the World",
+    "id": "hpITcJmhr4Q",
+    "game": "ph"
+  },
+  {
+    "title": "Phantom Chase",
+    "id": "tv-yzvjkxBw",
+    "game": "ph"
+  },
+  {
+    "title": "Ranked Amongst the World's Best",
+    "id": "q13DzVurwa4",
+    "game": "ph"
+  },
+  {
+    "title": "Caught! Fanfare",
+    "id": "xujf2y0_hYU",
+    "game": "ph"
+  },
+  {
+    "title": "Victory Fanfare",
+    "id": "qX9dUovLGqQ",
+    "game": "ph"
+  },
+  {
+    "title": "Lost Game Fanfare",
+    "id": "FmyPMIlSL08",
+    "game": "ph"
+  },
+  {
+    "title": "Won Game Fanfare",
+    "id": "b8A58KktqZc",
+    "game": "ph"
+  },
+  {
+    "title": "Discovery Fanfare",
+    "id": "WOcnORDt5UA",
+    "game": "ph"
+  },
+  {
+    "title": "Treasure Fanfare",
+    "id": "NdLMlfwh638",
+    "game": "ph"
+  },
+  {
+    "title": "Treasu...huh Fanfare",
+    "id": "lpgcBj-0Pd0",
+    "game": "ph"
+  },
+  {
+    "title": "Item Get Fanfare",
+    "id": "y5fhYmlnt4A",
+    "game": "ph"
+  },
+  {
+    "title": "Bad Treasure Fanfare",
+    "id": "2pUFQn70GlE",
+    "game": "ph"
+  },
+  {
+    "title": "Heart Container Fanfare",
+    "id": "MUcRoVWzbMA",
+    "game": "ph"
+  },
+  {
+    "title": "Oh No! Fanfare",
+    "id": "F8NdU5f8Wyk",
+    "game": "ph"
+  },
+  {
+    "title": "Full Heart Container Fanfare",
+    "id": "6VDNiLsMHEs",
+    "game": "ph"
+  },
+  {
+    "title": "Ocean Temple Intro Fanfare",
+    "id": "fDTihEqH8UE",
+    "game": "ph"
+  },
+  {
+    "title": "Island Game Chords Medley",
+    "id": "GsRZreVv-Uw",
+    "game": "ph"
+  },
+  {
+    "title": "Checkpoint Fanfare Medley",
+    "id": "1q6afMmFqiI",
+    "game": "ph"
+  },
+  {
+    "title": "Stumble Fanfare",
+    "id": "kwQmrnMjgXs",
+    "game": "ph"
+  },
+  {
+    "title": "Great Loss Fanfare",
+    "id": "BZJAX_OXEr0",
+    "game": "ph"
+  },
+  {
+    "title": "Incoming Fanfare",
+    "id": "o2cSXs2qfqQ",
+    "game": "ph"
+  },
+  {
+    "title": "Goal Reached Fanfare",
+    "id": "irwYqeV_icU",
+    "game": "ph"
+  },
+  {
+    "title": "New Record Fanfare",
+    "id": "a3s-BgRFPis",
+    "game": "ph"
+  },
+  {
+    "title": "Success Fanfare",
+    "id": "x0q2hRSXJ0U",
+    "game": "ph"
+  },
+  {
+    "title": "Drumroll Fanfare",
+    "id": "F9HcP2wp-kE",
+    "game": "ph"
+  },
+  {
+    "title": "Opening",
+    "id": "Cov0YhIRbis",
+    "game": "st",
+    "title_fr": "Ouverture"
+  },
+  {
+    "title": "File Select",
+    "id": "W1xZp3LlVP0",
+    "game": "st",
+    "title_fr": "Sélection de fichier"
+  },
+  {
+    "title": "Intro",
+    "id": "pzbFGdM7iqU",
+    "game": "st"
+  },
+  {
+    "title": "Aboda Village",
+    "id": "kOpBTO7BuNY",
+    "game": "st"
+  },
+  {
+    "title": "The Final Exam",
+    "id": "iY9ta4i_h-4",
+    "game": "st"
+  },
+  {
+    "title": "Castle Town",
+    "id": "VeuAimans00",
+    "game": "st"
+  },
+  {
+    "title": "Hyrule Castle",
+    "id": "y_NCsqpNp1w",
+    "game": "st"
+  },
+  {
+    "title": "The Ceremony Begins",
+    "id": "TtwclZG3Lkc",
+    "game": "st"
+  },
+  {
+    "title": "Zelda Appears",
+    "id": "MwhGcKRtbrw",
+    "game": "st"
+  },
+  {
+    "title": "Princess Zelda",
+    "id": "aePE5JVqU9w",
+    "game": "st"
+  },
+  {
+    "title": "Chancellor Cole's Smirk",
+    "id": "PRF7sg7T58I",
+    "game": "st"
+  },
+  {
+    "title": "Zelda and the Spirit Flute",
+    "id": "hufKYFWcGIc",
+    "game": "st"
+  },
+  {
+    "title": "Got the Recruit Uniform!",
+    "id": "RY10PXihP6w",
+    "game": "st"
+  },
+  {
+    "title": "Sneaking About the Castle",
+    "id": "5kfgqICNJz8",
+    "game": "st"
+  },
+  {
+    "title": "Stealthy Zelda",
+    "id": "UDpDq6M3vGI",
+    "game": "st"
+  },
+  {
+    "title": "Spirit Tracks Disappearing",
+    "id": "dh-XtcOL8pk",
+    "game": "st"
+  },
+  {
+    "title": "Tower of Spirits Destroyed",
+    "id": "DyWr8pseFuI",
+    "game": "st"
+  },
+  {
+    "title": "The Demon Train",
+    "id": "VXlA6Q8Sa9k",
+    "game": "st"
+  },
+  {
+    "title": "Chancellor Cole",
+    "id": "bLEEUuhRtPc",
+    "game": "st"
+  },
+  {
+    "title": "Battle Preparations",
+    "id": "nyCWPgHm_HE",
+    "game": "st"
+  },
+  {
+    "title": "Alfonzo vs. Byrne",
+    "id": "GdYviovHhx0",
+    "game": "st"
+  },
+  {
+    "title": "Zelda's Body Stolen",
+    "id": "-QoUG83Wmd0",
+    "game": "st"
+  },
+  {
+    "title": "Zelda Taken Away",
+    "id": "os8GYmHs62c",
+    "game": "st"
+  },
+  {
+    "title": "Ghost Zelda",
+    "id": "57bIFC4qMQc",
+    "game": "st"
+  },
+  {
+    "title": "Zelda Wondering",
+    "id": "QJLXF48ENxw",
+    "game": "st"
+  },
+  {
+    "title": "The Spirit Flute",
+    "id": "StUwtNOwV50",
+    "game": "st"
+  },
+  {
+    "title": "In the Fields",
+    "id": "_CpyO0wrAQs",
+    "game": "st"
+  },
+  {
+    "title": "Inside a Cave",
+    "id": "idsFgGW8U2U",
+    "game": "st"
+  },
+  {
+    "title": "The Ominous Broken Tower",
+    "id": "rRZmi-m26rY",
+    "game": "st"
+  },
+  {
+    "title": "Tower of Spirits (Lobby)",
+    "id": "MvIywyj6wME",
+    "game": "st"
+  },
+  {
+    "title": "Zelda's Body",
+    "id": "n-cKmgYTtmA",
+    "game": "st"
+  },
+  {
+    "title": "Zelda in a Panic",
+    "id": "uzh4AMa2JB8",
+    "game": "st"
+  },
+  {
+    "title": "Tower of Spirits (Dungeon)",
+    "id": "uFvy6syZIhU",
+    "game": "st"
+  },
+  {
+    "title": "A Phantom Appears",
+    "id": "eqN92GHG5Kc",
+    "game": "st"
+  },
+  {
+    "title": "Spotted! (Phantoms)",
+    "id": "aWPiElGFvHY",
+    "game": "st"
+  },
+  {
+    "title": "Hit by Phantom",
+    "id": "j7au3rUGO8A",
+    "game": "st"
+  },
+  {
+    "title": "Watch Out, Link!",
+    "id": "ulXcK8YFNxY",
+    "game": "st"
+  },
+  {
+    "title": "Zelda Possesses a Phantom",
+    "id": "V1pGBKmkFHc",
+    "game": "st"
+  },
+  {
+    "title": "Zelda Ready to Fight",
+    "id": "vZpiLwhh7Ro",
+    "game": "st"
+  },
+  {
+    "title": "Got the Rail Map!",
+    "id": "HIFPuJ5Ltfo",
+    "game": "st"
+  },
+  {
+    "title": "Got the Spirit Train!",
+    "id": "pPiuXkPtrrI",
+    "game": "st"
+  },
+  {
+    "title": "Selecting a Rail Route",
+    "id": "vVVi-u0I_mY",
+    "game": "st"
+  },
+  {
+    "title": "Overworld Adventure",
+    "id": "izbMZay_8Dk",
+    "game": "st"
+  },
+  {
+    "title": "Battle on the Tracks",
+    "id": "QQl84LP1E5o",
+    "game": "st"
+  },
+  {
+    "title": "Got an Item!",
+    "id": "z-EYVu6zNTs",
+    "game": "st"
+  },
+  {
+    "title": "Got a Small Item!",
+    "id": "96R32sTzw8M",
+    "game": "st"
+  },
+  {
+    "title": "Got a Treasure!",
+    "id": "WR9p4sFsfx0",
+    "game": "st"
+  },
+  {
+    "title": "Whittleton",
+    "id": "XO05ldO5Das",
+    "game": "st"
+  },
+  {
+    "title": "The Lost Woods",
+    "id": "kwjR4B1A9f0",
+    "game": "st"
+  },
+  {
+    "title": "Sound Stone of Awakening",
+    "id": "VuC_hojPWdM",
+    "game": "st"
+  },
+  {
+    "title": "Song of Awakening (Long)",
+    "id": "i9bc2sZljWQ",
+    "game": "st"
+  },
+  {
+    "title": "Song of Awakening (Short)",
+    "id": "aorxeuVXmyY",
+    "game": "st"
+  },
+  {
+    "title": "Learned Music",
+    "id": "MY6UtufbHd0",
+    "game": "st"
+  },
+  {
+    "title": "Sanctuary",
+    "id": "f1LQz2PVeUQ",
+    "game": "st"
+  },
+  {
+    "title": "Lokomo Song: Gage",
+    "id": "OsDtoLbjptU",
+    "game": "st"
+  },
+  {
+    "title": "Energized Rail Map",
+    "id": "8mjtjJKc64c",
+    "game": "st"
+  },
+  {
+    "title": "Forest, Snow and Ocean Temple",
+    "id": "VljosqjbDLg",
+    "game": "st"
+  },
+  {
+    "title": "Sound Stone of Healing",
+    "id": "_X3CDZhaeC8",
+    "game": "st"
+  },
+  {
+    "title": "Song of Healing (Long)",
+    "id": "_Yfff4ii2Ec",
+    "game": "st"
+  },
+  {
+    "title": "Song of Healing (Short)",
+    "id": "eEqMs0TwzxE",
+    "game": "st"
+  },
+  {
+    "title": "Discovery",
+    "id": "2ZN-4FXi1rw",
+    "game": "st"
+  },
+  {
+    "title": "Mini Boss (Dungeon)",
+    "id": "AfAQK1t5yY4",
+    "game": "st"
+  },
+  {
+    "title": "Dungeon Gauntlet",
+    "id": "fCQmXkeKDuk",
+    "game": "st"
+  },
+  {
+    "title": "Game Over",
+    "id": "_sEIhcs_j-E",
+    "game": "st",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Spotted! (Key Masters)",
+    "id": "3tcMVXsjj70",
+    "game": "st"
+  },
+  {
+    "title": "Stagnox, Armored Colossus",
+    "id": "Y9pupmo4_UM",
+    "game": "st"
+  },
+  {
+    "title": "Boss Defeated",
+    "id": "yNK8AS2axPg",
+    "game": "st"
+  },
+  {
+    "title": "The Force Gem Awakens",
+    "id": "axTpgAINKtc",
+    "game": "st"
+  },
+  {
+    "title": "Restoring the Spirit Tracks",
+    "id": "cQ_LRUWb5xs",
+    "game": "st"
+  },
+  {
+    "title": "Got a Heart Container!",
+    "id": "5A68wVMaWyw",
+    "game": "st"
+  },
+  {
+    "title": "Dark Trains Approaching",
+    "id": "4HVvSYYEfo4",
+    "game": "st"
+  },
+  {
+    "title": "Sword Training",
+    "id": "ieFO8i0OpLM",
+    "game": "st"
+  },
+  {
+    "title": "Intense Sword Training",
+    "id": "PPcanVPeXXU",
+    "game": "st"
+  },
+  {
+    "title": "Catching a Rabbit",
+    "id": "ngzB02kCnEI",
+    "game": "st"
+  },
+  {
+    "title": "Cursed Overworld",
+    "id": "dO-Uh6oPx1k",
+    "game": "st"
+  },
+  {
+    "title": "Anouki Village",
+    "id": "qLyEfC9CeTQ",
+    "game": "st"
+  },
+  {
+    "title": "Sound Stone of Discovery",
+    "id": "v5CsT3lJVEg",
+    "game": "st"
+  },
+  {
+    "title": "Song of Discovery (Long)",
+    "id": "REG2vwufqwM",
+    "game": "st"
+  },
+  {
+    "title": "Song of Discovery (Short)",
+    "id": "dyJNv8SlqrE",
+    "game": "st"
+  },
+  {
+    "title": "The Great Eye in the Dark",
+    "id": "X5f2g3BtAbo",
+    "game": "st"
+  },
+  {
+    "title": "Lokomo Song: Steem",
+    "id": "3tis3ZuJKtU",
+    "game": "st"
+  },
+  {
+    "title": "Fraaz, Master of Icy Fire",
+    "id": "IwTLHhU_MQI",
+    "game": "st"
+  },
+  {
+    "title": "Beedle's Air Shop",
+    "id": "R8ki66Tvsbs",
+    "game": "st"
+  },
+  {
+    "title": "Mini Boss (Tower of Spirits)",
+    "id": "LWz8eWuiE_w",
+    "game": "st"
+  },
+  {
+    "title": "Linebeck III Enters",
+    "id": "WOl19SZeb70",
+    "game": "st"
+  },
+  {
+    "title": "Linebeck III",
+    "id": "hvyVUJNlByI",
+    "game": "st"
+  },
+  {
+    "title": "Sound Stone of Light",
+    "id": "fm3rjP7V2Bc",
+    "game": "st"
+  },
+  {
+    "title": "Song of Light (Long)",
+    "id": "PvcG03FGGfI",
+    "game": "st"
+  },
+  {
+    "title": "Song of Light (Short)",
+    "id": "7_rMHiXE9es",
+    "game": "st"
+  },
+  {
+    "title": "Papuchia Village",
+    "id": "fhOt4VshRAo",
+    "game": "st"
+  },
+  {
+    "title": "The Wise One",
+    "id": "T3aL61FOTis",
+    "game": "st"
+  },
+  {
+    "title": "The Future Revealed",
+    "id": "sAQ_XaIEGws",
+    "game": "st"
+  },
+  {
+    "title": "Sound Stone of Birds",
+    "id": "kolPZoxuLQY",
+    "game": "st"
+  },
+  {
+    "title": "Song of Birds (Long)",
+    "id": "fjEvr6ovwgg",
+    "game": "st"
+  },
+  {
+    "title": "Song of Birds (Short)",
+    "id": "t2-6k3K0ylw",
+    "game": "st"
+  },
+  {
+    "title": "Pirate Attack!",
+    "id": "QXulvBiuK3I",
+    "game": "st"
+  },
+  {
+    "title": "Lokomo Song: Carben",
+    "id": "aSdRAAAwUew",
+    "game": "st"
+  },
+  {
+    "title": "Underwater",
+    "id": "WDEJeMxA5vE",
+    "game": "st"
+  },
+  {
+    "title": "Approaching Phytops",
+    "id": "q63XNCzfIs4",
+    "game": "st"
+  },
+  {
+    "title": "Phytops, Barbed Menace",
+    "id": "ZYyplBWoDgo",
+    "game": "st"
+  },
+  {
+    "title": "Whip Race",
+    "id": "IG70ewy9tTc",
+    "game": "st"
+  },
+  {
+    "title": "Byrne",
+    "id": "LI7YMQxRcfY",
+    "game": "st"
+  },
+  {
+    "title": "Goron Village",
+    "id": "wbcMTRp1o2g",
+    "game": "st"
+  },
+  {
+    "title": "Lokomo Song: Embrose",
+    "id": "d29_EJ-j7lA",
+    "game": "st"
+  },
+  {
+    "title": "Get the Key!",
+    "id": "O55HQZaTVFo",
+    "game": "st"
+  },
+  {
+    "title": "Fire and Sand Temple",
+    "id": "gjOnRSk-yz8",
+    "game": "st"
+  },
+  {
+    "title": "Cragma, Lava Lord",
+    "id": "dvLJzGm02D0",
+    "game": "st"
+  },
+  {
+    "title": "Tower of Spirits (Staircase)",
+    "id": "NCutOU0FasM",
+    "game": "st"
+  },
+  {
+    "title": "Fight Against Byrne",
+    "id": "bhH0ERkZlfk",
+    "game": "st"
+  },
+  {
+    "title": "Link and Zelda's Friendship",
+    "id": "UtukVy7ejUI",
+    "game": "st"
+  },
+  {
+    "title": "Resurrection of the Demon King",
+    "id": "WScLdBb0v0I",
+    "game": "st"
+  },
+  {
+    "title": "Fleeing by Demon Train",
+    "id": "0cbHLC_WUrU",
+    "game": "st"
+  },
+  {
+    "title": "Lokomo Song: Rael",
+    "id": "lSc3uTyoS44",
+    "game": "st"
+  },
+  {
+    "title": "Skeldritch, Ancient Demon",
+    "id": "EVah6yh4x1w",
+    "game": "st"
+  },
+  {
+    "title": "Zelda's Dashed Hopes",
+    "id": "FRmZaMpRrac",
+    "game": "st"
+  },
+  {
+    "title": "Got the Lokomo Sword!",
+    "id": "RtNV7Tx5a-4",
+    "game": "st"
+  },
+  {
+    "title": "Fighting Dark Link",
+    "id": "Tm7f91yCIds",
+    "game": "st"
+  },
+  {
+    "title": "Tears of Light in the Dark Realm",
+    "id": "ynjGeu7IbkA",
+    "game": "st"
+  },
+  {
+    "title": "Facing the Demon Train",
+    "id": "0V6TgYRzQms",
+    "game": "st"
+  },
+  {
+    "title": "Before the Final Battle",
+    "id": "e-jQAu424rk",
+    "game": "st"
+  },
+  {
+    "title": "The Revival's Completion",
+    "id": "CiFcAfSWZI0",
+    "game": "st"
+  },
+  {
+    "title": "Fighting Cole and Malladus",
+    "id": "NMoqBWWypkc",
+    "game": "st"
+  },
+  {
+    "title": "The Unenterable Body",
+    "id": "P5KTO4xSqHo",
+    "game": "st"
+  },
+  {
+    "title": "Byrne Comes to the Rescue",
+    "id": "NYqrrTLfxJE",
+    "game": "st"
+  },
+  {
+    "title": "Link Catches Zelda",
+    "id": "MqQlIYwalII",
+    "game": "st"
+  },
+  {
+    "title": "Byrne's Death",
+    "id": "RWUJVZLWadg",
+    "game": "st"
+  },
+  {
+    "title": "Bodiless Malladus",
+    "id": "LVMbeuBIZDc",
+    "game": "st"
+  },
+  {
+    "title": "The End of the Chancellor",
+    "id": "3laYU-s5Od0",
+    "game": "st"
+  },
+  {
+    "title": "Malladus's Transformation",
+    "id": "Xg44yn6u5q8",
+    "game": "st"
+  },
+  {
+    "title": "Malladus in Cole's Body",
+    "id": "xm6XhWkXSEA",
+    "game": "st"
+  },
+  {
+    "title": "Final Battle: Protecting Zelda",
+    "id": "bB7iWHOMaPs",
+    "game": "st"
+  },
+  {
+    "title": "Link and Zelda's Duet",
+    "id": "YBCAJxUm14k",
+    "game": "st"
+  },
+  {
+    "title": "Final Battle: Malladus",
+    "id": "s-YTiGWc56c",
+    "game": "st"
+  },
+  {
+    "title": "Saying Goodbye",
+    "id": "GkyMKOJMIcA",
+    "game": "st"
+  },
+  {
+    "title": "Credits",
+    "id": "qfObTX0VjMk",
+    "game": "st"
+  },
+  {
+    "title": "The Final Scene",
+    "id": "wm9yBzCU_Po",
+    "game": "st"
+  },
+  {
+    "title": "Battle Mode",
+    "id": "47VMcWMPgvc",
+    "game": "st"
+  },
+  {
+    "title": "Battle Mode (Linebeck Remix)",
+    "id": "AKB9Uf2xes0",
+    "game": "st"
+  },
+  {
+    "title": "Get Ready",
+    "id": "lcYM88zpz48",
+    "game": "st"
+  },
+  {
+    "title": "Ready, Set, Battle!",
+    "id": "JyJS-KACwis",
+    "game": "st"
+  },
+  {
+    "title": "Invincibility",
+    "id": "EwDZpUZgrp4",
+    "game": "st"
+  },
+  {
+    "title": "Spotted! (Battle Phantoms)",
+    "id": "61YBXCImYWQ",
+    "game": "st"
+  },
+  {
+    "title": "Battle Mode Results",
+    "id": "H4FgPy6Hg6A",
+    "game": "st"
+  },
+  {
+    "title": "Channel Intro",
+    "id": "C2wU5YR_pzM",
+    "game": "ss"
+  },
+  {
+    "title": "The Legend of Zelda 25th Anniversary Medley",
+    "id": "X_30CixKE20",
+    "game": "ss"
+  },
+  {
+    "title": "Legend of the Goddess",
+    "id": "KNBV1cRIy88",
+    "game": "ss",
+    "title_fr": "Légende de la déesse"
+  },
+  {
+    "title": "Ballad of the Goddess (Main Theme)",
+    "id": "F-WToBQYZ_A",
+    "game": "ss",
+    "title_fr": "Ballade de la déesse (Thème principal)"
+  },
+  {
+    "title": "File Select (Great Fairy's Fountain)",
+    "id": "1ul-FCUDogs",
+    "game": "ss"
+  },
+  {
+    "title": "Overture (Ballad of the Goddess)",
+    "id": "838wNL0EjA4",
+    "game": "ss"
+  },
+  {
+    "title": "Link's Nightmare (Premonition)",
+    "id": "O8x39F9QXyQ",
+    "game": "ss"
+  },
+  {
+    "title": "Wake Up!",
+    "id": "DlxI_oh6uUI",
+    "game": "ss"
+  },
+  {
+    "title": "Knight's Academy",
+    "id": "EdF5OqycrCU",
+    "game": "ss"
+  },
+  {
+    "title": "Skyloft",
+    "id": "xa7csMzypW0",
+    "game": "ss"
+  },
+  {
+    "title": "Inside a House",
+    "id": "4-XO-G6LYVU",
+    "game": "ss"
+  },
+  {
+    "title": "Ballad of the Goddess (Zelda Solo)",
+    "id": "4W7fr96iusg",
+    "game": "ss"
+  },
+  {
+    "title": "Zelda's Theme",
+    "id": "H9VCQJ7pn18",
+    "game": "ss"
+  },
+  {
+    "title": "Groose's Theme",
+    "id": "hpCBPV0xpQ8",
+    "game": "ss"
+  },
+  {
+    "title": "Groose's Insolence",
+    "id": "qSFN4SQ76vk",
+    "game": "ss"
+  },
+  {
+    "title": "Groose's Daze",
+    "id": "K1zJHYh3bJM",
+    "game": "ss"
+  },
+  {
+    "title": "The Cave",
+    "id": "uMuBQ57vmFg",
+    "game": "ss"
+  },
+  {
+    "title": "Zelda's Theme (Light Version)",
+    "id": "aAfqXke-HP0",
+    "game": "ss"
+  },
+  {
+    "title": "Trapped Loftwing",
+    "id": "2zAcajwfRkw",
+    "game": "ss"
+  },
+  {
+    "title": "Crimson Loftwing",
+    "id": "733B96KbZtw",
+    "game": "ss"
+  },
+  {
+    "title": "Leaping from the Clouds",
+    "id": "79JqDKYYzfc",
+    "game": "ss"
+  },
+  {
+    "title": "Loftwing Training",
+    "id": "eSRVOeFDpdg",
+    "game": "ss"
+  },
+  {
+    "title": "Before the Race",
+    "id": "9J3ojK94Uz0",
+    "game": "ss"
+  },
+  {
+    "title": "Loftwing Race",
+    "id": "8Dn32ZYO3uM",
+    "game": "ss"
+  },
+  {
+    "title": "Zelda's Theme (Romance)",
+    "id": "E7UDEkZZPmw",
+    "game": "ss"
+  },
+  {
+    "title": "The Wing Ceremony Ritual",
+    "id": "EtAzGAK3MdM",
+    "game": "ss"
+  },
+  {
+    "title": "Tension",
+    "id": "F7fyB1Qo3RU",
+    "game": "ss"
+  },
+  {
+    "title": "Link's Nightmare",
+    "id": "vkR2_2Y8kU0",
+    "game": "ss"
+  },
+  {
+    "title": "Gaepora's Lament",
+    "id": "wGasbT--lZU",
+    "game": "ss"
+  },
+  {
+    "title": "Chasing Fi",
+    "id": "OqxUgAIn5nc",
+    "game": "ss"
+  },
+  {
+    "title": "Fi's Theme",
+    "id": "5X7l5qChCyY",
+    "game": "ss"
+  },
+  {
+    "title": "The Hylian Crest Activates",
+    "id": "FDAwwDsa6aI",
+    "game": "ss"
+  },
+  {
+    "title": "Call of Destiny (Fi's Theme)",
+    "id": "ctAZpaurqDY",
+    "game": "ss"
+  },
+  {
+    "title": "Before the Journey",
+    "id": "1yu7720Ty48",
+    "game": "ss"
+  },
+  {
+    "title": "Sleep Until Morning",
+    "id": "z2VVhWBZNBs",
+    "game": "ss"
+  },
+  {
+    "title": "Sleep Until Night",
+    "id": "Dk-DCYB9Dmg",
+    "game": "ss"
+  },
+  {
+    "title": "Skyloft Bazaar Medley",
+    "id": "SJS_bPn-Tw8",
+    "game": "ss"
+  },
+  {
+    "title": "Fortune Telling",
+    "id": "4d8w4SgC5ok",
+    "game": "ss"
+  },
+  {
+    "title": "Small Item Get",
+    "id": "WIwjmJgG3DA",
+    "game": "ss"
+  },
+  {
+    "title": "Skyloft (Piano Arrangement)",
+    "id": "Q7PkHr2wHzY",
+    "game": "ss"
+  },
+  {
+    "title": "Exploring the Skies (Overworld)",
+    "id": "EyYnPPupcDQ",
+    "game": "ss"
+  },
+  {
+    "title": "Falling to the Earth Below",
+    "id": "3C-8thnQr34",
+    "game": "ss"
+  },
+  {
+    "title": "Sealed Grounds",
+    "id": "CFyyGcARA0Y",
+    "game": "ss"
+  },
+  {
+    "title": "Link's Nightmare (Illusion of the Imprisoned)",
+    "id": "AJwqGYqbvrM",
+    "game": "ss"
+  },
+  {
+    "title": "Sealed Temple",
+    "id": "a8aCbQQOeqk",
+    "game": "ss"
+  },
+  {
+    "title": "Theme of the Kikwis",
+    "id": "z4LB24xm5Js",
+    "game": "ss"
+  },
+  {
+    "title": "Faron Woods",
+    "id": "O-LhD1HRn3M",
+    "game": "ss"
+  },
+  {
+    "title": "Battle",
+    "id": "YnqOrEZZ66M",
+    "game": "ss"
+  },
+  {
+    "title": "Solution (Collectable Get)",
+    "id": "yIHmToR4Sk8",
+    "game": "ss"
+  },
+  {
+    "title": "Lopsa's Theme (Theme of the Kikwis)",
+    "id": "z7ffG4SY6EI",
+    "game": "ss"
+  },
+  {
+    "title": "Bucha's Theme (Theme of the Kikwis)",
+    "id": "DcRTZxF1w-E",
+    "game": "ss"
+  },
+  {
+    "title": "Dungeon Introduction",
+    "id": "0P0wq4gluwo",
+    "game": "ss"
+  },
+  {
+    "title": "Skyview Temple",
+    "id": "Lo-PSGuMUWs",
+    "game": "ss"
+  },
+  {
+    "title": "Solution (Dungeon)",
+    "id": "wum1bzvSTgk",
+    "game": "ss"
+  },
+  {
+    "title": "Mini Boss Battle 1 (Stalfos/Stalmaster)",
+    "id": "wW4ylpM16B8",
+    "game": "ss"
+  },
+  {
+    "title": "Item Get",
+    "id": "Q_2zS3qSbic",
+    "game": "ss"
+  },
+  {
+    "title": "Ghirahim's Theme",
+    "id": "iRJHLL-JXXg",
+    "game": "ss"
+  },
+  {
+    "title": "Demon Lord Ghirahim First Battle",
+    "id": "g4drcGCDbys",
+    "game": "ss"
+  },
+  {
+    "title": "Heart Container Appears",
+    "id": "r7nRfuRnJwQ",
+    "game": "ss"
+  },
+  {
+    "title": "Heart Container Get",
+    "id": "IaH-xfZN7uw",
+    "game": "ss"
+  },
+  {
+    "title": "Temple Spring",
+    "id": "IPKw3ywa0TU",
+    "game": "ss"
+  },
+  {
+    "title": "The Spring Crest Activates",
+    "id": "wSqLoiHB7HU",
+    "game": "ss"
+  },
+  {
+    "title": "Dance of the Goddess",
+    "id": "YED0fytLyr4",
+    "game": "ss"
+  },
+  {
+    "title": "Tablet Piece Get",
+    "id": "QFXxZ2lKPeE",
+    "game": "ss"
+  },
+  {
+    "title": "Eldin Volcano",
+    "id": "1-mx6_kVgbo",
+    "game": "ss"
+  },
+  {
+    "title": "Ledd & Cobal's Theme (Theme of the Mogmas)",
+    "id": "bD4sqw9Jjr4",
+    "game": "ss"
+  },
+  {
+    "title": "Mogma Mines",
+    "id": "ks0tUM69E1s",
+    "game": "ss"
+  },
+  {
+    "title": "Tubert's Theme (Theme of the Mogmas)",
+    "id": "FtXO46QMA_U",
+    "game": "ss"
+  },
+  {
+    "title": "Thrill Digger",
+    "id": "tNupWR9FIP0",
+    "game": "ss"
+  },
+  {
+    "title": "Rupoor Get",
+    "id": "fs8ekr4Qioo",
+    "game": "ss"
+  },
+  {
+    "title": "Earth Temple",
+    "id": "IjyRYdOYKnM",
+    "game": "ss"
+  },
+  {
+    "title": "Mini Boss Battle 2 (Lizalfos/Magmanos/Moldorm)",
+    "id": "w95XtMkGv0I",
+    "game": "ss"
+  },
+  {
+    "title": "Open Treasure Chest",
+    "id": "IptbpgQ27cA",
+    "game": "ss"
+  },
+  {
+    "title": "Key Item Get",
+    "id": "ond21NehQ_U",
+    "game": "ss"
+  },
+  {
+    "title": "The Dragon's Head",
+    "id": "FFvMb_KorYw",
+    "game": "ss"
+  },
+  {
+    "title": "Rolling Rock Rumble",
+    "id": "vfz2qkadEoY",
+    "game": "ss"
+  },
+  {
+    "title": "Dungeon Boss Encounter 1",
+    "id": "4qoI_wt1Ouw",
+    "game": "ss"
+  },
+  {
+    "title": "Scaldera Battle/Tentalus Battle",
+    "id": "0PXK76lZWCY",
+    "game": "ss"
+  },
+  {
+    "title": "Ballad of the Goddess (Short Version)",
+    "id": "gC-bXDX1pOc",
+    "game": "ss"
+  },
+  {
+    "title": "Memories of Zelda",
+    "id": "o4hqLT9G6oc",
+    "game": "ss"
+  },
+  {
+    "title": "Lanayru Desert",
+    "id": "FRZk8CRPbi8",
+    "game": "ss"
+  },
+  {
+    "title": "Lanayru Mining Facility",
+    "id": "MjapuuERC3M",
+    "game": "ss"
+  },
+  {
+    "title": "Duel at the Temple of Time (Impa vs. Ghirahim)",
+    "id": "7r47SamhyOQ",
+    "game": "ss"
+  },
+  {
+    "title": "A Sudden Crash Landing",
+    "id": "NfCPl7gCSPU",
+    "game": "ss"
+  },
+  {
+    "title": "The Enchanted Earth Below (Groose's Theme)",
+    "id": "W3HJ_r3Bq4E",
+    "game": "ss"
+  },
+  {
+    "title": "Grooseland (Groose's Daze)",
+    "id": "uLUSOJZ_8FA",
+    "game": "ss"
+  },
+  {
+    "title": "Scaredy Groose",
+    "id": "2V1ZXxA6P0w",
+    "game": "ss"
+  },
+  {
+    "title": "Ballad of the Goddess (Lady)",
+    "id": "HSrj9VBnXpo",
+    "game": "ss"
+  },
+  {
+    "title": "Ballad of the Goddess (Concert)",
+    "id": "fHTqpSyUyJs",
+    "game": "ss"
+  },
+  {
+    "title": "Ballad of the Goddess (Harp)",
+    "id": "OLjPeJLEENk",
+    "game": "ss"
+  },
+  {
+    "title": "Ballad of the Goddess (Duet)",
+    "id": "2MJgmio66gY",
+    "game": "ss"
+  },
+  {
+    "title": "Scrapper's Theme",
+    "id": "0pZx95m1T8Q",
+    "game": "ss"
+  },
+  {
+    "title": "The Isle of Songs",
+    "id": "nJtVDDoqadw",
+    "game": "ss"
+  },
+  {
+    "title": "Farore's Courage (Hymn)",
+    "id": "qocS87eBt3s",
+    "game": "ss"
+  },
+  {
+    "title": "Farore's Courage",
+    "id": "x3sxU6iN7iM",
+    "game": "ss"
+  },
+  {
+    "title": "Farore's Courage (Concert)",
+    "id": "WKg5r5P4j0o",
+    "game": "ss"
+  },
+  {
+    "title": "Farore's Courage (Harp)",
+    "id": "T6lWvJIS2fI",
+    "game": "ss"
+  },
+  {
+    "title": "Farore's Courage (Duet)",
+    "id": "pT-P1uuNHxg",
+    "game": "ss"
+  },
+  {
+    "title": "Enter the Silent Realm",
+    "id": "_4Dl9cWidVU",
+    "game": "ss"
+  },
+  {
+    "title": "Farore's Silent Realm (Faron Woods)",
+    "id": "DDqHDEqQ0fA",
+    "game": "ss"
+  },
+  {
+    "title": "Inside the Great Tree",
+    "id": "Jj-nxpl-uJo",
+    "game": "ss"
+  },
+  {
+    "title": "Lake Floria",
+    "id": "wg5Ew8XnJJg",
+    "game": "ss"
+  },
+  {
+    "title": "Shark Attack",
+    "id": "_LXGFuep6Tg",
+    "game": "ss"
+  },
+  {
+    "title": "Ancient Cistern",
+    "id": "SnQQ7SqQZGY",
+    "game": "ss"
+  },
+  {
+    "title": "Ancient Cistern (Cavern)",
+    "id": "DyHiG54avWU",
+    "game": "ss"
+  },
+  {
+    "title": "Cursed Bokoblin Chase",
+    "id": "WEL0OiHNOjI",
+    "game": "ss"
+  },
+  {
+    "title": "Dungeon Boss Encounter 2",
+    "id": "y0f907ZuDf8",
+    "game": "ss"
+  },
+  {
+    "title": "Koloktos Battle/Moldarach Battle",
+    "id": "vLA6xhoYq5w",
+    "game": "ss"
+  },
+  {
+    "title": "Koloktos Battle (Sped Up)",
+    "id": "G3ekYyceta8",
+    "game": "ss"
+  },
+  {
+    "title": "Absorbing the Sacred Flames",
+    "id": "s3ltfQFJLg0",
+    "game": "ss"
+  },
+  {
+    "title": "The Goddess Sword Enhanced",
+    "id": "TkQSpxT7EyE",
+    "game": "ss"
+  },
+  {
+    "title": "Beedle's Airship",
+    "id": "wvWFQaZo9V4",
+    "game": "ss"
+  },
+  {
+    "title": "Floating Island",
+    "id": "loYfFmxMFY8",
+    "game": "ss"
+  },
+  {
+    "title": "The Lumpy Pumpkin",
+    "id": "CAQz_OZlqEM",
+    "game": "ss"
+  },
+  {
+    "title": "The Pumpkin Song",
+    "id": "ERWDHwM8Q-s",
+    "game": "ss"
+  },
+  {
+    "title": "Fun Fun Island",
+    "id": "ETHxvbVB62Y",
+    "game": "ss"
+  },
+  {
+    "title": "Skydiving - The Legend of Zelda: Skyward Sword",
+    "id": "AhvfZy4596E",
+    "game": "ss"
+  },
+  {
+    "title": "The Monster",
+    "id": "ysfePBfAjFM",
+    "game": "ss"
+  },
+  {
+    "title": "Batreaux's Theme",
+    "id": "XmEMMxZohQg",
+    "game": "ss"
+  },
+  {
+    "title": "Batreaux's First Transformation",
+    "id": "bXuobzpmcWs",
+    "game": "ss"
+  },
+  {
+    "title": "Batreaux's Last Transformation",
+    "id": "IQcooaNpg0I",
+    "game": "ss"
+  },
+  {
+    "title": "Nayru's Wisdom (Hymn)",
+    "id": "70hqN5gC1pA",
+    "game": "ss"
+  },
+  {
+    "title": "Nayru's Wisdom",
+    "id": "fCNnWrASK5Q",
+    "game": "ss"
+  },
+  {
+    "title": "Nayru's Wisdom (Concert)",
+    "id": "fDVBqDEW2Ss",
+    "game": "ss"
+  },
+  {
+    "title": "Nayru's Wisdom (Harp)",
+    "id": "MNky1_2VV6Y",
+    "game": "ss"
+  },
+  {
+    "title": "Nayru's Wisdom (Duet)",
+    "id": "jV3p8GWSohU",
+    "game": "ss"
+  },
+  {
+    "title": "Nayru's Silent Realm (Lanayru Desert)",
+    "id": "iCs3BSHm-qM",
+    "game": "ss"
+  },
+  {
+    "title": "Spirit Vessel Get",
+    "id": "a8fAA7Hjq-E",
+    "game": "ss"
+  },
+  {
+    "title": "Spirit Realm Warning",
+    "id": "sZE7RCSNH00",
+    "game": "ss"
+  },
+  {
+    "title": "Guardian Pursuit",
+    "id": "FyFDQxtoP3A",
+    "game": "ss"
+  },
+  {
+    "title": "All Tears Collected",
+    "id": "rn504I2R-JQ",
+    "game": "ss"
+  },
+  {
+    "title": "Silent Realm Trial Completed",
+    "id": "RN9k-bvGs7k",
+    "game": "ss"
+  },
+  {
+    "title": "Lanayru Sand Sea",
+    "id": "Ey3WqhaAASo",
+    "game": "ss"
+  },
+  {
+    "title": "Ancient Lanayru",
+    "id": "7Cev0-mdh6E",
+    "game": "ss"
+  },
+  {
+    "title": "Shipyard Minecart Ride",
+    "id": "vRNeb1A4xBM",
+    "game": "ss"
+  },
+  {
+    "title": "Pirate Stronghold",
+    "id": "xPGaPvAsIeU",
+    "game": "ss"
+  },
+  {
+    "title": "Sandship (Exterior)",
+    "id": "tu18PTX80dw",
+    "game": "ss"
+  },
+  {
+    "title": "Sandship (Interior)",
+    "id": "7U-DXQVkWO0",
+    "game": "ss"
+  },
+  {
+    "title": "Sandship (Past)",
+    "id": "SRErtVOQrNE",
+    "game": "ss"
+  },
+  {
+    "title": "Mini-Boss Battle 3 (Scervo/Dreadfuse)",
+    "id": "zE9I9DsLQbM",
+    "game": "ss"
+  },
+  {
+    "title": "The Triforce Appears",
+    "id": "khGq7-bdxTY",
+    "game": "ss"
+  },
+  {
+    "title": "Din's Power (Hymn)",
+    "id": "Eav18pabOAQ",
+    "game": "ss"
+  },
+  {
+    "title": "Din's Power",
+    "id": "5tAIa8c8D3U",
+    "game": "ss"
+  },
+  {
+    "title": "Din's Power (Concert)",
+    "id": "MFUGaGbvBIU",
+    "game": "ss"
+  },
+  {
+    "title": "Din's Power (Harp)",
+    "id": "vJNSJOlmfpE",
+    "game": "ss"
+  },
+  {
+    "title": "Din's Power (Duet)",
+    "id": "zn_Pgt0hK_4",
+    "game": "ss"
+  },
+  {
+    "title": "Din's Silent Realm (Eldin Volcano)",
+    "id": "6Rfbzy-7PcU",
+    "game": "ss"
+  },
+  {
+    "title": "Volcano Summit (Interior)",
+    "id": "7z7VySzd3Vo",
+    "game": "ss"
+  },
+  {
+    "title": "Volcano Summit (Outside)",
+    "id": "6-AhC0IYKac",
+    "game": "ss"
+  },
+  {
+    "title": "Fire Sanctuary",
+    "id": "qa7umZXLGGc",
+    "game": "ss"
+  },
+  {
+    "title": "Guld's Theme (Theme of the Mogmas)",
+    "id": "6zZFrbrm6ps",
+    "game": "ss"
+  },
+  {
+    "title": "Chasing Plats",
+    "id": "ect6TQ72Egk",
+    "game": "ss"
+  },
+  {
+    "title": "Brothers (Theme of the Mogmas)",
+    "id": "iiD0Tmax5Wk",
+    "game": "ss"
+  },
+  {
+    "title": "Ghirahim's Theme (Reprise)",
+    "id": "mIybIMFDMQU",
+    "game": "ss"
+  },
+  {
+    "title": "Demon Lord, Ghirahim Second Battle",
+    "id": "Qe4diZVyDtU",
+    "game": "ss"
+  },
+  {
+    "title": "Game Over",
+    "id": "8GotjroitQY",
+    "game": "ss",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Lady of the Sealed Grounds",
+    "id": "8JmmNBHq_6I",
+    "game": "ss"
+  },
+  {
+    "title": "The Imprisoned Released",
+    "id": "l8ZjDkmjuY8",
+    "game": "ss"
+  },
+  {
+    "title": "The Imprisoned Battle",
+    "id": "LMm4xzh6T-I",
+    "game": "ss"
+  },
+  {
+    "title": "Sealing the Imprisoned",
+    "id": "JMHIBO45Muk",
+    "game": "ss"
+  },
+  {
+    "title": "Successfully Sealed",
+    "id": "2jHuYfdDfAA",
+    "game": "ss"
+  },
+  {
+    "title": "Ballad of the Goddess (Piano Arrangement)",
+    "id": "uHyBU0XBDzk",
+    "game": "ss"
+  },
+  {
+    "title": "Opening the Gate of Time",
+    "id": "BQUV-_z0RKo",
+    "game": "ss"
+  },
+  {
+    "title": "Groose's Change of Heart",
+    "id": "nrZdNQIJ3kg",
+    "game": "ss"
+  },
+  {
+    "title": "Enter Time Portal",
+    "id": "yqi_84Tu9nw",
+    "game": "ss"
+  },
+  {
+    "title": "Temple of Hylia (Sealed Temple, Past)",
+    "id": "V8ZMRUhUCYA",
+    "game": "ss"
+  },
+  {
+    "title": "Zelda's Lullaby",
+    "id": "VFTylwqXxDk",
+    "game": "ss"
+  },
+  {
+    "title": "Rebirth of the Master Sword",
+    "id": "l5rYOGdtTYg",
+    "game": "ss"
+  },
+  {
+    "title": "Exit Time Portal",
+    "id": "15iM-zDanWM",
+    "game": "ss"
+  },
+  {
+    "title": "Pumpkin Harvest",
+    "id": "KfOwZ0QOVAQ",
+    "game": "ss"
+  },
+  {
+    "title": "Great Spirit of the Skies, Levias Battle",
+    "id": "wXG47atoL2o",
+    "game": "ss"
+  },
+  {
+    "title": "Ocular Parasite, Bilocyte Battle",
+    "id": "PRhn-yGOm_o",
+    "game": "ss"
+  },
+  {
+    "title": "The Sacred Dragons",
+    "id": "JTkySLz_j-g",
+    "game": "ss"
+  },
+  {
+    "title": "Bamboo Island",
+    "id": "lYOpVx_c1QE",
+    "game": "ss"
+  },
+  {
+    "title": "Bamboo Slicing",
+    "id": "rsuUAtFfN6Y",
+    "game": "ss"
+  },
+  {
+    "title": "Flooded Faron Woods",
+    "id": "AU9uLxXe8Fs",
+    "game": "ss"
+  },
+  {
+    "title": "Tadtone Hunt",
+    "id": "_ugLoN_C96Y",
+    "game": "ss"
+  },
+  {
+    "title": "Tadtones Collected (Song of the Hero)",
+    "id": "T4DY6uuLnD4",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Water Dragon, Faron",
+    "id": "kUQ43kJPLu0",
+    "game": "ss"
+  },
+  {
+    "title": "Stealth (Eldin Volcano)",
+    "id": "EadOeeEuNFU",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Fire Dragon, Eldin",
+    "id": "e_Ija16KInM",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Thunder Dragon, Lanayru",
+    "id": "goZpo_uXV8Y",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Sky Dragon, Levias - The Legend of the Zelda: Skyward Sword OST",
+    "id": "A8xDzsSBWaE",
+    "game": "ss"
+  },
+  {
+    "title": "Learned the Song of the Hero...",
+    "id": "J7zyC1LAdIc",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Hero",
+    "id": "QQKaIxFSoiw",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Hero (Concert)",
+    "id": "Z1Hi0g3NZlE",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Hero (Harp)",
+    "id": "Cw41JeYPsVE",
+    "game": "ss"
+  },
+  {
+    "title": "Song of the Hero (Duet)",
+    "id": "HIR25lAA7TE",
+    "game": "ss"
+  },
+  {
+    "title": "Goddess' Silent Realm (Skyloft)",
+    "id": "Xsjb27LNOy8",
+    "game": "ss"
+  },
+  {
+    "title": "The Temple Appears",
+    "id": "Zqsq1dKtjQ4",
+    "game": "ss"
+  },
+  {
+    "title": "Sky Keep Introduction",
+    "id": "IWgZvgohkOg",
+    "game": "ss"
+  },
+  {
+    "title": "Sky Keep",
+    "id": "2SMBbtkQKws",
+    "game": "ss"
+  },
+  {
+    "title": "Obtaining the Triforce",
+    "id": "3Z1HiAb-MM8",
+    "game": "ss"
+  },
+  {
+    "title": "The Goddess Statue Descends",
+    "id": "XzE66AEFhI0",
+    "game": "ss"
+  },
+  {
+    "title": "The Isle of the Goddess",
+    "id": "Jo5Fu5EoTPo",
+    "game": "ss"
+  },
+  {
+    "title": "Great Fairy's Fountain (Piano Arrangement)",
+    "id": "hOF0Qyr2VH8",
+    "game": "ss"
+  },
+  {
+    "title": "Great Fairy's Fountain",
+    "id": "qQClpKAvDxY",
+    "game": "ss"
+  },
+  {
+    "title": "Bazaar",
+    "id": "IfMIW-PlYB0",
+    "game": "ss"
+  },
+  {
+    "title": "Bazaar (Fortune Teller)",
+    "id": "QlLWmDV9DJU",
+    "game": "ss"
+  },
+  {
+    "title": "Bazaar (Potion Shop)",
+    "id": "LY0Su0iGqxY",
+    "game": "ss"
+  },
+  {
+    "title": "Bazaar (Gear Shop)",
+    "id": "IM77dQMMBgY",
+    "game": "ss"
+  },
+  {
+    "title": "Bazaar (Scrap Shop)",
+    "id": "Dur-UQkI2SA",
+    "game": "ss"
+  },
+  {
+    "title": "Bazaar (Item Check)",
+    "id": "L4R-xrj9qM0",
+    "game": "ss"
+  },
+  {
+    "title": "The Hordes of Darkness",
+    "id": "a8ST2my6Zf0",
+    "game": "ss"
+  },
+  {
+    "title": "Demon Lord, Ghirahim Final Battle",
+    "id": "MnHPDJeu_j8",
+    "game": "ss"
+  },
+  {
+    "title": "Demon Lord, Ghirahim Final Battle (Sped Up)",
+    "id": "T0vNhtrIVc0",
+    "game": "ss"
+  },
+  {
+    "title": "Resurrection (Sped Up)",
+    "id": "M597O3qQ424",
+    "game": "ss"
+  },
+  {
+    "title": "The Imprisoned Reborn",
+    "id": "4zHJTUwCTAo",
+    "game": "ss"
+  },
+  {
+    "title": "Long Live the Dark King!",
+    "id": "47WY8ZWv-_o",
+    "game": "ss"
+  },
+  {
+    "title": "Groose to the Rescue",
+    "id": "zIbpvFTk73c",
+    "game": "ss"
+  },
+  {
+    "title": "Confrontation with the Demon King",
+    "id": "lC-EoHsYDWk",
+    "game": "ss"
+  },
+  {
+    "title": "The Demon King, Demise Battle (Rising)",
+    "id": "-Rw9fTgX68k",
+    "game": "ss"
+  },
+  {
+    "title": "The Demon King, Demise Battle (Finale)",
+    "id": "33f0eCcnmj8",
+    "game": "ss"
+  },
+  {
+    "title": "Triumph Over Darkness",
+    "id": "4-R79vOoSQY",
+    "game": "ss"
+  },
+  {
+    "title": "Link's Return",
+    "id": "IiUaQ39IUHs",
+    "game": "ss"
+  },
+  {
+    "title": "Conclusion (Fi's Theme)",
+    "id": "cf9TDYJyVqg",
+    "game": "ss"
+  },
+  {
+    "title": "Resting the Master Sword",
+    "id": "l1rtYk0fX08",
+    "game": "ss"
+  },
+  {
+    "title": "Eternal Gratitude (Fi's Theme)",
+    "id": "utnPcNiXWK4",
+    "game": "ss"
+  },
+  {
+    "title": "Impa's Farewell",
+    "id": "4uCeTSNQcxU",
+    "game": "ss"
+  },
+  {
+    "title": "The Hero of Time",
+    "id": "AFRf6X24C-o",
+    "game": "ss"
+  },
+  {
+    "title": "Credits",
+    "id": "BMyrZfG1Fnc",
+    "game": "ss",
+    "title_fr": "Générique"
+  },
+  {
+    "title": "Finale (Ballad of the Goddess)",
+    "id": "CdLlqg1BRP4",
+    "game": "ss"
+  },
+  {
+    "title": "Epilogue",
+    "id": "wBofxv-7BAo",
+    "game": "ss",
+    "title_fr": "Épilogue"
+  },
+  {
+    "title": "Title Screen",
+    "id": "MutjCGH_NhQ",
+    "game": "albw",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "File Select",
+    "id": "C7WtGtII52U",
+    "game": "albw",
+    "title_fr": "Sélection de fichier"
+  },
+  {
+    "title": "Prologue",
+    "id": "xsQ5lV8OJFw",
+    "game": "albw"
+  },
+  {
+    "title": "Link's Nightmare (Ambiance)",
+    "id": "8DgXr7m5EA8",
+    "game": "albw"
+  },
+  {
+    "title": "Link's Nightmare",
+    "id": "vHcTczkBfZ8",
+    "game": "albw"
+  },
+  {
+    "title": "Overworld (Prologue)",
+    "id": "zBuON0CuIMA",
+    "game": "albw"
+  },
+  {
+    "title": "Crisis at the Sanctuary",
+    "id": "x6MxzlPnlY0",
+    "game": "albw"
+  },
+  {
+    "title": "Cave",
+    "id": "kEYocyNT92I",
+    "game": "albw"
+  },
+  {
+    "title": "Sanctuary",
+    "id": "ZlEzX78jPGU",
+    "game": "albw"
+  },
+  {
+    "title": "Meet Yuga",
+    "id": "v0GcQvoOGGE",
+    "game": "albw"
+  },
+  {
+    "title": "Seres Turned into a Painting",
+    "id": "HLyt_CJX21w",
+    "game": "albw"
+  },
+  {
+    "title": "Yuga's Ambition",
+    "id": "rR1b-ml6JSM",
+    "game": "albw"
+  },
+  {
+    "title": "Yuga Flees",
+    "id": "9FHcGvRzrtc",
+    "game": "albw"
+  },
+  {
+    "title": "Ravio's Theme",
+    "id": "05X_JGa3zno",
+    "game": "albw"
+  },
+  {
+    "title": "Hyrule Castle (First Visit)",
+    "id": "TymCTpHRjgc",
+    "game": "albw"
+  },
+  {
+    "title": "Princess Zelda's Theme",
+    "id": "rUdLw9k-avU",
+    "game": "albw"
+  },
+  {
+    "title": "Overworld (Dramatic Intro Version)",
+    "id": "Mz5OtsDvPoM",
+    "game": "albw"
+  },
+  {
+    "title": "Overworld",
+    "id": "sNhT_mbPoK0",
+    "game": "albw"
+  },
+  {
+    "title": "Kakariko Village",
+    "id": "BdNNh24c_sA",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar",
+    "id": "31juBupWnps",
+    "game": "albw"
+  },
+  {
+    "title": "House",
+    "id": "pnaJ1G_4R6A",
+    "game": "albw"
+  },
+  {
+    "title": "Sahasrahla",
+    "id": "GXuylUqfXWs",
+    "game": "albw"
+  },
+  {
+    "title": "Dungeons of Hyrule",
+    "id": "Dyn4A52jkxg",
+    "game": "albw"
+  },
+  {
+    "title": "Miniboss Battle",
+    "id": "_anKi1uaNB4",
+    "game": "albw"
+  },
+  {
+    "title": "Yuga Encounter (Eastern Palace)",
+    "id": "_JJP0Y7L1vY",
+    "game": "albw"
+  },
+  {
+    "title": "Yuga Battle (Eastern Palace)",
+    "id": "pT0rMPSXmac",
+    "game": "albw"
+  },
+  {
+    "title": "Link Becomes a Painting",
+    "id": "rHGO4qljVPo",
+    "game": "albw"
+  },
+  {
+    "title": "Ravio's Bracelet Glows",
+    "id": "3UXBLqcOdvo",
+    "game": "albw"
+  },
+  {
+    "title": "Link Returns to Normal",
+    "id": "LGP9bEgGLTU",
+    "game": "albw"
+  },
+  {
+    "title": "Barrier Over Hyrule Castle",
+    "id": "VzFjnsMcAjs",
+    "game": "albw"
+  },
+  {
+    "title": "Barrier Over Hyrule Castle (Sahasrahla)",
+    "id": "PxvThavajUs",
+    "game": "albw"
+  },
+  {
+    "title": "Witch's Hut",
+    "id": "5atA8x8E8cY",
+    "game": "albw"
+  },
+  {
+    "title": "Irene's Theme",
+    "id": "1GVgcunbCic",
+    "game": "albw"
+  },
+  {
+    "title": "The Zora Queen's Predicament",
+    "id": "5sgYfNoqJjg",
+    "game": "albw"
+  },
+  {
+    "title": "Queen Zora's Gratitude",
+    "id": "0FEG1YkYmCQ",
+    "game": "albw"
+  },
+  {
+    "title": "Ravio's Shop",
+    "id": "iCo4q0JVsJM",
+    "game": "albw"
+  },
+  {
+    "title": "You Rented an Item!",
+    "id": "gJLksVA0Kmg",
+    "game": "albw"
+  },
+  {
+    "title": "Mother Maimai",
+    "id": "KQOF8DNnKaM",
+    "game": "albw"
+  },
+  {
+    "title": "You Found a Maimai!",
+    "id": "FwMbMaj_Dvk",
+    "game": "albw"
+  },
+  {
+    "title": "Miniboss Battle #2",
+    "id": "jqZlu6ORaOw",
+    "game": "albw"
+  },
+  {
+    "title": "Boss Battle (Hyrule)",
+    "id": "tDtNZL0YJyk",
+    "game": "albw"
+  },
+  {
+    "title": "Boss Defeated!",
+    "id": "A_6fcjj4jXg",
+    "game": "albw"
+  },
+  {
+    "title": "Pendant Fanfare",
+    "id": "Mq2O2sLS7f0",
+    "game": "albw"
+  },
+  {
+    "title": "Fairy Fountain",
+    "id": "DZfIHYpFycE",
+    "game": "albw"
+  },
+  {
+    "title": "Fortune Teller",
+    "id": "JS3sA3ADM7g",
+    "game": "albw"
+  },
+  {
+    "title": "Lost Woods",
+    "id": "Sfqo4MwBh-g",
+    "game": "albw"
+  },
+  {
+    "title": "Following the Poes",
+    "id": "k9OMmjpQqE4",
+    "game": "albw"
+  },
+  {
+    "title": "The Master Sword",
+    "id": "cVdhXkJ-85g",
+    "game": "albw"
+  },
+  {
+    "title": "Overworld #2 (Dramatic Intro Version)",
+    "id": "dDadbTuxQpk",
+    "game": "albw"
+  },
+  {
+    "title": "Overworld #2",
+    "id": "OhVb0_kPTtE",
+    "game": "albw"
+  },
+  {
+    "title": "Hyrule Castle",
+    "id": "sRZKezt5Wb4",
+    "game": "albw",
+    "title_fr": "Château d'Hyrule"
+  },
+  {
+    "title": "Yuga Encounter (Hyrule Castle)",
+    "id": "k5lc6GWWUsc",
+    "game": "albw"
+  },
+  {
+    "title": "Yuga Turns Zelda into a Painting",
+    "id": "BP-HUSlbImY",
+    "game": "albw"
+  },
+  {
+    "title": "Yuga Battle (Hyrule Castle)",
+    "id": "kDPZtxRtowk",
+    "game": "albw"
+  },
+  {
+    "title": "Ganon's Resurrection",
+    "id": "buJWYOWy_38",
+    "game": "albw"
+  },
+  {
+    "title": "Ganon Returns to the World of the Living",
+    "id": "nAX8R_BmHQ0",
+    "game": "albw"
+  },
+  {
+    "title": "Hilda Defends Link",
+    "id": "PIAN7KH_Gxo",
+    "game": "albw"
+  },
+  {
+    "title": "The Evil Beast Ganon Revealed",
+    "id": "8Cw2vKH_MCY",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Overworld (Dramatic Intro Version)",
+    "id": "Ebrnbaejczg",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Overworld",
+    "id": "1kW6Y0ltdLk",
+    "game": "albw"
+  },
+  {
+    "title": "Theives' Hideout",
+    "id": "KfOoBL_lD0k",
+    "game": "albw"
+  },
+  {
+    "title": "Theives Hideout Escape",
+    "id": "Kb0ISz30xLU",
+    "game": "albw"
+  },
+  {
+    "title": "Boss Battle (Lorule)",
+    "id": "2J9n79VayEA",
+    "game": "albw"
+  },
+  {
+    "title": "Hilda's Theme",
+    "id": "56GDyd_UcII",
+    "game": "albw"
+  },
+  {
+    "title": "Desert Palace",
+    "id": "rYlHa1_D0Y4",
+    "game": "albw"
+  },
+  {
+    "title": "Dark Palace Maze",
+    "id": "qJneIbUrPFg",
+    "game": "albw"
+  },
+  {
+    "title": "Dark Palace",
+    "id": "o5DzhLr-0fM",
+    "game": "albw"
+  },
+  {
+    "title": "Chamber of the Sages",
+    "id": "ksRGK1tY11c",
+    "game": "albw"
+  },
+  {
+    "title": "Swamp Palace",
+    "id": "gaWNi98IQMA",
+    "game": "albw"
+  },
+  {
+    "title": "Turtle Rock",
+    "id": "byIxxQZTZjs",
+    "game": "albw"
+  },
+  {
+    "title": "Skull Woods",
+    "id": "0BsmDjlQjT8",
+    "game": "albw"
+  },
+  {
+    "title": "Death Mountain",
+    "id": "roqA2NRIrhs",
+    "game": "albw"
+  },
+  {
+    "title": "Ice Ruins",
+    "id": "Xnge6Xy4nio",
+    "game": "albw"
+  },
+  {
+    "title": "Shadow Link Battle (Drum Roll)",
+    "id": "VgZeEVDizL8",
+    "game": "albw"
+  },
+  {
+    "title": "Shadow Link Battle",
+    "id": "fHDfmM11N7w",
+    "game": "albw"
+  },
+  {
+    "title": "Shadow Link Battle (Results)",
+    "id": "EN25MoMMMdg",
+    "game": "albw"
+  },
+  {
+    "title": "Hyrule Footrace & Cucco Minigame",
+    "id": "VdS-2Hm-sfk",
+    "game": "albw"
+  },
+  {
+    "title": "Treasure Chest Game",
+    "id": "9pOC42aYhQE",
+    "game": "albw"
+  },
+  {
+    "title": "Octoball Derby",
+    "id": "s3KM1yQsc9Q",
+    "game": "albw"
+  },
+  {
+    "title": "Ocotoball Derby (Results)",
+    "id": "ygTmWkY1u2E",
+    "game": "albw"
+  },
+  {
+    "title": "Treacherous Tower",
+    "id": "iVHm_XPKTAw",
+    "game": "albw"
+  },
+  {
+    "title": "Treacherous Tower (Victory)",
+    "id": "XdZ2I3FC8cY",
+    "game": "albw"
+  },
+  {
+    "title": "Treacherous Tower (50-Floor Victory)",
+    "id": "vSd-xOVDdTM",
+    "game": "albw"
+  },
+  {
+    "title": "The Triforce of Courage is Revealed",
+    "id": "kLp0rr2lItI",
+    "game": "albw"
+  },
+  {
+    "title": "You Got the Triforce!",
+    "id": "E7E0PqwRmhc",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Overworld #2",
+    "id": "DCsjGuSO6uM",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Castle",
+    "id": "a0PRvZh-ylk",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Castle #2",
+    "id": "UBmv6csDCCM",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Castle #3",
+    "id": "7A2lhVjsHYI",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Castle #4",
+    "id": "0aUc3BYMvTg",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Castle #5",
+    "id": "hXg6Lu-dAuw",
+    "game": "albw"
+  },
+  {
+    "title": "Lorule Castle (Medley)",
+    "id": "OdJawKHdwQk",
+    "game": "albw"
+  },
+  {
+    "title": "The Triforce is Within Hilda's Grasp",
+    "id": "pwOYCmDW6QI",
+    "game": "albw"
+  },
+  {
+    "title": "The Story of Lorule's Troubled Past",
+    "id": "kcTkcQpeolM",
+    "game": "albw"
+  },
+  {
+    "title": "Hilda Summons Ganon",
+    "id": "JvIUAFz8-C0",
+    "game": "albw"
+  },
+  {
+    "title": "Yuga Ganon Battle",
+    "id": "zffpKesyaxg",
+    "game": "albw"
+  },
+  {
+    "title": "Hilda is Turned into a Painting",
+    "id": "4W3nsX3BZbk",
+    "game": "albw"
+  },
+  {
+    "title": "The Final Battle (Zelda Intro)",
+    "id": "MfoG8O2J3uE",
+    "game": "albw"
+  },
+  {
+    "title": "You Got the Light Arrows!",
+    "id": "cL_TaSt1eXQ",
+    "game": "albw"
+  },
+  {
+    "title": "The Final Battle",
+    "id": "7jiNpSIL1CY",
+    "game": "albw"
+  },
+  {
+    "title": "Zelda & Hilda Are Freed",
+    "id": "FH6eLBDyTSI",
+    "game": "albw"
+  },
+  {
+    "title": "Ravio Reveals Himself",
+    "id": "3Qjb9CcCrM4",
+    "game": "albw"
+  },
+  {
+    "title": "Link & Zelda Return to Hyrule",
+    "id": "s3XhYnAOT7Q",
+    "game": "albw"
+  },
+  {
+    "title": "Link & Zelda's Wish",
+    "id": "Zw_KhZF5-qw",
+    "game": "albw"
+  },
+  {
+    "title": "Staff Roll",
+    "id": "TUKKidNnFnU",
+    "game": "albw"
+  },
+  {
+    "title": "Hero Mode Unlocked!",
+    "id": "fXTCOjhi6Z4",
+    "game": "albw"
+  },
+  {
+    "title": "Staff Roll (Hero Mode Bonus Scene)",
+    "id": "Yid6DCBkZC8",
+    "game": "albw"
+  },
+  {
+    "title": "You Got an Item!",
+    "id": "c6WOPwYjPkc",
+    "game": "albw"
+  },
+  {
+    "title": "You Got a Big Item!",
+    "id": "ASSAKbkJm-M",
+    "game": "albw"
+  },
+  {
+    "title": "Game Over",
+    "id": "O6LG6N4jbpw",
+    "game": "albw",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Milk Bar (Lorule Castle)",
+    "id": "_mXHS1ALSTk",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Lorule Overworld)",
+    "id": "vB1XdxhnQtg",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Hilda's Theme)",
+    "id": "xKRp94zii4g",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Death Mountain)",
+    "id": "Dm0mhXYr1_s",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Yuga's Theme)",
+    "id": "neOG7KeUx5Q",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Princess Zelda's Theme)",
+    "id": "Pzia2EhxPnQ",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Hyrule Castle)",
+    "id": "7hsu3_CpQjA",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Thieve's Hideout)",
+    "id": "nv1XmtruCYw",
+    "game": "albw"
+  },
+  {
+    "title": "MIlk Bar (Fairy Fountain)",
+    "id": "FBhlucNayXw",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Hyrule Overworld)",
+    "id": "fXRQ7gcRJhM",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Kakariko Village)",
+    "id": "MPihx7ZFeAM",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Ravio's Theme)",
+    "id": "wqVoxo_sXEc",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (You Got An Item!)",
+    "id": "9VfPvhN6qjE",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (You Got a Big Item!)",
+    "id": "CRK-A6ckFjE",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Final Battle)",
+    "id": "xRNvQuof-6Q",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Ballad of the Goddess)",
+    "id": "mxAEhMWcFWA",
+    "game": "albw"
+  },
+  {
+    "title": "Milk Bar (Botched Death Mountain Theme)",
+    "id": "kNXcqpDGax8",
+    "game": "albw"
+  },
+  {
+    "title": "Main Theme",
+    "id": "T6CK7ctyDz4",
+    "game": "tfh",
+    "title_fr": "Thème principal"
+  },
+  {
+    "title": "History of Hytopia",
+    "id": "sPOC5FCKn3k",
+    "game": "tfh"
+  },
+  {
+    "title": "Curse",
+    "id": "1_k0qxGZeZw",
+    "game": "tfh"
+  },
+  {
+    "title": "The Convicted Princess",
+    "id": "uwG7D70eGyk",
+    "game": "tfh"
+  },
+  {
+    "title": "King in Despair",
+    "id": "xYYRJjWGNrA",
+    "game": "tfh"
+  },
+  {
+    "title": "A Couragous Boy",
+    "id": "lruROf7BpUc",
+    "game": "tfh"
+  },
+  {
+    "title": "Hytopia",
+    "id": "3YwR0XnWFKU",
+    "game": "tfh"
+  },
+  {
+    "title": "Madame Courture's",
+    "id": "BntZ8lPbspo",
+    "game": "tfh"
+  },
+  {
+    "title": "Hytopia Castle",
+    "id": "-fuQesIVTBU",
+    "game": "tfh"
+  },
+  {
+    "title": "Sir Combsly",
+    "id": "pXuQGZO-ISA",
+    "game": "tfh"
+  },
+  {
+    "title": "Stage Selection - The Legend of Zelda Tri Force Heroes",
+    "id": "sGFpwf7WwA8",
+    "game": "tfh"
+  },
+  {
+    "title": "Woodlands",
+    "id": "2eY8MGb1V8g",
+    "game": "tfh"
+  },
+  {
+    "title": "Battle",
+    "id": "4_xfxjlrZu8",
+    "game": "tfh"
+  },
+  {
+    "title": "Treasure Room",
+    "id": "rUJ4atz3WOI",
+    "game": "tfh"
+  },
+  {
+    "title": "Mini-Boss",
+    "id": "X7yNStLGGPs",
+    "game": "tfh"
+  },
+  {
+    "title": "Boss",
+    "id": "S3BZv86CfVA",
+    "game": "tfh"
+  },
+  {
+    "title": "King Tuft",
+    "id": "v4I0A4FpmD4",
+    "game": "tfh"
+  },
+  {
+    "title": "Miiverse Gallery",
+    "id": "hpZzNoV3S28",
+    "game": "tfh"
+  },
+  {
+    "title": "Daily Riches",
+    "id": "fzpbWvls5L0",
+    "game": "tfh"
+  },
+  {
+    "title": "Riverside",
+    "id": "yXtkH1KajwQ",
+    "game": "tfh"
+  },
+  {
+    "title": "Volcano",
+    "id": "O6W-ZceSeQM",
+    "game": "tfh"
+  },
+  {
+    "title": "Mini-Boss: Hinox",
+    "id": "4mz42msSpGk",
+    "game": "tfh"
+  },
+  {
+    "title": "Ice Cavern",
+    "id": "h0iwSNfbXxA",
+    "game": "tfh"
+  },
+  {
+    "title": "Fortress",
+    "id": "NrSy6wN1ctI",
+    "game": "tfh"
+  },
+  {
+    "title": "Lady Maud",
+    "id": "Q6RzoR9vjV4",
+    "game": "tfh"
+  },
+  {
+    "title": "Boss: The Lady's Pets",
+    "id": "9yYW_ruWMbI",
+    "game": "tfh"
+  },
+  {
+    "title": "Coliseum",
+    "id": "Q03Lw1xTNug",
+    "game": "tfh"
+  },
+  {
+    "title": "Combat",
+    "id": "UjyjO2nGCWQ",
+    "game": "tfh"
+  },
+  {
+    "title": "Combat Results",
+    "id": "_RZ_4MailDY",
+    "game": "tfh"
+  },
+  {
+    "title": "Dunes",
+    "id": "YD4IaoyPW_8",
+    "game": "tfh"
+  },
+  {
+    "title": "Ruins",
+    "id": "wT35tCbU5aw",
+    "game": "tfh"
+  },
+  {
+    "title": "Sky Realm - The Legend of Zelda Tri Force Heroes",
+    "id": "t_gMSeJpI1k",
+    "game": "tfh"
+  },
+  {
+    "title": "Sky Temple",
+    "id": "qAGURxfPUWA",
+    "game": "tfh"
+  },
+  {
+    "title": "Boss: Lady Maud",
+    "id": "meyZhZNHK_Q",
+    "game": "tfh"
+  },
+  {
+    "title": "Boss: Lady Maud (Final Phase)",
+    "id": "zHb6zBrDGgo",
+    "game": "tfh"
+  },
+  {
+    "title": "The Curse is Lifted",
+    "id": "M6Q16rTK024",
+    "game": "tfh"
+  },
+  {
+    "title": "Staff Credits",
+    "id": "mdrxd6ojWXo",
+    "game": "tfh",
+    "title_fr": "Générique de fin"
   }
 ]

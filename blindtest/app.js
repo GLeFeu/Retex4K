@@ -442,6 +442,14 @@ const GAMES = [
   { id: 'oos', franchise: 'zelda', name: 'Oracle of Seasons', console: 'Game Boy Color', year: 2001 },
   { id: 'fs', franchise: 'zelda', name: 'Four Swords', console: 'GBA', year: 2002 },
   { id: 'ww', franchise: 'zelda', name: 'The Wind Waker', console: 'GameCube', year: 2003 },
+  { id: 'fsa', franchise: 'zelda', name: 'Four Swords Adventures', console: 'GameCube', year: 2004 },
+  { id: 'mc', franchise: 'zelda', name: 'The Minish Cap', console: 'GBA', year: 2004 },
+  { id: 'tp', franchise: 'zelda', name: 'Twilight Princess', console: 'GameCube / Wii', year: 2006 },
+  { id: 'ph', franchise: 'zelda', name: 'Phantom Hourglass', console: 'DS', year: 2007 },
+  { id: 'st', franchise: 'zelda', name: 'Spirit Tracks', console: 'DS', year: 2009 },
+  { id: 'ss', franchise: 'zelda', name: 'Skyward Sword', console: 'Wii', year: 2011 },
+  { id: 'albw', franchise: 'zelda', name: 'A Link Between Worlds', console: '3DS', year: 2013 },
+  { id: 'tfh', franchise: 'zelda', name: 'Tri Force Heroes', console: '3DS', year: 2015 },
 ];
 
 const gamesById = {};
