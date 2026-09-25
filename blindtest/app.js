@@ -28,6 +28,8 @@ let isPaused = false;
 let isMuted = false;
 let roundStartTime = 0;
 let roundAnswered = false;
+let comboStreak = 0; // consecutive correct answers, resets on a wrong/timed-out answer
+const COMBO_MAX = 5; // multiplier caps at x5 once the streak reaches 5 in a row
 let challengeDurationCheckId = null;
 let challengeClipStopId = null;
 let pendingTitle = null;
@@ -57,6 +59,8 @@ let mpRoom = null; // { code, clientId, hostId }
 let mpIsHost = false;
 let mpPlayers = [];
 let mpActive = false; // true once a multiplayer round is actually being played
+let mpPaused = false;
+let mpSyncMode = false;
 let mpAnsweredCorrect = false;
 let mpAnsweredPoints = 0;
 
@@ -204,6 +208,14 @@ const TRANSLATIONS = {
     mode_text: 'BLIND TEXTE',
     mode_visual: 'BLIND IMAGE',
     note_visual_needs_images: 'Not enough tracks with an image yet for this selection.',
+    combo_label: 'Combo x{streak} ({multiplier}x pts)',
+    btn_mp_resume_session: 'RESUME GAME',
+    label_mp_sync: 'Sync mode',
+    note_mp_sync: 'Auto-pauses for everyone if a player disconnects.',
+    mp_sync_on: 'ON',
+    mp_sync_off: 'OFF',
+    mp_pause_sync_wait: '* Waiting for every player to be back...',
+    mp_pause_manual: '* The host paused the game...',
   },
   fr: {
     title: 'BLIND TEST',
@@ -292,6 +304,14 @@ const TRANSLATIONS = {
     mode_text: 'BLIND TEXTE',
     mode_visual: 'BLIND IMAGE',
     note_visual_needs_images: 'Pas encore assez de musiques avec image pour cette sélection.',
+    combo_label: 'Combo x{streak} ({multiplier}x pts)',
+    btn_mp_resume_session: 'REPRENDRE LA PARTIE',
+    label_mp_sync: 'Mode sync',
+    note_mp_sync: 'Met en pause pour tout le monde si un joueur se déconnecte.',
+    mp_sync_on: 'ON',
+    mp_sync_off: 'OFF',
+    mp_pause_sync_wait: "* En attente que tous les joueurs soient de retour...",
+    mp_pause_manual: "* L'hôte a mis la partie en pause...",
   },
 };
 
@@ -371,6 +391,7 @@ const el = {
   progressLabel: document.getElementById('progress-label'),
   liveScore: document.getElementById('live-score'),
   livePoints: document.getElementById('live-points'),
+  comboDisplay: document.getElementById('combo-display'),
   finalPoints: document.getElementById('final-points'),
   hpFill: document.getElementById('hp-fill'),
   gameHint: document.getElementById('game-hint'),
@@ -412,6 +433,8 @@ const el = {
   resumeBtn: document.getElementById('resume-btn'),
   replayClipBtn: document.getElementById('replay-clip-btn'),
   mpJoinCreate: document.getElementById('mp-join-create'),
+  mpResumeSessionBtn: document.getElementById('mp-resume-session-btn'),
+  mpSyncToggle: document.getElementById('mp-sync-toggle'),
   mpLobby: document.getElementById('mp-lobby'),
   mpNameInput: document.getElementById('mp-name-input'),
   mpCreateBtn: document.getElementById('mp-create-btn'),
@@ -888,6 +911,21 @@ function getSpeedFactor() {
   return Math.max(MIN_SPEED_FACTOR, 1 - (1 - MIN_SPEED_FACTOR) * ratio);
 }
 
+/* Combo: each correct answer in a row raises the multiplier by x1, capped at
+   x5 once the streak reaches 5. A wrong answer or timeout resets it. */
+function getComboMultiplier() {
+  return Math.max(1, Math.min(COMBO_MAX, comboStreak));
+}
+
+function updateComboDisplay() {
+  if (comboStreak >= 2) {
+    el.comboDisplay.textContent = t('combo_label', { streak: comboStreak, multiplier: getComboMultiplier() });
+    el.comboDisplay.hidden = false;
+  } else {
+    el.comboDisplay.hidden = true;
+  }
+}
+
 /* ---------- In-progress game persistence (survives refresh / going back to the menu) ---------- */
 
 function saveGameState() {
@@ -897,6 +935,7 @@ function saveGameState() {
       currentIndex,
       score,
       totalPoints,
+      comboStreak,
       selectedGames: Array.from(selectedGames),
       selectedMode,
       answerMode,
@@ -1149,6 +1188,7 @@ function preparePlaylist() {
   currentIndex = 0;
   score = 0;
   totalPoints = 0;
+  comboStreak = 0;
   roundStartTime = 0;
   roundAnswered = false;
   return true;
@@ -1229,6 +1269,8 @@ el.resumeBtn.addEventListener('click', async () => {
   currentIndex = saved.currentIndex;
   score = saved.score;
   totalPoints = saved.totalPoints || 0;
+  comboStreak = saved.comboStreak || 0;
+  updateComboDisplay();
 
   if (playlist.length === 0 || currentIndex >= playlist.length) {
     clearGameState();
@@ -1260,6 +1302,7 @@ el.resumeBtn.addEventListener('click', async () => {
 async function beginGame(triggerBtn, idleLabel) {
   mpActive = false;
   mpSetScoreboardVisible(false);
+  updateComboDisplay();
   el.pauseBtn.hidden = false;
   pauseRequested = false;
   isPaused = false;
@@ -1433,6 +1476,12 @@ el.backBtn.addEventListener('click', () => {
 /* ---------- Pause control (takes effect only at the next round, to prevent cheating) ---------- */
 
 el.pauseBtn.addEventListener('click', () => {
+  if (mpActive) {
+    if (!mpIsHost) return;
+    mpSend({ type: mpPaused ? 'resume' : 'pause' });
+    return;
+  }
+
   if (isPaused) {
     isPaused = false;
     el.pauseBtn.textContent = t('btn_pause');
@@ -1452,6 +1501,10 @@ el.pauseBtn.addEventListener('click', () => {
 });
 
 el.pauseResumeBtn.addEventListener('click', () => {
+  if (mpActive) {
+    if (mpIsHost && mpPaused) mpSend({ type: 'resume' });
+    return;
+  }
   el.pauseBtn.click();
 });
 
@@ -1890,12 +1943,16 @@ function revealAnswer(selectedTitle, selectedGameId) {
   let pointsEarned = 0;
   if (titleCorrect && gameCorrect) {
     score++;
-    pointsEarned = Math.round(getPointsPerCorrectAnswer() * getSpeedFactor());
+    comboStreak++;
+    pointsEarned = Math.round(getPointsPerCorrectAnswer() * getSpeedFactor() * getComboMultiplier());
     totalPoints += pointsEarned;
+  } else {
+    comboStreak = 0;
   }
   roundAnswered = true;
   saveGameState();
   updateLiveScore();
+  updateComboDisplay();
 
   const noAnswerGiven = selectedTitle === null;
 
@@ -2007,6 +2064,38 @@ function finishGame() {
   showScreen('results');
 }
 
+/* ---------- Multiplayer: session persistence, so a crash/closed tab can
+   rejoin the same in-progress room (the server keeps the player's score
+   under the same clientId until they explicitly leave). ---------- */
+
+const MP_SESSION_KEY = 'ostquiz-mp-session';
+
+function saveMpSession() {
+  if (!mpRoom) return;
+  try {
+    localStorage.setItem(MP_SESSION_KEY, JSON.stringify({ code: mpRoom.code, name: el.mpNameInput.value.trim() || 'Player' }));
+  } catch (e) {
+    /* localStorage unavailable, ignore */
+  }
+}
+
+function clearMpSession() {
+  try {
+    localStorage.removeItem(MP_SESSION_KEY);
+  } catch (e) {
+    /* localStorage unavailable, ignore */
+  }
+}
+
+function loadMpSession() {
+  try {
+    const raw = localStorage.getItem(MP_SESSION_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
 /* ---------- Multiplayer: WebSocket transport ---------- */
 
 function mpConnect() {
@@ -2055,11 +2144,19 @@ function mpHandleMessage(msg) {
     case 'created':
       mpRoom = { code: msg.code, clientId: msg.clientId, hostId: msg.hostId };
       mpIsHost = true;
+      mpSyncMode = false;
+      el.mpSyncToggle.textContent = t('mp_sync_off');
+      el.mpSyncToggle.classList.remove('selected');
+      saveMpSession();
       mpShowLobby();
       break;
     case 'joined':
       mpRoom = { code: msg.code, clientId: msg.clientId, hostId: msg.hostId };
       mpIsHost = msg.hostId === msg.clientId;
+      mpSyncMode = !!msg.syncMode;
+      el.mpSyncToggle.textContent = mpSyncMode ? t('mp_sync_on') : t('mp_sync_off');
+      el.mpSyncToggle.classList.toggle('selected', mpSyncMode);
+      saveMpSession();
       if (msg.started) {
         /* Joining a room whose game is already running: catch up directly
            instead of showing a lobby the player would never leave. */
@@ -2070,6 +2167,7 @@ function mpHandleMessage(msg) {
         currentIndex = -1;
         score = 0;
         totalPoints = 0;
+        comboStreak = 0;
         mpActive = true;
         beginMpGame();
       } else {
@@ -2095,6 +2193,10 @@ function mpHandleMessage(msg) {
       break;
     case 'error':
       mpShowLobbyError(t(`mp_err_${msg.message}`) !== `mp_err_${msg.message}` ? t(`mp_err_${msg.message}`) : msg.message);
+      if (msg.message === 'room_not_found') {
+        clearMpSession();
+        el.mpResumeSessionBtn.hidden = true;
+      }
       break;
     case 'gameStarting':
       mpApplySettings(msg.settings);
@@ -2104,14 +2206,24 @@ function mpHandleMessage(msg) {
       currentIndex = -1;
       score = 0;
       totalPoints = 0;
+      comboStreak = 0;
       mpActive = true;
       beginMpGame();
       break;
     case 'round':
-      mpHandleRound(msg);
+      if (msg.resumed) mpHandleResume(msg);
+      else mpHandleRound(msg);
       break;
     case 'reveal':
       mpHandleReveal(msg);
+      break;
+    case 'paused':
+      mpHandlePaused(msg);
+      break;
+    case 'syncMode':
+      mpSyncMode = !!msg.enabled;
+      el.mpSyncToggle.textContent = mpSyncMode ? t('mp_sync_on') : t('mp_sync_off');
+      el.mpSyncToggle.classList.toggle('selected', mpSyncMode);
       break;
     case 'gameOver':
       mpPlayers = msg.players || mpPlayers;
@@ -2166,6 +2278,32 @@ el.mpCreateBtn.addEventListener('click', async () => {
   }
 });
 
+el.mpResumeSessionBtn.addEventListener('click', async () => {
+  const saved = loadMpSession();
+  if (!saved) return;
+  mpShowLobbyError('');
+  el.mpNameInput.value = saved.name;
+  try {
+    await mpConnect();
+    mpSend({ type: 'join', code: saved.code, name: saved.name, clientId: mpClientId });
+  } catch (e) {
+    mpShowLobbyError(t('mp_err_connect'));
+  }
+});
+
+el.mpSyncToggle.addEventListener('click', () => {
+  if (!mpIsHost) return;
+  mpSend({ type: 'setSyncMode', enabled: !mpSyncMode });
+});
+
+{
+  const savedMpSession = loadMpSession();
+  if (savedMpSession) {
+    el.mpResumeSessionBtn.hidden = false;
+    el.mpNameInput.value = savedMpSession.name;
+  }
+}
+
 el.mpJoinBtn.addEventListener('click', async () => {
   mpShowLobbyError('');
   const name = el.mpNameInput.value.trim() || 'Player';
@@ -2212,6 +2350,8 @@ el.mpLeaveBtn.addEventListener('click', () => {
   mpRoom = null;
   mpIsHost = false;
   mpPlayers = [];
+  clearMpSession();
+  el.mpResumeSessionBtn.hidden = true;
   mpShowJoinCreateForm();
 });
 
@@ -2222,9 +2362,13 @@ function mpLeaveRoom() {
     mpSocket = null;
   }
   mpActive = false;
+  mpPaused = false;
+  el.pauseOverlay.hidden = true;
   mpRoom = null;
   mpIsHost = false;
   mpPlayers = [];
+  clearMpSession();
+  el.mpResumeSessionBtn.hidden = true;
   mpSetScoreboardVisible(false);
   el.pauseBtn.hidden = false;
   mpRestorePreGameModifiers();
@@ -2278,11 +2422,16 @@ function mpRestorePreGameModifiers() {
 async function beginMpGame() {
   pauseRequested = false;
   isPaused = false;
-  el.pauseBtn.hidden = true;
+  mpPaused = false;
+  el.pauseBtn.hidden = !mpIsHost;
+  el.pauseBtn.textContent = t('btn_pause');
+  el.pauseBtn.classList.remove('queued', 'paused');
   el.pauseOverlay.hidden = true;
+  el.pauseResumeBtn.hidden = false;
   el.answersGrid.hidden = false;
   el.textAnswer.hidden = true;
   el.gameAnswer.hidden = true;
+  updateComboDisplay();
   await ensureYouTubeReady();
   showScreen('game');
   mpSetScoreboardVisible(true);
@@ -2334,6 +2483,54 @@ function mpHandleRound(msg) {
   }
 }
 
+/* ---------- Multiplayer pause: server-driven, freezes timer + audio for
+   everyone at once (host-triggered, or automatic in sync mode when a player
+   disconnects). Resume shifts the round's startTime forward by the pause
+   duration and re-broadcasts it, so the timer/audio restart in sync without
+   touching whoever had already answered before the pause. ---------- */
+
+function mpHandlePaused(msg) {
+  mpPaused = true;
+  if (player && typeof player.pauseVideo === 'function') player.pauseVideo();
+  el.hpFill.style.transition = 'none';
+  el.pauseOverlay.hidden = false;
+  el.pauseOverlay.querySelector('p').textContent =
+    msg.reason === 'sync' ? t('mp_pause_sync_wait') : t('mp_pause_manual');
+  el.pauseResumeBtn.hidden = !(mpIsHost && msg.reason === 'manual');
+  el.pauseBtn.textContent = t('btn_resume');
+  el.pauseBtn.classList.add('paused');
+}
+
+function mpHandleResume(msg) {
+  mpPaused = false;
+  el.pauseOverlay.hidden = true;
+  el.pauseBtn.textContent = t('btn_pause');
+  el.pauseBtn.classList.remove('paused');
+
+  roundStartTime = msg.startTime;
+  const duration = msg.durationMs || 15000;
+  const elapsed = Math.max(0, Date.now() - msg.startTime);
+  const remaining = Math.max(0, duration - elapsed);
+
+  if (answerLocked) {
+    /* This player had already answered (or timed out) before the pause:
+       nothing left to resume for them, just wait for the reveal broadcast. */
+    return;
+  }
+
+  resetTimerBar(remaining, elapsed);
+  el.replayClipBtn.hidden = !clipChallenge;
+  const track = playlist[currentIndex];
+  if (!track) return;
+  if (clipChallenge) {
+    playChallengeClip(track);
+  } else {
+    player.loadVideoById({ videoId: track.id, startSeconds: 0 });
+    player.playVideo();
+    if (!isMuted) player.unMute?.();
+  }
+}
+
 function mpSubmitAnswer(selectedTitle, selectedGameId) {
   if (answerLocked) return;
   answerLocked = true;
@@ -2344,10 +2541,14 @@ function mpSubmitAnswer(selectedTitle, selectedGameId) {
   const correct = titleCorrect && gameCorrect;
   let pointsEarned = 0;
   if (correct) {
-    pointsEarned = Math.round(getPointsPerCorrectAnswer() * getSpeedFactor());
+    comboStreak++;
+    pointsEarned = Math.round(getPointsPerCorrectAnswer() * getSpeedFactor() * getComboMultiplier());
+  } else {
+    comboStreak = 0;
   }
   mpAnsweredCorrect = correct;
   mpAnsweredPoints = pointsEarned;
+  updateComboDisplay();
 
   mpSend({ type: 'answer', index: currentIndex, correct, points: pointsEarned });
 
@@ -2410,6 +2611,7 @@ function mpHandleReveal(msg) {
   }
 
   if (!wasAnswered) {
+    comboStreak = 0;
     el.revealMessage.textContent = t('reveal_timeout');
     el.revealMessage.className = 'reveal-message wrong';
     playSfx(sfxWrong);
@@ -2423,6 +2625,7 @@ function mpHandleReveal(msg) {
     playSfx(sfxWrong);
   }
   el.revealMessage.hidden = false;
+  updateComboDisplay();
 
   if (writeTitleMode && !(wasAnswered && mpAnsweredCorrect)) {
     el.revealCorrectTitle.textContent = getDisplayTitle(track);
@@ -2493,6 +2696,8 @@ function mpRenderFinalLeaderboard() {
 
 function mpHandleGameOver() {
   mpActive = false;
+  mpPaused = false;
+  el.pauseOverlay.hidden = true;
   mpRestorePreGameModifiers();
   const me = mpPlayers.find((p) => mpRoom && p.id === mpRoom.clientId);
   score = me ? me.score : 0;

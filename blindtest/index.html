@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=50">
+<link rel="stylesheet" href="style.css?v=51">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZELDA OST QUIZ — Legend of Zelda blind test">
@@ -46,6 +46,7 @@
 
           <div id="mp-join-create" class="mp-join-create">
             <input type="text" id="mp-name-input" class="mp-name-input" maxlength="16" placeholder="Pseudo" data-i18n-placeholder="placeholder_mp_name">
+            <button id="mp-resume-session-btn" class="battle-btn primary" type="button" data-i18n="btn_mp_resume_session" hidden>RESUME GAME</button>
             <button id="mp-create-btn" class="battle-btn" type="button" data-i18n="btn_mp_create">CREATE A GAME</button>
             <div class="mp-join-row">
               <input type="text" id="mp-code-input" class="mp-code-input" maxlength="5" placeholder="CODE">
@@ -58,6 +59,11 @@
             <p class="mp-room-code-label" data-i18n="label_mp_room_code">Room code</p>
             <p class="mp-room-code" id="mp-room-code-display"></p>
             <ul class="mp-player-list" id="mp-player-list"></ul>
+            <div class="mp-sync-row">
+              <span class="modifier-label" data-i18n="label_mp_sync">Sync mode</span>
+              <button class="mini-toggle" id="mp-sync-toggle" type="button" data-i18n="mp_sync_off">OFF</button>
+            </div>
+            <p class="modifier-note" data-i18n="note_mp_sync">Auto-pauses for everyone if a player disconnects.</p>
             <button id="mp-start-btn" class="battle-btn primary" type="button" data-i18n="btn_mp_start" hidden>START FOR EVERYONE</button>
             <p class="modifier-note" id="mp-waiting-note" data-i18n="mp_waiting_host">Waiting for the host to start...</p>
             <button id="mp-leave-btn" class="battle-btn" type="button" data-i18n="btn_mp_leave">LEAVE</button>
@@ -263,6 +269,7 @@
               <span id="live-score">Find: 0 / 0</span>
               <span id="progress-label">Track 1 / 10</span>
               <span id="live-points">0 pts</span>
+              <span id="combo-display" class="combo-display" hidden></span>
             </span>
 
             <span class="hud-buttons">
@@ -330,6 +337,6 @@
   rights reserved to their respective creators.
 </footer>
 
-<script src="app.js?v=40"></script>
+<script src="app.js?v=41"></script>
 </body>
 </html>

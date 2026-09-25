@@ -72,10 +72,53 @@ function everyConnectedPlayerAnswered(room) {
   return connected.every((p) => p.answered);
 }
 
+function allPlayersConnected(room) {
+  const players = Array.from(room.players.values());
+  return players.length > 0 && players.every((p) => p.connected);
+}
+
 function revealRound(room) {
   clearTimeout(room.roundTimeoutId);
   broadcast(room, { type: 'reveal', index: room.currentIndex });
   room.roundTimeoutId = setTimeout(() => advanceRound(room), room.settings.revealPauseMs || 2500);
+}
+
+/* ---------- Pause (manual, host-controlled, or automatic via sync mode) ----------
+   Pausing just clears the pending timers and remembers when the pause began;
+   resuming shifts roundStartTime forward by however long the pause lasted and
+   re-broadcasts the round so every client's timer/audio restarts in sync,
+   without touching who has already answered this round. */
+
+function pauseRoom(room, reason) {
+  if (!room.started || room.paused) return;
+  clearTimeout(room.roundTimeoutId);
+  room.paused = true;
+  room.pauseReason = reason;
+  room.pausedAt = Date.now();
+  broadcast(room, { type: 'paused', reason });
+}
+
+function resumeRoom(room) {
+  if (!room.paused) return;
+  const pauseDurationMs = Date.now() - room.pausedAt;
+  room.roundStartTime += pauseDurationMs;
+  room.paused = false;
+  room.pauseReason = null;
+  room.pausedAt = null;
+
+  const durationMs = room.settings.durationMs || 15000;
+  broadcast(room, {
+    type: 'round',
+    index: room.currentIndex,
+    total: room.tracks.length,
+    startTime: room.roundStartTime,
+    durationMs,
+    resumed: true,
+  });
+
+  const elapsed = Math.max(0, Date.now() - room.roundStartTime);
+  const remaining = Math.max(0, durationMs - elapsed) + 400;
+  room.roundTimeoutId = setTimeout(() => revealRound(room), remaining);
 }
 
 function advanceRound(room) {
@@ -136,6 +179,10 @@ wss.on('connection', (ws) => {
         roundStartTime: 0,
         roundTimeoutId: null,
         lastActivity: Date.now(),
+        paused: false,
+        pauseReason: null,
+        pausedAt: null,
+        syncMode: false,
       };
       player = { id, name: String(msg.name || 'Player').slice(0, 20) || 'Player', score: 0, points: 0, answered: false, ws, connected: true };
       room.players.set(id, player);
@@ -176,18 +223,27 @@ wss.on('connection', (ws) => {
         selectedGames: room.selectedGames,
         settings: room.settings,
         trackIds: room.tracks,
+        syncMode: room.syncMode,
       });
-      if (room.started && room.currentIndex >= 0 && room.currentIndex < room.tracks.length) {
-        send(ws, {
-          type: 'round',
-          index: room.currentIndex,
-          total: room.tracks.length,
-          startTime: room.roundStartTime,
-          durationMs: room.settings.durationMs || 15000,
-        });
+      const willAutoResume = room.paused && room.pauseReason === 'sync' && allPlayersConnected(room);
+      if (room.started && room.currentIndex >= 0 && room.currentIndex < room.tracks.length && !willAutoResume) {
+        if (room.paused) {
+          send(ws, { type: 'paused', reason: room.pauseReason });
+        } else {
+          send(ws, {
+            type: 'round',
+            index: room.currentIndex,
+            total: room.tracks.length,
+            startTime: room.roundStartTime,
+            durationMs: room.settings.durationMs || 15000,
+          });
+        }
       }
       broadcastPlayers(room);
       broadcastScoreboard(room);
+      if (willAutoResume) {
+        resumeRoom(room);
+      }
       return;
     }
 
@@ -201,6 +257,9 @@ wss.on('connection', (ws) => {
       if (room.tracks.length === 0) return;
       room.started = true;
       room.currentIndex = -1;
+      room.paused = false;
+      room.pauseReason = null;
+      room.pausedAt = null;
       room.players.forEach((p) => { p.score = 0; p.points = 0; p.answered = false; });
       broadcast(room, {
         type: 'gameStarting',
@@ -210,6 +269,22 @@ wss.on('connection', (ws) => {
         total: room.tracks.length,
       });
       advanceRound(room);
+      return;
+    }
+
+    if (msg.type === 'pause' && player.id === room.hostId) {
+      pauseRoom(room, 'manual');
+      return;
+    }
+
+    if (msg.type === 'resume' && player.id === room.hostId) {
+      if (room.pauseReason === 'manual') resumeRoom(room);
+      return;
+    }
+
+    if (msg.type === 'setSyncMode' && player.id === room.hostId) {
+      room.syncMode = !!msg.enabled;
+      broadcast(room, { type: 'syncMode', enabled: room.syncMode });
       return;
     }
 
@@ -240,8 +315,12 @@ wss.on('connection', (ws) => {
       player.connected = false;
       broadcastPlayers(room);
       broadcastScoreboard(room);
-      if (room.started && everyConnectedPlayerAnswered(room)) {
-        revealRound(room);
+      if (room.started) {
+        if (room.syncMode) {
+          pauseRoom(room, 'sync');
+        } else if (everyConnectedPlayerAnswered(room)) {
+          revealRound(room);
+        }
       }
     }
   });
