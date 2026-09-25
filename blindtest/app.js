@@ -160,7 +160,7 @@ const TRANSLATIONS = {
     aria_mute_sfx: 'Mute sound effects',
     aria_unmute_sfx: 'Unmute sound effects',
     footer_disclaimer:
-      '<b>Community project</b>, not affiliated with <b>Nintendo</b>.\n  Music composed by <b>Koji Kondo</b> for <b>The Legend of Zelda</b> - all\n  rights reserved to their respective creators.',
+      '<b>Community project</b>, not affiliated with <b>Nintendo</b>, <b>Toby Fox</b>, or any other\n  rights holder. Music belongs to its respective creators.',
     err_select_game: 'Select at least one game.',
     err_min_tracks: 'At least {count} tracks must be available for this selection.',
     err_only_n_tracks: 'Only {count} tracks are available for this selection.',
@@ -256,7 +256,7 @@ const TRANSLATIONS = {
     aria_mute_sfx: 'Couper les bruitages',
     aria_unmute_sfx: 'Réactiver les bruitages',
     footer_disclaimer:
-      '<b>Projet communautaire</b>, non affilié à <b>Nintendo</b>.\n  Musique composée par <b>Koji Kondo</b> pour <b>The Legend of Zelda</b> - tous\n  droits réservés à leurs créateurs respectifs.',
+      '<b>Projet communautaire</b>, non affilié à <b>Nintendo</b>, <b>Toby Fox</b>, ni aucun autre\n  ayant droit. La musique appartient à ses créateurs respectifs.',
     err_select_game: 'Sélectionne au moins un jeu.',
     err_min_tracks: 'Il faut au moins {count} morceaux disponibles pour cette sélection.',
     err_only_n_tracks: 'Seulement {count} morceaux disponibles pour cette sélection.',
