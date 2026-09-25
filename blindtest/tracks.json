@@ -10220,22 +10220,26 @@
   {
     "title": "Once Upon a Time",
     "id": "0AQMAth2gio",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/3/37/OnceUponaTime.png/revision/latest?cb=20160327124848&path-prefix=fr"
   },
   {
     "title": "Start Menu",
     "id": "5BrJzFtOnwo",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/c/cd/Menu0.png/revision/latest?cb=20160328084955&path-prefix=fr"
   },
   {
     "title": "Your Best Friend",
     "id": "MacoenOy9Ss",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/52/YourBestFriend.png/revision/latest?cb=20160327125138&path-prefix=fr"
   },
   {
     "title": "Fallen Down",
     "id": "3t-6qAQH_bQ",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/1/1a/Torielintro.png/revision/latest?cb=20160327125106&path-prefix=fr"
   },
   {
     "title": "Ruins",
