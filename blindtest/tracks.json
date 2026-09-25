@@ -2655,313 +2655,651 @@
     "game": "fs"
   },
   {
-    "title": "Legendary Hero",
-    "id": "uo6X184-lSA",
+    "title": "Title",
+    "id": "SyaEmR8Hxsg",
+    "game": "ww",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Menu Selection",
+    "id": "YgOcj1Tn6mk",
+    "game": "ww"
+  },
+  {
+    "title": "The Legendary Hero",
+    "id": "DBRqvKESp1A",
     "game": "ww",
     "title_fr": "Héros légendaire"
   },
   {
     "title": "Outset Island",
-    "id": "099kPTfkwbQ",
+    "id": "5AzHcFjy__U",
     "game": "ww",
     "title_fr": "Île d'Aparoi"
   },
   {
-    "title": "Inside Grandma's House",
-    "id": "hx-wv15T460",
+    "title": "Inside a House",
+    "id": "nlUi88ayGcc",
+    "game": "ww"
+  },
+  {
+    "title": "Grandma's House",
+    "id": "8aI7aLF1bHQ",
     "game": "ww"
   },
   {
     "title": "Fencing Instruction",
-    "id": "oRuDuiewfVA",
+    "id": "CojuClyWeYo",
     "game": "ww"
   },
   {
     "title": "Beedle's Shop",
-    "id": "xRGQ7w0tiP4",
+    "id": "ajRoP3lSnjk",
     "game": "ww"
   },
   {
     "title": "A Mysterious Giant Bird Attacks",
-    "id": "bqEcraGxyG0",
+    "id": "4iPEsBjn9oA",
     "game": "ww"
   },
   {
     "title": "Tetra Discovered",
-    "id": "WJPlB5MxGHM",
+    "id": "-OHupd8ARcM",
     "game": "ww"
   },
   {
     "title": "The Forest of Outset Island",
-    "id": "-e5nM5swjYU",
+    "id": "0is2N9UO_hs",
     "game": "ww"
   },
   {
     "title": "Bokoblin Migration",
-    "id": "T-udkMfmdRo",
+    "id": "NIOx0c_0dG4",
     "game": "ww"
   },
   {
     "title": "Battle",
-    "id": "geiBmkmeL-8",
+    "id": "qbW8qFrxKiU",
     "game": "ww",
     "title_fr": "Combat"
   },
   {
-    "title": "Encounter with Tetra",
-    "id": "DeYROW6syRI",
+    "title": "Encounter With Tetra",
+    "id": "c7gEi02Tnmo",
     "game": "ww"
   },
   {
     "title": "Aryll's Kidnapping",
-    "id": "mxxajhCPcFU",
+    "id": "Q7n9-Cs95C0",
     "game": "ww"
   },
   {
-    "title": "GRA-A-ANDMA!",
-    "id": "dUONcOmRnjo",
+    "title": "Gra-a-andma!",
+    "id": "jpVp-XqiNqU",
     "game": "ww"
   },
   {
-    "title": "Journey",
-    "id": "i5fBOlVP3_k",
+    "title": "My Grandma",
+    "id": "1URdl-OFSBY",
     "game": "ww"
   },
   {
-    "title": "Pirate song",
-    "id": "nryXqGAUE5Q",
+    "title": "Departure",
+    "id": "O7eS12oQd6M",
     "game": "ww"
   },
   {
     "title": "Inside the Pirate Ship",
-    "id": "Qb9M4D-rwbQ",
+    "id": "kJXhpckq9o0",
     "game": "ww"
   },
   {
     "title": "Forsaken Fortress Invasion 1",
-    "id": "r2zvVXAkP34",
+    "id": "GNoR_J5zs9M",
     "game": "ww"
   },
   {
     "title": "Forsaken Fortress Invasion 2",
-    "id": "biq-_x_0Iks",
+    "id": "UobR8_MP_x4",
     "game": "ww"
   },
   {
     "title": "Forsaken Fortress",
-    "id": "XrMmuYq3Cms",
+    "id": "5JhZhjdyxfw",
     "game": "ww",
     "title_fr": "Forteresse Abandonnée"
   },
   {
+    "title": "Imprisonment",
+    "id": "4546uunk2S0",
+    "game": "ww"
+  },
+  {
+    "title": "Reunion With Sister",
+    "id": "BZ-FqImNKMM",
+    "game": "ww"
+  },
+  {
+    "title": "Rendezvous With the Ship 1",
+    "id": "VmnneXgyvpc",
+    "game": "ww"
+  },
+  {
     "title": "Rendezvous With the Ship 2",
-    "id": "o8OR_TM_H2I",
+    "id": "xRLORcUETXo",
     "game": "ww"
   },
   {
     "title": "Rendezvous With the Ship 3",
-    "id": "diElnbKVigQ",
+    "id": "NrSrqF_ACrU",
     "game": "ww"
   },
   {
     "title": "Windfall Island",
-    "id": "yiELF_3ecis",
+    "id": "0nryHcsDDjk",
     "game": "ww",
     "title_fr": "Île de Mercantile"
   },
   {
     "title": "Zunari's Store",
-    "id": "-cIlp2SwrO0",
+    "id": "a2j8CgJ5Da4",
+    "game": "ww"
+  },
+  {
+    "title": "Great Ocean",
+    "id": "1e12ca2ga_I",
     "game": "ww"
   },
   {
     "title": "Maritime Battle",
-    "id": "5m5R91wxKks",
+    "id": "Mw7tELPjXRs",
     "game": "ww"
   },
   {
-    "title": "2nd maritime battle",
-    "id": "gpI0cihSeHw",
+    "title": "The 2nd Maritime Battle",
+    "id": "CIGxhdK6vR4",
     "game": "ww"
   },
   {
     "title": "Get Treasure Box",
-    "id": "6FEackuUkXA",
+    "id": "O_N6NF8y1GM",
     "game": "ww"
   },
   {
     "title": "Open Treasure Box",
-    "id": "3IG-_RftdKg",
+    "id": "v8Q-L7h97B4",
     "game": "ww"
   },
   {
     "title": "Get Item",
-    "id": "hjvq5alBpOE",
+    "id": "3ONMuOt-Bto",
     "game": "ww"
   },
   {
     "title": "Get Small Item",
-    "id": "kU1RC9SQG1k",
+    "id": "clDTjRbYtqE",
     "game": "ww"
   },
   {
-    "title": "Mini-Boss Theme",
-    "id": "6Xlsy3cC03o",
+    "title": "Dragon Roost Island",
+    "id": "IeIndUhCSNU",
+    "game": "ww"
+  },
+  {
+    "title": "Dragon Roost Cavern",
+    "id": "84gtDe2nPPQ",
+    "game": "ww"
+  },
+  {
+    "title": "Mini Boss",
+    "id": "DEhJ2K7lOnQ",
     "game": "ww"
   },
   {
     "title": "Game Over",
-    "id": "6Y1ulG6-1qk",
+    "id": "v3ClO7ZGzrA",
     "game": "ww",
     "title_fr": "Partie terminée"
   },
   {
-    "title": "Wind's Requiem (baton)",
-    "id": "6ABVu0dTdPk",
+    "title": "Gohma Appears",
+    "id": "8O09CpNe5eg",
+    "game": "ww"
+  },
+  {
+    "title": "Gohma Battle (1st Half)",
+    "id": "P4gL2nOAhkw",
+    "game": "ww"
+  },
+  {
+    "title": "Gohma Battle (2nd Half)",
+    "id": "ftTqmpHSBX0",
+    "game": "ww"
+  },
+  {
+    "title": "Boss Clear Fanfare",
+    "id": "JXJ9m-1T6CA",
+    "game": "ww"
+  },
+  {
+    "title": "Get Heart Piece",
+    "id": "daKImm6XUNA",
+    "game": "ww"
+  },
+  {
+    "title": "Get Orb",
+    "id": "_F5V9bHZNPI",
+    "game": "ww"
+  },
+  {
+    "title": "Wind's Requiem (Baton)",
+    "id": "BO_rYbuh280",
     "game": "ww"
   },
   {
     "title": "Wind's Requiem",
-    "id": "4pbgj7LnGeM",
+    "id": "TsnGsmG5-jk",
     "game": "ww"
   },
   {
     "title": "Get Baton Song",
-    "id": "crP_MvCp614",
+    "id": "aKXfNWnlzOU",
     "game": "ww"
   },
   {
     "title": "Yacht Game",
-    "id": "6fioYUVa_KA",
+    "id": "n1-hiOVMv1w",
     "game": "ww"
   },
   {
     "title": "Yacht Game Goal",
-    "id": "vEEEDrMia3w",
+    "id": "xF-FrVKeAcM",
     "game": "ww"
   },
   {
     "title": "Yacht Game Failure",
-    "id": "w1Gzf-m8CEA",
-    "game": "ww"
-  },
-  {
-    "title": "Song of Passing (baton)",
-    "id": "ZVLLiqYrx3c",
+    "id": "i134k5IuqSU",
     "game": "ww"
   },
   {
     "title": "Song of Passing",
-    "id": "-9cQgR8fL7Y",
+    "id": "OpjOryJdAsk",
     "game": "ww"
   },
   {
     "title": "Forest Haven",
-    "id": "Z0ZciOIdMmI",
+    "id": "RznG9-lSqrA",
     "game": "ww"
   },
   {
     "title": "Inside Forest Haven",
-    "id": "4wqw4ckHgkw",
+    "id": "zzfxKdOG3L0",
     "game": "ww"
   },
   {
-    "title": "The Deku Tree and the Korok",
-    "id": "g9K-B8jqqSQ",
+    "title": "The Deku Tree's Crisis",
+    "id": "z_lQegrMHs0",
+    "game": "ww"
+  },
+  {
+    "title": "The Deku Tree and the Korogu",
+    "id": "7_MFwtMPbz4",
     "game": "ww"
   },
   {
     "title": "Forbidden Woods",
-    "id": "DAAbvxzaFqc",
+    "id": "ljp3APUluGM",
     "game": "ww",
     "title_fr": "Bois Interdit"
   },
   {
-    "title": "Song of the New Year's Ceremony",
-    "id": "vI3T1uUj6dU",
+    "title": "Kalle Demos Appears",
+    "id": "evCz5eoDLMA",
     "game": "ww"
   },
   {
-    "title": "Reunion with Sister",
-    "id": "SDT0gN_auKQ",
+    "title": "Kalle Demos",
+    "id": "_uWtihPi0gk",
     "game": "ww"
   },
   {
-    "title": "Command Melody (baton)",
-    "id": "NGXq5GgmRtI",
+    "title": "Ceremony In the Woods",
+    "id": "TFLxS2RHel8",
+    "game": "ww"
+  },
+  {
+    "title": "Song Of the New Year's Ceremony",
+    "id": "Vqf8-2YjpIw",
+    "game": "ww"
+  },
+  {
+    "title": "The Great Sea Is Cursed",
+    "id": "1n950C5ZMdI",
+    "game": "ww"
+  },
+  {
+    "title": "Sacred Shrine",
+    "id": "-yoqSiTTm84",
+    "game": "ww"
+  },
+  {
+    "title": "Jabun",
+    "id": "oeKqagERqgg",
+    "game": "ww"
+  },
+  {
+    "title": "Tower Of the Gods Appears",
+    "id": "8homSWPvt_8",
+    "game": "ww"
+  },
+  {
+    "title": "Tower Of the Gods",
+    "id": "zTpSm4Hn_2Q",
+    "game": "ww"
+  },
+  {
+    "title": "Command Melody",
+    "id": "-xMexw8Fu8g",
     "game": "ww"
   },
   {
     "title": "Gohdan Appears",
-    "id": "8k8pFt9caA4",
+    "id": "siHYYcz8p-A",
+    "game": "ww"
+  },
+  {
+    "title": "Gohdan",
+    "id": "8Vh1HanNwBs",
+    "game": "ww"
+  },
+  {
+    "title": "To Hyrule",
+    "id": "HgcbzCFn4HA",
     "game": "ww"
   },
   {
     "title": "Sealed Hyrule Castle",
-    "id": "19clVJgasWs",
+    "id": "fln17fWV_tE",
+    "game": "ww"
+  },
+  {
+    "title": "Get Master Sword",
+    "id": "ostl5OLmoHY",
     "game": "ww"
   },
   {
     "title": "Hyrule Castle",
-    "id": "p7te9iZcczc",
+    "id": "51KO5XNfNXU",
     "game": "ww"
   },
   {
-    "title": "The Tower of Forsaken Fortress",
-    "id": "aSd-ceaXPwI",
+    "title": "Phantom Ganon",
+    "id": "mVlen8pYGdE",
+    "game": "ww"
+  },
+  {
+    "title": "Aryll's Rescue 1",
+    "id": "AZGAu6la4x0",
+    "game": "ww"
+  },
+  {
+    "title": "Aryll's Rescue 2",
+    "id": "baambogOQmQ",
+    "game": "ww"
+  },
+  {
+    "title": "Aryll's Rescue 3",
+    "id": "gW8Zfy_3hrA",
+    "game": "ww"
+  },
+  {
+    "title": "Aryll's Rescue 4",
+    "id": "UAqFw2SwHpg",
+    "game": "ww"
+  },
+  {
+    "title": "Aryll's Rescue 5",
+    "id": "eNuG0DJLjj0",
+    "game": "ww"
+  },
+  {
+    "title": "The Tower Of Forsaken Fortress",
+    "id": "KGZE_WGqwDM",
+    "game": "ww"
+  },
+  {
+    "title": "Helmaroc King Appears",
+    "id": "-xbgpcXRDJI",
+    "game": "ww"
+  },
+  {
+    "title": "Helmaroc King",
+    "id": "9W1ZWOV7QHs",
+    "game": "ww"
+  },
+  {
+    "title": "Ganondorf On Forsaken Fortress",
+    "id": "3iWfTCJbb-g",
     "game": "ww"
   },
   {
     "title": "The Miracle Stone Shows One's True Nature",
-    "id": "w3Sv7AfTQXc",
+    "id": "QrXAjxYFb10",
+    "game": "ww"
+  },
+  {
+    "title": "Hyrule King Appears",
+    "id": "3Gd8IIWWMAI",
+    "game": "ww"
+  },
+  {
+    "title": "Zelda's Awakening",
+    "id": "axYB5ANUrwY",
+    "game": "ww"
+  },
+  {
+    "title": "Princess Zelda's Theme",
+    "id": "MSqszMgWB3E",
+    "game": "ww"
+  },
+  {
+    "title": "Ballad Of Gales",
+    "id": "CvojgSz7154",
+    "game": "ww"
+  },
+  {
+    "title": "Fairy Spring",
+    "id": "EYOhZ_L2H3s",
     "game": "ww"
   },
   {
     "title": "The Fairy Queen",
-    "id": "2D9Rvv7uAII",
+    "id": "QxoSxjH1Ug4",
+    "game": "ww"
+  },
+  {
+    "title": "Dungeon",
+    "id": "GXXfmX59o2c",
+    "game": "ww"
+  },
+  {
+    "title": "Earth God's Lyric",
+    "id": "Bgo5vPHNm8c",
+    "game": "ww"
+  },
+  {
+    "title": "Sage Raruto",
+    "id": "Ne0SXD_kSnA",
     "game": "ww"
   },
   {
     "title": "Medli's Awakening",
-    "id": "O1ZthAQ_k7w",
+    "id": "cVeg7QOR7xA",
     "game": "ww"
   },
   {
     "title": "Earth Temple",
-    "id": "sb_IyKd8jVw",
+    "id": "LWklgbpqxvc",
     "game": "ww",
     "title_fr": "Temple de la Terre"
   },
   {
+    "title": "Jalhalla",
+    "id": "2Tj-scI39CY",
+    "game": "ww"
+  },
+  {
     "title": "Medli's Prayer",
-    "id": "YX39-JERWPE",
+    "id": "J1L64cyaC7c",
+    "game": "ww"
+  },
+  {
+    "title": "Wind God's Aria",
+    "id": "oe-0BPpFgsk",
+    "game": "ww"
+  },
+  {
+    "title": "Sage Fodo",
+    "id": "iGe5FdelxMQ",
+    "game": "ww"
+  },
+  {
+    "title": "Makar's Awakening",
+    "id": "8eCBngX7xvs",
+    "game": "ww"
+  },
+  {
+    "title": "Wind Temple",
+    "id": "BbkLwohivpQ",
+    "game": "ww"
+  },
+  {
+    "title": "Molgera Appears",
+    "id": "UjdONfgSLWo",
+    "game": "ww"
+  },
+  {
+    "title": "Molgera",
+    "id": "gMxBXqX7nYo",
     "game": "ww"
   },
   {
     "title": "Makar's Prayer",
-    "id": "e2NibXBCw7M",
+    "id": "2wtjsB3rm3U",
+    "game": "ww"
+  },
+  {
+    "title": "Hero Of the Wind",
+    "id": "Drz9NxbjLos",
     "game": "ww"
   },
   {
     "title": "Ganon's Castle",
-    "id": "3JGXHHfIdAw",
+    "id": "d7hfKpgDDLI",
+    "game": "ww"
+  },
+  {
+    "title": "Gohma, First Half (2nd Time)",
+    "id": "vj0Ym6NgJO8",
+    "game": "ww"
+  },
+  {
+    "title": "Gohma, Second Half (2nd Time)",
+    "id": "AMwdBI_I8Lg",
+    "game": "ww"
+  },
+  {
+    "title": "Kalle Demos (2nd Time)",
+    "id": "C50fZpqL44g",
+    "game": "ww"
+  },
+  {
+    "title": "Jalhalla (2nd Time)",
+    "id": "crvsUXN5es8",
+    "game": "ww"
+  },
+  {
+    "title": "Molgera (2nd Time)",
+    "id": "fk8jeKuMdFo",
+    "game": "ww"
+  },
+  {
+    "title": "Illusionary Room",
+    "id": "TciMrU9m1Z0",
+    "game": "ww"
+  },
+  {
+    "title": "Puppet Ganon (1st Half)",
+    "id": "-y66UxRGRQY",
+    "game": "ww"
+  },
+  {
+    "title": "Puppet Ganon (Puppet Mode)",
+    "id": "tfF-Em_ipyo",
+    "game": "ww"
+  },
+  {
+    "title": "Puppet Ganon (Transformation)",
+    "id": "CWwYfheVcNY",
+    "game": "ww"
+  },
+  {
+    "title": "Puppet Ganon (Spider Mode)",
+    "id": "uezOzalmGUY",
+    "game": "ww"
+  },
+  {
+    "title": "Puppet Ganon (Snake Mode)",
+    "id": "Jor1c5lptXQ",
+    "game": "ww"
+  },
+  {
+    "title": "Puppet Ganon (2nd Half)",
+    "id": "hPA0ElpLPXI",
+    "game": "ww"
+  },
+  {
+    "title": "Ganondorf Battle (1st Half)",
+    "id": "WiIpysb1um4",
+    "game": "ww"
+  },
+  {
+    "title": "Ganondorf Battle",
+    "id": "h1nGtHipp70",
     "game": "ww",
-    "title_fr": "Château de Ganon"
+    "title_fr": "Combat contre Ganondorf"
   },
   {
-    "title": "Gohma First Half (Second Time)",
-    "id": "Li82-9TTXA4",
+    "title": "Farewell, Hyrule King",
+    "id": "gDngL2Sf3M0",
     "game": "ww"
   },
   {
-    "title": "Puppet Ganon (puppet mode)",
-    "id": "1zlO3ptU7_k",
-    "game": "ww"
+    "title": "Ending",
+    "id": "4zOKatAfXaU",
+    "game": "ww",
+    "title_fr": "Fin"
   },
   {
     "title": "Staff Credits",
-    "id": "0lH3PRinZn4",
+    "id": "1C3g2vYRsKY",
     "game": "ww",
     "title_fr": "Générique de fin"
+  },
+  {
+    "title": "Epilogue",
+    "id": "JT12iEBs6fM",
+    "game": "ww",
+    "title_fr": "Épilogue"
+  },
+  {
+    "title": "Aryll's Theme",
+    "id": "RO4y1e_hvGI",
+    "game": "ww"
+  },
+  {
+    "title": "Game Demo",
+    "id": "VmV5zIguE7M",
+    "game": "ww"
   }
 ]
