@@ -10,7 +10,7 @@ const rooms = new Map(); // code -> room
 function makeRoomCode() {
   let code;
   do {
-    code = Array.from({ length: 5 }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join('');
+    code = Array.from({ length: 4 }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join('');
   } while (rooms.has(code));
   return code;
 }
@@ -285,6 +285,18 @@ wss.on('connection', (ws) => {
     if (msg.type === 'setSyncMode' && player.id === room.hostId) {
       room.syncMode = !!msg.enabled;
       broadcast(room, { type: 'syncMode', enabled: room.syncMode });
+      return;
+    }
+
+    if (msg.type === 'lobbySettings' && player.id === room.hostId && !room.started) {
+      broadcast(room, {
+        type: 'lobbySettings',
+        selectedGames: Array.isArray(msg.selectedGames) ? msg.selectedGames.slice(0, 50).map(String) : [],
+        selectedMode: msg.selectedMode,
+        customCount: msg.customCount,
+        answerMode: msg.answerMode,
+        settings: msg.settings && typeof msg.settings === 'object' ? msg.settings : {},
+      });
       return;
     }
 

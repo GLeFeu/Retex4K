@@ -2237,6 +2237,9 @@ function mpHandleMessage(msg) {
       el.mpSyncToggle.textContent = mpSyncMode ? t('mp_sync_on') : t('mp_sync_off');
       el.mpSyncToggle.classList.toggle('selected', mpSyncMode);
       break;
+    case 'lobbySettings':
+      if (!mpIsHost) mpApplyLobbySettingsPreview(msg);
+      break;
     case 'gameOver':
       mpPlayers = msg.players || mpPlayers;
       mpHandleGameOver();
@@ -2251,6 +2254,97 @@ function mpHandleMessage(msg) {
 function mpShowJoinCreateForm() {
   el.mpJoinCreate.hidden = false;
   el.mpLobby.hidden = true;
+}
+
+/* ---------- Lobby settings preview: the host's setup choices (games, mode,
+   Défi/Handicap) are broadcast live to the room so guests can see what will
+   be played before the host hits Start, instead of finding out after. ---------- */
+
+let mpLobbySettingsDebounceId = null;
+
+function mpBroadcastLobbySettings() {
+  if (!mpRoom || !mpIsHost || mpActive) return;
+  mpSend({
+    type: 'lobbySettings',
+    selectedGames: Array.from(selectedGames),
+    selectedMode,
+    customCount: el.customCount.value,
+    answerMode,
+    settings: {
+      durationMs: getRoundDurationMs(),
+      answerCount: getAnswerCount(),
+      writeTitleMode,
+      guessGameMode,
+      handicapShowGameLabel,
+      handicapGameHint,
+      clipChallenge,
+    },
+  });
+}
+
+function mpQueueLobbySettingsBroadcast() {
+  clearTimeout(mpLobbySettingsDebounceId);
+  mpLobbySettingsDebounceId = setTimeout(mpBroadcastLobbySettings, 30);
+}
+
+document.addEventListener('click', () => {
+  if (mpRoom && mpIsHost && !mpActive) mpQueueLobbySettingsBroadcast();
+});
+document.addEventListener('input', () => {
+  if (mpRoom && mpIsHost && !mpActive) mpQueueLobbySettingsBroadcast();
+});
+
+function mpApplyLobbySettingsPreview(msg) {
+  selectedGames = new Set(msg.selectedGames || []);
+  selectedMode = msg.selectedMode || 'all';
+  el.modeMenu.querySelectorAll('.menu-option').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.mode === selectedMode);
+  });
+  if (msg.customCount) el.customCount.value = msg.customCount;
+
+  answerMode = msg.answerMode === 'visual' ? 'visual' : 'text';
+  el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
+  });
+
+  const s = msg.settings || {};
+  writeTitleMode = !!s.writeTitleMode;
+  guessGameMode = !!s.guessGameMode;
+  handicapShowGameLabel = !!s.handicapShowGameLabel;
+  handicapGameHint = !!s.handicapGameHint;
+  clipChallenge = !!s.clipChallenge;
+  answerCountOverride = s.answerCount && s.answerCount !== 4 ? s.answerCount : null;
+  timeChallenge = Object.keys(ROUND_DURATIONS_BY_KEY).find((k) => ROUND_DURATIONS_BY_KEY[k] === s.durationMs) || null;
+
+  TIME_KEYS.forEach((key) => {
+    const btn = getModifierToggle(key);
+    if (btn) btn.classList.toggle('selected', timeChallenge === key);
+  });
+  MINI_COUNT_KEYS.forEach((key) => {
+    const btn = getModifierToggle(key);
+    if (btn) btn.classList.toggle('selected', answerCountOverride === COUNT_VALUES[key]);
+  });
+  el.challengeMenu.querySelectorAll('.menu-option').forEach((btn) => {
+    const key = btn.dataset.challenge;
+    let active = false;
+    if (key === 'clip1s') active = clipChallenge;
+    else if (key === 'writeTitle') active = writeTitleMode;
+    else if (key === 'guessGame') active = guessGameMode;
+    btn.classList.toggle('selected', active);
+  });
+  el.handicapMenu.querySelectorAll('.menu-option').forEach((btn) => {
+    const key = btn.dataset.handicap;
+    let active = false;
+    if (key === 'showGameLabel') active = handicapShowGameLabel;
+    else if (key === 'gameHint') active = handicapGameHint;
+    btn.classList.toggle('selected', active);
+  });
+
+  renderGameMenu();
+  updateTotalCount();
+  updateTimeEstimate();
+  updateScoreMultiplierDisplay();
+  updateMainTitle();
 }
 
 function mpShowLobby() {
