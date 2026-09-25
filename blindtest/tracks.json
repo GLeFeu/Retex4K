@@ -7978,5 +7978,1698 @@
     "id": "mdrxd6ojWXo",
     "game": "tfh",
     "title_fr": "Générique de fin"
+  },
+  {
+    "title": "Main Theme",
+    "id": "SM4QwUlxY6M",
+    "game": "botw",
+    "title_fr": "Thème principal"
+  },
+  {
+    "title": "Field - Day",
+    "id": "xGi23M_5lXg",
+    "game": "botw"
+  },
+  {
+    "title": "Field Battle",
+    "id": "CeT4_y9iXvc",
+    "game": "botw"
+  },
+  {
+    "title": "Shrine",
+    "id": "4IakZtHzBL8",
+    "game": "botw"
+  },
+  {
+    "title": "Shrine Battle",
+    "id": "1fMi247Klsk",
+    "game": "botw"
+  },
+  {
+    "title": "Riding - Day",
+    "id": "FhXoJKoUuXE",
+    "game": "botw"
+  },
+  {
+    "title": "Riding - Night",
+    "id": "f2LgPr9xtAo",
+    "game": "botw"
+  },
+  {
+    "title": "Temple Of Time",
+    "id": "L1igglghRW8",
+    "game": "botw"
+  },
+  {
+    "title": "Guardian Battle",
+    "id": "Brf5w1hFNlw",
+    "game": "botw"
+  },
+  {
+    "title": "Talus Battle",
+    "id": "z2vaSlpliEs",
+    "game": "botw"
+  },
+  {
+    "title": "Hinox Battle",
+    "id": "jv487XpKudE",
+    "game": "botw"
+  },
+  {
+    "title": "Stables",
+    "id": "IhdibdC4azQ",
+    "game": "botw"
+  },
+  {
+    "title": "Kakariko Village - Night",
+    "id": "RRtG3qz-Hjo",
+    "game": "botw"
+  },
+  {
+    "title": "Rito Village - Day",
+    "id": "Nlg43w1aK8M",
+    "game": "botw"
+  },
+  {
+    "title": "Rito Sisters",
+    "id": "9oRY40Xj8Dw",
+    "game": "botw"
+  },
+  {
+    "title": "Teba's Theme",
+    "id": "6nDdUf9Ot8M",
+    "game": "botw"
+  },
+  {
+    "title": "Revali's Theme",
+    "id": "3OdfEL2a_LY",
+    "game": "botw"
+  },
+  {
+    "title": "Rito Village - Night",
+    "id": "EUbS2LLmdX8",
+    "game": "botw"
+  },
+  {
+    "title": "Goron City - Day",
+    "id": "8J7dNNPxU4w",
+    "game": "botw"
+  },
+  {
+    "title": "Yunobo's Theme",
+    "id": "xKtvuxWwV98",
+    "game": "botw"
+  },
+  {
+    "title": "Daruk's Theme",
+    "id": "Uj36pdFItB4",
+    "game": "botw"
+  },
+  {
+    "title": "Goron City - Night",
+    "id": "2P3Ds86Xg94",
+    "game": "botw"
+  },
+  {
+    "title": "Zora's Domain - Day",
+    "id": "Ud9ktw40mPQ",
+    "game": "botw"
+  },
+  {
+    "title": "Prince Sidon",
+    "id": "R4ZkklcIfTo",
+    "game": "botw"
+  },
+  {
+    "title": "Mipha's Theme",
+    "id": "W65cdepG8Q0",
+    "game": "botw"
+  },
+  {
+    "title": "Zora's Domain - Night",
+    "id": "cHcLOLJHlMY",
+    "game": "botw"
+  },
+  {
+    "title": "Gerudo Town - Day",
+    "id": "oad-1DT5z9I",
+    "game": "botw"
+  },
+  {
+    "title": "Urbosa's Theme",
+    "id": "qgwNJbmOr4M",
+    "game": "botw"
+  },
+  {
+    "title": "Riju's Theme",
+    "id": "hHUasJfoks8",
+    "game": "botw"
+  },
+  {
+    "title": "Gerudo Town - Night",
+    "id": "Dqin32STHd8",
+    "game": "botw"
+  },
+  {
+    "title": "Riju's Thunder Barrier",
+    "id": "mWc9hFF1Dn4",
+    "game": "botw"
+  },
+  {
+    "title": "Akkala Ancient Laboratory",
+    "id": "Q3CJ0tUevxQ",
+    "game": "botw"
+  },
+  {
+    "title": "Yiga Clan Base",
+    "id": "_rwV0y6mPRM",
+    "game": "botw"
+  },
+  {
+    "title": "Master Kohga's Theme",
+    "id": "M6XVZvStfVA",
+    "game": "botw"
+  },
+  {
+    "title": "Master Kohga Battle",
+    "id": "jyVX-s5YC3g",
+    "game": "botw"
+  },
+  {
+    "title": "Field - Night",
+    "id": "30IJlmCOVTE",
+    "game": "botw"
+  },
+  {
+    "title": "Cave Theme",
+    "id": "qtCWgWUhA8s",
+    "game": "botw"
+  },
+  {
+    "title": "House Theme",
+    "id": "5rxX17lcQdI",
+    "game": "botw"
+  },
+  {
+    "title": "Mount Hylia",
+    "id": "bcfnt37J1nQ",
+    "game": "botw"
+  },
+  {
+    "title": "Colosseum Ruins",
+    "id": "qX-igRmy7wA",
+    "game": "botw"
+  },
+  {
+    "title": "Death Mountain",
+    "id": "RvSP7eUNH-A",
+    "game": "botw"
+  },
+  {
+    "title": "Gerudo Canyon",
+    "id": "sVge8Cw5MfY",
+    "game": "botw"
+  },
+  {
+    "title": "Kara Kara Bazaar",
+    "id": "Tps4EqjLyiQ",
+    "game": "botw"
+  },
+  {
+    "title": "Great Fairy Fountain",
+    "id": "vQf36-oa6p0",
+    "game": "botw"
+  },
+  {
+    "title": "Flight Range",
+    "id": "nW6cSrNAkdM",
+    "game": "botw"
+  },
+  {
+    "title": "Flight Training",
+    "id": "ZDfKFwut7Ig",
+    "game": "botw"
+  },
+  {
+    "title": "Tarrey Town",
+    "id": "2pGapEXcn30",
+    "game": "botw"
+  },
+  {
+    "title": "Tarrey Town - Goron",
+    "id": "LhC1jrDrbcg",
+    "game": "botw"
+  },
+  {
+    "title": "Tarrey Town - Gerudo",
+    "id": "1tGkpa2MviY",
+    "game": "botw"
+  },
+  {
+    "title": "Tarrey Town - Rito",
+    "id": "Urkt7b3XgrE",
+    "game": "botw"
+  },
+  {
+    "title": "Tarrey Town - Zora",
+    "id": "VY7ilFFDIs8",
+    "game": "botw"
+  },
+  {
+    "title": "Hudson's Marriage",
+    "id": "b5JRBfVYnV8",
+    "game": "botw"
+  },
+  {
+    "title": "Tarrey Town - Married",
+    "id": "Z93-mZPjhH4",
+    "game": "botw"
+  },
+  {
+    "title": "Hudson Moves Out",
+    "id": "-b073c0C-v4",
+    "game": "botw"
+  },
+  {
+    "title": "Hateno Ancient Laboratory",
+    "id": "gCToT5LL6Cc",
+    "game": "botw"
+  },
+  {
+    "title": "The Last King Of Hyrule",
+    "id": "gDnyyAAVabI",
+    "game": "botw"
+  },
+  {
+    "title": "A King's Request",
+    "id": "bZJ5Id5GhHE",
+    "game": "botw"
+  },
+  {
+    "title": "Hyrule Castle",
+    "id": "MgK_OfW7nl4",
+    "game": "botw",
+    "title_fr": "Château d'Hyrule"
+  },
+  {
+    "title": "Hyrule Castle Town",
+    "id": "O1qckxPTpsg",
+    "game": "botw"
+  },
+  {
+    "title": "Hyrule Castle Interior",
+    "id": "pZaqDYrvoMA",
+    "game": "botw"
+  },
+  {
+    "title": "Kilton's Shop",
+    "id": "gbrzhKt3rrQ",
+    "game": "botw"
+  },
+  {
+    "title": "Hateno Village",
+    "id": "Uj07-YU5cTk",
+    "game": "botw"
+  },
+  {
+    "title": "The Great Deku Tree",
+    "id": "OkNYZyvA-v8",
+    "game": "botw"
+  },
+  {
+    "title": "Lon Lon Ranch",
+    "id": "m8DLTt5r10M",
+    "game": "botw"
+  },
+  {
+    "title": "North Mine",
+    "id": "XZJhKfcsOVw",
+    "game": "botw"
+  },
+  {
+    "title": "Observation Post",
+    "id": "XyYbMQ_Igpk",
+    "game": "botw"
+  },
+  {
+    "title": "Sheikah Tower Activated",
+    "id": "OCPQD4sD8F8",
+    "game": "botw"
+  },
+  {
+    "title": "Sheikah Tower",
+    "id": "uRehSSs6JyY",
+    "game": "botw"
+  },
+  {
+    "title": "Impa's Theme",
+    "id": "TGxjS0i8-Fw",
+    "game": "botw"
+  },
+  {
+    "title": "Lurelin Village",
+    "id": "2H84NHErkHE",
+    "game": "botw"
+  },
+  {
+    "title": "Seaside",
+    "id": "vLtWKvEKXPo",
+    "game": "botw"
+  },
+  {
+    "title": "Animal Master",
+    "id": "u2XfFfGIKt8",
+    "game": "botw"
+  },
+  {
+    "title": "Maze Forest",
+    "id": "I6fPF2EcDKQ",
+    "game": "botw"
+  },
+  {
+    "title": "Malanya's Theme",
+    "id": "mfHqSzUODLw",
+    "game": "botw"
+  },
+  {
+    "title": "Purified Dragon",
+    "id": "IDCctvADCQI",
+    "game": "botw"
+  },
+  {
+    "title": "Corrupted Dragon",
+    "id": "0zLDAHkPxpc",
+    "game": "botw"
+  },
+  {
+    "title": "Molduga Battle",
+    "id": "1JgJR4iy7wc",
+    "game": "botw"
+  },
+  {
+    "title": "Stationary Guardian Battle",
+    "id": "wUzwltz02So",
+    "game": "botw"
+  },
+  {
+    "title": "10,000 Year Legend",
+    "id": "EMfK82oSLkI",
+    "game": "botw"
+  },
+  {
+    "title": "Divine Beast Vah Naboris",
+    "id": "rR7bCi9Hqrg",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Naboris Shrine A",
+    "id": "RxshKXFqqlg",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Naboris Shrine B",
+    "id": "qiSGQZknhl8",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Naboris Shrine Z",
+    "id": "4SQf6XAq4fQ",
+    "game": "botw"
+  },
+  {
+    "title": "Thunderblight Ganon Battle",
+    "id": "J21hyL_92Ew",
+    "game": "botw"
+  },
+  {
+    "title": "Divine Beast Vah Rudania",
+    "id": "4KCOe5mG5rE",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Rudania Shrine A",
+    "id": "IEhBAsr843E",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Rudania Shrine B",
+    "id": "mZUTqamyq5M",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Rudania Shrine Z",
+    "id": "-lbtK1ZtonA",
+    "game": "botw"
+  },
+  {
+    "title": "Fireblight Ganon Battle",
+    "id": "7MvFUy8lqzw",
+    "game": "botw"
+  },
+  {
+    "title": "Divine Beast Vah Ruta",
+    "id": "KOMYg72o3OI",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Ruta Shrine A",
+    "id": "r-bbLaKuDtg",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Ruta Shrine B",
+    "id": "2_eFW5hUE4M",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Ruta Shrine Z",
+    "id": "p7-XrmFEpGw",
+    "game": "botw"
+  },
+  {
+    "title": "Waterblight Ganon Battle",
+    "id": "clGPmU9CY6E",
+    "game": "botw"
+  },
+  {
+    "title": "Divine Beast Vah Medoh",
+    "id": "R4S-kn6v5I8",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Medoh Shrine A",
+    "id": "KetcmJhg1Lk",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Medoh Shrine B",
+    "id": "Pv3VxpKlXiU",
+    "game": "botw"
+  },
+  {
+    "title": "Vah Medoh Shrine Z",
+    "id": "QWi0DObOxto",
+    "game": "botw"
+  },
+  {
+    "title": "Windblight Ganon Battle",
+    "id": "IJeFYZNfHpw",
+    "game": "botw"
+  },
+  {
+    "title": "Omen Of The Bloody Moon",
+    "id": "uAxD8-_6_rs",
+    "game": "botw"
+  },
+  {
+    "title": "Corrupted Ganon Battle",
+    "id": "Ygt7P2WEIqs",
+    "game": "botw"
+  },
+  {
+    "title": "The Divine Beasts Strike",
+    "id": "OOGDP-s1ykM",
+    "game": "botw"
+  },
+  {
+    "title": "Dark Beast Ganon Phase 1",
+    "id": "_GZ27lgqmQM",
+    "game": "botw"
+  },
+  {
+    "title": "Dark Beast Ganon Phase 2",
+    "id": "AzE0EgM_zVY",
+    "game": "botw"
+  },
+  {
+    "title": "Dark Beast Ganon Phase 3",
+    "id": "CiknmWWXnW4",
+    "game": "botw"
+  },
+  {
+    "title": "Calamity Ganon Phase 1",
+    "id": "RhKROT_P7xo",
+    "game": "botw"
+  },
+  {
+    "title": "Calamity Ganon Phase 2",
+    "id": "aYOpjK1ZriI",
+    "game": "botw"
+  },
+  {
+    "title": "Ganon Vanquished",
+    "id": "e2vVWxTBCbQ",
+    "game": "botw"
+  },
+  {
+    "title": "Gaman Contest",
+    "id": "aTDQCIt2AbM",
+    "game": "botw"
+  },
+  {
+    "title": "Get Trophy",
+    "id": "9rDeef9NdEg",
+    "game": "botw"
+  },
+  {
+    "title": "Get Master Sword",
+    "id": "kUWXrGqpWtI",
+    "game": "botw"
+  },
+  {
+    "title": "Minigame - Hunt",
+    "id": "Z3MLMn4Xl7M",
+    "game": "botw"
+  },
+  {
+    "title": "Minigame - Parasail",
+    "id": "5vwWFYy9UA0",
+    "game": "botw"
+  },
+  {
+    "title": "Race Fanfare",
+    "id": "at7_dq8NKwE",
+    "game": "botw"
+  },
+  {
+    "title": "Minigame - Race",
+    "id": "tB2RSyZjG8M",
+    "game": "botw"
+  },
+  {
+    "title": "Snowling",
+    "id": "nVcJYYF0EA4",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories",
+    "id": "CWutV6yO7Wo",
+    "game": "botw"
+  },
+  {
+    "title": "Remember",
+    "id": "QijAvK_k4U8",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - Subdued Ceremony",
+    "id": "4bDmgFdaFP0",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - Blades Of The Yiga",
+    "id": "qkNgAi5NH-w",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - Resolve & Grief",
+    "id": "_O8XBaIwUBs",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - Slumbering Power",
+    "id": "KV1ce9CfxyY",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - Urbosa's Hand",
+    "id": "NdxJlRbJzSU",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - The Master Sword",
+    "id": "tMVEf7Supw8",
+    "game": "botw"
+  },
+  {
+    "title": "Visions",
+    "id": "ycwVCiWZvC4",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - The Silent Princess",
+    "id": "GCe7noVKujg",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - To Mount Lanayru",
+    "id": "Wp4ggZlVx-A",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - Father & Daughter",
+    "id": "7wBavJFJaD0",
+    "game": "botw"
+  },
+  {
+    "title": "Link's Memories - Daruk's Mettle",
+    "id": "CGoVFVt4h2M",
+    "game": "botw"
+  },
+  {
+    "title": "Credits",
+    "id": "FRWCeG58Gw8",
+    "game": "botw",
+    "title_fr": "Générique"
+  },
+  {
+    "title": "Epilogue",
+    "id": "Yx45D7T6HZU",
+    "game": "botw",
+    "title_fr": "Épilogue"
+  },
+  {
+    "title": "Prologue (Full)",
+    "id": "eixCQjX_fUI",
+    "game": "totk"
+  },
+  {
+    "title": "Title",
+    "id": "vzRnMmAfUv0",
+    "game": "totk",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Field (Sky) ~ High Altitude",
+    "id": "6peV7ynyT7A",
+    "game": "totk"
+  },
+  {
+    "title": "Temple of Time",
+    "id": "GRMxu7DlTu8",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Sky)",
+    "id": "tU-eRzqsWRA",
+    "game": "totk"
+  },
+  {
+    "title": "Shrine (Full)",
+    "id": "raL-hoxsfJ0",
+    "game": "totk"
+  },
+  {
+    "title": "Rauru's Guidance",
+    "id": "DGo-ODTObsw",
+    "game": "totk"
+  },
+  {
+    "title": "Field Battle (Fierce)",
+    "id": "g0Z153pdTcg",
+    "game": "totk"
+  },
+  {
+    "title": "Cave (Day)",
+    "id": "cj_TELMqNgw",
+    "game": "totk"
+  },
+  {
+    "title": "Cave (Night)",
+    "id": "OBo13JQOfug",
+    "game": "totk"
+  },
+  {
+    "title": "Flux Construct Battle (Full)",
+    "id": "gGMLPx9HGLY",
+    "game": "totk"
+  },
+  {
+    "title": "Diving Through the Sky",
+    "id": "gpimcNnisjM",
+    "game": "totk"
+  },
+  {
+    "title": "Arrival in Hyrule Kingdom",
+    "id": "x6ns6pt_sI8",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Day)",
+    "id": "4E33jCT9ZZo",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Night)",
+    "id": "vB5DMmjZJM8",
+    "game": "totk"
+  },
+  {
+    "title": "Boss Bokoblin Battle (Field)",
+    "id": "dLnYiyIWJB4",
+    "game": "totk"
+  },
+  {
+    "title": "Lookout Landing",
+    "id": "Qg--hvcna0k",
+    "game": "totk"
+  },
+  {
+    "title": "Hyrule Castle (Ground)",
+    "id": "0bBjYc4pfnc",
+    "game": "totk"
+  },
+  {
+    "title": "Skyview Tower Scan (First Tower)",
+    "id": "EtMPPbiIRYs",
+    "game": "totk"
+  },
+  {
+    "title": "Skyview Tower Launch",
+    "id": "oDyhYms-6Qc",
+    "game": "totk"
+  },
+  {
+    "title": "Hyrule Castle (Sky)",
+    "id": "KiDyUeCwy-8",
+    "game": "totk"
+  },
+  {
+    "title": "Riding (Day)",
+    "id": "IE_Yh41AzuQ",
+    "game": "totk"
+  },
+  {
+    "title": "Riding (Night)",
+    "id": "aznLTBeVVg4",
+    "game": "totk"
+  },
+  {
+    "title": "Field Battle (Cave)",
+    "id": "TsFls12Ij9g",
+    "game": "totk"
+  },
+  {
+    "title": "Stable",
+    "id": "0EwLgtFx-bQ",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Cave)",
+    "id": "HoQ6NsyGYXQ",
+    "game": "totk"
+  },
+  {
+    "title": "Blessing Shrine",
+    "id": "9md7Vqq5oG0",
+    "game": "totk"
+  },
+  {
+    "title": "Skyview Tower",
+    "id": "YAQZmskWui4",
+    "game": "totk"
+  },
+  {
+    "title": "Skyview Tower Scan",
+    "id": "kNTX6_ypsZU",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Sky) ~ Low Altitude",
+    "id": "33ECDudGsEk",
+    "game": "totk"
+  },
+  {
+    "title": "Skydiving Minigame",
+    "id": "B9W6JtE_WWE",
+    "game": "totk"
+  },
+  {
+    "title": "Ability Minigame",
+    "id": "igR2AJ6WjKg",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Ruins)",
+    "id": "8m9RDXld40s",
+    "game": "totk"
+  },
+  {
+    "title": "Diving Through the Depths",
+    "id": "fjGrLvVBzlY",
+    "game": "totk"
+  },
+  {
+    "title": "Arrival in the Depths",
+    "id": "QtS7iYPUWHQ",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Depths)",
+    "id": "x18TuzB6b6s",
+    "game": "totk"
+  },
+  {
+    "title": "Field Battle (Depths)",
+    "id": "n8YAKoNrBs4",
+    "game": "totk"
+  },
+  {
+    "title": "Field Battle (Fierce | Cave / Depths)",
+    "id": "dGpiULmOtZc",
+    "game": "totk"
+  },
+  {
+    "title": "Lightroot",
+    "id": "mXMhMskGjFg",
+    "game": "totk"
+  },
+  {
+    "title": "Frox Battle (Full)",
+    "id": "e03ofbkAN7s",
+    "game": "totk"
+  },
+  {
+    "title": "Abandoned Mine",
+    "id": "0QcBlowL28c",
+    "game": "totk"
+  },
+  {
+    "title": "Encounter With Master Kohga",
+    "id": "a3dixjcGytc",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Freezing Cold)",
+    "id": "uJmcJuuDY50",
+    "game": "totk"
+  },
+  {
+    "title": "House",
+    "id": "q2RjrO0azbw",
+    "game": "totk"
+  },
+  {
+    "title": "Lucky Clover Gazette",
+    "id": "9cKSC5a2el4",
+    "game": "totk"
+  },
+  {
+    "title": "Crisis at Rito Village",
+    "id": "-ADBMfSD4UM",
+    "game": "totk"
+  },
+  {
+    "title": "The Stolen Bow",
+    "id": "_W-0wlFArFA",
+    "game": "totk"
+  },
+  {
+    "title": "Harth's Here to Help!",
+    "id": "_BbEr2l67VU",
+    "game": "totk"
+  },
+  {
+    "title": "Tulin's Realization",
+    "id": "YNAxYaLPplc",
+    "game": "totk"
+  },
+  {
+    "title": "Tulin's Mission",
+    "id": "WcxvRy_mQoA",
+    "game": "totk"
+  },
+  {
+    "title": "Rising Island Chain",
+    "id": "EnJF-eF-zPM",
+    "game": "totk"
+  },
+  {
+    "title": "Diving to the Wind Temple",
+    "id": "7RAby4cDS08",
+    "game": "totk"
+  },
+  {
+    "title": "Wind Temple ~ The Legendary Stormwind Ark (Full)",
+    "id": "v_K4N6Jxqcg",
+    "game": "totk"
+  },
+  {
+    "title": "Battle (Temple)",
+    "id": "nc3uEBKxdog",
+    "game": "totk"
+  },
+  {
+    "title": "Colgera Battle (Full)",
+    "id": "Qgez3yzhSC0",
+    "game": "totk"
+  },
+  {
+    "title": "The Sage's Tale",
+    "id": "9L28pMWQvkY",
+    "game": "totk"
+  },
+  {
+    "title": "The Sage's Request",
+    "id": "nX6gDi_xrns",
+    "game": "totk"
+  },
+  {
+    "title": "Tulin, Sage of Wind [Low SFX Extended Theme]",
+    "id": "f5HxXgv06Q8",
+    "game": "totk"
+  },
+  {
+    "title": "A Heart Container Appears",
+    "id": "UYLc0vGok48",
+    "game": "totk"
+  },
+  {
+    "title": "Rito Village (Day)",
+    "id": "sl1hkBe121Y",
+    "game": "totk"
+  },
+  {
+    "title": "Rito Village (Night)",
+    "id": "lQt8YPAmnSE",
+    "game": "totk"
+  },
+  {
+    "title": "Flying Minigame",
+    "id": "DErPbX79vrk",
+    "game": "totk"
+  },
+  {
+    "title": "Gleeok Battle (Full)",
+    "id": "IjXRkaAvjTk",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Rocky Area)",
+    "id": "ReSkzl5n-_o",
+    "game": "totk"
+  },
+  {
+    "title": "Bedrock Bistro",
+    "id": "F898D9tMbrk",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Scorching Heat)",
+    "id": "zd1disbcbiI",
+    "game": "totk"
+  },
+  {
+    "title": "Crisis at Goron City",
+    "id": "7AlcZfVy9l4",
+    "game": "totk"
+  },
+  {
+    "title": "YunoboCo HQ",
+    "id": "cKn2Z9j16Zw",
+    "game": "totk"
+  },
+  {
+    "title": "Yunobo Battle (Full) ~ Clearly Not Himself",
+    "id": "aJ0KmCuyYIo",
+    "game": "totk"
+  },
+  {
+    "title": "Back to Normal, Goro",
+    "id": "5mF0juhb7SM",
+    "game": "totk"
+  },
+  {
+    "title": "Yunobo's Mystery",
+    "id": "PZ5bKW3rvAM",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Mountain)",
+    "id": "H3cFQB-FrEc",
+    "game": "totk"
+  },
+  {
+    "title": "Moragia Battle",
+    "id": "J0oKBEi6ug0",
+    "game": "totk"
+  },
+  {
+    "title": "Fire Temple ~ Lost Gorondia Rediscovered (Full)",
+    "id": "Wen3hZTNzno",
+    "game": "totk"
+  },
+  {
+    "title": "Marbled Gohma Battle (Full)",
+    "id": "ObDlKnZHinM",
+    "game": "totk"
+  },
+  {
+    "title": "Yunobo, Sage of Fire [Low SFX Extended Theme]",
+    "id": "8nkmOMy44VE",
+    "game": "totk"
+  },
+  {
+    "title": "Goron City (Day)",
+    "id": "gY5c5k1iWBg",
+    "game": "totk"
+  },
+  {
+    "title": "Goron City (Night)",
+    "id": "P7jP0qpal2U",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Lava)",
+    "id": "Sy0gR-Ubg2E",
+    "game": "totk"
+  },
+  {
+    "title": "Mine-Cart Land Minigame",
+    "id": "kGcg7HW2pX8",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Waterfront)",
+    "id": "7s1PDtpVLVU",
+    "game": "totk"
+  },
+  {
+    "title": "Crisis at Zora's Domain",
+    "id": "F2tDIu87x6s",
+    "game": "totk"
+  },
+  {
+    "title": "The Sludge-Covered Statue",
+    "id": "9AtJb6Qkx4U",
+    "game": "totk"
+  },
+  {
+    "title": "Yona's Thanks",
+    "id": "HgYF_ECwo3g",
+    "game": "totk"
+  },
+  {
+    "title": "Mipha Court",
+    "id": "1xSnqNTnOHo",
+    "game": "totk"
+  },
+  {
+    "title": "Pristine Sanctum",
+    "id": "JXewcTykyxo",
+    "game": "totk"
+  },
+  {
+    "title": "Sludge Like Battle (Full)",
+    "id": "7Of5rmTwXfc",
+    "game": "totk"
+  },
+  {
+    "title": "Yona's Reassurance",
+    "id": "jbTUR-CziW4",
+    "game": "totk"
+  },
+  {
+    "title": "Sidon's Confidence",
+    "id": "CLZbD_zV-hE",
+    "game": "totk"
+  },
+  {
+    "title": "Ancient Zora Waterworks (Full)",
+    "id": "aHKwuMUaf_w",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Sky) ~ Low Gravity",
+    "id": "F4Bsl2uUbuk",
+    "game": "totk"
+  },
+  {
+    "title": "Water Temple ~ The Great Wellspring of Hyrule (Full)",
+    "id": "rO-nAmL3Xko",
+    "game": "totk"
+  },
+  {
+    "title": "Mucktorok Battle (Full)",
+    "id": "nJbT_92XOAE",
+    "game": "totk"
+  },
+  {
+    "title": "Sidon, Sage of Water [Low SFX Extended Theme]",
+    "id": "CkHKw9uS3TE",
+    "game": "totk"
+  },
+  {
+    "title": "Zora's Domain (Day)",
+    "id": "n9AdydKU-og",
+    "game": "totk"
+  },
+  {
+    "title": "Zora's Domain (Night)",
+    "id": "Y1HxqR_Ox8I",
+    "game": "totk"
+  },
+  {
+    "title": "Sidon and Yona",
+    "id": "iUKagln1_Xc",
+    "game": "totk"
+  },
+  {
+    "title": "Field (Intense Heat)",
+    "id": "U9AOqHFgkmQ",
+    "game": "totk"
+  },
+  {
+    "title": "Yiga Blademaster Station",
+    "id": "YDXtEypRQl0",
+    "game": "totk"
+  },
+  {
+    "title": "Crisis at Gerudo Town",
+    "id": "0JqFgcAeWIE",
+    "game": "totk"
+  },
+  {
+    "title": "Gerudo Shelter",
+    "id": "1SGLpKfV-KU",
+    "game": "totk"
+  },
+  {
+    "title": "Defend Kara Kara Bazaar (Full)",
+    "id": "UqAj9QORcPM",
+    "game": "totk"
+  },
+  {
+    "title": "Defend Gerudo Town (Full)",
+    "id": "rK_TyBSSj_w",
+    "game": "totk"
+  },
+  {
+    "title": "Lightning Temple ~ The Mural's Myth, Risen from the Sands (Full)",
+    "id": "soqPngEtRbM",
+    "game": "totk"
+  },
+  {
+    "title": "Queen Gibdo Battle (Full)",
+    "id": "Imxm4ezSi4s",
+    "game": "totk"
+  },
+  {
+    "title": "Riju, Sage of Lightning [Low SFX Extended Theme]",
+    "id": "sDN84piYcus",
+    "game": "totk"
+  },
+  {
+    "title": "Gerudo Town (Day)",
+    "id": "rJ1wYoAMkc0",
+    "game": "totk"
+  },
+  {
+    "title": "Gerudo Town (Night)",
+    "id": "gYFBowAWFbo",
+    "game": "totk"
+  },
+  {
+    "title": "Racing Minigame",
+    "id": "YPxyRcM7E2E",
+    "game": "totk"
+  },
+  {
+    "title": "Molduga Battle (Full)",
+    "id": "zXQRgsX35cw",
+    "game": "totk"
+  },
+  {
+    "title": "Outside a Shrine (Wasteland)",
+    "id": "aSfmGM8aTC4",
+    "game": "totk"
+  },
+  {
+    "title": "Gerudo Ruins",
+    "id": "XpKaLHYvOF8",
+    "game": "totk"
+  },
+  {
+    "title": "Yiga Clan Hideout",
+    "id": "o6pzhCuzF9k",
+    "game": "totk"
+  },
+  {
+    "title": "Combat Minigame",
+    "id": "N2Gslb4aaME",
+    "game": "totk"
+  },
+  {
+    "title": "Tarrey Town (Day)",
+    "id": "by6zCUlFY44",
+    "game": "totk"
+  },
+  {
+    "title": "Tarrey Town (Night)",
+    "id": "wdJFNjLqBEE",
+    "game": "totk"
+  },
+  {
+    "title": "Hudson Construction Site (Day)",
+    "id": "BlU-39GZLQg",
+    "game": "totk"
+  },
+  {
+    "title": "Hudson Construction Site (Night)",
+    "id": "pD_H7w0YJ8U",
+    "game": "totk"
+  },
+  {
+    "title": "Mattison's Independence ~ Balloon Flight",
+    "id": "cKNOh_mNdDo",
+    "game": "totk"
+  },
+  {
+    "title": "Mattison's Independence ~ Sav'orq, Every-son!",
+    "id": "bMC0QGfpuzo",
+    "game": "totk"
+  },
+  {
+    "title": "Mattison's Independence ~ Start of a New Life",
+    "id": "mtIgyt442m0",
+    "game": "totk"
+  },
+  {
+    "title": "My Dream Home!",
+    "id": "jJLHZo2jJY0",
+    "game": "totk"
+  },
+  {
+    "title": "My Dream Home! (Editing)",
+    "id": "JNQsbl7Ak_g",
+    "game": "totk"
+  },
+  {
+    "title": "Hateno Village (Day)",
+    "id": "cgTdgrEW1ME",
+    "game": "totk"
+  },
+  {
+    "title": "Hateno Village (Night)",
+    "id": "mUrQMdiAneE",
+    "game": "totk"
+  },
+  {
+    "title": "Cece's Theme",
+    "id": "AJc2OqbomMM",
+    "game": "totk"
+  },
+  {
+    "title": "The Cece Hat",
+    "id": "d86vv5UBmc0",
+    "game": "totk"
+  },
+  {
+    "title": "Trouble in Cece's Shop",
+    "id": "rLWWyjfbuz8",
+    "game": "totk"
+  },
+  {
+    "title": "Hateno Village Election",
+    "id": "qZZwPQajwoQ",
+    "game": "totk"
+  },
+  {
+    "title": "Conflict at the Election",
+    "id": "6CrFtw3wH4U",
+    "game": "totk"
+  },
+  {
+    "title": "Peace in Hateno Village",
+    "id": "2lpxu7JyBI8",
+    "game": "totk"
+  },
+  {
+    "title": "Hateno School",
+    "id": "L6LjfQxX0AY",
+    "game": "totk"
+  },
+  {
+    "title": "Hateno Ancient Tech Lab",
+    "id": "BK8365RncjQ",
+    "game": "totk"
+  },
+  {
+    "title": "Monster Forces",
+    "id": "KGIcz1nynbw",
+    "game": "totk"
+  },
+  {
+    "title": "Feast in Lurelin Village",
+    "id": "r-P00OY8Ahc",
+    "game": "totk"
+  },
+  {
+    "title": "Lurelin Village (Day)",
+    "id": "-hXweVbmDN8",
+    "game": "totk"
+  },
+  {
+    "title": "Lurelin Village (Night)",
+    "id": "MD_MCfn4V_Y",
+    "game": "totk"
+  },
+  {
+    "title": "Performance for a Great Fairy",
+    "id": "qmCzv2IT2IA",
+    "game": "totk"
+  },
+  {
+    "title": "Great Fairy Awakens",
+    "id": "uphNFY5gJHY",
+    "game": "totk"
+  },
+  {
+    "title": "Fairy Fountain",
+    "id": "zJWfNGSIGto",
+    "game": "totk"
+  },
+  {
+    "title": "Malanya Awakens",
+    "id": "mwen5WyIVQM",
+    "game": "totk"
+  },
+  {
+    "title": "Malanya Spring",
+    "id": "fgpRNAhgfew",
+    "game": "totk"
+  },
+  {
+    "title": "Stable (With Stable Trotters)",
+    "id": "CrtELoY6c3Q",
+    "game": "totk"
+  },
+  {
+    "title": "Battle Alongside the Monster-Control Crew",
+    "id": "XynIRIxDiZ0",
+    "game": "totk"
+  },
+  {
+    "title": "Monster-Control Crew Success!",
+    "id": "7tvgYq6YViA",
+    "game": "totk"
+  },
+  {
+    "title": "Horned Statue",
+    "id": "uKiL392tjB4",
+    "game": "totk"
+  },
+  {
+    "title": "The Ultimate Dish?",
+    "id": "AKqMssQb7zs",
+    "game": "totk"
+  },
+  {
+    "title": "Ruins",
+    "id": "L25wAdG17Fc",
+    "game": "totk"
+  },
+  {
+    "title": "Lomei Labyrinth (Ground)",
+    "id": "XvuXuaValTA",
+    "game": "totk"
+  },
+  {
+    "title": "Lomei Labyrinth (Sky)",
+    "id": "CveahGdvslw",
+    "game": "totk"
+  },
+  {
+    "title": "Lomei Labyrinth (Depths)",
+    "id": "pu6r_KtXNng",
+    "game": "totk"
+  },
+  {
+    "title": "Koltin",
+    "id": "3ZVcOGpbWCA",
+    "game": "totk"
+  },
+  {
+    "title": "Satori Shrine Activated",
+    "id": "MfcPJFAcAC8",
+    "game": "totk"
+  },
+  {
+    "title": "Dragon",
+    "id": "UIgLTDpq02Y",
+    "game": "totk"
+  },
+  {
+    "title": "Omen of the Blood Moon",
+    "id": "Ig5hOEqNkcI",
+    "game": "totk"
+  },
+  {
+    "title": "Blood Moon",
+    "id": "yTyl5Zo98jM",
+    "game": "totk"
+  },
+  {
+    "title": "Crisis at Lookout Landing",
+    "id": "372Eof7TdUM",
+    "game": "totk"
+  },
+  {
+    "title": "Hyrule Castle (Sky | Full)",
+    "id": "SWIGKWG620Q",
+    "game": "totk",
+    "title_fr": "Château d'Hyrule (ciel, version complète)"
+  },
+  {
+    "title": "Phantom Ganon Battle (Full) ~ The Demon King's Phantom Saboteur",
+    "id": "RM50bLHwjvM",
+    "game": "totk"
+  },
+  {
+    "title": "Lookout Landing (Full)",
+    "id": "yya_TCAeh0Y",
+    "game": "totk"
+  },
+  {
+    "title": "Kakariko Village (Day)",
+    "id": "Moop9tDMfgY",
+    "game": "totk"
+  },
+  {
+    "title": "Kakariko Village (Night)",
+    "id": "036Q1jcZEok",
+    "game": "totk"
+  },
+  {
+    "title": "Thunderhead Isles (Full)",
+    "id": "jo6HXbGvTUk",
+    "game": "totk"
+  },
+  {
+    "title": "Dragonhead Island",
+    "id": "vQ4OWsbtEHw",
+    "game": "totk"
+  },
+  {
+    "title": "Tobio's Hollow Chasm",
+    "id": "bzMq44Pp_zQ",
+    "game": "totk"
+  },
+  {
+    "title": "Mineru's Guidance",
+    "id": "oW3dwDtemLQ",
+    "game": "totk"
+  },
+  {
+    "title": "Construct Factory (Full)",
+    "id": "-PtFCRBYRsA",
+    "game": "totk"
+  },
+  {
+    "title": "Construct Factory Depots (Full)",
+    "id": "4Xh_k72-5jo",
+    "game": "totk"
+  },
+  {
+    "title": "Boss Bokoblin Battle (Cave / Depths)",
+    "id": "6O_mOgBLF28",
+    "game": "totk"
+  },
+  {
+    "title": "Mineru's Construct",
+    "id": "FxKrsOKKYMo",
+    "game": "totk"
+  },
+  {
+    "title": "Zonai Armory",
+    "id": "sbWBxT4R2WY",
+    "game": "totk"
+  },
+  {
+    "title": "Spirit Temple",
+    "id": "u6uWZBrHtbY",
+    "game": "totk"
+  },
+  {
+    "title": "Seized Construct Battle (Full)",
+    "id": "LnUZctngIpQ",
+    "game": "totk"
+  },
+  {
+    "title": "Mineru, Sage of Spirit [Low SFX Extended Theme]",
+    "id": "N8vhEpC4uDw",
+    "game": "totk"
+  },
+  {
+    "title": "The Distant Past ~ Mineru's Tale",
+    "id": "EBkOXqsqfRA",
+    "game": "totk"
+  },
+  {
+    "title": "The Distant Past ~ Zelda's Fate",
+    "id": "vyxWeSLfJKo",
+    "game": "totk"
+  },
+  {
+    "title": "The Distant Past ~ Zelda's Hope",
+    "id": "nzPL9rqTcw8",
+    "game": "totk"
+  },
+  {
+    "title": "Trouble in the Lost Woods",
+    "id": "Lr3Q-tf36gg",
+    "game": "totk"
+  },
+  {
+    "title": "Crisis at Korok Forest",
+    "id": "hgB95WO-HGU",
+    "game": "totk"
+  },
+  {
+    "title": "Gloom Spawn Battle",
+    "id": "Edey4MuOrJk",
+    "game": "totk"
+  },
+  {
+    "title": "Phantom Ganon Battle (Gloom Spawn)",
+    "id": "X_iuqirAcRY",
+    "game": "totk"
+  },
+  {
+    "title": "Korok Forest Restored",
+    "id": "_HZfb5QTtwM",
+    "game": "totk"
+  },
+  {
+    "title": "Lost Woods",
+    "id": "zsbLJ9WtXfM",
+    "game": "totk"
+  },
+  {
+    "title": "Korok Forest (Day)",
+    "id": "h7otsWhLC80",
+    "game": "totk"
+  },
+  {
+    "title": "Korok Forest (Night)",
+    "id": "JKP8fdnjua4",
+    "game": "totk"
+  },
+  {
+    "title": "Geoglyph (Full)",
+    "id": "et2RaCzOB5s",
+    "game": "totk"
+  },
+  {
+    "title": "Tear of the Dragon",
+    "id": "pCQJxh9V5hQ",
+    "game": "totk"
+  },
+  {
+    "title": "Forgotten Temple",
+    "id": "_P7sVphoSlc",
+    "game": "totk"
+  },
+  {
+    "title": "The Final Tear",
+    "id": "GWwGdfcJUDs",
+    "game": "totk"
+  },
+  {
+    "title": "Truth of the Light Dragon",
+    "id": "Y8oHqb6u5YU",
+    "game": "totk"
+  },
+  {
+    "title": "Light Dragon",
+    "id": "AE0ZAZYi9Pg",
+    "game": "totk"
+  },
+  {
+    "title": "Hold On to the Light Dragon!",
+    "id": "A2rWnuE0Q6c",
+    "game": "totk"
+  },
+  {
+    "title": "The Light Dragon's Realm",
+    "id": "B5WjzA44jjA",
+    "game": "totk"
+  },
+  {
+    "title": "The Master Sword",
+    "id": "uzCywpQlzoM",
+    "game": "totk",
+    "title_fr": "L'Épée de Légende"
+  },
+  {
+    "title": "Final Encounter With Master Kohga",
+    "id": "9wWfeao4fcc",
+    "game": "totk"
+  },
+  {
+    "title": "Gloom's Approach",
+    "id": "PMuO2deTed8",
+    "game": "totk"
+  },
+  {
+    "title": "Gloom's Approach (Battle)",
+    "id": "QF3Cviuskfc",
+    "game": "totk"
+  },
+  {
+    "title": "Forgotten Foundation (Full)",
+    "id": "UiOhqdLbKco",
+    "game": "totk"
+  },
+  {
+    "title": "The Sages Arrive (4 or Fewer Sages)",
+    "id": "i3pl8AWQK_k",
+    "game": "totk"
+  },
+  {
+    "title": "The Demon King's Army (Full | Simplified)",
+    "id": "p_smb_Ciz4w",
+    "game": "totk"
+  },
+  {
+    "title": "Sages and Beasts (4 or Fewer Sages)",
+    "id": "_Rux6pToiX4",
+    "game": "totk"
+  },
+  {
+    "title": "Demon King Ganondorf Battle ~ The Menace Unleashed",
+    "id": "WQ5kV7NujxQ",
+    "game": "totk"
+  },
+  {
+    "title": "Demon King Ganondorf Battle ~ Master of the Secret Stone (Full)",
+    "id": "nu-axeQkHnU",
+    "game": "totk"
+  },
+  {
+    "title": "Demon Dragon Battle ~ Draconified Demon King (Full)",
+    "id": "Bn_TssOf7r8",
+    "game": "totk"
+  },
+  {
+    "title": "The Last Catch",
+    "id": "MEVw-1eZzto",
+    "game": "totk"
+  },
+  {
+    "title": "Staff Roll",
+    "id": "LZ09NhYy96M",
+    "game": "totk",
+    "title_fr": "Générique de fin"
   }
 ]

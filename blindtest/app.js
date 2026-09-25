@@ -450,6 +450,8 @@ const GAMES = [
   { id: 'ss', franchise: 'zelda', name: 'Skyward Sword', console: 'Wii', year: 2011 },
   { id: 'albw', franchise: 'zelda', name: 'A Link Between Worlds', console: '3DS', year: 2013 },
   { id: 'tfh', franchise: 'zelda', name: 'Tri Force Heroes', console: '3DS', year: 2015 },
+  { id: 'botw', franchise: 'zelda', name: 'Breath of the Wild', console: 'Switch', year: 2017 },
+  { id: 'totk', franchise: 'zelda', name: 'Tears of the Kingdom', console: 'Switch', year: 2023 },
 ];
 
 const gamesById = {};
