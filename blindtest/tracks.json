@@ -1,0 +1,2461 @@
+[
+  {
+    "title": "Title Theme",
+    "title_fr": "Écran-titre",
+    "id": "LvytTVeTxCE",
+    "game": "zelda1"
+  },
+  {
+    "title": "Overworld Theme",
+    "title_fr": "Thème de la carte du monde",
+    "id": "ncg72VswyTs",
+    "game": "zelda1"
+  },
+  {
+    "title": "Dungeon Theme",
+    "title_fr": "Thème du donjon",
+    "id": "cMssCMqMHuk",
+    "game": "zelda1"
+  },
+  {
+    "title": "Death Mountain",
+    "title_fr": "Mont de la Mort",
+    "id": "YPbOOmNLQqk",
+    "game": "zelda1"
+  },
+  {
+    "title": "Game Over",
+    "title_fr": "Partie terminée",
+    "id": "8fMeA1V0_nc",
+    "game": "zelda1"
+  },
+  {
+    "title": "Receive Item",
+    "title_fr": "Objet obtenu",
+    "id": "LmLsdyAlAOQ",
+    "game": "zelda1"
+  },
+  {
+    "title": "Triforce Fanfare",
+    "title_fr": "Fanfare de la Triforce",
+    "id": "tG2BhTWDNqI",
+    "game": "zelda1"
+  },
+  {
+    "title": "Ending Theme",
+    "title_fr": "Thème de fin",
+    "id": "_2sQKNGcp2I",
+    "game": "zelda1"
+  },
+  {
+    "title": "Menu Theme",
+    "title_fr": "Thème du menu",
+    "id": "pqqjSojbe4E",
+    "game": "zelda1"
+  },
+  {
+    "title": "Recorder Theme",
+    "title_fr": "Thème de la flûte",
+    "id": "zk99bi1K9sE",
+    "game": "zelda1"
+  },
+  {
+    "title": "Dungeon Clear",
+    "title_fr": "Donjon terminé",
+    "id": "zdm64tFW4j0",
+    "game": "zelda1"
+  },
+  {
+    "title": "Ganon Defeated",
+    "title_fr": "Ganon vaincu",
+    "id": "fr6MGLqVi5s",
+    "game": "zelda1"
+  },
+  {
+    "title": "Zelda Rescued",
+    "title_fr": "Zelda sauvée",
+    "id": "RA84zhbgIfA",
+    "game": "zelda1"
+  },
+  {
+    "title": "Title Theme",
+    "title_fr": "Écran-titre",
+    "id": "mTXnL93MmqU",
+    "game": "alttp"
+  },
+  {
+    "title": "Beginning of the Journey",
+    "title_fr": "Début du voyage",
+    "id": "lzwYZ9FiOG4",
+    "game": "alttp"
+  },
+  {
+    "title": "Seal of Seven Maidens",
+    "title_fr": "Sceau des sept jeunes filles",
+    "id": "JofKLeAoigw",
+    "game": "alttp"
+  },
+  {
+    "title": "Time of the Falling Rain",
+    "title_fr": "Temps de la pluie",
+    "id": "GR_ODUmm5hQ",
+    "game": "alttp"
+  },
+  {
+    "title": "Time of the Falling Rain (With Storm)",
+    "title_fr": "Temps de la pluie (avec orage)",
+    "id": "lOlAjRd240k",
+    "game": "alttp"
+  },
+  {
+    "title": "Majestic Castle",
+    "title_fr": "Château majestueux",
+    "id": "25djD9IQxQs",
+    "game": "alttp"
+  },
+  {
+    "title": "Majestic Castle (With Storm)",
+    "title_fr": "Château majestueux (avec orage)",
+    "id": "kEbLgjbSYHo",
+    "game": "alttp"
+  },
+  {
+    "title": "Princess Zelda's Rescue",
+    "title_fr": "Sauvetage de la princesse Zelda",
+    "id": "lEOWKKp5nCg",
+    "game": "alttp"
+  },
+  {
+    "title": "Safety in the Sanctuary",
+    "title_fr": "Sécurité au sanctuaire",
+    "id": "w8YU6y_sJBQ",
+    "game": "alttp"
+  },
+  {
+    "title": "Hyrule Field Main Theme",
+    "title_fr": "Thème principal de la plaine d'Hyrule",
+    "id": "fJN3qW4QcWw",
+    "game": "alttp"
+  },
+  {
+    "title": "Kakariko Village",
+    "title_fr": "Village Cocorico",
+    "id": "HSEVaRorxCI",
+    "game": "alttp"
+  },
+  {
+    "title": "Guessing Game House",
+    "title_fr": "Maison du jeu de devinettes",
+    "id": "uhvPxXSJom0",
+    "game": "alttp"
+  },
+  {
+    "title": "Fortune Teller",
+    "title_fr": "Diseuse de bonne aventure",
+    "id": "D8z2FOHrLLw",
+    "game": "alttp"
+  },
+  {
+    "title": "Soldiers of Kakariko Village",
+    "title_fr": "Soldats du village Cocorico",
+    "id": "Z7dqXcjQUsQ",
+    "game": "alttp"
+  },
+  {
+    "title": "Dank Dungeons",
+    "title_fr": "Donjons humides",
+    "id": "ez5ha9C7V6o",
+    "game": "alttp"
+  },
+  {
+    "title": "Lost Ancient Ruins",
+    "title_fr": "Ruines anciennes perdues",
+    "id": "RiDSJTlYbFE",
+    "game": "alttp"
+  },
+  {
+    "title": "Anger of the Guardians",
+    "title_fr": "Colère des gardiens",
+    "id": "6RETudgaMEA",
+    "game": "alttp"
+  },
+  {
+    "title": "Great Victory!",
+    "title_fr": "Grande victoire !",
+    "id": "2CStjk1Xufk",
+    "game": "alttp"
+  },
+  {
+    "title": "The Silly Pink Rabbit",
+    "title_fr": "Le ridicule lapin rose",
+    "id": "WrHcSReAMdg",
+    "game": "alttp"
+  },
+  {
+    "title": "The Silly Pink Rabbit (With Storm)",
+    "title_fr": "Le ridicule lapin rose (avec orage)",
+    "id": "ra3haewK5fA",
+    "game": "alttp"
+  },
+  {
+    "title": "Forest of Mystery",
+    "title_fr": "Forêt du mystère",
+    "id": "8tfQEhwuxEk",
+    "game": "alttp"
+  },
+  {
+    "title": "Unsealing the Master Sword",
+    "title_fr": "Descellement de l'Épée de Légende",
+    "id": "gZAEbVufEWc",
+    "game": "alttp"
+  },
+  {
+    "title": "Priest of the Dark Order",
+    "title_fr": "Prêtre de l'Ordre des Ténèbres",
+    "id": "G6VOEFRIkcA",
+    "game": "alttp"
+  },
+  {
+    "title": "Dark Golden Land",
+    "title_fr": "Terre dorée obscure",
+    "id": "IyMb_qurftI",
+    "game": "alttp"
+  },
+  {
+    "title": "Black Mist",
+    "title_fr": "Brume noire",
+    "id": "InZak8VOJ0w",
+    "game": "alttp"
+  },
+  {
+    "title": "Dungeon of Shadows",
+    "title_fr": "Donjon des ombres",
+    "id": "UG-LhvjhU38",
+    "game": "alttp"
+  },
+  {
+    "title": "Meeting the Maidens",
+    "title_fr": "Rencontre avec les jeunes filles",
+    "id": "OWsz2dZR8Cs",
+    "game": "alttp"
+  },
+  {
+    "title": "The Goddess Appears",
+    "title_fr": "La déesse apparaît",
+    "id": "i-BDE8p8XM0",
+    "game": "alttp"
+  },
+  {
+    "title": "Release of Ganon",
+    "title_fr": "Libération de Ganon",
+    "id": "1v6xu1Og3iY",
+    "game": "alttp"
+  },
+  {
+    "title": "Ganon's Message",
+    "title_fr": "Message de Ganon",
+    "id": "OTU_TUazg28",
+    "game": "alttp"
+  },
+  {
+    "title": "The Prince of Darkness",
+    "title_fr": "Le Prince des Ténèbres",
+    "id": "jqWqri9OSJg",
+    "game": "alttp"
+  },
+  {
+    "title": "Power of the Gods",
+    "title_fr": "Pouvoir des dieux",
+    "id": "jDgG7xbBWAw",
+    "game": "alttp"
+  },
+  {
+    "title": "Epilogue Beautiful Hyrule",
+    "title_fr": "Épilogue : Le bel Hyrule",
+    "id": "sqO_RtT37ys",
+    "game": "alttp"
+  },
+  {
+    "title": "Staff Roll",
+    "title_fr": "Générique de fin",
+    "id": "0FGpr7-g7jA",
+    "game": "alttp"
+  },
+  {
+    "title": "Title Theme",
+    "title_fr": "Écran-titre",
+    "id": "B2zxGm4cUB4",
+    "game": "zelda2"
+  },
+  {
+    "title": "Overworld Theme",
+    "title_fr": "Thème du monde",
+    "id": "RHS5jM6xBHo",
+    "game": "zelda2"
+  },
+  {
+    "title": "Dungeon Theme",
+    "title_fr": "Thème du donjon",
+    "id": "W-VUVvvlQK8",
+    "game": "zelda2"
+  },
+  {
+    "title": "Town Theme",
+    "title_fr": "Thème de la ville",
+    "id": "38eMXVh_m9c",
+    "game": "zelda2"
+  },
+  {
+    "title": "Overworld Theme Short",
+    "title_fr": "Thème du monde (court)",
+    "id": "raXS3oZ2oHc",
+    "game": "zelda2"
+  },
+  {
+    "title": "Town Theme 2",
+    "title_fr": "Thème de la ville 2",
+    "id": "bL3gf7KtoJQ",
+    "game": "zelda2"
+  },
+  {
+    "title": "Inside House",
+    "title_fr": "Intérieur d'une maison",
+    "id": "8WHr1rCOrIU",
+    "game": "zelda2"
+  },
+  {
+    "title": "Inside House 2",
+    "title_fr": "Intérieur d'une maison 2",
+    "id": "C2sc3EiGzS4",
+    "game": "zelda2"
+  },
+  {
+    "title": "Battle Area",
+    "title_fr": "Zone de combat",
+    "id": "LIzd5Q4TQqg",
+    "game": "zelda2"
+  },
+  {
+    "title": "Battle Area 2",
+    "title_fr": "Zone de combat 2",
+    "id": "mnqStxI_gpw",
+    "game": "zelda2"
+  },
+  {
+    "title": "Dungeon Theme Short",
+    "title_fr": "Thème du donjon (court)",
+    "id": "84lRtWs_40k",
+    "game": "zelda2"
+  },
+  {
+    "title": "Dungeon Theme Short 2",
+    "title_fr": "Thème du donjon (court) 2",
+    "id": "M4xlIoJ3uPA",
+    "game": "zelda2"
+  },
+  {
+    "title": "Dungeon Clear",
+    "title_fr": "Donjon terminé",
+    "id": "w21RAKNWeaw",
+    "game": "zelda2"
+  },
+  {
+    "title": "Level Up",
+    "title_fr": "Niveau supérieur",
+    "id": "twOXJEUSRLs",
+    "game": "zelda2"
+  },
+  {
+    "title": "Receive Triforce",
+    "title_fr": "Triforce obtenue",
+    "id": "eEPgTKCSCuY",
+    "game": "zelda2"
+  },
+  {
+    "title": "Receive Item",
+    "title_fr": "Objet obtenu",
+    "id": "RQuE-5vxhcE",
+    "game": "zelda2"
+  },
+  {
+    "title": "Boss Battle",
+    "title_fr": "Combat de boss",
+    "id": "gpeCKbnl0FI",
+    "game": "zelda2"
+  },
+  {
+    "title": "Final Dungeon Short",
+    "title_fr": "Donjon final (court)",
+    "id": "BCbFiHXbt80",
+    "game": "zelda2"
+  },
+  {
+    "title": "Final Dungeon",
+    "title_fr": "Donjon final",
+    "id": "sWcVUZJaZ54",
+    "game": "zelda2"
+  },
+  {
+    "title": "Dark Link Battle",
+    "title_fr": "Combat contre l'Ombre de Link",
+    "id": "1zW1TAojIeY",
+    "game": "zelda2"
+  },
+  {
+    "title": "Ending Theme",
+    "title_fr": "Thème de fin",
+    "id": "I0PkVJwAJHY",
+    "game": "zelda2"
+  },
+  {
+    "title": "Ending Theme 2",
+    "title_fr": "Thème de fin 2",
+    "id": "0TYqWs9nFfU",
+    "game": "zelda2"
+  },
+  {
+    "title": "The Storm",
+    "id": "D5o_UOPNaQQ",
+    "game": "la"
+  },
+  {
+    "title": "Title Screen",
+    "id": "EreHPNJHn18",
+    "game": "la",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Player Select",
+    "id": "M3msymKcgAs",
+    "game": "la"
+  },
+  {
+    "title": "Link is Awake",
+    "id": "Z4jt5u4ybx4",
+    "game": "la"
+  },
+  {
+    "title": "The Wise Owl",
+    "id": "aqYsy09AvOE",
+    "game": "la"
+  },
+  {
+    "title": "Overworld Main Theme",
+    "id": "FTrumdi55tA",
+    "game": "la"
+  },
+  {
+    "title": "Mabe Village",
+    "id": "wh6Rm5Jp02U",
+    "game": "la",
+    "title_fr": "Village de Mabe"
+  },
+  {
+    "title": "House",
+    "id": "dzEJxUXexGU",
+    "game": "la",
+    "title_fr": "Maison"
+  },
+  {
+    "title": "Ballad of the Wind Fish Song",
+    "id": "79JCdiEQtbM",
+    "game": "la"
+  },
+  {
+    "title": "Trendy Game",
+    "id": "Km6U6tyh-XE",
+    "game": "la",
+    "title_fr": "Jeu à la mode"
+  },
+  {
+    "title": "Shop",
+    "id": "7MzaZykQtNI",
+    "game": "la",
+    "title_fr": "Boutique"
+  },
+  {
+    "title": "Mysterious Woods",
+    "id": "ObclY0UOj3c",
+    "game": "la"
+  },
+  {
+    "title": "Guardian Acorn & Power Piece",
+    "id": "NiUGi2epkl8",
+    "game": "la"
+  },
+  {
+    "title": "Fairy Fountain",
+    "id": "3ZzogVzQEAM",
+    "game": "la",
+    "title_fr": "Fontaine des fées"
+  },
+  {
+    "title": "Cave",
+    "id": "Q4eBFNsBj8A",
+    "game": "la",
+    "title_fr": "Grotte"
+  },
+  {
+    "title": "Level 1 Tail Cave",
+    "id": "L3LBVyO_4cs",
+    "game": "la"
+  },
+  {
+    "title": "Miniboss Battle",
+    "id": "OmHa3hkpeAo",
+    "game": "la"
+  },
+  {
+    "title": "Boss Battle",
+    "id": "ArnB-2RrY6o",
+    "game": "la",
+    "title_fr": "Combat de boss"
+  },
+  {
+    "title": "The Moblins Took Bow-Wow!",
+    "id": "V7XTkUyXLAA",
+    "game": "la"
+  },
+  {
+    "title": "Level 2 Bottle Grotto",
+    "id": "uv85Ai8bwfA",
+    "game": "la"
+  },
+  {
+    "title": "Richard's Villa",
+    "id": "5xZ8-XvhHpM",
+    "game": "la"
+  },
+  {
+    "title": "Kanalet Castle",
+    "id": "A4wYdsQ8_JY",
+    "game": "la"
+  },
+  {
+    "title": "Level 3 Key Cavern",
+    "id": "y0zqju5Eevc",
+    "game": "la"
+  },
+  {
+    "title": "Dream Shrine ~ Lower Level",
+    "id": "WYZs4ExdlfA",
+    "game": "la"
+  },
+  {
+    "title": "Link and Marin's Son",
+    "id": "O_VOEvdSC0w",
+    "game": "la"
+  },
+  {
+    "title": "Animal Village",
+    "id": "KXKY1cAqY7k",
+    "game": "la"
+  },
+  {
+    "title": "Link and Marin Talk",
+    "id": "X7j_GFtoRE8",
+    "game": "la"
+  },
+  {
+    "title": "Mt. Tamaranch Tal Tal Heights",
+    "id": "h848dMB0LgU",
+    "game": "la"
+  },
+  {
+    "title": "Level 4 Angler's Tunnel",
+    "id": "DI9weHFUtuk",
+    "game": "la"
+  },
+  {
+    "title": "Manbo's Mambo",
+    "id": "rYqEn3mCh20",
+    "game": "la"
+  },
+  {
+    "title": "The Ghost's House",
+    "id": "F8efefQupTU",
+    "game": "la"
+  },
+  {
+    "title": "Level 5 Catfish's Maw",
+    "id": "d7hghjDM7_I",
+    "game": "la"
+  },
+  {
+    "title": "Southern Shrine",
+    "id": "nUf07IdSPFQ",
+    "game": "la"
+  },
+  {
+    "title": "Level 6 Face Shrine",
+    "id": "4X6UqQDmjBk",
+    "game": "la"
+  },
+  {
+    "title": "Level 7 Eagle's Tower",
+    "id": "E5b7Glf-j-Q",
+    "game": "la"
+  },
+  {
+    "title": "The Turtle Awakens",
+    "id": "LKNuv_G0Ed4",
+    "game": "la"
+  },
+  {
+    "title": "Level 8 Turtle Rock",
+    "id": "OJvNVDn7BgU",
+    "game": "la"
+  },
+  {
+    "title": "Ballad of the Wind Fish",
+    "id": "2H9YBMtCv-A",
+    "game": "la"
+  },
+  {
+    "title": "Wind Fish's Egg",
+    "id": "_5BWWzzwlF0",
+    "game": "la"
+  },
+  {
+    "title": "Grim Creeper Returns",
+    "id": "jA9W5QEAFt8",
+    "game": "la"
+  },
+  {
+    "title": "Nightmare Battles",
+    "id": "TyLNQsGTby8",
+    "game": "la"
+  },
+  {
+    "title": "Nightmares Defeated",
+    "id": "nmfH1v6Q-aE",
+    "game": "la"
+  },
+  {
+    "title": "Song of Awakening",
+    "id": "4KftKvz0LK4",
+    "game": "la"
+  },
+  {
+    "title": "Ending",
+    "id": "w75NHZVVG8E",
+    "game": "la",
+    "title_fr": "Fin"
+  },
+  {
+    "title": "Staff Roll",
+    "id": "eMLcGmC6ozc",
+    "game": "la",
+    "title_fr": "Générique de fin"
+  },
+  {
+    "title": "Game Over",
+    "id": "3bocRejwcpE",
+    "game": "la",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Player Select ZELDA",
+    "id": "EJNHPc7uOj0",
+    "game": "la"
+  },
+  {
+    "title": "Color Dungeon",
+    "id": "bFQmrye0jss",
+    "game": "la",
+    "title_fr": "Donjon des couleurs"
+  },
+  {
+    "title": "Title Screen",
+    "id": "adEOrgn4sBE",
+    "game": "laswitch",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "File Select",
+    "id": "rcy2KrO3Kto",
+    "game": "laswitch"
+  },
+  {
+    "title": "File Select (Zelda Version)",
+    "id": "bJ2gf_6kpMc",
+    "game": "laswitch"
+  },
+  {
+    "title": "File Select (Marin Version)",
+    "id": "JDFGJ3YN840",
+    "game": "laswitch"
+  },
+  {
+    "title": "File Select (Totakeke Version)",
+    "id": "Br5kEfWHaMw",
+    "game": "laswitch"
+  },
+  {
+    "title": "Link Wakes Up",
+    "id": "d-3udDqAXwA",
+    "game": "laswitch"
+  },
+  {
+    "title": "Overworld Theme",
+    "id": "9V5VpJYJU5k",
+    "game": "laswitch",
+    "title_fr": "Thème du monde"
+  },
+  {
+    "title": "Overworld Ver. 2 (Before The Sword)",
+    "id": "gAPAK5lYD9w",
+    "game": "laswitch"
+  },
+  {
+    "title": "Overworld (Marin Version)",
+    "id": "tx_49cZ-AMo",
+    "game": "laswitch"
+  },
+  {
+    "title": "Owl Theme",
+    "id": "UAisnDHixHE",
+    "game": "laswitch",
+    "title_fr": "Thème du hibou"
+  },
+  {
+    "title": "Mabe Village",
+    "id": "ayMkh1nsh5s",
+    "game": "laswitch",
+    "title_fr": "Village de Mabe"
+  },
+  {
+    "title": "Animal Village",
+    "id": "GWjLGGJP_BY",
+    "game": "laswitch"
+  },
+  {
+    "title": "Mysterious Forest",
+    "id": "uDYOJWztqA4",
+    "game": "laswitch"
+  },
+  {
+    "title": "Mysterious Forest (Marin Version)",
+    "id": "YRAUAZz_qX4",
+    "game": "laswitch"
+  },
+  {
+    "title": "Tal Tal Mountain Range",
+    "id": "XAJ9AdBxU0Y",
+    "game": "laswitch"
+  },
+  {
+    "title": "Tal Tal Mountain Range (Marin Version)",
+    "id": "uCdHNRannbg",
+    "game": "laswitch"
+  },
+  {
+    "title": "Cave",
+    "id": "QOxMY-mEOCo",
+    "game": "laswitch",
+    "title_fr": "Grotte"
+  },
+  {
+    "title": "Side Scrolling Area",
+    "id": "d17IMExvD3Y",
+    "game": "laswitch"
+  },
+  {
+    "title": "Tail Cave (Level 1)",
+    "id": "UC6HkgPikJY",
+    "game": "laswitch"
+  },
+  {
+    "title": "Bottle Grotto (Level 2)",
+    "id": "0cxLKIhG0jE",
+    "game": "laswitch"
+  },
+  {
+    "title": "Key Cavern (Level 3)",
+    "id": "9ytlk5pdyS0",
+    "game": "laswitch"
+  },
+  {
+    "title": "Angler's Tunnel (Level 4)",
+    "id": "iP5xv40e-u4",
+    "game": "laswitch"
+  },
+  {
+    "title": "Catfish's Maw (Level 5)",
+    "id": "9cZfJAC7bm8",
+    "game": "laswitch"
+  },
+  {
+    "title": "Face Shrine (Level 6)",
+    "id": "qMlFg1nxPiw",
+    "game": "laswitch"
+  },
+  {
+    "title": "Eagle's Tower (Level 7)",
+    "id": "S2BJerOJqVs",
+    "game": "laswitch"
+  },
+  {
+    "title": "Turtle Rock (Level 8)",
+    "id": "MfGsACl-Gxw",
+    "game": "laswitch"
+  },
+  {
+    "title": "Color Dungeon",
+    "id": "eE7WH157QgI",
+    "game": "laswitch",
+    "title_fr": "Donjon des couleurs"
+  },
+  {
+    "title": "Dream Shrine Dungeon",
+    "id": "T4QrUDl2mJo",
+    "game": "laswitch"
+  },
+  {
+    "title": "Ancient Ruins Dungeon",
+    "id": "P8RDukDjyn0",
+    "game": "laswitch"
+  },
+  {
+    "title": "Ballad of the Wind Fish (Final)",
+    "id": "8j1DXwkfuOU",
+    "game": "laswitch"
+  },
+  {
+    "title": "Wind Fish's Egg",
+    "id": "_ibdsavI69w",
+    "game": "laswitch"
+  },
+  {
+    "title": "Mini-Boss Theme",
+    "id": "856ue8wgCw8",
+    "game": "laswitch",
+    "title_fr": "Thème de mini-boss"
+  },
+  {
+    "title": "Boss Theme",
+    "id": "Vx5y1WC4Bjs",
+    "game": "laswitch",
+    "title_fr": "Thème de boss"
+  },
+  {
+    "title": "Boss Defeated",
+    "id": "T1XfpNXAehM",
+    "game": "laswitch"
+  },
+  {
+    "title": "Turtle Rock Mini-Boss Battle",
+    "id": "S0J3s1oi9c4",
+    "game": "laswitch"
+  },
+  {
+    "title": "Final Boss Theme (Form 1)",
+    "id": "Yxarxwj9h-c",
+    "game": "laswitch"
+  },
+  {
+    "title": "Final Boss Theme (Form 2)",
+    "id": "SJkP_zZgwsU",
+    "game": "laswitch"
+  },
+  {
+    "title": "The Final Staircase",
+    "id": "Y6cOjQuaY4k",
+    "game": "laswitch"
+  },
+  {
+    "title": "BowWow is Missing",
+    "id": "QcYsL65faeY",
+    "game": "laswitch"
+  },
+  {
+    "title": "Ulrira Telephone Booth",
+    "id": "bOHlEXBcIhs",
+    "game": "laswitch"
+  },
+  {
+    "title": "House Theme",
+    "id": "0kPWuWxKHHo",
+    "game": "laswitch",
+    "title_fr": "Thème de maison"
+  },
+  {
+    "title": "Mr. Write",
+    "id": "QpxtfMk-iLc",
+    "game": "laswitch"
+  },
+  {
+    "title": "Dampe's Shack",
+    "id": "JBWy6c4V7Q0",
+    "game": "laswitch"
+  },
+  {
+    "title": "Richard's House",
+    "id": "buZ170giRJ8",
+    "game": "laswitch"
+  },
+  {
+    "title": "Ghost's House",
+    "id": "8MoCbE1zoBg",
+    "game": "laswitch"
+  },
+  {
+    "title": "Henhouse",
+    "id": "ABtYloFif94",
+    "game": "laswitch"
+  },
+  {
+    "title": "Shop Theme",
+    "id": "ubw8G9CVRYQ",
+    "game": "laswitch",
+    "title_fr": "Thème de boutique"
+  },
+  {
+    "title": "Trendy Game",
+    "id": "oPT2pCmj-VI",
+    "game": "laswitch",
+    "title_fr": "Jeu à la mode"
+  },
+  {
+    "title": "Fisherman Under the Bridge",
+    "id": "4HAx83cRoxQ",
+    "game": "laswitch"
+  },
+  {
+    "title": "Kanalet Castle",
+    "id": "hejXsFEgnRg",
+    "game": "laswitch"
+  },
+  {
+    "title": "Seashell Mansion",
+    "id": "UiRrsx8rSHw",
+    "game": "laswitch"
+  },
+  {
+    "title": "Rapids Raid",
+    "id": "dJizCAbt83g",
+    "game": "laswitch"
+  },
+  {
+    "title": "Rapids Race",
+    "id": "9mDzoTjt390",
+    "game": "laswitch"
+  },
+  {
+    "title": "Manbo's Song",
+    "id": "1AdnnvRtJm4",
+    "game": "laswitch"
+  },
+  {
+    "title": "Game Over",
+    "id": "uAcot-whiAo",
+    "game": "laswitch",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Title Theme",
+    "id": "1y5GnZb9J1k",
+    "game": "oot",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Enter Ganondorf",
+    "id": "HHLd0mn3D5k",
+    "game": "oot"
+  },
+  {
+    "title": "Deku Tree",
+    "id": "_CiipT_ThRY",
+    "game": "oot"
+  },
+  {
+    "title": "Fairy Flying",
+    "id": "MRh0Gmbc4lw",
+    "game": "oot"
+  },
+  {
+    "title": "House",
+    "id": "Ifz4Swfw4V8",
+    "game": "oot",
+    "title_fr": "Maison"
+  },
+  {
+    "title": "Kokiri Forest",
+    "id": "MmMIJ65OKzY",
+    "game": "oot",
+    "title_fr": "Forêt Kokiri"
+  },
+  {
+    "title": "Open Treasure Box",
+    "id": "HdOOGs33hOg",
+    "game": "oot"
+  },
+  {
+    "title": "Item Catch",
+    "id": "wP2zuMc6jOs",
+    "game": "oot"
+  },
+  {
+    "title": "Small Item Catch",
+    "id": "BOvO_6aQfEo",
+    "game": "oot"
+  },
+  {
+    "title": "Shop",
+    "id": "rdNbO0OcIXI",
+    "game": "oot",
+    "title_fr": "Boutique"
+  },
+  {
+    "title": "Battle",
+    "id": "OMyrJhtFFJ0",
+    "game": "oot"
+  },
+  {
+    "title": "Inside The Deku Tree",
+    "id": "9LEBZ-zDuKg",
+    "game": "oot"
+  },
+  {
+    "title": "Boss Battle",
+    "id": "bsRR3h--11Q",
+    "game": "oot",
+    "title_fr": "Combat de boss"
+  },
+  {
+    "title": "Boss Clear",
+    "id": "1U_OlOZPooI",
+    "game": "oot"
+  },
+  {
+    "title": "Heart Container Get",
+    "id": "fUYRj85j9mA",
+    "game": "oot"
+  },
+  {
+    "title": "Legend Of Hyrule",
+    "id": "peWxf-H6oCY",
+    "game": "oot"
+  },
+  {
+    "title": "Spiritual Stone Get",
+    "id": "Jg0X79gPAjA",
+    "game": "oot"
+  },
+  {
+    "title": "Fairy Ocarina Get",
+    "id": "SOsb0OnD2ko",
+    "game": "oot"
+  },
+  {
+    "title": "Kepora Gebora's Theme",
+    "id": "ZbQZCoKAZUs",
+    "game": "oot"
+  },
+  {
+    "title": "Market",
+    "id": "GH3YMiVkYfU",
+    "game": "oot",
+    "title_fr": "Marché"
+  },
+  {
+    "title": "Shooting Gallery",
+    "id": "_gLuAoLm524",
+    "game": "oot"
+  },
+  {
+    "title": "Hyrule Castle Courtyard",
+    "id": "tJxYhFke9Xc",
+    "game": "oot"
+  },
+  {
+    "title": "Enter Zelda",
+    "id": "kJDIk-FR2YI",
+    "game": "oot"
+  },
+  {
+    "title": "Ocarina 'Zelda's Lullaby'",
+    "id": "9dAxqIjmB4I",
+    "game": "oot"
+  },
+  {
+    "title": "Zelda's Theme",
+    "id": "AnUt3eRGIeE",
+    "game": "oot",
+    "title_fr": "Thème de Zelda"
+  },
+  {
+    "title": "Ocarina 'Epona's Song'",
+    "id": "0lCmmduK_bc",
+    "game": "oot"
+  },
+  {
+    "title": "Lon Lon Ranch",
+    "id": "S-sbEwxF48U",
+    "game": "oot",
+    "title_fr": "Ranch Lon Lon"
+  },
+  {
+    "title": "Mini Game",
+    "id": "Gu2FXFj6Rlg",
+    "game": "oot"
+  },
+  {
+    "title": "Kakariko Village",
+    "id": "04c2rDH98_A",
+    "game": "oot",
+    "title_fr": "Village Cocorico"
+  },
+  {
+    "title": "Ocarina 'Sun's Song'",
+    "id": "g6-vb9jYaP8",
+    "game": "oot"
+  },
+  {
+    "title": "Hyrule Field Morning Theme",
+    "id": "yfrhek3O8ew",
+    "game": "oot",
+    "title_fr": "Thème matinal de la plaine d'Hyrule"
+  },
+  {
+    "title": "Goron City",
+    "id": "FLnH8hTsPrs",
+    "game": "oot",
+    "title_fr": "Cité Goron"
+  },
+  {
+    "title": "Ocarina 'Saria's Song'",
+    "id": "FQ8pH15SzQ4",
+    "game": "oot"
+  },
+  {
+    "title": "Lost Woods",
+    "id": "uetxBY77qCQ",
+    "game": "oot",
+    "title_fr": "Bois Perdu"
+  },
+  {
+    "title": "Dodongo's Cavern",
+    "id": "yPoYPvgNh_s",
+    "game": "oot"
+  },
+  {
+    "title": "Middle Boss Battle",
+    "id": "1W5iD1vuFMA",
+    "game": "oot"
+  },
+  {
+    "title": "Dinosaur Boss Battle",
+    "id": "Rnlufa--ul4",
+    "game": "oot"
+  },
+  {
+    "title": "Zora's Domain",
+    "id": "pGXJMCIdGoQ",
+    "game": "oot",
+    "title_fr": "Domaine Zora"
+  },
+  {
+    "title": "Great Fairy Fountain",
+    "id": "fK91q_rXpS8",
+    "game": "oot",
+    "title_fr": "Fontaine de la Grande Fée"
+  },
+  {
+    "title": "Potion Shop",
+    "id": "H8LHTKmfLc0",
+    "game": "oot"
+  },
+  {
+    "title": "Inside Jabu-Jabu's Belly",
+    "id": "HQELpPu4WtI",
+    "game": "oot"
+  },
+  {
+    "title": "Ocarina 'Song Of Time'",
+    "id": "C_-Ao1Y62mg",
+    "game": "oot"
+  },
+  {
+    "title": "Temple Of Time",
+    "id": "UfajkVmN6kU",
+    "game": "oot",
+    "title_fr": "Temple du Temps"
+  },
+  {
+    "title": "Open Door Of Temple Of Time",
+    "id": "7vHyLJD7Zks",
+    "game": "oot"
+  },
+  {
+    "title": "Master Sword",
+    "id": "YeR0uJTpS38",
+    "game": "oot",
+    "title_fr": "Épée de Légende"
+  },
+  {
+    "title": "Ganondorf's Theme",
+    "id": "MQLxgwGJlP8",
+    "game": "oot"
+  },
+  {
+    "title": "Chamber Of The Sages",
+    "id": "hcu9F77v4LI",
+    "game": "oot"
+  },
+  {
+    "title": "Medal Get Fanfare",
+    "id": "SSr_C9xASLk",
+    "game": "oot"
+  },
+  {
+    "title": "Sheik's Theme",
+    "id": "LcoV-r8PH7Y",
+    "game": "oot"
+  },
+  {
+    "title": "Horse Race",
+    "id": "JX1F9p048HQ",
+    "game": "oot"
+  },
+  {
+    "title": "Horse Race Goal",
+    "id": "PM9jX1IVhsg",
+    "game": "oot"
+  },
+  {
+    "title": "Ingo's Theme",
+    "id": "b2DWj-CrYgg",
+    "game": "oot"
+  },
+  {
+    "title": "Escape From Lon Lon Ranch",
+    "id": "sVW87KWK9Lw",
+    "game": "oot"
+  },
+  {
+    "title": "Kakariko Village Orchestra Version",
+    "id": "n5-kCfSrXxA",
+    "game": "oot"
+  },
+  {
+    "title": "Ocarina 'Song Of Storms'",
+    "id": "7Ujs2qi2qEQ",
+    "game": "oot"
+  },
+  {
+    "title": "Windmill Hut",
+    "id": "uSX5jVTULP4",
+    "game": "oot"
+  },
+  {
+    "title": "Minuet Of Woods",
+    "id": "S801Zzd0UUo",
+    "game": "oot"
+  },
+  {
+    "title": "Forest Temple",
+    "id": "wPs-yAt_UO8",
+    "game": "oot",
+    "title_fr": "Temple de la Forêt"
+  },
+  {
+    "title": "Bolero Of Fire",
+    "id": "FfjamxoZ7ho",
+    "game": "oot"
+  },
+  {
+    "title": "Fire Temple",
+    "id": "jzrDFQILG5o",
+    "game": "oot",
+    "title_fr": "Temple du Feu"
+  },
+  {
+    "title": "Ice Cavern",
+    "id": "yCjn4IyYoTY",
+    "game": "oot",
+    "title_fr": "Caverne de Glace"
+  },
+  {
+    "title": "Serenade Of Water",
+    "id": "0iJ36FKen3A",
+    "game": "oot"
+  },
+  {
+    "title": "Water Temple",
+    "id": "I3m6Jv18jt8",
+    "game": "oot",
+    "title_fr": "Temple de l'Eau"
+  },
+  {
+    "title": "Nocturne Of Shadow",
+    "id": "f96UhjnHG9M",
+    "game": "oot"
+  },
+  {
+    "title": "Prelude Of Light",
+    "id": "SpD9E8lugms",
+    "game": "oot"
+  },
+  {
+    "title": "Shadow Temple",
+    "id": "1ozuapKvzj8",
+    "game": "oot",
+    "title_fr": "Temple de l'Ombre"
+  },
+  {
+    "title": "Gerudo Valley",
+    "id": "U9BcM2ofm_E",
+    "game": "oot",
+    "title_fr": "Vallée Gerudo"
+  },
+  {
+    "title": "Spirit Temple",
+    "id": "Y76HJQa93t8",
+    "game": "oot",
+    "title_fr": "Temple de l'Esprit"
+  },
+  {
+    "title": "Requiem Of Spirit",
+    "id": "gco3jpj7IvQ",
+    "game": "oot"
+  },
+  {
+    "title": "Kotake & Koume's Theme",
+    "id": "lo_XmOA3PyE",
+    "game": "oot"
+  },
+  {
+    "title": "Meet Again Zelda",
+    "id": "-2T9MTNoEjY",
+    "game": "oot"
+  },
+  {
+    "title": "Game Over",
+    "id": "mJ9Agav2DL0",
+    "game": "oot",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Ganon's Castle Bridge",
+    "id": "0iqMFBjpeY8",
+    "game": "oot"
+  },
+  {
+    "title": "Ganon's Castle Under Ground",
+    "id": "Nm3t3j_Qhpc",
+    "game": "oot"
+  },
+  {
+    "title": "Inside Ganon's Castle",
+    "id": "B4h7g3WNpg4",
+    "game": "oot"
+  },
+  {
+    "title": "Ganondorf Battle",
+    "id": "oikvFt8Wy0k",
+    "game": "oot"
+  },
+  {
+    "title": "Escape From Ganon's Castle",
+    "id": "PRzfmV1ffeY",
+    "game": "oot"
+  },
+  {
+    "title": "Last Battle",
+    "id": "C6ZGXtCSBXU",
+    "game": "oot",
+    "title_fr": "Bataille finale"
+  },
+  {
+    "title": "Seal Of Six Sages",
+    "id": "VbJJDpyooPI",
+    "game": "oot"
+  },
+  {
+    "title": "Ocarina Of Time",
+    "id": "us_k7SJezJw",
+    "game": "oot"
+  },
+  {
+    "title": "End Credits",
+    "id": "V6tc6IEyum8",
+    "game": "oot",
+    "title_fr": "Générique de fin"
+  },
+  {
+    "title": "Title Theme",
+    "id": "-50FLAusUEo",
+    "game": "mm",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "File Select",
+    "id": "bjM9i82f-80",
+    "game": "mm",
+    "title_fr": "Sélection de fichier"
+  },
+  {
+    "title": "Opening Scene",
+    "id": "l4XZl5q3mpQ",
+    "game": "mm"
+  },
+  {
+    "title": "The Chase",
+    "id": "orD2exTtJrI",
+    "game": "mm"
+  },
+  {
+    "title": "Majora's Theme",
+    "id": "0JM-PMQneLw",
+    "game": "mm"
+  },
+  {
+    "title": "Cave",
+    "id": "F6312gseTp0",
+    "game": "mm",
+    "title_fr": "Grotte"
+  },
+  {
+    "title": "Inside The Clock Tower",
+    "id": "cbYJ7VrwcUE",
+    "game": "mm"
+  },
+  {
+    "title": "Clock Town First Day",
+    "id": "bjBvktEJ3fY",
+    "game": "mm",
+    "title_fr": "Bourg-Carillon, premier jour"
+  },
+  {
+    "title": "Clock Town Second Day",
+    "id": "DUbOdHtHA50",
+    "game": "mm",
+    "title_fr": "Bourg-Carillon, deuxième jour"
+  },
+  {
+    "title": "Clock Town Third Day",
+    "id": "khXa-Zl6maQ",
+    "game": "mm",
+    "title_fr": "Bourg-Carillon, troisième jour"
+  },
+  {
+    "title": "Guru Guru's Song",
+    "id": "MMfy6bMo9aM",
+    "game": "mm"
+  },
+  {
+    "title": "Mayor's Meeting",
+    "id": "GhqJ6UrxEX0",
+    "game": "mm"
+  },
+  {
+    "title": "Stock Pot Inn",
+    "id": "B3d_nBZ-Uzo",
+    "game": "mm"
+  },
+  {
+    "title": "Shop",
+    "id": "fjmTyWwSRps",
+    "game": "mm",
+    "title_fr": "Boutique"
+  },
+  {
+    "title": "Curiosity Shop",
+    "id": "jppvoBmQigc",
+    "game": "mm"
+  },
+  {
+    "title": "Shooting Gallery",
+    "id": "9pP_tvUZVdg",
+    "game": "mm"
+  },
+  {
+    "title": "Time Limit",
+    "id": "wx9egwwiOmc",
+    "game": "mm"
+  },
+  {
+    "title": "Kamaro's Dance",
+    "id": "65-pGolUUKM",
+    "game": "mm"
+  },
+  {
+    "title": "Rosa Sisters",
+    "id": "eUnu-l-wd6o",
+    "game": "mm"
+  },
+  {
+    "title": "Swordsman's School",
+    "id": "yh01rzzI4AM",
+    "game": "mm"
+  },
+  {
+    "title": "Keaton's Quiz",
+    "id": "rxW7RgG9Cwc",
+    "game": "mm"
+  },
+  {
+    "title": "Milk Bar",
+    "id": "oIqpq_forfE",
+    "game": "mm"
+  },
+  {
+    "title": "Great Fairy's Fountain",
+    "id": "SpQmkAL3BmQ",
+    "game": "mm"
+  },
+  {
+    "title": "Astral Observatory",
+    "id": "sSKLXVQab8w",
+    "game": "mm"
+  },
+  {
+    "title": "Final Hours",
+    "id": "Jfka0kvsg0w",
+    "game": "mm"
+  },
+  {
+    "title": "Final Hours (Bells & Rumble)",
+    "id": "hxeSwBunRNE",
+    "game": "mm"
+  },
+  {
+    "title": "Memories of Zelda",
+    "id": "CP2EKF3E1wE",
+    "game": "mm"
+  },
+  {
+    "title": "Angry Mask Salesman",
+    "id": "o3WqTs2XzQ0",
+    "game": "mm"
+  },
+  {
+    "title": "Angry Mask Salesman (V2)",
+    "id": "v4lnFinYKjA",
+    "game": "mm"
+  },
+  {
+    "title": "Termina Field",
+    "id": "ZsGKLGtlDqA",
+    "game": "mm",
+    "title_fr": "Plaine de Termina"
+  },
+  {
+    "title": "Southern Swamp",
+    "id": "OeIHD_Ln5hE",
+    "game": "mm"
+  },
+  {
+    "title": "Woods of Mystery",
+    "id": "M50SInmp1m8",
+    "game": "mm"
+  },
+  {
+    "title": "Magic Hags Shop",
+    "id": "Cu1tYl3Segs",
+    "game": "mm"
+  },
+  {
+    "title": "Boat Cruise",
+    "id": "LUm3c5R7H4M",
+    "game": "mm"
+  },
+  {
+    "title": "Deku Palace",
+    "id": "PNOk_t4pGJ0",
+    "game": "mm"
+  },
+  {
+    "title": "Woodfall Rises",
+    "id": "U_PtOON6Zao",
+    "game": "mm"
+  },
+  {
+    "title": "Woodfall Temple",
+    "id": "ZPQG4Ra2s8g",
+    "game": "mm",
+    "title_fr": "Temple des Bois Putrides"
+  },
+  {
+    "title": "Woodfall Clears",
+    "id": "yTAo8YbKVxs",
+    "game": "mm"
+  },
+  {
+    "title": "The Owl",
+    "id": "Prmo-lqF9Eg",
+    "game": "mm"
+  },
+  {
+    "title": "Mountain Village",
+    "id": "UNOzQlfYMNg",
+    "game": "mm"
+  },
+  {
+    "title": "Mountain Village (V2)",
+    "id": "6uuIFhtFXIY",
+    "game": "mm"
+  },
+  {
+    "title": "Goron Village",
+    "id": "Zg2BbmOxXkE",
+    "game": "mm"
+  },
+  {
+    "title": "Goron Race",
+    "id": "hFUpamMA93g",
+    "game": "mm"
+  },
+  {
+    "title": "Goron Race Goal",
+    "id": "JDF0wsF1jGI",
+    "game": "mm"
+  },
+  {
+    "title": "Snowhead Temple",
+    "id": "LynLexUUks8",
+    "game": "mm",
+    "title_fr": "Temple de Tête-Enneigée"
+  },
+  {
+    "title": "Snowhead Temple (V2)",
+    "id": "QAb_x-iGG34",
+    "game": "mm"
+  },
+  {
+    "title": "Snowhead Clears",
+    "id": "3S5G5jFWBK0",
+    "game": "mm"
+  },
+  {
+    "title": "Gorman Track",
+    "id": "-UIQYSha8JE",
+    "game": "mm"
+  },
+  {
+    "title": "Horse Race",
+    "id": "WBMFkAPoOaM",
+    "game": "mm"
+  },
+  {
+    "title": "The Finish Line",
+    "id": "oHnS9Pp7IBw",
+    "game": "mm"
+  },
+  {
+    "title": "Romani Ranch",
+    "id": "j6ySMYYrpnY",
+    "game": "mm"
+  },
+  {
+    "title": "Frog Song",
+    "id": "QOig0VAd3gY",
+    "game": "mm"
+  },
+  {
+    "title": "Bremen March",
+    "id": "uPY_a_WqfiQ",
+    "game": "mm"
+  },
+  {
+    "title": "Ghost Attack",
+    "id": "caFx30dQ8A8",
+    "game": "mm"
+  },
+  {
+    "title": "Cremia's Carriage",
+    "id": "CSRjh0_Zcvg",
+    "game": "mm"
+  },
+  {
+    "title": "Great Bay Coast",
+    "id": "a735uJ_NUjo",
+    "game": "mm",
+    "title_fr": "Côte de la Grande Baie"
+  },
+  {
+    "title": "Mikau",
+    "id": "yVd7BZTjtiU",
+    "game": "mm"
+  },
+  {
+    "title": "Pirate's Fortress",
+    "id": "13_wOFqbo70",
+    "game": "mm"
+  },
+  {
+    "title": "Zora Hall",
+    "id": "JXtWv9s3qxY",
+    "game": "mm"
+  },
+  {
+    "title": "Practice Sessions",
+    "id": "6j7TjRPol3k",
+    "game": "mm"
+  },
+  {
+    "title": "The Indogo-gos",
+    "id": "AiN1dlAedBM",
+    "game": "mm"
+  },
+  {
+    "title": "Great Bay Temple",
+    "id": "aFCXpJvgbP0",
+    "game": "mm",
+    "title_fr": "Temple de la Grande Baie"
+  },
+  {
+    "title": "Ikana Valley",
+    "id": "B32RIUwc8ps",
+    "game": "mm",
+    "title_fr": "Vallée d'Ikana"
+  },
+  {
+    "title": "Sharp's Curse",
+    "id": "Dt-Hkz0MKs0",
+    "game": "mm"
+  },
+  {
+    "title": "Music Box House",
+    "id": "BAbv2z1l8vc",
+    "game": "mm"
+  },
+  {
+    "title": "Ikana Castle",
+    "id": "ltydHEuwbBk",
+    "game": "mm"
+  },
+  {
+    "title": "Stone Tower Temple",
+    "id": "-j5iaZukwYI",
+    "game": "mm",
+    "title_fr": "Temple de la Tour de Pierre"
+  },
+  {
+    "title": "Stone Tower Temple (Inverted)",
+    "id": "h2pK_tBB9EA",
+    "game": "mm"
+  },
+  {
+    "title": "Battle",
+    "id": "p13TCtmXeSw",
+    "game": "mm"
+  },
+  {
+    "title": "Mini Boss Battle",
+    "id": "y5JcKsmISNw",
+    "game": "mm"
+  },
+  {
+    "title": "Boss Battle",
+    "id": "rkjM4dfuuaU",
+    "game": "mm"
+  },
+  {
+    "title": "Boss Clear",
+    "id": "ejscATEwwbQ",
+    "game": "mm"
+  },
+  {
+    "title": "Giant's Theme",
+    "id": "VRjt2qpu1Ek",
+    "game": "mm"
+  },
+  {
+    "title": "Instrument Songs",
+    "id": "6cPY0qGCWDI",
+    "game": "mm"
+  },
+  {
+    "title": "Song of Healing",
+    "id": "ys0o5QWKFTE",
+    "game": "mm",
+    "title_fr": "Chant de Guérison"
+  },
+  {
+    "title": "Chest & All Fanfare",
+    "id": "eeRmo9C6a68",
+    "game": "mm"
+  },
+  {
+    "title": "Event Clear",
+    "id": "_5wvhAxvSW4",
+    "game": "mm"
+  },
+  {
+    "title": "Game Over",
+    "id": "YzS5ZgfSAnA",
+    "game": "mm",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Calling The Four Giants",
+    "id": "MXambjfhhqw",
+    "game": "mm"
+  },
+  {
+    "title": "Tatl & Tael",
+    "id": "3VN2J4xPY5o",
+    "game": "mm"
+  },
+  {
+    "title": "To The Moon",
+    "id": "Mm9_7mDccSs",
+    "game": "mm"
+  },
+  {
+    "title": "Majora's Mask Battle",
+    "id": "kfymcXfHkEM",
+    "game": "mm"
+  },
+  {
+    "title": "Majora's Incarnate",
+    "id": "bZ0acTd5LTw",
+    "game": "mm"
+  },
+  {
+    "title": "Majora's Wrath",
+    "id": "jB9pQNR18DU",
+    "game": "mm"
+  },
+  {
+    "title": "Majora's Wrath V2",
+    "id": "h1Tl0ilIRzY",
+    "game": "mm"
+  },
+  {
+    "title": "Moon's Destruction",
+    "id": "IY9V-BfFP9Y",
+    "game": "mm"
+  },
+  {
+    "title": "Staff Roll",
+    "id": "AO7TzBIJRUs",
+    "game": "mm",
+    "title_fr": "Générique de fin"
+  },
+  {
+    "title": "Title Screen",
+    "id": "A3LXEInpQCc",
+    "game": "ooa",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Overworld",
+    "id": "m6Qk6bylRI0",
+    "game": "ooa",
+    "title_fr": "Monde extérieur"
+  },
+  {
+    "title": "Overworld (Past)",
+    "id": "QhXiSBIL4Jc",
+    "game": "ooa"
+  },
+  {
+    "title": "Tokay Island",
+    "id": "wAwe8gbhpRw",
+    "game": "ooa"
+  },
+  {
+    "title": "Get Element",
+    "id": "6Zmk5FFxHDU",
+    "game": "ooa"
+  },
+  {
+    "title": "Ambi's Palace",
+    "id": "DxlAn6WTO9w",
+    "game": "ooa"
+  },
+  {
+    "title": "Nayru's Song",
+    "id": "3ldLmffH2k4",
+    "game": "ooa"
+  },
+  {
+    "title": "Game Over",
+    "id": "CTyV_LbuzW0",
+    "game": "ooa",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Lynna City (Present)",
+    "id": "dufJCmYIlK0",
+    "game": "ooa"
+  },
+  {
+    "title": "Lynna Village (Past)",
+    "id": "3zNS76xUfUg",
+    "game": "ooa"
+  },
+  {
+    "title": "Zora Village",
+    "id": "A8sVAyIB6Co",
+    "game": "ooa"
+  },
+  {
+    "title": "Fairy Something",
+    "id": "kTBa-ApJf9E",
+    "game": "ooa"
+  },
+  {
+    "title": "House",
+    "id": "UUD37KFIwYU",
+    "game": "ooa",
+    "title_fr": "Maison"
+  },
+  {
+    "title": "Fairy Fountain",
+    "id": "321Gv_Di8ns",
+    "game": "ooa",
+    "title_fr": "Fontaine des fées"
+  },
+  {
+    "title": "Get Item!",
+    "id": "zLGFGHrFD98",
+    "game": "ooa"
+  },
+  {
+    "title": "Select File",
+    "id": "kQ5L8vRoY_A",
+    "game": "ooa",
+    "title_fr": "Sélection de fichier"
+  },
+  {
+    "title": "Maku Road (Level 0)",
+    "id": "PkMWCOZsBBk",
+    "game": "ooa"
+  },
+  {
+    "title": "Spirit's Grave (Level 1)",
+    "id": "CTz4IQbn_sg",
+    "game": "ooa"
+  },
+  {
+    "title": "Wing Dungeon (Level 2)",
+    "id": "nSZxh-4AoW0",
+    "game": "ooa"
+  },
+  {
+    "title": "Moonlit Grotto (Level 3)",
+    "id": "0M828fvIoho",
+    "game": "ooa"
+  },
+  {
+    "title": "Skull Dungeon (Level 4)",
+    "id": "5K4RR12EUhs",
+    "game": "ooa"
+  },
+  {
+    "title": "Crown Dungeon (Level 5)",
+    "id": "CgfijqFheZM",
+    "game": "ooa"
+  },
+  {
+    "title": "Mermaid Cave (Level 6)",
+    "id": "GcoK-SxhKwM",
+    "game": "ooa"
+  },
+  {
+    "title": "Jabu Jabu's Belly (Level 7)",
+    "id": "UinDECA95kM",
+    "game": "ooa"
+  },
+  {
+    "title": "Ancient Tomb",
+    "id": "v852lQYjJo8",
+    "game": "ooa"
+  },
+  {
+    "title": "Veran's Theme",
+    "id": "TbddyGnRi8w",
+    "game": "ooa"
+  },
+  {
+    "title": "Castle of Despair",
+    "id": "b8DQpnP9UQA",
+    "game": "ooa",
+    "title_fr": "Château du Désespoir"
+  },
+  {
+    "title": "Room of Rites",
+    "id": "eHVQRx83A7c",
+    "game": "ooa",
+    "title_fr": "Salle des Rites"
+  },
+  {
+    "title": "Maku Tree's Theme",
+    "id": "lN3eZxmZVtY",
+    "game": "ooa",
+    "title_fr": "Thème de l'Arbre Maku"
+  },
+  {
+    "title": "Sad Theme",
+    "id": "y0lDskCT9hY",
+    "game": "ooa",
+    "title_fr": "Thème triste"
+  },
+  {
+    "title": "Outside Ancient Tomb",
+    "id": "9vAhGq0vw7Y",
+    "game": "ooa"
+  },
+  {
+    "title": "Darkness Spreads",
+    "id": "qbn3uXj-tqw",
+    "game": "ooa"
+  },
+  {
+    "title": "Under the Sea",
+    "id": "TZ7ztebYKeY",
+    "game": "ooa"
+  },
+  {
+    "title": "Skull Pirates",
+    "id": "CBcj0KJLtB8",
+    "game": "ooa"
+  },
+  {
+    "title": "Symmetry City (Present)",
+    "id": "Ir-SWzOwqe8",
+    "game": "ooa"
+  },
+  {
+    "title": "Symmetry City (Past)",
+    "id": "GjEe5_CMJPU",
+    "game": "ooa"
+  },
+  {
+    "title": "Tokay's House",
+    "id": "ZXrtrfaUiTA",
+    "game": "ooa"
+  },
+  {
+    "title": "Goron Dance (Alternate)",
+    "id": "YSuOGEnh6E8",
+    "game": "ooa"
+  },
+  {
+    "title": "Black Tower",
+    "id": "EIzZLFIXfKc",
+    "game": "ooa"
+  },
+  {
+    "title": "Epilogue",
+    "id": "Pb97iFaFSHc",
+    "game": "ooa",
+    "title_fr": "Épilogue"
+  },
+  {
+    "title": "Credits",
+    "id": "SOvyyiv8fHk",
+    "game": "ooa",
+    "title_fr": "Générique"
+  },
+  {
+    "title": "Maple's Theme",
+    "id": "x-juZkrQYNI",
+    "game": "ooa"
+  },
+  {
+    "title": "Rush for Maple's Items",
+    "id": "F7P29Wy9Y6A",
+    "game": "ooa"
+  },
+  {
+    "title": "Mini-Boss",
+    "id": "J6g4zapJOuw",
+    "game": "ooa",
+    "title_fr": "Mini-boss"
+  },
+  {
+    "title": "Boss",
+    "id": "f327T53lEmM",
+    "game": "ooa",
+    "title_fr": "Boss"
+  },
+  {
+    "title": "Odd Happening (Unused)",
+    "id": "6ryeizcQ3gw",
+    "game": "ooa"
+  },
+  {
+    "title": "Fairy's Forest",
+    "id": "_67bDP-x1r8",
+    "game": "ooa"
+  },
+  {
+    "title": "Crazy Dance",
+    "id": "GDagpfTRpFc",
+    "game": "ooa"
+  },
+  {
+    "title": "Final Battle Against Veran",
+    "id": "sjAhHjCcOeU",
+    "game": "ooa"
+  },
+  {
+    "title": "Battle with Twinrova",
+    "id": "26_6dtozHBw",
+    "game": "ooa"
+  },
+  {
+    "title": "Final Battle with Ganon",
+    "id": "uzbb72KJS7o",
+    "game": "ooa"
+  },
+  {
+    "title": "Ralph's Theme",
+    "id": "uPmIGwkR6kY",
+    "game": "ooa"
+  },
+  {
+    "title": "Caves",
+    "id": "Od4suXUCwgg",
+    "game": "ooa",
+    "title_fr": "Grottes"
+  },
+  {
+    "title": "Zelda Awakens",
+    "id": "fvypkXIIXW4",
+    "game": "ooa",
+    "title_fr": "Zelda se réveille"
+  },
+  {
+    "title": "Great Moblin's Theme",
+    "id": "2lR5CvkJiu4",
+    "game": "ooa"
+  },
+  {
+    "title": "Syrup the Witch",
+    "id": "-A4DobWW85o",
+    "game": "ooa"
+  },
+  {
+    "title": "Gorons",
+    "id": "O78ABlj4B_E",
+    "game": "ooa"
+  },
+  {
+    "title": "Opening Demo",
+    "id": "QvFJjxgY8VA",
+    "game": "ooa"
+  },
+  {
+    "title": "Title Screen Intro",
+    "id": "pQtrcLhDwUk",
+    "game": "ooa"
+  },
+  {
+    "title": "Top of the Tower",
+    "id": "nOczIHjZbNQ",
+    "game": "ooa"
+  },
+  {
+    "title": "Unknown 2",
+    "id": "JEwP4cMffpo",
+    "game": "ooa"
+  },
+  {
+    "title": "Temple Ruins",
+    "id": "XGyPovhzKMs",
+    "game": "oos"
+  },
+  {
+    "title": "Tarm Ruins",
+    "id": "S0EumkAeEAo",
+    "game": "oos"
+  },
+  {
+    "title": "Get Element",
+    "id": "ZzGX6P0qv0g",
+    "game": "oos"
+  },
+  {
+    "title": "Unknown 1",
+    "id": "RFOEEOzN0eU",
+    "game": "oos"
+  },
+  {
+    "title": "Dancing with Din",
+    "id": "VR8TCFjlfxM",
+    "game": "oos"
+  },
+  {
+    "title": "Game Over",
+    "id": "10sjalGqOjE",
+    "game": "oos",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Horon Village",
+    "id": "MP5BC6rgFas",
+    "game": "oos",
+    "title_fr": "Village de Coron"
+  },
+  {
+    "title": "Hide 'n' Seek",
+    "id": "KefXvZEwCSc",
+    "game": "oos"
+  },
+  {
+    "title": "Sunken Village",
+    "id": "J7Fuah5INoc",
+    "game": "oos"
+  },
+  {
+    "title": "Temple of Seasons",
+    "id": "--0AzKXCHj8",
+    "game": "oos"
+  },
+  {
+    "title": "House",
+    "id": "ntHXW8deOsc",
+    "game": "oos",
+    "title_fr": "Maison"
+  },
+  {
+    "title": "Fairy Fountain",
+    "id": "7giv08Dgwjw",
+    "game": "oos",
+    "title_fr": "Fontaine des fées"
+  },
+  {
+    "title": "Select File",
+    "id": "PgwrKc_yN5w",
+    "game": "oos",
+    "title_fr": "Sélection de fichier"
+  },
+  {
+    "title": "Hero's Cave (Level 0)",
+    "id": "AVPm96vrUQw",
+    "game": "oos"
+  },
+  {
+    "title": "Gnarled Root Dungeon (Level 1)",
+    "id": "frO63DEP01c",
+    "game": "oos"
+  },
+  {
+    "title": "Snake's Remains (Level 2)",
+    "id": "7gQFsFF8WE8",
+    "game": "oos"
+  },
+  {
+    "title": "Poison Moth's Lair (Level 3)",
+    "id": "mK0N2hVIuLg",
+    "game": "oos"
+  },
+  {
+    "title": "Dancing Dragon Dungeon (Level 4)",
+    "id": "xhGS79bPPCI",
+    "game": "oos"
+  },
+  {
+    "title": "Unicorn's Cave (Level 5)",
+    "id": "xpkGGoi23Jg",
+    "game": "oos"
+  },
+  {
+    "title": "Ancient Ruins (Level 6)",
+    "id": "17e1CDhZXIw",
+    "game": "oos"
+  },
+  {
+    "title": "Explorer's Crypt (Level 7)",
+    "id": "sJFiZTQA3xQ",
+    "game": "oos"
+  },
+  {
+    "title": "Sword and Shield Maze (Level 8)",
+    "id": "yJkfjHAv66s",
+    "game": "oos"
+  },
+  {
+    "title": "Onox's Cave",
+    "id": "EAOxuCZRdvo",
+    "game": "oos",
+    "title_fr": "Grotte d'Onox"
+  },
+  {
+    "title": "Castle of Despair",
+    "id": "Gu0wVUdX8iU",
+    "game": "oos",
+    "title_fr": "Château du Désespoir"
+  },
+  {
+    "title": "Room of Rites",
+    "id": "gwoY-RPi4_Q",
+    "game": "oos",
+    "title_fr": "Salle des Rites"
+  },
+  {
+    "title": "Maku Tree's Theme",
+    "id": "WoMTlrBjeA8",
+    "game": "oos",
+    "title_fr": "Thème de l'Arbre Maku"
+  },
+  {
+    "title": "Sad Theme",
+    "id": "MH07Hk5wfzo",
+    "game": "oos",
+    "title_fr": "Thème triste"
+  },
+  {
+    "title": "Skull Pirates' Escape",
+    "id": "ESdMnkhVMlU",
+    "game": "oos"
+  },
+  {
+    "title": "Darkness Spreads",
+    "id": "kBY3SS-GgY0",
+    "game": "oos"
+  },
+  {
+    "title": "Subrosian Dance",
+    "id": "7u1wZPTBuSU",
+    "game": "oos"
+  },
+  {
+    "title": "Skull Pirates",
+    "id": "667k6q64zME",
+    "game": "oos"
+  },
+  {
+    "title": "Unknown 2",
+    "id": "msbCY3HBqdU",
+    "game": "oos"
+  },
+  {
+    "title": "Subrosian Market",
+    "id": "aOXF5K6ushM",
+    "game": "oos"
+  },
+  {
+    "title": "Date with Rosa",
+    "id": "KXb-abzVHno",
+    "game": "oos"
+  },
+  {
+    "title": "Subrosia",
+    "id": "eRMP9Lebj7k",
+    "game": "oos",
+    "title_fr": "Sous-Rosia"
+  },
+  {
+    "title": "Epilogue",
+    "id": "PeoFyj_1Eqw",
+    "game": "oos",
+    "title_fr": "Épilogue"
+  },
+  {
+    "title": "Credits",
+    "id": "H2CDB6PKMRA",
+    "game": "oos",
+    "title_fr": "Générique"
+  },
+  {
+    "title": "Maple's Theme",
+    "id": "3uiMJ6WDvts",
+    "game": "oos"
+  },
+  {
+    "title": "Rush for Maple's Items",
+    "id": "HvxZXh9JbRc",
+    "game": "oos"
+  },
+  {
+    "title": "Mini-Boss",
+    "id": "ATi0ZFhtbuE",
+    "game": "oos",
+    "title_fr": "Mini-boss"
+  },
+  {
+    "title": "Boss",
+    "id": "izc3OpxcTQM",
+    "game": "oos",
+    "title_fr": "Boss"
+  },
+  {
+    "title": "Odd Happening (Unused)",
+    "id": "UQAHuZ-Nfic",
+    "game": "oos"
+  },
+  {
+    "title": "Crazy Dance",
+    "id": "OP9fuqY5m50",
+    "game": "oos"
+  },
+  {
+    "title": "Final Battle Against Onox",
+    "id": "jJA3sWsGkVA",
+    "game": "oos"
+  },
+  {
+    "title": "Battle with Twinrova",
+    "id": "PcB9RpNwzV0",
+    "game": "oos"
+  },
+  {
+    "title": "Final Battle with Ganon",
+    "id": "t4-QQYPs68Q",
+    "game": "oos"
+  },
+  {
+    "title": "Samasa Desert",
+    "id": "n_LB0TqyJHA",
+    "game": "oos"
+  },
+  {
+    "title": "Caves",
+    "id": "kPJPIDmNmwg",
+    "game": "oos",
+    "title_fr": "Grottes"
+  },
+  {
+    "title": "Zelda Awakens",
+    "id": "W_K072Fkeoo",
+    "game": "oos",
+    "title_fr": "Zelda se réveille"
+  },
+  {
+    "title": "Unknown 3",
+    "id": "vcBVdPeciv4",
+    "game": "oos"
+  },
+  {
+    "title": "Syrup the Witch",
+    "id": "kYaDqqMWaYk",
+    "game": "oos"
+  },
+  {
+    "title": "Windmill House",
+    "id": "VEa5d0Ojh4E",
+    "game": "oos"
+  },
+  {
+    "title": "Gorons",
+    "id": "4mhsW4DMfWw",
+    "game": "oos"
+  },
+  {
+    "title": "Opening Demo",
+    "id": "IIlBL8YTx20",
+    "game": "oos"
+  },
+  {
+    "title": "Title Screen Intro",
+    "id": "Vx6ufaFQZGE",
+    "game": "oos"
+  },
+  {
+    "title": "Northern Peak",
+    "id": "YyYSI4dkwDw",
+    "game": "oos"
+  },
+  {
+    "title": "Unknown 4",
+    "id": "rcGH_30Czzs",
+    "game": "oos"
+  }
+]

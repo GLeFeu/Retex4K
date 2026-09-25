@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZELDA OST QUIZ</title>
+<meta name="description" content="Blind test of The Legend of Zelda's music">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=43">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZELDA OST QUIZ — Legend of Zelda blind test">
+<meta property="og:description" content="Guess the track before the timer runs out. Legend of Zelda music, all mixed together.">
+<meta property="og:url" content="https://retex4k.com/blindtest/">
+
+</head>
+<body>
+
+<div id="yt-hidden-player" aria-hidden="true">
+  <div id="yt-player"></div>
+</div>
+
+<main id="app">
+  <section id="screen-setup" class="screen active">
+    <div class="setup-layout">
+      <div class="side-boxes side-boxes-left">
+        <div class="box side-box mp-box" id="mp-box">
+          <h2 class="title small" data-i18n="heading_mp">Multiplayer</h2>
+
+          <div id="mp-join-create" class="mp-join-create">
+            <input type="text" id="mp-name-input" class="mp-name-input" maxlength="16" placeholder="Pseudo" data-i18n-placeholder="placeholder_mp_name">
+            <button id="mp-create-btn" class="battle-btn" type="button" data-i18n="btn_mp_create">CREATE A GAME</button>
+            <div class="mp-join-row">
+              <input type="text" id="mp-code-input" class="mp-code-input" maxlength="5" placeholder="CODE">
+              <button id="mp-join-btn" class="battle-btn" type="button" data-i18n="btn_mp_join">JOIN</button>
+            </div>
+            <p class="error-msg" id="mp-error" role="alert"></p>
+          </div>
+
+          <div id="mp-lobby" class="mp-lobby" hidden>
+            <p class="mp-room-code-label" data-i18n="label_mp_room_code">Room code</p>
+            <p class="mp-room-code" id="mp-room-code-display"></p>
+            <ul class="mp-player-list" id="mp-player-list"></ul>
+            <button id="mp-start-btn" class="battle-btn primary" type="button" data-i18n="btn_mp_start" hidden>START FOR EVERYONE</button>
+            <p class="modifier-note" id="mp-waiting-note" data-i18n="mp_waiting_host">Waiting for the host to start...</p>
+            <button id="mp-leave-btn" class="battle-btn" type="button" data-i18n="btn_mp_leave">LEAVE</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h1 class="title" data-i18n="title">BLIND TEST</h1>
+        <p class="subtitle" data-i18n="subtitle">Can you recognize every track?</p>
+
+        <div class="modifier-row">
+          <span class="modifier-label" data-i18n="label_ui_lang">Language</span>
+          <div class="modifier-options">
+            <button class="mini-toggle" id="lang-en-btn" type="button">EN</button>
+            <button class="mini-toggle" id="lang-fr-btn" type="button">FR</button>
+          </div>
+        </div>
+
+        <div class="modifier-row">
+          <span class="modifier-label" data-i18n="label_track_lang">Track titles</span>
+          <div class="modifier-options">
+            <button class="mini-toggle" id="track-lang-en-btn" type="button">EN</button>
+            <button class="mini-toggle" id="track-lang-fr-btn" type="button">FR</button>
+          </div>
+        </div>
+
+        <div class="menu-label-row">
+          <p class="menu-label" data-i18n="label_game">Game (multi-select)</p>
+          <div class="game-collapse-actions">
+            <button type="button" id="game-collapse-all-btn" class="franchise-select-all" data-i18n="btn_collapse_all">Collapse all</button>
+            <button type="button" id="game-expand-all-btn" class="franchise-select-all" data-i18n="btn_expand_all">Expand all</button>
+          </div>
+        </div>
+
+        <div class="game-filter-bar" id="game-filter-bar">
+          <input type="text" id="game-search-input" class="game-search-input" data-i18n-placeholder="placeholder_game_search" placeholder="Search a game...">
+
+          <div class="filter-dropdown" id="console-filter-dropdown">
+            <button type="button" class="filter-dropdown-btn" id="console-filter-btn">
+              <span data-i18n="label_filter_console">Console</span>
+              <span class="filter-dropdown-badge" id="console-filter-badge" hidden></span>
+              <span class="filter-dropdown-arrow">▾</span>
+            </button>
+            <div class="filter-dropdown-panel" id="console-filter-panel" hidden></div>
+          </div>
+
+          <div class="game-filter-years">
+            <input type="number" id="game-filter-year-from" class="game-filter-year-input" data-i18n-placeholder="placeholder_year_from" placeholder="From">
+            <span class="game-filter-years-sep">–</span>
+            <input type="number" id="game-filter-year-to" class="game-filter-year-input" data-i18n-placeholder="placeholder_year_to" placeholder="To">
+          </div>
+
+          <button id="game-filter-reset" class="franchise-select-all" type="button" data-i18n="btn_reset_filters">Reset</button>
+        </div>
+        <div class="menu menu-scroll" id="game-menu"></div>
+
+        <p class="menu-label" data-i18n="label_track_count">Number of tracks</p>
+        <div class="menu" id="mode-menu">
+          <button class="menu-option selected" data-mode="all" type="button">
+            <span class="cursor">♥</span>
+            <span><span data-i18n="mode_all">All tracks</span> (<span id="total-count">0</span>)</span>
+          </button>
+          <button class="menu-option" data-mode="half" type="button">
+            <span class="cursor">♥</span>
+            <span><span data-i18n="mode_half">Half, random</span> (<span id="half-count">0</span>)</span>
+          </button>
+          <button class="menu-option" data-mode="custom" type="button">
+            <span class="cursor">♥</span>
+            <span data-i18n="mode_custom">Custom number:</span>
+            <input type="number" id="custom-count" min="1" value="10">
+          </button>
+        </div>
+
+        <p class="modifier-note" id="time-estimate"></p>
+        <p class="modifier-note" id="score-multiplier"></p>
+
+        <div class="start-actions" id="start-actions">
+          <button id="start-btn" class="battle-btn primary" type="button" data-i18n="btn_start">START</button>
+          <button id="resume-btn" class="battle-btn" type="button" hidden>RESUME</button>
+        </div>
+
+        <div class="volume-controls">
+          <div class="volume-control" id="volume-control-setup">
+            <button class="volume-mute-btn" id="mute-btn-setup" type="button" aria-label="Mute">&#9834;</button>
+            <span class="volume-slider-wrap">
+              <input type="range" id="volume-slider-setup" min="0" max="100" value="70" aria-label="Volume">
+              <span class="volume-tooltip" id="volume-tooltip-setup">70%</span>
+            </span>
+          </div>
+
+          <div class="volume-control sfx-volume-control" id="sfx-volume-control-setup">
+            <button class="volume-mute-btn sfx-mute-btn" id="sfx-mute-btn-setup" type="button" aria-label="Mute sound effects">SFX</button>
+            <span class="volume-slider-wrap">
+              <input type="range" id="sfx-volume-slider-setup" min="0" max="100" value="15" aria-label="Sound effects volume">
+              <span class="volume-tooltip" id="sfx-volume-tooltip-setup">15%</span>
+            </span>
+          </div>
+        </div>
+
+        <p id="setup-error" class="error-msg" role="alert"></p>
+      </div>
+
+      <div class="side-boxes">
+        <div class="box side-box defi-box">
+          <h2 class="title small" data-i18n="heading_defi">Défi</h2>
+
+          <div class="modifier-row">
+            <span class="modifier-label" data-i18n="label_answer_time">Answer time</span>
+            <div class="modifier-options">
+              <button class="mini-toggle" data-challenge="time10" type="button">10s</button>
+              <button class="mini-toggle" data-challenge="time5" type="button">5s</button>
+              <button class="mini-toggle" data-challenge="time3" type="button">3s</button>
+            </div>
+          </div>
+          <p class="modifier-note" data-i18n="note_default_time">Default answer time: 15s</p>
+
+          <div class="modifier-row">
+            <span class="modifier-label" data-i18n="label_choices">Choices</span>
+            <div class="modifier-options">
+              <button class="mini-toggle" data-challenge="count6" type="button">6</button>
+              <button class="mini-toggle" data-challenge="count8" type="button">8</button>
+              <button class="mini-toggle" data-challenge="count10" type="button">10</button>
+            </div>
+          </div>
+          <p class="modifier-note" data-i18n="note_default_choices">Default: 4 choices</p>
+
+          <div class="menu" id="challenge-menu">
+            <button class="menu-option" data-challenge="clip1s" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="opt_clip1s">1-second clip (from the middle)</span>
+            </button>
+            <button class="menu-option" data-challenge="writeTitle" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="opt_write_title">Write the title (no choices)</span>
+            </button>
+            <button class="menu-option" data-challenge="guessGame" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="opt_guess_game">Also guess the game it's from</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="box side-box handicap-box">
+          <h2 class="title small" data-i18n="heading_handicap">Handicap</h2>
+
+          <div class="modifier-row">
+            <span class="modifier-label" data-i18n="label_answer_time">Answer time</span>
+            <div class="modifier-options">
+              <button class="mini-toggle" data-handicap="time20" type="button">20s</button>
+              <button class="mini-toggle" data-handicap="time25" type="button">25s</button>
+              <button class="mini-toggle" data-handicap="time30" type="button">30s</button>
+            </div>
+          </div>
+          <p class="modifier-note" data-i18n="note_default_time">Default answer time: 15s</p>
+
+          <div class="modifier-row">
+            <span class="modifier-label" data-i18n="label_choices">Choices</span>
+            <div class="modifier-options">
+              <button class="mini-toggle" data-handicap="count3" type="button">3</button>
+              <button class="mini-toggle" data-handicap="count2" type="button">2</button>
+            </div>
+          </div>
+          <p class="modifier-note" data-i18n="note_default_choices">Default: 4 choices</p>
+
+          <div class="menu" id="handicap-menu">
+            <button class="menu-option" data-handicap="showGameLabel" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="opt_show_game_label">Show the game name under each choice</span>
+            </button>
+            <button class="menu-option" data-handicap="gameHint" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="opt_game_hint">Hint: which game it's from</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-game" class="screen">
+    <div class="game-frame">
+      <button id="back-btn" class="back-btn" type="button" aria-label="Back to menu" data-i18n-aria="aria_back"></button>
+      <div class="game-frame-row">
+      <div class="box">
+        <div class="hud">
+          <div class="hud-row">
+            <div class="volume-controls">
+              <div class="volume-control" id="volume-control-game">
+                <button class="volume-mute-btn" id="mute-btn-game" type="button" aria-label="Mute">&#9834;</button>
+                <span class="volume-slider-wrap">
+                  <input type="range" id="volume-slider-game" min="0" max="100" value="70" aria-label="Volume">
+                  <span class="volume-tooltip" id="volume-tooltip-game">70%</span>
+                </span>
+              </div>
+
+              <div class="volume-control sfx-volume-control" id="sfx-volume-control-game">
+                <button class="volume-mute-btn sfx-mute-btn" id="sfx-mute-btn-game" type="button" aria-label="Mute sound effects">SFX</button>
+                <span class="volume-slider-wrap">
+                  <input type="range" id="sfx-volume-slider-game" min="0" max="100" value="15" aria-label="Sound effects volume">
+                  <span class="volume-tooltip" id="sfx-volume-tooltip-game">15%</span>
+                </span>
+              </div>
+            </div>
+
+            <span class="hud-progress-group">
+              <span id="live-score">Find: 0 / 0</span>
+              <span id="progress-label">Track 1 / 10</span>
+              <span id="live-points">0 pts</span>
+            </span>
+
+            <span class="hud-buttons">
+              <button id="replay-clip-btn" class="replay-clip-btn" type="button" hidden>&#9654; <span data-i18n="btn_replay">REPLAY (1s)</span></button>
+              <button id="pause-btn" class="pause-btn" type="button">PAUSE</button>
+            </span>
+          </div>
+
+          <div class="hp-bar"><div id="hp-fill" class="hp-fill"></div></div>
+        </div>
+
+      <p class="game-hint" id="game-hint" hidden></p>
+      <p class="reveal-message" id="reveal-message" hidden></p>
+
+      <div class="answers-grid" id="answers-grid">
+      </div>
+
+      <div class="text-answer" id="text-answer" hidden>
+        <input type="text" id="answer-text-input" class="answer-text-input" placeholder="Type the track title..." autocomplete="off" data-i18n-placeholder="placeholder_type_title">
+        <div class="answer-suggestions" id="answer-suggestions"></div>
+      </div>
+
+      <div class="game-answer" id="game-answer" hidden>
+        <p class="menu-label" data-i18n="label_which_game">Which game is it from?</p>
+        <div class="answers-grid" id="game-answers-grid"></div>
+      </div>
+
+      <div id="pause-overlay" class="pause-overlay" hidden>
+        <p data-i18n="pause_overlay_text">* The music stops for a moment...</p>
+        <button id="pause-resume-btn" class="battle-btn primary" type="button" data-i18n="btn_resume">RESUME</button>
+      </div>
+      </div>
+
+      <div class="mp-scoreboard-panel box side-box" id="mp-scoreboard-panel" hidden>
+        <h2 class="title small" data-i18n="heading_mp_scoreboard">Scoreboard</h2>
+        <ol class="mp-scoreboard-list" id="mp-scoreboard-list"></ol>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screen-results" class="screen">
+    <div class="box">
+      <h2 class="title small" data-i18n="heading_results">RESULTS</h2>
+      <p class="score-line"><span data-i18n="label_score">Score</span><br><span id="final-score">0</span> / <span id="final-total">0</span></p>
+      <p class="score-line small"><span data-i18n="label_points">Points</span><br><span id="final-points">0</span></p>
+      <p id="score-comment" class="subtitle"></p>
+      <div id="mp-final-leaderboard" class="mp-final-leaderboard" hidden>
+        <p class="menu-label" data-i18n="label_mp_final_ranking">Final ranking</p>
+        <ol class="mp-scoreboard-list" id="mp-final-scoreboard-list"></ol>
+      </div>
+      <button id="replay-btn" class="battle-btn primary" type="button" data-i18n="btn_play_again">PLAY AGAIN</button>
+    </div>
+  </section>
+
+</main>
+
+<footer id="disclaimer" data-i18n-html="footer_disclaimer">
+  <b>Community project</b>, not affiliated with <b>Nintendo</b>.
+  Music composed by <b>Koji Kondo</b> for <b>The Legend of Zelda</b> - all
+  rights reserved to their respective creators.
+</footer>
+
+<script src="app.js?v=27"></script>
+</body>
+</html>
