@@ -634,12 +634,17 @@ el.gameExpandAllBtn.addEventListener('click', () => {
   renderGameMenu();
 });
 
+function gameHasVisualTracks(gameId) {
+  return allTracks.some((t) => t.game === gameId && !!t.image);
+}
+
 function renderGameMenu() {
   el.gameMenu.innerHTML = '';
   const filterActive = isAnyGameFilterActive();
 
   FRANCHISES.forEach((franchise) => {
-    const gamesInFranchise = GAMES.filter((g) => g.franchise === franchise.id);
+    const gamesInFranchise = GAMES.filter((g) => g.franchise === franchise.id
+      && (answerMode !== 'visual' || gameHasVisualTracks(g.id)));
     if (gamesInFranchise.length === 0) return;
 
     const visibleGames = gamesInFranchise.filter((g) => gameMatchesFilter(g, franchise));
@@ -1069,6 +1074,7 @@ el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
     el.answerModeMenu.querySelectorAll('.menu-option').forEach((b) =>
       b.classList.toggle('selected', b === btn)
     );
+    renderGameMenu();
     updateTotalCount();
     updateMainTitle();
     el.setupError.textContent = '';
@@ -1222,6 +1228,7 @@ el.resumeBtn.addEventListener('click', async () => {
   el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
     btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
   });
+  renderGameMenu();
   updateMainTitle();
 
   clipChallenge = !!saved.clipChallenge;
@@ -2413,12 +2420,10 @@ function mpRestorePreGameModifiers() {
   if (!mpPreGameModifiers) return;
   ({ writeTitleMode, guessGameMode, handicapShowGameLabel, handicapGameHint, clipChallenge, answerCountOverride, timeChallenge, answerMode } = mpPreGameModifiers);
   selectedGames = new Set(mpPreGameModifiers.selectedGames);
-  el.gameMenu.querySelectorAll('.menu-option').forEach((btn) => {
-    btn.classList.toggle('selected', selectedGames.has(btn.dataset.game));
-  });
   el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
     btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
   });
+  renderGameMenu();
   updateTotalCount();
   updateMainTitle();
   mpPreGameModifiers = null;
