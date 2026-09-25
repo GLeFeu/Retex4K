@@ -126,7 +126,6 @@ const TRANSLATIONS = {
     label_track_count: 'Number of tracks',
     btn_select_all: 'Select all',
     mode_all: 'All tracks',
-    mode_half: 'Half, random',
     mode_custom: 'Custom number:',
     btn_start: 'START',
     heading_defi: 'Challenge',
@@ -135,7 +134,7 @@ const TRANSLATIONS = {
     note_default_time: 'Default answer time: 15s',
     label_choices: 'Choices',
     note_default_choices: 'Default: 4 choices',
-    opt_clip1s: '1-second clip (from the middle)',
+    opt_clip1s: '1-second clip',
     opt_write_title: 'Write the title (no choices)',
     opt_guess_game: "Also guess the game it's from",
     opt_show_game_label: 'Show the game name under each choice',
@@ -215,7 +214,6 @@ const TRANSLATIONS = {
     label_track_count: 'Nombre de morceaux',
     btn_select_all: 'Tout sélectionner',
     mode_all: 'Tous les morceaux',
-    mode_half: 'Moitié, aléatoire',
     mode_custom: 'Nombre personnalisé :',
     btn_start: 'DÉMARRER',
     heading_defi: 'Défi',
@@ -224,7 +222,7 @@ const TRANSLATIONS = {
     note_default_time: 'Temps de réponse par défaut : 15s',
     label_choices: 'Choix',
     note_default_choices: 'Par défaut : 4 choix',
-    opt_clip1s: 'Extrait de 1 seconde (au milieu)',
+    opt_clip1s: 'Extrait de 1 seconde',
     opt_write_title: 'Écrire le titre (sans choix)',
     opt_guess_game: "Deviner aussi le jeu d'origine",
     opt_show_game_label: 'Afficher le nom du jeu sous chaque choix',
@@ -351,7 +349,6 @@ const el = {
     results: document.getElementById('screen-results'),
   },
   totalCount: document.getElementById('total-count'),
-  halfCount: document.getElementById('half-count'),
   timeEstimate: document.getElementById('time-estimate'),
   scoreMultiplier: document.getElementById('score-multiplier'),
   mainTitle: document.getElementById('main-title'),
@@ -957,7 +954,6 @@ updateMainTitle();
 function updateTotalCount() {
   const pool = getFilteredPool();
   el.totalCount.textContent = pool.length;
-  el.halfCount.textContent = Math.max(1, Math.floor(pool.length / 2));
   el.customCount.max = pool.length;
   el.customCount.value = Math.min(parseInt(el.customCount.value, 10) || 10, pool.length || 1);
   updateTimeEstimate();
@@ -972,7 +968,6 @@ function getPlannedTrackCount() {
   const pool = getFilteredPool();
   if (pool.length === 0) return 0;
   if (selectedMode === 'all') return pool.length;
-  if (selectedMode === 'half') return Math.max(1, Math.floor(pool.length / 2));
   const custom = parseInt(el.customCount.value, 10);
   return Number.isFinite(custom) && custom > 0 ? Math.min(custom, pool.length) : 0;
 }
@@ -1138,8 +1133,6 @@ function preparePlaylist() {
   let count;
   if (selectedMode === 'all') {
     count = currentPool.length;
-  } else if (selectedMode === 'half') {
-    count = Math.max(1, Math.floor(currentPool.length / 2));
   } else {
     count = parseInt(el.customCount.value, 10);
     if (!count || count < 1) {

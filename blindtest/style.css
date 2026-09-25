@@ -1015,8 +1015,11 @@ body {
   color: var(--soul-red);
   font-size: 20px;
   text-align: center;
-  min-height: 1.2em;
   margin: 0;
+}
+
+.error-msg:empty {
+  display: none;
 }
 
 /* --- Game screen --- */
