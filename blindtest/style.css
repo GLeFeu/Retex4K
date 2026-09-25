@@ -823,7 +823,7 @@ body {
 /* --- Scrollable game list: keeps the catalog usable on a 16:9 screen
    even once it grows to many franchises/games, instead of endless page scroll --- */
 .menu-scroll {
-  max-height: 320px;
+  max-height: 240px;
   overflow-y: auto;
   padding-right: 6px;
 }
