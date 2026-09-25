@@ -208,6 +208,14 @@ const TRANSLATIONS = {
     mode_text: 'BLIND TEXTE',
     mode_visual: 'BLIND IMAGE',
     note_visual_needs_images: 'Not enough tracks with an image yet for this selection.',
+    submode_music: 'Music',
+    submode_pixel: 'Pixelated',
+    submode_zoom: 'Zoom out',
+    category_games: 'Video games',
+    category_anime: 'Anime',
+    category_tv: 'TV Series',
+    category_cartoon: 'Cartoon',
+    label_no_games_in_category: 'No games in this category yet.',
     combo_label: 'Combo x{streak} ({multiplier}x pts)',
     btn_mp_resume_session: 'RESUME GAME',
     label_mp_sync: 'Sync mode',
@@ -304,6 +312,14 @@ const TRANSLATIONS = {
     mode_text: 'BLIND TEXTE',
     mode_visual: 'BLIND IMAGE',
     note_visual_needs_images: 'Pas encore assez de musiques avec image pour cette sélection.',
+    submode_music: 'Musique',
+    submode_pixel: 'Pixelisation',
+    submode_zoom: 'Dézoom',
+    category_games: 'Jeux vidéo',
+    category_anime: 'Anime',
+    category_tv: 'Série TV',
+    category_cartoon: 'Cartoon',
+    label_no_games_in_category: 'Aucun jeu dans cette catégorie pour le moment.',
     combo_label: 'Combo x{streak} ({multiplier}x pts)',
     btn_mp_resume_session: 'REPRENDRE LA PARTIE',
     label_mp_sync: 'Mode sync',
@@ -380,6 +396,8 @@ const el = {
   gameFilterYearFrom: document.getElementById('game-filter-year-from'),
   gameFilterYearTo: document.getElementById('game-filter-year-to'),
   gameFilterReset: document.getElementById('game-filter-reset'),
+  categoryTabs: document.getElementById('category-tabs'),
+  visualSubmodeRow: document.getElementById('visual-submode-row'),
   gameCollapseAllBtn: document.getElementById('game-collapse-all-btn'),
   gameExpandAllBtn: document.getElementById('game-expand-all-btn'),
   modeMenu: document.getElementById('mode-menu'),
@@ -455,15 +473,24 @@ const el = {
 let selectedMode = 'all';
 let answerMode = 'text'; // 'text' (blind test, titles) | 'visual' (guess the matching screenshot)
 let selectedGames = new Set();
+let selectedCategory = 'games';
+let visualSubMode = 'normal'; // 'normal' | 'pixel' | 'zoom' — sub-modes of BLIND IMAGE
 
 /* ---------- Game catalog: franchise / console / year metadata ---------- */
 /* Add new entries here as more games are curated in tracks.json — the menu,
    franchise grouping and "select all" buttons are all generated from this list. */
 
+const CATEGORIES = [
+  { id: 'games', name: 'Video games' },
+  { id: 'anime', name: 'Anime' },
+  { id: 'tv', name: 'TV Series' },
+  { id: 'cartoon', name: 'Cartoon' },
+];
+
 const FRANCHISES = [
-  { id: 'zelda', name: 'The Legend of Zelda' },
-  { id: 'undertale', name: 'Undertale' },
-  { id: 'deltarune', name: 'Deltarune' },
+  { id: 'zelda', category: 'games', name: 'The Legend of Zelda' },
+  { id: 'undertale', category: 'games', name: 'Undertale' },
+  { id: 'deltarune', category: 'games', name: 'Deltarune' },
 ];
 
 const GAMES = [
@@ -624,6 +651,16 @@ el.gameFilterReset.addEventListener('click', () => {
   renderGameMenu();
 });
 
+el.categoryTabs.querySelectorAll('.category-tab').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    selectedCategory = btn.dataset.category;
+    el.categoryTabs.querySelectorAll('.category-tab').forEach((b) => b.classList.toggle('selected', b === btn));
+    renderGameMenu();
+    updateTotalCount();
+    el.setupError.textContent = '';
+  });
+});
+
 el.gameCollapseAllBtn.addEventListener('click', () => {
   FRANCHISES.forEach((franchise) => { franchiseCollapsed[franchise.id] = true; });
   renderGameMenu();
@@ -642,7 +679,7 @@ function renderGameMenu() {
   el.gameMenu.innerHTML = '';
   const filterActive = isAnyGameFilterActive();
 
-  FRANCHISES.forEach((franchise) => {
+  FRANCHISES.filter((franchise) => franchise.category === selectedCategory).forEach((franchise) => {
     const gamesInFranchise = GAMES.filter((g) => g.franchise === franchise.id
       && (answerMode !== 'visual' || gameHasVisualTracks(g.id)));
     if (gamesInFranchise.length === 0) return;
@@ -750,6 +787,13 @@ function renderGameMenu() {
 
     el.gameMenu.appendChild(block);
   });
+
+  if (!el.gameMenu.children.length) {
+    const empty = document.createElement('p');
+    empty.className = 'menu-empty-note';
+    empty.textContent = t('label_no_games_in_category');
+    el.gameMenu.appendChild(empty);
+  }
 }
 
 /* ---------- Track title language (falls back to English if no French title) ---------- */
@@ -944,6 +988,7 @@ function saveGameState() {
       selectedGames: Array.from(selectedGames),
       selectedMode,
       answerMode,
+      visualSubMode,
       customCount: el.customCount.value,
       roundStartTime,
       answered: roundAnswered,
@@ -1074,10 +1119,18 @@ el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
     el.answerModeMenu.querySelectorAll('.menu-option').forEach((b) =>
       b.classList.toggle('selected', b === btn)
     );
+    el.visualSubmodeRow.hidden = answerMode !== 'visual';
     renderGameMenu();
     updateTotalCount();
     updateMainTitle();
     el.setupError.textContent = '';
+  });
+});
+
+el.visualSubmodeRow.querySelectorAll('.mini-toggle').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    visualSubMode = btn.dataset.visualSubmode;
+    el.visualSubmodeRow.querySelectorAll('.mini-toggle').forEach((b) => b.classList.toggle('selected', b === btn));
   });
 });
 
@@ -1227,6 +1280,11 @@ el.resumeBtn.addEventListener('click', async () => {
   answerMode = saved.answerMode === 'visual' ? 'visual' : 'text';
   el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
     btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
+  });
+  visualSubMode = ['pixel', 'zoom'].includes(saved.visualSubMode) ? saved.visualSubMode : 'normal';
+  el.visualSubmodeRow.hidden = answerMode !== 'visual';
+  el.visualSubmodeRow.querySelectorAll('.mini-toggle').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.visualSubmode === visualSubMode);
   });
   renderGameMenu();
   updateMainTitle();
@@ -1670,10 +1728,33 @@ function renderAnswers(track) {
   }
 }
 
+function getEffectiveRoundDurationMs() {
+  if (mpActive && mpSettings && mpSettings.durationMs) return mpSettings.durationMs;
+  return getRoundDurationMs();
+}
+
+/* Pixelated sub-mode: draw the image tiny, then blow it back up with
+   smoothing off, instead of hand-rolling a blur filter. */
+function drawPixelated(imgEl, canvas, blocks = 10) {
+  const w = canvas.width;
+  const h = canvas.height;
+  const tiny = document.createElement('canvas');
+  tiny.width = blocks;
+  tiny.height = Math.max(1, Math.round(blocks * (h / w)));
+  const tctx = tiny.getContext('2d');
+  tctx.imageSmoothingEnabled = true;
+  tctx.drawImage(imgEl, 0, 0, tiny.width, tiny.height);
+  const ctx = canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  ctx.clearRect(0, 0, w, h);
+  ctx.drawImage(tiny, 0, 0, w, h);
+}
+
 function renderVisualAnswers(track) {
   const imagePool = currentPool.filter((tr) => !!tr.image);
   const decoys = shuffle(imagePool.filter((tr) => tr.title !== track.title)).slice(0, 3);
   const options = shuffle([track, ...decoys]);
+  const durationMs = getEffectiveRoundDurationMs();
 
   el.visualAnswersGrid.innerHTML = '';
   options.forEach((opt) => {
@@ -1682,11 +1763,39 @@ function renderVisualAnswers(track) {
     btn.className = 'visual-answer-btn';
     btn.dataset.title = opt.title;
 
-    const img = document.createElement('img');
-    img.src = opt.image;
-    img.alt = getDisplayTitle(opt);
-    img.loading = 'lazy';
-    btn.appendChild(img);
+    if (visualSubMode === 'pixel') {
+      const canvas = document.createElement('canvas');
+      canvas.width = 320;
+      canvas.height = 240;
+      btn.appendChild(canvas);
+      const loader = new Image();
+      loader.crossOrigin = 'anonymous';
+      loader.onload = () => drawPixelated(loader, canvas, 10);
+      loader.src = opt.image;
+    } else if (visualSubMode === 'zoom') {
+      const wrap = document.createElement('div');
+      wrap.className = 'visual-zoom-wrap';
+      const img = document.createElement('img');
+      img.src = opt.image;
+      img.alt = getDisplayTitle(opt);
+      img.loading = 'lazy';
+      img.style.transition = 'none';
+      img.style.transform = 'scale(3.2)';
+      wrap.appendChild(img);
+      btn.appendChild(wrap);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          img.style.transition = `transform ${Math.max(1, durationMs - 500)}ms linear`;
+          img.style.transform = 'scale(1)';
+        });
+      });
+    } else {
+      const img = document.createElement('img');
+      img.src = opt.image;
+      img.alt = getDisplayTitle(opt);
+      img.loading = 'lazy';
+      btn.appendChild(img);
+    }
 
     const caption = document.createElement('span');
     caption.className = 'visual-answer-caption';
@@ -2278,6 +2387,7 @@ function mpBroadcastLobbySettings() {
       handicapShowGameLabel,
       handicapGameHint,
       clipChallenge,
+      visualSubMode,
     },
   });
 }
@@ -2308,6 +2418,11 @@ function mpApplyLobbySettingsPreview(msg) {
   });
 
   const s = msg.settings || {};
+  visualSubMode = ['pixel', 'zoom'].includes(s.visualSubMode) ? s.visualSubMode : 'normal';
+  el.visualSubmodeRow.hidden = answerMode !== 'visual';
+  el.visualSubmodeRow.querySelectorAll('.mini-toggle').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.visualSubmode === visualSubMode);
+  });
   writeTitleMode = !!s.writeTitleMode;
   guessGameMode = !!s.guessGameMode;
   handicapShowGameLabel = !!s.handicapShowGameLabel;
@@ -2442,6 +2557,7 @@ el.mpStartBtn.addEventListener('click', () => {
       handicapGameHint,
       clipChallenge,
       answerMode,
+      visualSubMode,
       revealPauseMs: REVEAL_PAUSE_MS,
     },
   });
@@ -2494,7 +2610,7 @@ function mpApplySettings(settings) {
      multiplayer game ends instead of silently corrupting the next solo game. */
   mpPreGameModifiers = {
     writeTitleMode, guessGameMode, handicapShowGameLabel, handicapGameHint,
-    clipChallenge, answerCountOverride, timeChallenge, answerMode,
+    clipChallenge, answerCountOverride, timeChallenge, answerMode, visualSubMode,
     selectedGames: new Set(selectedGames),
   };
 
@@ -2504,6 +2620,11 @@ function mpApplySettings(settings) {
   handicapGameHint = !!s.handicapGameHint;
   clipChallenge = !!s.clipChallenge;
   answerMode = s.answerMode === 'visual' ? 'visual' : 'text';
+  visualSubMode = ['pixel', 'zoom'].includes(s.visualSubMode) ? s.visualSubMode : 'normal';
+  el.visualSubmodeRow.hidden = answerMode !== 'visual';
+  el.visualSubmodeRow.querySelectorAll('.mini-toggle').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.visualSubmode === visualSubMode);
+  });
   updateMainTitle();
   answerCountOverride = s.answerCount && s.answerCount !== 4 ? s.answerCount : null;
   timeChallenge = null; // duration is taken directly from settings.durationMs in mpHandleRound
@@ -2512,10 +2633,14 @@ function mpApplySettings(settings) {
 
 function mpRestorePreGameModifiers() {
   if (!mpPreGameModifiers) return;
-  ({ writeTitleMode, guessGameMode, handicapShowGameLabel, handicapGameHint, clipChallenge, answerCountOverride, timeChallenge, answerMode } = mpPreGameModifiers);
+  ({ writeTitleMode, guessGameMode, handicapShowGameLabel, handicapGameHint, clipChallenge, answerCountOverride, timeChallenge, answerMode, visualSubMode } = mpPreGameModifiers);
   selectedGames = new Set(mpPreGameModifiers.selectedGames);
   el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
     btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
+  });
+  el.visualSubmodeRow.hidden = answerMode !== 'visual';
+  el.visualSubmodeRow.querySelectorAll('.mini-toggle').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.visualSubmode === visualSubMode);
   });
   renderGameMenu();
   updateTotalCount();

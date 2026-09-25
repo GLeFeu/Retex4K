@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=54">
+<link rel="stylesheet" href="style.css?v=55">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Quiz">
@@ -37,6 +37,11 @@
               <span class="cursor">♥</span>
               <span data-i18n="mode_visual">Visual (images)</span>
             </button>
+          </div>
+          <div class="visual-submode-row" id="visual-submode-row" hidden>
+            <button class="mini-toggle small selected" data-visual-submode="normal" type="button" data-i18n="submode_music">Music</button>
+            <button class="mini-toggle small" data-visual-submode="pixel" type="button" data-i18n="submode_pixel">Pixelated</button>
+            <button class="mini-toggle small" data-visual-submode="zoom" type="button" data-i18n="submode_zoom">Zoom out</button>
           </div>
           <p class="modifier-note" id="visual-mode-note" data-i18n="note_visual_needs_images" hidden>Not enough tracks with an image yet for this selection.</p>
         </div>
@@ -89,6 +94,13 @@
             <button class="mini-toggle" id="track-lang-en-btn" type="button">EN</button>
             <button class="mini-toggle" id="track-lang-fr-btn" type="button">FR</button>
           </div>
+        </div>
+
+        <div class="category-tabs" id="category-tabs">
+          <button class="category-tab selected" data-category="games" type="button" data-i18n="category_games">Video games</button>
+          <button class="category-tab" data-category="anime" type="button" data-i18n="category_anime">Anime</button>
+          <button class="category-tab" data-category="tv" type="button" data-i18n="category_tv">TV Series</button>
+          <button class="category-tab" data-category="cartoon" type="button" data-i18n="category_cartoon">Cartoon</button>
         </div>
 
         <div class="menu-label-row">
@@ -337,6 +349,6 @@
   rights reserved to their respective creators.
 </footer>
 
-<script src="app.js?v=45"></script>
+<script src="app.js?v=47"></script>
 </body>
 </html>
