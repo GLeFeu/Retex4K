@@ -10244,7 +10244,8 @@
   {
     "title": "Ruins",
     "id": "oHZDWwW6iXs",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/ff/Utruinsenentrance.png/revision/latest?cb=20160302145510&path-prefix=fr"
   },
   {
     "title": "Uwa!! So Temperate",
@@ -10254,322 +10255,386 @@
   {
     "title": "Anticipation",
     "id": "kft3ZUYNiwE",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/8/83/Anticipation_soundtrack.png/revision/latest?cb=20160103054935"
   },
   {
     "title": "Unnecessary Tension",
     "id": "gEgy7xzAYZY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/e/ef/Anticipation.png/revision/latest?cb=20160327124628&path-prefix=fr"
   },
   {
     "title": "Enemy Approaching",
     "id": "g6cK5c_59YQ",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/72/Enemyapproach.png/revision/latest?cb=20160327124658&path-prefix=fr"
   },
   {
     "title": "Ghost Fight",
     "id": "C_5enfN8V8w",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/7b/Ghostfight.png/revision/latest?cb=20160327124707&path-prefix=fr"
   },
   {
     "title": "Determination",
     "id": "sRLQnlglfrI",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/f8/Utgameover.png/revision/latest?cb=20160327125116&path-prefix=fr"
   },
   {
     "title": "Home",
     "id": "0UkRqMFMZic",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/f3/Home1.png/revision/latest?cb=20160327124753&path-prefix=fr"
   },
   {
     "title": "Home (Music Box)",
     "id": "vC1GAZ62NPg",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/9/9b/Homenight.png/revision/latest?cb=20160327124804&path-prefix=fr"
   },
   {
     "title": "Heartache",
     "id": "mNWArmA5wMw",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/b/ba/Heartache.PNG/revision/latest?cb=20170616161838&path-prefix=fr"
   },
   {
     "title": "sans.",
     "id": "9cGrP9w5E7M",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/5b/Sansintro.png/revision/latest?cb=20160327125017&path-prefix=fr"
   },
   {
     "title": "Nyeh Heh Heh!",
     "id": "T6f1jYcjR_8",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/ff/Papyrusintro.png/revision/latest?cb=20160327124912&path-prefix=fr"
   },
   {
     "title": "Snowy",
     "id": "QZ1Jp-Wg7b0",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/c/c4/Snowdinforest.png/revision/latest?cb=20160327125040&path-prefix=fr"
   },
   {
-    "title": "Uwa!! So Holiday",
+    "title": "Uwa!! So Holiday♫",
     "id": "ANpMdkf6q7E",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/a/aa/JoystickConfigWin.png/revision/latest?cb=20160327124824&path-prefix=fr"
   },
   {
     "title": "Dogbass",
     "id": "meUZ2HjwJ0o",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/54/Dogbass.png/revision/latest?cb=20160327124647&path-prefix=fr"
   },
   {
     "title": "Mysterious Place",
     "id": "ewxpqe2btu8",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/4/4a/Mysterydoor.png/revision/latest?cb=20160327124837&path-prefix=fr"
   },
   {
     "title": "Dogsong",
     "id": "EWP9Nr7IxUU",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/f2/Greaterdog.png/revision/latest?cb=20160327124717&path-prefix=fr"
   },
   {
     "title": "Snowdin Town",
     "id": "LETChg7kPJo",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/2/22/Snowdin.png/revision/latest?cb=20160327125030&path-prefix=fr"
   },
   {
     "title": "Shop",
     "id": "O6H_zN2fezE",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/a/ac/Snowdinshopkeep.png/revision/latest/thumbnail/width/360/height/360?cb=20160327125053&path-prefix=fr"
   },
   {
     "title": "Bonetrousle",
     "id": "mLsWDkF_LIc",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/8/8f/Bonetrouslee.png/revision/latest?cb=20170618171359&path-prefix=fr"
   },
   {
     "title": "Dating Start!",
     "id": "puwOdeKHAKY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/c/c4/Datingstart.png/revision/latest?cb=20160327124638&path-prefix=fr"
   },
   {
     "title": "Dating Tense!",
     "id": "j0O3RFCzI_A",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/78/Datingtense.png/revision/latest?cb=20160327130112&path-prefix=fr"
   },
   {
     "title": "Dating Fight!",
     "id": "e9YJ1D6HbAU",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/0/0a/Datingfight.png/revision/latest?cb=20160512090354&path-prefix=fr"
   },
   {
     "title": "Premonition",
     "id": "Yk8EQW0TJ3U",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/4/43/Premoniton.png/revision/latest?cb=20160327130427&path-prefix=fr"
   },
   {
     "title": "Danger Mystery",
     "id": "aeALZoOiDPs",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/7a/Dangermystery.png/revision/latest?cb=20160327130059&path-prefix=fr"
   },
   {
     "title": "Undyne",
     "id": "rBR_IvHe3Xg",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/a/a2/Undyneencounter.png/revision/latest?cb=20160327130539&path-prefix=fr"
   },
   {
     "title": "Waterfall",
     "id": "DVUh7caufKU",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/6/67/Waterfallsoundtrack.png/revision/latest?cb=20160327130604&path-prefix=fr"
   },
   {
     "title": "Run!",
     "id": "XLxNMt-2qMU",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/b/b2/Undynepursuit.png/revision/latest?cb=20160327130552&path-prefix=fr"
   },
   {
     "title": "Quiet Water",
     "id": "4LfRKEovz2Y",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/b/b4/Crystalcheese.png/revision/latest?cb=20160327130049&path-prefix=fr"
   },
   {
     "title": "Memory",
     "id": "rtb0N-JQ79k",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/9/95/Musicboxstatue.png/revision/latest?cb=20160107154635&path-prefix=fr"
   },
   {
     "title": "Bird That Carries You Over A Disproportionately Small Gap",
     "id": "lV28xl-YKw4",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/a/aa/Birdgap.png/revision/latest?cb=20160327130017&path-prefix=fr"
   },
   {
     "title": "Dummy!",
     "id": "FbtgN-lqRHA",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/4/44/Mudamudamuda.png/revision/latest?cb=20160327130409&path-prefix=fr"
   },
   {
     "title": "Pathetic House",
     "id": "H8OIvglCJp8",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/7b/Blookhouse.png/revision/latest?cb=20160327130026&path-prefix=fr"
   },
   {
     "title": "Spooktune",
     "id": "lV65zxK61cI",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/7b/Blookhouse.png/revision/latest?cb=20160327130026&path-prefix=fr"
   },
   {
     "title": "Spookwave",
     "id": "DRIOFUDEpLY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/7b/Blookhouse.png/revision/latest?cb=20160327130026&path-prefix=fr"
   },
   {
     "title": "Ghouliday",
     "id": "J-rPVhWEq18",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/7/7b/Blookhouse.png/revision/latest?cb=20160327130026&path-prefix=fr"
   },
   {
     "title": "Chill",
     "id": "dASRdXkHmq4",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/fc/Chillblook.png/revision/latest?cb=20160327130039&path-prefix=fr"
   },
   {
     "title": "Thundersnail",
     "id": "vdlFq3d_Ioc",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/6/69/Thundersnail.png/revision/latest?cb=20160327130515&path-prefix=fr"
   },
   {
     "title": "Temmie Village",
     "id": "W_KIzOudAlY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/a/a6/Temvillge.png/revision/latest?cb=20160327130504&path-prefix=fr"
   },
   {
     "title": "Tem Shop",
     "id": "OKJYbjxdHpg",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/fa/Temshop.png/revision/latest?cb=20160327130451&path-prefix=fr"
   },
   {
     "title": "NGAHHH!!",
     "id": "IpShDXqs74Q",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/58/Undynearenaencounter.png/revision/latest?cb=20160327130526&path-prefix=fr"
   },
   {
     "title": "Spear of Justice",
     "id": "XGzYhJcm-Jw",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/8/8f/Regularundyne.png/revision/latest?cb=20160327130440&path-prefix=fr"
   },
   {
     "title": "Ooo",
     "id": "kfwEtdUyK_4",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://undertale.wiki/images/Hotland_location.png?cb=7wfvn4&h=thumb.php&f=Hotland_location.png"
   },
   {
     "title": "Alphys",
     "id": "gaCaF-MbkzQ",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/9/9c/Dralphys.png/revision/latest?cb=20160327130124&path-prefix=fr"
   },
   {
     "title": "It's Showtime!",
     "id": "EviIkV2CmcM",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/f5/Mttgamshow.png/revision/latest?cb=20160327130319&path-prefix=fr"
   },
   {
     "title": "Metal Crusher",
     "id": "Lt7pB78SGbY",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/8/8e/Mtlcrshr.png/revision/latest?cb=20160327130309&path-prefix=fr"
   },
   {
     "title": "Another Medium",
     "id": "NP4sPRIyHKM",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/1/15/Hotlnd.png/revision/latest?cb=20160327165248&path-prefix=fr"
   },
   {
-    "title": "Uwa!! So HEATS!!",
+    "title": "Uwa!! So HEATS!!♫",
     "id": "JPXAXHlcXFs",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/2/28/JoystickConfigSum.png/revision/latest?cb=20160327165257&path-prefix=fr"
   },
   {
     "title": "Stronger Monsters",
     "id": "lEbHopRL0OA",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/3/31/Strongermonsters.png/revision/latest?cb=20160327165600&path-prefix=fr"
   },
   {
     "title": "Hotel",
     "id": "k0SGqISmlm0",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/2/24/Mttkillrobot.png/revision/latest?cb=20160327165358&path-prefix=fr"
   },
   {
-    "title": "055. Can You Really Call This A Hotel, I Didn't Receive A Mint On My Pillow Or Anything (UNDERTALE)",
+    "title": "Can You Really Call This A Hotel, I Didn't Receive A Mint On My Pillow Or Anything",
     "id": "tgqTM8-SDFA",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/0/06/Canyoureallyhotel.png/revision/latest?cb=20160327165144&path-prefix=fr"
   },
   {
     "title": "Confession",
     "id": "t2t9zqeWrMk",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/9/99/Confession.png/revision/latest?cb=20160327165151&path-prefix=fr"
   },
   {
     "title": "Live Report",
     "id": "q8euQaH92vE",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/8/8d/Mttlivereport.png/revision/latest?cb=20160327165408&path-prefix=fr"
   },
   {
     "title": "Death Report",
     "id": "JBJQ1FxfydU",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/b/b6/Mttbombdefuse.png/revision/latest?cb=20160327165330&path-prefix=fr"
   },
   {
     "title": "Spider Dance",
     "id": "5qZqqUgb1Rw",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/b/b7/Spiderdance.PNG/revision/latest?cb=20170621171956&path-prefix=fr"
   },
   {
     "title": "Wrong Enemy !?",
     "id": "u78i4ZejBV4",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/9/99/WrongEnemy.png/revision/latest?cb=20160327165623&path-prefix=fr"
   },
   {
     "title": "Oh! One True Love",
     "id": "05hl_0yth-g",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/4/42/Oh%21OneTrueLove.png/revision/latest?cb=20160327165521&path-prefix=fr"
   },
   {
     "title": "Oh! Dungeon",
     "id": "X4Dhvns8BnU",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/8/89/Oh%21Dungeon.png/revision/latest?cb=20160327165510&path-prefix=fr"
   },
   {
     "title": "It's Raining Somewhere Else",
     "id": "KtC-pl9P3kE",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/9/94/Sansdate.png/revision/latest?cb=20160327165533&path-prefix=fr"
   },
   {
     "title": "CORE Approach",
     "id": "jN6xoSmfA8E",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/5/53/Coreent.png/revision/latest?cb=20160327165208&path-prefix=fr"
   },
   {
     "title": "CORE",
     "id": "SEOYyM9n9mw",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/3/34/Corakuma.png/revision/latest?cb=20160327165200&path-prefix=fr"
   },
   {
     "title": "Last Episode!",
     "id": "1ZeK_DkVh8I",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/e/e9/Mttfinalshow.png/revision/latest?cb=20160327165348&path-prefix=fr"
   },
   {
     "title": "Oh My...",
     "id": "TKIjOMKauTg",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/a/a4/Mtttransformation.png/revision/latest?cb=20160327165423&path-prefix=fr"
   },
   {
-    "title": "Death By Glamour",
+    "title": "Death by Glamour",
     "id": "qeDIZCc6Cyo",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/f/f2/Mttex.png/revision/latest?cb=20160327165338&path-prefix=fr"
   },
   {
-    "title": "For The Fans",
+    "title": "For the Fans",
     "id": "HW8nh_oSCgg",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/6/66/Mttblookycall.png/revision/latest?cb=20160327165318&path-prefix=fr"
   },
   {
     "title": "Long Elevator",
     "id": "k2hc180DxXQ",
-    "game": "undertale"
+    "game": "undertale",
+    "image": "https://static.wikia.nocookie.net/undertale/images/d/d0/Elevator.png/revision/latest?cb=20160327165218&path-prefix=fr"
   },
   {
     "title": "Undertale",
