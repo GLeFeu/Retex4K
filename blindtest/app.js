@@ -440,6 +440,8 @@ const GAMES = [
   { id: 'mm', franchise: 'zelda', name: "Majora's Mask", console: 'N64', year: 2000 },
   { id: 'ooa', franchise: 'zelda', name: 'Oracle of Ages', console: 'Game Boy Color', year: 2001 },
   { id: 'oos', franchise: 'zelda', name: 'Oracle of Seasons', console: 'Game Boy Color', year: 2001 },
+  { id: 'fs', franchise: 'zelda', name: 'Four Swords', console: 'GBA', year: 2002 },
+  { id: 'ww', franchise: 'zelda', name: 'The Wind Waker', console: 'GameCube', year: 2003 },
 ];
 
 const gamesById = {};
