@@ -431,7 +431,7 @@ const el = {
 
 let selectedMode = 'all';
 let answerMode = 'text'; // 'text' (blind test, titles) | 'visual' (guess the matching screenshot)
-let selectedGames = new Set(['zelda1']);
+let selectedGames = new Set();
 
 /* ---------- Game catalog: franchise / console / year metadata ---------- */
 /* Add new entries here as more games are curated in tracks.json — the menu,
