@@ -1316,6 +1316,11 @@ body {
   background: var(--bg);
 }
 
+.suggestion-btn.active:not(:disabled) {
+  background: var(--gold);
+  color: var(--bg);
+}
+
 .suggestion-btn .answer-game-label {
   flex-shrink: 0;
 }

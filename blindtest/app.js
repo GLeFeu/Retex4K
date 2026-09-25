@@ -1615,7 +1615,10 @@ function renderTextAnswer() {
   el.answerTextInput.focus();
 }
 
+let suggestionActiveIndex = -1;
+
 function updateTextSuggestions(query) {
+  suggestionActiveIndex = -1;
   const q = query.trim().toLowerCase();
   const matches = getUniqueTitledTracks()
     .filter((track) => !q || getDisplayTitle(track).toLowerCase().includes(q))
@@ -1640,9 +1643,27 @@ function updateTextSuggestions(query) {
       btn.appendChild(gameSpan);
     }
 
+    btn.addEventListener('mouseenter', () => {
+      setSuggestionActive(Array.prototype.indexOf.call(el.answerSuggestions.children, btn));
+    });
     btn.addEventListener('click', () => onTitleChosen(track.title));
     el.answerSuggestions.appendChild(btn);
   });
+}
+
+/* ---------- Keyboard navigation through the suggestions list (Up/Down + Enter) ---------- */
+
+function setSuggestionActive(index) {
+  const buttons = el.answerSuggestions.querySelectorAll('.suggestion-btn');
+  if (buttons.length === 0) {
+    suggestionActiveIndex = -1;
+    return;
+  }
+  suggestionActiveIndex = ((index % buttons.length) + buttons.length) % buttons.length;
+  buttons.forEach((btn, i) => {
+    btn.classList.toggle('active', i === suggestionActiveIndex);
+  });
+  buttons[suggestionActiveIndex].scrollIntoView({ block: 'nearest' });
 }
 
 el.answerTextInput.addEventListener('input', () => {
@@ -1650,11 +1671,25 @@ el.answerTextInput.addEventListener('input', () => {
 });
 
 el.answerTextInput.addEventListener('keydown', (e) => {
+  const buttons = el.answerSuggestions.querySelectorAll('.suggestion-btn');
+
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (buttons.length > 0) setSuggestionActive(suggestionActiveIndex + 1);
+    return;
+  }
+
+  if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (buttons.length > 0) setSuggestionActive(suggestionActiveIndex - 1);
+    return;
+  }
+
   if (e.key !== 'Enter') return;
-  /* Submit the first suggestion currently shown for the typed query, instead
-     of requiring an exact character-for-character match. */
-  const firstBtn = el.answerSuggestions.querySelector('.suggestion-btn');
-  if (firstBtn) onTitleChosen(firstBtn.dataset.title);
+  /* Submit the highlighted suggestion (via Up/Down), or the first one shown
+     for the typed query if none has been highlighted yet. */
+  const target = suggestionActiveIndex >= 0 ? buttons[suggestionActiveIndex] : buttons[0];
+  if (target) onTitleChosen(target.dataset.title);
 });
 
 function onTitleChosen(title) {
