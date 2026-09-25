@@ -1384,458 +1384,6 @@
     "title_fr": "Générique de fin"
   },
   {
-    "title": "Title Theme",
-    "id": "-50FLAusUEo",
-    "game": "mm",
-    "title_fr": "Écran-titre"
-  },
-  {
-    "title": "File Select",
-    "id": "bjM9i82f-80",
-    "game": "mm",
-    "title_fr": "Sélection de fichier"
-  },
-  {
-    "title": "Opening Scene",
-    "id": "l4XZl5q3mpQ",
-    "game": "mm"
-  },
-  {
-    "title": "The Chase",
-    "id": "orD2exTtJrI",
-    "game": "mm"
-  },
-  {
-    "title": "Majora's Theme",
-    "id": "0JM-PMQneLw",
-    "game": "mm"
-  },
-  {
-    "title": "Cave",
-    "id": "F6312gseTp0",
-    "game": "mm",
-    "title_fr": "Grotte"
-  },
-  {
-    "title": "Inside The Clock Tower",
-    "id": "cbYJ7VrwcUE",
-    "game": "mm"
-  },
-  {
-    "title": "Clock Town First Day",
-    "id": "bjBvktEJ3fY",
-    "game": "mm",
-    "title_fr": "Bourg-Carillon, premier jour"
-  },
-  {
-    "title": "Clock Town Second Day",
-    "id": "DUbOdHtHA50",
-    "game": "mm",
-    "title_fr": "Bourg-Carillon, deuxième jour"
-  },
-  {
-    "title": "Clock Town Third Day",
-    "id": "khXa-Zl6maQ",
-    "game": "mm",
-    "title_fr": "Bourg-Carillon, troisième jour"
-  },
-  {
-    "title": "Guru Guru's Song",
-    "id": "MMfy6bMo9aM",
-    "game": "mm"
-  },
-  {
-    "title": "Mayor's Meeting",
-    "id": "GhqJ6UrxEX0",
-    "game": "mm"
-  },
-  {
-    "title": "Stock Pot Inn",
-    "id": "B3d_nBZ-Uzo",
-    "game": "mm"
-  },
-  {
-    "title": "Shop",
-    "id": "fjmTyWwSRps",
-    "game": "mm",
-    "title_fr": "Boutique"
-  },
-  {
-    "title": "Curiosity Shop",
-    "id": "jppvoBmQigc",
-    "game": "mm"
-  },
-  {
-    "title": "Shooting Gallery",
-    "id": "9pP_tvUZVdg",
-    "game": "mm"
-  },
-  {
-    "title": "Time Limit",
-    "id": "wx9egwwiOmc",
-    "game": "mm"
-  },
-  {
-    "title": "Kamaro's Dance",
-    "id": "65-pGolUUKM",
-    "game": "mm"
-  },
-  {
-    "title": "Rosa Sisters",
-    "id": "eUnu-l-wd6o",
-    "game": "mm"
-  },
-  {
-    "title": "Swordsman's School",
-    "id": "yh01rzzI4AM",
-    "game": "mm"
-  },
-  {
-    "title": "Keaton's Quiz",
-    "id": "rxW7RgG9Cwc",
-    "game": "mm"
-  },
-  {
-    "title": "Milk Bar",
-    "id": "oIqpq_forfE",
-    "game": "mm"
-  },
-  {
-    "title": "Great Fairy's Fountain",
-    "id": "SpQmkAL3BmQ",
-    "game": "mm"
-  },
-  {
-    "title": "Astral Observatory",
-    "id": "sSKLXVQab8w",
-    "game": "mm"
-  },
-  {
-    "title": "Final Hours",
-    "id": "Jfka0kvsg0w",
-    "game": "mm"
-  },
-  {
-    "title": "Final Hours (Bells & Rumble)",
-    "id": "hxeSwBunRNE",
-    "game": "mm"
-  },
-  {
-    "title": "Memories of Zelda",
-    "id": "CP2EKF3E1wE",
-    "game": "mm"
-  },
-  {
-    "title": "Angry Mask Salesman",
-    "id": "o3WqTs2XzQ0",
-    "game": "mm"
-  },
-  {
-    "title": "Angry Mask Salesman (V2)",
-    "id": "v4lnFinYKjA",
-    "game": "mm"
-  },
-  {
-    "title": "Termina Field",
-    "id": "ZsGKLGtlDqA",
-    "game": "mm",
-    "title_fr": "Plaine de Termina"
-  },
-  {
-    "title": "Southern Swamp",
-    "id": "OeIHD_Ln5hE",
-    "game": "mm"
-  },
-  {
-    "title": "Woods of Mystery",
-    "id": "M50SInmp1m8",
-    "game": "mm"
-  },
-  {
-    "title": "Magic Hags Shop",
-    "id": "Cu1tYl3Segs",
-    "game": "mm"
-  },
-  {
-    "title": "Boat Cruise",
-    "id": "LUm3c5R7H4M",
-    "game": "mm"
-  },
-  {
-    "title": "Deku Palace",
-    "id": "PNOk_t4pGJ0",
-    "game": "mm"
-  },
-  {
-    "title": "Woodfall Rises",
-    "id": "U_PtOON6Zao",
-    "game": "mm"
-  },
-  {
-    "title": "Woodfall Temple",
-    "id": "ZPQG4Ra2s8g",
-    "game": "mm",
-    "title_fr": "Temple des Bois Putrides"
-  },
-  {
-    "title": "Woodfall Clears",
-    "id": "yTAo8YbKVxs",
-    "game": "mm"
-  },
-  {
-    "title": "The Owl",
-    "id": "Prmo-lqF9Eg",
-    "game": "mm"
-  },
-  {
-    "title": "Mountain Village",
-    "id": "UNOzQlfYMNg",
-    "game": "mm"
-  },
-  {
-    "title": "Mountain Village (V2)",
-    "id": "6uuIFhtFXIY",
-    "game": "mm"
-  },
-  {
-    "title": "Goron Village",
-    "id": "Zg2BbmOxXkE",
-    "game": "mm"
-  },
-  {
-    "title": "Goron Race",
-    "id": "hFUpamMA93g",
-    "game": "mm"
-  },
-  {
-    "title": "Goron Race Goal",
-    "id": "JDF0wsF1jGI",
-    "game": "mm"
-  },
-  {
-    "title": "Snowhead Temple",
-    "id": "LynLexUUks8",
-    "game": "mm",
-    "title_fr": "Temple de Tête-Enneigée"
-  },
-  {
-    "title": "Snowhead Temple (V2)",
-    "id": "QAb_x-iGG34",
-    "game": "mm"
-  },
-  {
-    "title": "Snowhead Clears",
-    "id": "3S5G5jFWBK0",
-    "game": "mm"
-  },
-  {
-    "title": "Gorman Track",
-    "id": "-UIQYSha8JE",
-    "game": "mm"
-  },
-  {
-    "title": "Horse Race",
-    "id": "WBMFkAPoOaM",
-    "game": "mm"
-  },
-  {
-    "title": "The Finish Line",
-    "id": "oHnS9Pp7IBw",
-    "game": "mm"
-  },
-  {
-    "title": "Romani Ranch",
-    "id": "j6ySMYYrpnY",
-    "game": "mm"
-  },
-  {
-    "title": "Frog Song",
-    "id": "QOig0VAd3gY",
-    "game": "mm"
-  },
-  {
-    "title": "Bremen March",
-    "id": "uPY_a_WqfiQ",
-    "game": "mm"
-  },
-  {
-    "title": "Ghost Attack",
-    "id": "caFx30dQ8A8",
-    "game": "mm"
-  },
-  {
-    "title": "Cremia's Carriage",
-    "id": "CSRjh0_Zcvg",
-    "game": "mm"
-  },
-  {
-    "title": "Great Bay Coast",
-    "id": "a735uJ_NUjo",
-    "game": "mm",
-    "title_fr": "Côte de la Grande Baie"
-  },
-  {
-    "title": "Mikau",
-    "id": "yVd7BZTjtiU",
-    "game": "mm"
-  },
-  {
-    "title": "Pirate's Fortress",
-    "id": "13_wOFqbo70",
-    "game": "mm"
-  },
-  {
-    "title": "Zora Hall",
-    "id": "JXtWv9s3qxY",
-    "game": "mm"
-  },
-  {
-    "title": "Practice Sessions",
-    "id": "6j7TjRPol3k",
-    "game": "mm"
-  },
-  {
-    "title": "The Indogo-gos",
-    "id": "AiN1dlAedBM",
-    "game": "mm"
-  },
-  {
-    "title": "Great Bay Temple",
-    "id": "aFCXpJvgbP0",
-    "game": "mm",
-    "title_fr": "Temple de la Grande Baie"
-  },
-  {
-    "title": "Ikana Valley",
-    "id": "B32RIUwc8ps",
-    "game": "mm",
-    "title_fr": "Vallée d'Ikana"
-  },
-  {
-    "title": "Sharp's Curse",
-    "id": "Dt-Hkz0MKs0",
-    "game": "mm"
-  },
-  {
-    "title": "Music Box House",
-    "id": "BAbv2z1l8vc",
-    "game": "mm"
-  },
-  {
-    "title": "Ikana Castle",
-    "id": "ltydHEuwbBk",
-    "game": "mm"
-  },
-  {
-    "title": "Stone Tower Temple",
-    "id": "-j5iaZukwYI",
-    "game": "mm",
-    "title_fr": "Temple de la Tour de Pierre"
-  },
-  {
-    "title": "Stone Tower Temple (Inverted)",
-    "id": "h2pK_tBB9EA",
-    "game": "mm"
-  },
-  {
-    "title": "Battle",
-    "id": "p13TCtmXeSw",
-    "game": "mm"
-  },
-  {
-    "title": "Mini Boss Battle",
-    "id": "y5JcKsmISNw",
-    "game": "mm"
-  },
-  {
-    "title": "Boss Battle",
-    "id": "rkjM4dfuuaU",
-    "game": "mm"
-  },
-  {
-    "title": "Boss Clear",
-    "id": "ejscATEwwbQ",
-    "game": "mm"
-  },
-  {
-    "title": "Giant's Theme",
-    "id": "VRjt2qpu1Ek",
-    "game": "mm"
-  },
-  {
-    "title": "Instrument Songs",
-    "id": "6cPY0qGCWDI",
-    "game": "mm"
-  },
-  {
-    "title": "Song of Healing",
-    "id": "ys0o5QWKFTE",
-    "game": "mm",
-    "title_fr": "Chant de Guérison"
-  },
-  {
-    "title": "Chest & All Fanfare",
-    "id": "eeRmo9C6a68",
-    "game": "mm"
-  },
-  {
-    "title": "Event Clear",
-    "id": "_5wvhAxvSW4",
-    "game": "mm"
-  },
-  {
-    "title": "Game Over",
-    "id": "YzS5ZgfSAnA",
-    "game": "mm",
-    "title_fr": "Partie terminée"
-  },
-  {
-    "title": "Calling The Four Giants",
-    "id": "MXambjfhhqw",
-    "game": "mm"
-  },
-  {
-    "title": "Tatl & Tael",
-    "id": "3VN2J4xPY5o",
-    "game": "mm"
-  },
-  {
-    "title": "To The Moon",
-    "id": "Mm9_7mDccSs",
-    "game": "mm"
-  },
-  {
-    "title": "Majora's Mask Battle",
-    "id": "kfymcXfHkEM",
-    "game": "mm"
-  },
-  {
-    "title": "Majora's Incarnate",
-    "id": "bZ0acTd5LTw",
-    "game": "mm"
-  },
-  {
-    "title": "Majora's Wrath",
-    "id": "jB9pQNR18DU",
-    "game": "mm"
-  },
-  {
-    "title": "Majora's Wrath V2",
-    "id": "h1Tl0ilIRzY",
-    "game": "mm"
-  },
-  {
-    "title": "Moon's Destruction",
-    "id": "IY9V-BfFP9Y",
-    "game": "mm"
-  },
-  {
-    "title": "Staff Roll",
-    "id": "AO7TzBIJRUs",
-    "game": "mm",
-    "title_fr": "Générique de fin"
-  },
-  {
     "title": "Title Screen",
     "id": "A3LXEInpQCc",
     "game": "ooa",
@@ -2457,5 +2005,480 @@
     "title": "Unknown 4",
     "id": "rcGH_30Czzs",
     "game": "oos"
+  },
+  {
+    "title": "Title Theme",
+    "id": "E-XXu8yku8g",
+    "game": "mm",
+    "title_fr": "Écran-titre"
+  },
+  {
+    "title": "Opening",
+    "id": "A5R8ekE4ga8",
+    "game": "mm",
+    "title_fr": "Ouverture"
+  },
+  {
+    "title": "Chase",
+    "id": "jbWN6tJyygA",
+    "game": "mm"
+  },
+  {
+    "title": "Cavern",
+    "id": "3hNcImRYTHI",
+    "game": "mm",
+    "title_fr": "Caverne"
+  },
+  {
+    "title": "Majora's Theme",
+    "id": "IRrJ-jETuus",
+    "game": "mm",
+    "title_fr": "Thème de Majora"
+  },
+  {
+    "title": "Clock Tower",
+    "id": "q8B68U-CdTM",
+    "game": "mm",
+    "title_fr": "Tour de l'Horloge"
+  },
+  {
+    "title": "Happy Mask Salesman's Theme",
+    "id": "wM8yXRKES-k",
+    "game": "mm"
+  },
+  {
+    "title": "Clock Town, First Day",
+    "id": "f1SMd_JZufA",
+    "game": "mm"
+  },
+  {
+    "title": "Fairy Fountain",
+    "id": "8RwhyF3lB-I",
+    "game": "mm",
+    "title_fr": "Fontaine des fées"
+  },
+  {
+    "title": "Mayor's Meeting",
+    "id": "1ntqL6pb80o",
+    "game": "mm"
+  },
+  {
+    "title": "Milk Bar",
+    "id": "WQ2YfPTKR2E",
+    "game": "mm"
+  },
+  {
+    "title": "Guru-Guru's Song",
+    "id": "rPuDOCpcgso",
+    "game": "mm"
+  },
+  {
+    "title": "Clock Town, Second Day",
+    "id": "wipW9t86G1s",
+    "game": "mm"
+  },
+  {
+    "title": "House",
+    "id": "ZyfQcoENflg",
+    "game": "mm"
+  },
+  {
+    "title": "Kamaro's Dance",
+    "id": "8TtXuJe5BD0",
+    "game": "mm"
+  },
+  {
+    "title": "Shop",
+    "id": "WsIEmRyc5HQ",
+    "game": "mm"
+  },
+  {
+    "title": "Swordsman's School",
+    "id": "J5Pdu7TJTgM",
+    "game": "mm"
+  },
+  {
+    "title": "Clock Town, Third Day",
+    "id": "R-10nunyI3w",
+    "game": "mm"
+  },
+  {
+    "title": "Keaton's Quiz",
+    "id": "NCCuD8iXYl0",
+    "game": "mm"
+  },
+  {
+    "title": "Shooting Gallery",
+    "id": "oR69q-74sfs",
+    "game": "mm"
+  },
+  {
+    "title": "Rosa Sisters",
+    "id": "RBVwz5pj1q4",
+    "game": "mm"
+  },
+  {
+    "title": "Mini Game",
+    "id": "Mwq_ZAh0t9s",
+    "game": "mm"
+  },
+  {
+    "title": "Treasure Chest Fanfares",
+    "id": "Mk-vP-W6xg0",
+    "game": "mm"
+  },
+  {
+    "title": "Final Hours",
+    "id": "ksrXqSgLTwA",
+    "game": "mm"
+  },
+  {
+    "title": "Final Hours (with bell)",
+    "id": "GxkxQKjA6e4",
+    "game": "mm"
+  },
+  {
+    "title": "Astral Observatory",
+    "id": "iofkq89Uzng",
+    "game": "mm"
+  },
+  {
+    "title": "Zelda's Theme",
+    "id": "RaNba6zfq8Y",
+    "game": "mm"
+  },
+  {
+    "title": "Songs of Time",
+    "id": "6M3HylLYh70",
+    "game": "mm"
+  },
+  {
+    "title": "Song of Healing",
+    "id": "1k4CcWPrSvk",
+    "game": "mm",
+    "title_fr": "Chant de Guérison"
+  },
+  {
+    "title": "Get the Ocarina",
+    "id": "jxz8HxSI5DA",
+    "game": "mm"
+  },
+  {
+    "title": "Get the Mask",
+    "id": "8B-vojvSmH4",
+    "game": "mm"
+  },
+  {
+    "title": "Termina Field",
+    "id": "6otELzwG6-o",
+    "game": "mm",
+    "title_fr": "Plaine de Termina"
+  },
+  {
+    "title": "Owl",
+    "id": "gpBvbzqxcU0",
+    "game": "mm"
+  },
+  {
+    "title": "Battle",
+    "id": "EsomS--pdCU",
+    "game": "mm"
+  },
+  {
+    "title": "Game Over",
+    "id": "4Y3dahSduH4",
+    "game": "mm",
+    "title_fr": "Partie terminée"
+  },
+  {
+    "title": "Southern Swamp",
+    "id": "BGJj8xc6W8Q",
+    "game": "mm"
+  },
+  {
+    "title": "Magic Hags' Potion Shop",
+    "id": "jpQj6Nlbazs",
+    "game": "mm"
+  },
+  {
+    "title": "Woods of Mystery",
+    "id": "sAk_Y1qCILE",
+    "game": "mm"
+  },
+  {
+    "title": "Boat Cruise",
+    "id": "4ZNTmCKqUS4",
+    "game": "mm"
+  },
+  {
+    "title": "Deku Palace",
+    "id": "RwOaDPEqLc4",
+    "game": "mm"
+  },
+  {
+    "title": "Sonata of Awakening",
+    "id": "vG_FPBaC4LM",
+    "game": "mm"
+  },
+  {
+    "title": "Song of Soaring",
+    "id": "th6jgmugt1Q",
+    "game": "mm"
+  },
+  {
+    "title": "Woodfall Temple Rises",
+    "id": "DQb3VaX_ehw",
+    "game": "mm"
+  },
+  {
+    "title": "Woodfall Temple",
+    "id": "u1Y2UitCLps",
+    "game": "mm",
+    "title_fr": "Temple des Bois Putrides"
+  },
+  {
+    "title": "Middle Boss Battle",
+    "id": "S09_h0QuSKs",
+    "game": "mm"
+  },
+  {
+    "title": "Southern Swamp Clear",
+    "id": "fYt39eHGvjk",
+    "game": "mm"
+  },
+  {
+    "title": "Giants' Theme",
+    "id": "3gUI6GaYKqs",
+    "game": "mm"
+  },
+  {
+    "title": "Oath To Order",
+    "id": "-xviSE59EVA",
+    "game": "mm"
+  },
+  {
+    "title": "Gorman Track",
+    "id": "012PZgUSf20",
+    "game": "mm"
+  },
+  {
+    "title": "Horse Race",
+    "id": "2SN7_vmAtgE",
+    "game": "mm"
+  },
+  {
+    "title": "Mountain Village",
+    "id": "2SgIvoBjGzY",
+    "game": "mm"
+  },
+  {
+    "title": "Goron Village",
+    "id": "zEMY6rsYYXg",
+    "game": "mm"
+  },
+  {
+    "title": "Goron Lullaby",
+    "id": "TZ0ChlURpUI",
+    "game": "mm"
+  },
+  {
+    "title": "Snowhead Temple",
+    "id": "U6nmXFNA9uI",
+    "game": "mm",
+    "title_fr": "Temple de Tête-Enneigée"
+  },
+  {
+    "title": "Boss Battle",
+    "id": "k5N-Y1pJOzo",
+    "game": "mm"
+  },
+  {
+    "title": "Boss Clear",
+    "id": "HT84uzqXkGg",
+    "game": "mm"
+  },
+  {
+    "title": "Snowhead Clear",
+    "id": "JOuzUbQ01AM",
+    "game": "mm"
+  },
+  {
+    "title": "Goron Race",
+    "id": "z6owDYbCnlc",
+    "game": "mm"
+  },
+  {
+    "title": "Frog Song",
+    "id": "4uvF6JktTGg",
+    "game": "mm"
+  },
+  {
+    "title": "Romani Ranch",
+    "id": "bqj1JfR8WoQ",
+    "game": "mm"
+  },
+  {
+    "title": "Epona's Song",
+    "id": "8RPsquszr78",
+    "game": "mm"
+  },
+  {
+    "title": "Bremen March",
+    "id": "WzmrULlzdG4",
+    "game": "mm"
+  },
+  {
+    "title": "Ghost Attack",
+    "id": "tC1WhpD5qhE",
+    "game": "mm"
+  },
+  {
+    "title": "Event Fanfares",
+    "id": "51FmBE0Co_M",
+    "game": "mm"
+  },
+  {
+    "title": "Cremia's Carriage",
+    "id": "ESLgnFhnqt0",
+    "game": "mm"
+  },
+  {
+    "title": "Great Bay Coast",
+    "id": "Wk7e7TVipCk",
+    "game": "mm",
+    "title_fr": "Côte de la Grande Baie"
+  },
+  {
+    "title": "Mikau",
+    "id": "4JVENvO2PjA",
+    "game": "mm"
+  },
+  {
+    "title": "Marine Research Laboratory",
+    "id": "f6SCP_RmidI",
+    "game": "mm"
+  },
+  {
+    "title": "Pirates' Fortress",
+    "id": "z5j-O_JuaTQ",
+    "game": "mm"
+  },
+  {
+    "title": "Zora Hall",
+    "id": "ea72AcmnATI",
+    "game": "mm"
+  },
+  {
+    "title": "Zora Practice Sessions",
+    "id": "gh3HG1t-BMk",
+    "game": "mm"
+  },
+  {
+    "title": "New Wave Bossanova",
+    "id": "TwpfvWFz3g8",
+    "game": "mm"
+  },
+  {
+    "title": "Great Bay Temple",
+    "id": "9Ho0op5HBX0",
+    "game": "mm",
+    "title_fr": "Temple de la Grande Baie"
+  },
+  {
+    "title": "The Indigo-Go's",
+    "id": "GO-aegpsHg0",
+    "game": "mm"
+  },
+  {
+    "title": "Ballad of the Wind Fish",
+    "id": "AJQq0HzzF7E",
+    "game": "mm"
+  },
+  {
+    "title": "Ikana Canyon",
+    "id": "50agA5EPJfo",
+    "game": "mm"
+  },
+  {
+    "title": "Song of Storms",
+    "id": "FsdWQwR4pgY",
+    "game": "mm"
+  },
+  {
+    "title": "Sharp's Curse",
+    "id": "5zMbdZTFGfQ",
+    "game": "mm"
+  },
+  {
+    "title": "Music Box House",
+    "id": "5n0qzvVKfqc",
+    "game": "mm"
+  },
+  {
+    "title": "Ikana Castle",
+    "id": "FmN1L9Wr6BY",
+    "game": "mm"
+  },
+  {
+    "title": "Elegy of Emptiness",
+    "id": "20eoo8fYg9U",
+    "game": "mm"
+  },
+  {
+    "title": "Stone Tower Temple",
+    "id": "RlGY4wmdfd4",
+    "game": "mm",
+    "title_fr": "Temple de la Tour de Pierre"
+  },
+  {
+    "title": "Stone Tower Temple (upside-down)",
+    "id": "lv6OhIFz1yU",
+    "game": "mm"
+  },
+  {
+    "title": "Calling the Four Giants",
+    "id": "cvAf_7_4cuM",
+    "game": "mm"
+  },
+  {
+    "title": "Tatl and Tael",
+    "id": "2XOGtNY03t0",
+    "game": "mm"
+  },
+  {
+    "title": "To the Moon",
+    "id": "CSCgEbSYUIc",
+    "game": "mm",
+    "title_fr": "Vers la Lune"
+  },
+  {
+    "title": "Majora's Mask Battle",
+    "id": "cs0Z_igVjB0",
+    "game": "mm"
+  },
+  {
+    "title": "Majora's Incarnation Battle",
+    "id": "03aAU1vl5qg",
+    "game": "mm"
+  },
+  {
+    "title": "Majora's Wrath Battle",
+    "id": "guzoxuY2m5g",
+    "game": "mm"
+  },
+  {
+    "title": "Moon's Destruction",
+    "id": "uCpYqyO7THE",
+    "game": "mm"
+  },
+  {
+    "title": "The Giants' Exit",
+    "id": "rtCQzye5qDc",
+    "game": "mm"
+  },
+  {
+    "title": "Staff Credits",
+    "id": "L5bNJdVK2G0",
+    "game": "mm"
   }
 ]
