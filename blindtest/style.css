@@ -1255,7 +1255,7 @@ body {
 
 .visual-answer-btn img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: contain;
   background: var(--bg);
   display: block;
