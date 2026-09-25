@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=45">
+<link rel="stylesheet" href="style.css?v=46">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="ZELDA OST QUIZ — Legend of Zelda blind test">
@@ -26,6 +26,21 @@
   <section id="screen-setup" class="screen active">
     <div class="setup-layout">
       <div class="side-boxes side-boxes-left">
+        <div class="box side-box mode-box" id="mode-box">
+          <h2 class="title small" data-i18n="heading_mode">Mode</h2>
+          <div class="menu" id="answer-mode-menu">
+            <button class="menu-option selected" data-answer-mode="text" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="mode_text">Blind Test (titles)</span>
+            </button>
+            <button class="menu-option" data-answer-mode="visual" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="mode_visual">Visual (images)</span>
+            </button>
+          </div>
+          <p class="modifier-note" id="visual-mode-note" data-i18n="note_visual_needs_images" hidden>Not enough tracks with an image yet for this selection.</p>
+        </div>
+
         <div class="box side-box mp-box" id="mp-box">
           <h2 class="title small" data-i18n="heading_mp">Multiplayer</h2>
 
@@ -270,6 +285,9 @@
       <div class="answers-grid" id="answers-grid">
       </div>
 
+      <div class="visual-answers-grid" id="visual-answers-grid" hidden>
+      </div>
+
       <div class="text-answer" id="text-answer" hidden>
         <input type="text" id="answer-text-input" class="answer-text-input" placeholder="Type the track title..." autocomplete="off" data-i18n-placeholder="placeholder_type_title">
         <div class="answer-suggestions" id="answer-suggestions"></div>
@@ -316,6 +334,6 @@
   rights reserved to their respective creators.
 </footer>
 
-<script src="app.js?v=34"></script>
+<script src="app.js?v=35"></script>
 </body>
 </html>

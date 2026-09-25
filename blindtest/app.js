@@ -201,6 +201,10 @@ const TRANSLATIONS = {
     btn_expand_all: 'Expand all',
     placeholder_game_search: 'Search a game...',
     label_filter_console: 'Console',
+    heading_mode: 'Mode',
+    mode_text: 'Blind Test (titles)',
+    mode_visual: 'Visual (images)',
+    note_visual_needs_images: 'Not enough tracks with an image yet for this selection.',
   },
   fr: {
     title: 'BLIND TEST',
@@ -286,6 +290,10 @@ const TRANSLATIONS = {
     btn_expand_all: 'Tout déplier',
     placeholder_game_search: 'Rechercher un jeu...',
     label_filter_console: 'Console',
+    heading_mode: 'Mode',
+    mode_text: 'Blind Test (titres)',
+    mode_visual: 'Visuel (images)',
+    note_visual_needs_images: 'Pas encore assez de musiques avec image pour cette sélection.',
   },
 };
 
@@ -371,6 +379,9 @@ const el = {
   revealMessage: document.getElementById('reveal-message'),
   revealCorrectTitle: document.getElementById('reveal-correct-title'),
   answersGrid: document.getElementById('answers-grid'),
+  visualAnswersGrid: document.getElementById('visual-answers-grid'),
+  answerModeMenu: document.getElementById('answer-mode-menu'),
+  visualModeNote: document.getElementById('visual-mode-note'),
   textAnswer: document.getElementById('text-answer'),
   answerTextInput: document.getElementById('answer-text-input'),
   answerSuggestions: document.getElementById('answer-suggestions'),
@@ -421,6 +432,7 @@ const el = {
 };
 
 let selectedMode = 'all';
+let answerMode = 'text'; // 'text' (blind test, titles) | 'visual' (guess the matching screenshot)
 let selectedGames = new Set(['zelda1']);
 
 /* ---------- Game catalog: franchise / console / year metadata ---------- */
@@ -789,7 +801,9 @@ function showScreen(name) {
 }
 
 function getFilteredPool() {
-  return allTracks.filter((t) => selectedGames.has(t.game));
+  const pool = allTracks.filter((t) => selectedGames.has(t.game));
+  if (answerMode === 'visual') return pool.filter((t) => !!t.image);
+  return pool;
 }
 
 const ROUND_DURATIONS_BY_KEY = {
@@ -882,6 +896,7 @@ function saveGameState() {
       totalPoints,
       selectedGames: Array.from(selectedGames),
       selectedMode,
+      answerMode,
       customCount: el.customCount.value,
       roundStartTime,
       answered: roundAnswered,
@@ -939,6 +954,7 @@ function updateTotalCount() {
   el.customCount.max = pool.length;
   el.customCount.value = Math.min(parseInt(el.customCount.value, 10) || 10, pool.length || 1);
   updateTimeEstimate();
+  el.visualModeNote.hidden = !(answerMode === 'visual' && pool.length < 4);
 }
 
 /* ---------- Estimated playtime ---------- */
@@ -1005,6 +1021,17 @@ el.modeMenu.querySelectorAll('.menu-option').forEach((btn) => {
 });
 
 el.customCount.addEventListener('input', updateTimeEstimate);
+
+el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    answerMode = btn.dataset.answerMode;
+    el.answerModeMenu.querySelectorAll('.menu-option').forEach((b) =>
+      b.classList.toggle('selected', b === btn)
+    );
+    updateTotalCount();
+    el.setupError.textContent = '';
+  });
+});
 
 /* ---------- Défi / Handicap menus ---------- */
 
@@ -1094,7 +1121,7 @@ function preparePlaylist() {
 
   currentPool = getFilteredPool();
 
-  const effectiveCount = writeTitleMode ? 4 : getAnswerCount();
+  const effectiveCount = (writeTitleMode || answerMode === 'visual') ? 4 : getAnswerCount();
   if (currentPool.length < effectiveCount) {
     el.setupError.textContent = t('err_min_tracks', { count: effectiveCount });
     return false;
@@ -1149,6 +1176,11 @@ el.resumeBtn.addEventListener('click', async () => {
     btn.classList.toggle('selected', btn.dataset.mode === selectedMode);
   });
   el.customCount.value = saved.customCount;
+
+  answerMode = saved.answerMode === 'visual' ? 'visual' : 'text';
+  el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
+  });
 
   clipChallenge = !!saved.clipChallenge;
   timeChallenge = saved.timeChallenge || null;
@@ -1558,15 +1590,45 @@ function renderAnswers(track) {
   pendingTitle = null;
   el.gameAnswer.hidden = true;
 
-  if (writeTitleMode) {
+  if (answerMode === 'visual') {
     el.answersGrid.hidden = true;
+    el.textAnswer.hidden = true;
+    el.visualAnswersGrid.hidden = false;
+    renderVisualAnswers(track);
+  } else if (writeTitleMode) {
+    el.answersGrid.hidden = true;
+    el.visualAnswersGrid.hidden = true;
     el.textAnswer.hidden = false;
     renderTextAnswer();
   } else {
     el.answersGrid.hidden = false;
+    el.visualAnswersGrid.hidden = true;
     el.textAnswer.hidden = true;
     renderChoiceAnswers(track);
   }
+}
+
+function renderVisualAnswers(track) {
+  const imagePool = currentPool.filter((tr) => !!tr.image);
+  const decoys = shuffle(imagePool.filter((tr) => tr.title !== track.title)).slice(0, 3);
+  const options = shuffle([track, ...decoys]);
+
+  el.visualAnswersGrid.innerHTML = '';
+  options.forEach((opt) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'visual-answer-btn';
+    btn.dataset.title = opt.title;
+
+    const img = document.createElement('img');
+    img.src = opt.image;
+    img.alt = getDisplayTitle(opt);
+    img.loading = 'lazy';
+    btn.appendChild(img);
+
+    btn.addEventListener('click', () => onTitleChosen(opt.title));
+    el.visualAnswersGrid.appendChild(btn);
+  });
 }
 
 function renderChoiceAnswers(track) {
@@ -1848,7 +1910,12 @@ function revealAnswer(selectedTitle, selectedGameId) {
     });
   }
 
-  if (writeTitleMode) {
+  if (answerMode === 'visual') {
+    el.visualAnswersGrid.hidden = false;
+    el.answersGrid.hidden = true;
+    el.textAnswer.hidden = true;
+    markButtons(el.visualAnswersGrid.querySelectorAll('.visual-answer-btn'), track.title, selectedTitle, 'title');
+  } else if (writeTitleMode) {
     el.textAnswer.hidden = false;
     el.answersGrid.hidden = true;
     el.answerTextInput.disabled = true;
@@ -2128,6 +2195,7 @@ el.mpStartBtn.addEventListener('click', () => {
       handicapShowGameLabel,
       handicapGameHint,
       clipChallenge,
+      answerMode,
       revealPauseMs: REVEAL_PAUSE_MS,
     },
   });
@@ -2174,7 +2242,7 @@ function mpApplySettings(settings) {
      multiplayer game ends instead of silently corrupting the next solo game. */
   mpPreGameModifiers = {
     writeTitleMode, guessGameMode, handicapShowGameLabel, handicapGameHint,
-    clipChallenge, answerCountOverride, timeChallenge,
+    clipChallenge, answerCountOverride, timeChallenge, answerMode,
     selectedGames: new Set(selectedGames),
   };
 
@@ -2183,6 +2251,7 @@ function mpApplySettings(settings) {
   handicapShowGameLabel = !!s.handicapShowGameLabel;
   handicapGameHint = !!s.handicapGameHint;
   clipChallenge = !!s.clipChallenge;
+  answerMode = s.answerMode === 'visual' ? 'visual' : 'text';
   answerCountOverride = s.answerCount && s.answerCount !== 4 ? s.answerCount : null;
   timeChallenge = null; // duration is taken directly from settings.durationMs in mpHandleRound
   mpSettings = s;
@@ -2190,10 +2259,13 @@ function mpApplySettings(settings) {
 
 function mpRestorePreGameModifiers() {
   if (!mpPreGameModifiers) return;
-  ({ writeTitleMode, guessGameMode, handicapShowGameLabel, handicapGameHint, clipChallenge, answerCountOverride, timeChallenge } = mpPreGameModifiers);
+  ({ writeTitleMode, guessGameMode, handicapShowGameLabel, handicapGameHint, clipChallenge, answerCountOverride, timeChallenge, answerMode } = mpPreGameModifiers);
   selectedGames = new Set(mpPreGameModifiers.selectedGames);
   el.gameMenu.querySelectorAll('.menu-option').forEach((btn) => {
     btn.classList.toggle('selected', selectedGames.has(btn.dataset.game));
+  });
+  el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
+    btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
   });
   updateTotalCount();
   mpPreGameModifiers = null;
@@ -2284,7 +2356,9 @@ function mpSubmitAnswer(selectedTitle, selectedGameId) {
     });
   }
 
-  if (writeTitleMode) {
+  if (answerMode === 'visual') {
+    markSelected(el.visualAnswersGrid.querySelectorAll('.visual-answer-btn'), 'title');
+  } else if (writeTitleMode) {
     el.answerTextInput.disabled = true;
     markSelected(el.answerSuggestions.querySelectorAll('.suggestion-btn'), 'title');
   } else {
@@ -2318,7 +2392,9 @@ function mpHandleReveal(msg) {
     });
   }
 
-  if (writeTitleMode) {
+  if (answerMode === 'visual') {
+    markButtons(el.visualAnswersGrid.querySelectorAll('.visual-answer-btn'), track.title, 'title');
+  } else if (writeTitleMode) {
     el.answerTextInput.disabled = true;
     markButtons(el.answerSuggestions.querySelectorAll('.suggestion-btn'), track.title, 'title');
   } else {

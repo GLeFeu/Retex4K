@@ -1192,6 +1192,51 @@ body {
   background: var(--bg);
 }
 
+/* --- Visual mode: guess which image matches the currently playing track --- */
+.visual-answers-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.visual-answer-btn {
+  padding: 4px;
+  background: var(--bg);
+  border: 3px solid var(--gold);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.visual-answer-btn img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.visual-answer-btn:hover:not(:disabled),
+.visual-answer-btn:focus-visible:not(:disabled) {
+  border-color: var(--fg);
+  outline: none;
+}
+
+.visual-answer-btn:disabled {
+  cursor: default;
+}
+
+.visual-answer-btn.correct {
+  border-color: var(--correct-green);
+}
+
+.visual-answer-btn.wrong {
+  border-color: var(--soul-red);
+}
+
+.visual-answer-btn.mp-selected:not(.correct):not(.wrong) {
+  border-color: var(--fg);
+}
+
 .game-hint {
   width: 100%;
   font-size: 18px;
