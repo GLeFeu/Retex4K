@@ -202,8 +202,8 @@ const TRANSLATIONS = {
     placeholder_game_search: 'Search a game...',
     label_filter_console: 'Console',
     heading_mode: 'Mode',
-    mode_text: 'Blind Test (titles)',
-    mode_visual: 'Visual (images)',
+    mode_text: 'BLIND TEST',
+    mode_visual: 'BLIND IMAGE',
     note_visual_needs_images: 'Not enough tracks with an image yet for this selection.',
   },
   fr: {
@@ -291,8 +291,8 @@ const TRANSLATIONS = {
     placeholder_game_search: 'Rechercher un jeu...',
     label_filter_console: 'Console',
     heading_mode: 'Mode',
-    mode_text: 'Blind Test (titres)',
-    mode_visual: 'Visuel (images)',
+    mode_text: 'BLIND TEST',
+    mode_visual: 'BLIND IMAGE',
     note_visual_needs_images: 'Pas encore assez de musiques avec image pour cette sélection.',
   },
 };
@@ -354,6 +354,7 @@ const el = {
   halfCount: document.getElementById('half-count'),
   timeEstimate: document.getElementById('time-estimate'),
   scoreMultiplier: document.getElementById('score-multiplier'),
+  mainTitle: document.getElementById('main-title'),
   gameMenu: document.getElementById('game-menu'),
   gameSearchInput: document.getElementById('game-search-input'),
   consoleFilterBtn: document.getElementById('console-filter-btn'),
@@ -742,12 +743,17 @@ function syncLangButtons() {
   el.trackLangFrBtn.classList.toggle('selected', trackLang === 'fr');
 }
 
+function updateMainTitle() {
+  el.mainTitle.textContent = answerMode === 'visual' ? t('mode_visual') : t('mode_text');
+}
+
 function refreshDynamicText() {
   applyTranslations();
   renderGameMenu();
   updateTimeEstimate();
   updateScoreMultiplierDisplay();
   refreshResumeAvailability();
+  updateMainTitle();
   if (playlist.length > 0) {
     updateLiveScore();
     el.progressLabel.textContent = t('live_track', { index: currentIndex + 1, total: playlist.length });
@@ -946,6 +952,7 @@ syncLangButtons();
 applyTranslations();
 refreshResumeAvailability();
 updateScoreMultiplierDisplay();
+updateMainTitle();
 
 function updateTotalCount() {
   const pool = getFilteredPool();
@@ -1029,6 +1036,7 @@ el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
       b.classList.toggle('selected', b === btn)
     );
     updateTotalCount();
+    updateMainTitle();
     el.setupError.textContent = '';
   });
 });
@@ -1181,6 +1189,7 @@ el.resumeBtn.addEventListener('click', async () => {
   el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
     btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
   });
+  updateMainTitle();
 
   clipChallenge = !!saved.clipChallenge;
   timeChallenge = saved.timeChallenge || null;
@@ -2252,6 +2261,7 @@ function mpApplySettings(settings) {
   handicapGameHint = !!s.handicapGameHint;
   clipChallenge = !!s.clipChallenge;
   answerMode = s.answerMode === 'visual' ? 'visual' : 'text';
+  updateMainTitle();
   answerCountOverride = s.answerCount && s.answerCount !== 4 ? s.answerCount : null;
   timeChallenge = null; // duration is taken directly from settings.durationMs in mpHandleRound
   mpSettings = s;
@@ -2268,6 +2278,7 @@ function mpRestorePreGameModifiers() {
     btn.classList.toggle('selected', btn.dataset.answerMode === answerMode);
   });
   updateTotalCount();
+  updateMainTitle();
   mpPreGameModifiers = null;
 }
 
