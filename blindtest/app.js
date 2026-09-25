@@ -428,6 +428,8 @@ let selectedGames = new Set(['zelda1']);
 
 const FRANCHISES = [
   { id: 'zelda', name: 'The Legend of Zelda' },
+  { id: 'undertale', name: 'Undertale' },
+  { id: 'deltarune', name: 'Deltarune' },
 ];
 
 const GAMES = [
@@ -452,6 +454,15 @@ const GAMES = [
   { id: 'tfh', franchise: 'zelda', name: 'Tri Force Heroes', console: '3DS', year: 2015 },
   { id: 'botw', franchise: 'zelda', name: 'Breath of the Wild', console: 'Switch', year: 2017 },
   { id: 'totk', franchise: 'zelda', name: 'Tears of the Kingdom', console: 'Switch', year: 2023 },
+  { id: 'eow', franchise: 'zelda', name: 'Echoes of Wisdom', console: 'Switch', year: 2024 },
+
+  { id: 'undertale', franchise: 'undertale', name: 'Undertale', console: 'PC', year: 2015 },
+
+  { id: 'dr1', franchise: 'deltarune', name: 'Deltarune - Chapter 1', console: 'PC', year: 2018 },
+  { id: 'dr2', franchise: 'deltarune', name: 'Deltarune - Chapter 2', console: 'PC', year: 2021 },
+  { id: 'dr3', franchise: 'deltarune', name: 'Deltarune - Chapter 3', console: 'PC', year: 2025 },
+  { id: 'dr4', franchise: 'deltarune', name: 'Deltarune - Chapter 4', console: 'PC', year: 2025 },
+  { id: 'dr5', franchise: 'deltarune', name: 'Deltarune - Chapter 5', console: 'PC', year: 2025 },
 ];
 
 const gamesById = {};
