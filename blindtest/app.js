@@ -35,7 +35,7 @@ let fadeOutIntervalId = null;
 
 /* ---------- Multiplayer (realtime sync via WebSocket server) ---------- */
 
-const MP_SERVER_URL = 'wss://ostquiz-mp-server.onrender.com';
+const MP_SERVER_URL = 'wss://retex4k.onrender.com';
 const MP_CLIENT_ID_KEY = 'ostquiz-mp-client-id';
 
 function mpGetClientId() {
