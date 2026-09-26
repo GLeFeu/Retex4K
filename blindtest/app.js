@@ -213,7 +213,7 @@ const TRANSLATIONS = {
     submode_music: 'Music',
     submode_pixel: 'Pixelated',
     submode_zoom: 'Zoom out',
-    guess_kind_cover: 'Box art',
+    guess_kind_cover: 'Screenshot',
     guess_kind_location: 'Location',
     guess_style_text: 'Type answer',
     guess_style_choice: '4 choices',
@@ -324,7 +324,7 @@ const TRANSLATIONS = {
     submode_music: 'Musique',
     submode_pixel: 'Pixelisation',
     submode_zoom: 'Dézoom',
-    guess_kind_cover: 'Jaquette',
+    guess_kind_cover: 'Screenshot',
     guess_kind_location: 'Lieu',
     guess_style_text: 'Écrire la réponse',
     guess_style_choice: '4 choix',
@@ -498,7 +498,7 @@ let answerMode = 'text'; // 'text' (blind test, titles) | 'visual' (guess the ma
 let selectedGames = new Set();
 let selectedCategory = 'games';
 let visualSubMode = 'normal'; // 'normal' | 'pixel' | 'zoom' — sub-modes of BLIND IMAGE
-let guessKind = 'cover'; // 'cover' | 'location' — sub-modes of "Guess the picture"
+let guessKind = 'screenshot'; // 'screenshot' | 'location' — sub-modes of "Guess the picture"
 let guessAnswerStyle = 'text'; // 'text' | 'choice'
 let guessPlaylist = [];
 let guessRevealIntervalId = null;
