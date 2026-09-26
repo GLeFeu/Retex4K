@@ -1,0 +1,14 @@
+[
+  { "game": "undertale", "kind": "location", "name": "Ruins", "image": "https://static.wikia.nocookie.net/undertale/images/f/ff/Utruinsenentrance.png/revision/latest?cb=20160302145510&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "Snowdin Forest", "image": "https://static.wikia.nocookie.net/undertale/images/c/c4/Snowdinforest.png/revision/latest?cb=20160327125040&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "Snowdin Town", "image": "https://static.wikia.nocookie.net/undertale/images/2/22/Snowdin.png/revision/latest?cb=20160327125030&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "Waterfall", "image": "https://static.wikia.nocookie.net/undertale/images/6/67/Waterfallsoundtrack.png/revision/latest?cb=20160327130604&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "Temmie Village", "image": "https://static.wikia.nocookie.net/undertale/images/a/a6/Temvillge.png/revision/latest?cb=20160327130504&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "Hotland", "image": "https://static.wikia.nocookie.net/undertale/images/1/15/Hotlnd.png/revision/latest?cb=20160327165248&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "MTT Resort", "image": "https://static.wikia.nocookie.net/undertale/images/2/24/Mttkillrobot.png/revision/latest?cb=20160327165358&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "The CORE", "image": "https://static.wikia.nocookie.net/undertale/images/3/34/Corakuma.png/revision/latest?cb=20160327165200&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "New Home", "image": "https://static.wikia.nocookie.net/undertale/images/f/f7/Newhomebox.png/revision/latest?cb=20160327165502&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "True Laboratory", "image": "https://static.wikia.nocookie.net/undertale/images/1/1f/Truelaboratory.png/revision/latest?cb=20160327170630&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "The Barrier", "image": "https://static.wikia.nocookie.net/undertale/images/c/cc/Barrier.png/revision/latest?cb=20160327165133&path-prefix=fr" },
+  { "game": "undertale", "kind": "location", "name": "Toriel's House", "image": "https://static.wikia.nocookie.net/undertale/images/f/f3/Home1.png/revision/latest?cb=20160327124753&path-prefix=fr" }
+]

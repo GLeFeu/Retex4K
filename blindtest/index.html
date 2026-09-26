@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=55">
+<link rel="stylesheet" href="style.css?v=56">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Quiz">
@@ -37,6 +37,10 @@
               <span class="cursor">♥</span>
               <span data-i18n="mode_visual">Visual (images)</span>
             </button>
+            <button class="menu-option" data-answer-mode="guess" type="button">
+              <span class="cursor">♥</span>
+              <span data-i18n="mode_guess">Guess the picture</span>
+            </button>
           </div>
           <div class="visual-submode-row" id="visual-submode-row" hidden>
             <button class="mini-toggle small selected" data-visual-submode="normal" type="button" data-i18n="submode_music">Music</button>
@@ -44,6 +48,16 @@
             <button class="mini-toggle small" data-visual-submode="zoom" type="button" data-i18n="submode_zoom">Zoom out</button>
           </div>
           <p class="modifier-note" id="visual-mode-note" data-i18n="note_visual_needs_images" hidden>Not enough tracks with an image yet for this selection.</p>
+
+          <div class="visual-submode-row" id="guess-kind-row" hidden>
+            <button class="mini-toggle small selected" data-guess-kind="cover" type="button" data-i18n="guess_kind_cover">Box art</button>
+            <button class="mini-toggle small" data-guess-kind="location" type="button" data-i18n="guess_kind_location">Location</button>
+          </div>
+          <div class="visual-submode-row" id="guess-style-row" hidden>
+            <button class="mini-toggle small selected" data-guess-style="text" type="button" data-i18n="guess_style_text">Type answer</button>
+            <button class="mini-toggle small" data-guess-style="choice" type="button" data-i18n="guess_style_choice">4 choices</button>
+          </div>
+          <p class="modifier-note" id="guess-mode-note" data-i18n="note_guess_needs_images" hidden>Not enough pictures yet for this selection.</p>
         </div>
 
         <div class="box side-box mp-box" id="mp-box">
@@ -303,6 +317,18 @@
       <div class="visual-answers-grid" id="visual-answers-grid" hidden>
       </div>
 
+      <div class="guess-picture-wrap" id="guess-picture-wrap" hidden>
+        <canvas id="guess-picture-canvas" width="480" height="360"></canvas>
+      </div>
+
+      <div class="answers-grid" id="guess-choices-grid" hidden>
+      </div>
+
+      <div class="text-answer" id="guess-text-answer" hidden>
+        <input type="text" id="guess-text-input" class="answer-text-input" autocomplete="off" data-i18n-placeholder="placeholder_guess_answer">
+        <div class="answer-suggestions" id="guess-suggestions"></div>
+      </div>
+
       <div class="text-answer" id="text-answer" hidden>
         <input type="text" id="answer-text-input" class="answer-text-input" placeholder="Type the track title..." autocomplete="off" data-i18n-placeholder="placeholder_type_title">
         <div class="answer-suggestions" id="answer-suggestions"></div>
@@ -349,6 +375,6 @@
   rights reserved to their respective creators.
 </footer>
 
-<script src="app.js?v=47"></script>
+<script src="app.js?v=49"></script>
 </body>
 </html>

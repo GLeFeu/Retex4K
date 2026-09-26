@@ -1324,6 +1324,20 @@ body {
   transition: transform linear;
 }
 
+.guess-picture-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.guess-picture-wrap canvas {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 3;
+  background: var(--bg);
+  border: 3px solid var(--gold);
+}
+
 .visual-answer-caption {
   font-family: var(--font-body);
   font-size: 15px;

@@ -207,10 +207,17 @@ const TRANSLATIONS = {
     heading_mode: 'Mode',
     mode_text: 'BLIND TEXTE',
     mode_visual: 'BLIND IMAGE',
+    mode_guess: 'GUESS THE PICTURE',
     note_visual_needs_images: 'Not enough tracks with an image yet for this selection.',
+    note_guess_needs_images: 'Not enough pictures yet for this selection.',
     submode_music: 'Music',
     submode_pixel: 'Pixelated',
     submode_zoom: 'Zoom out',
+    guess_kind_cover: 'Box art',
+    guess_kind_location: 'Location',
+    guess_style_text: 'Type answer',
+    guess_style_choice: '4 choices',
+    placeholder_guess_answer: 'Type your answer...',
     category_games: 'Video games',
     category_anime: 'Anime',
     category_tv: 'TV Series',
@@ -311,10 +318,17 @@ const TRANSLATIONS = {
     heading_mode: 'Mode',
     mode_text: 'BLIND TEXTE',
     mode_visual: 'BLIND IMAGE',
+    mode_guess: 'DEVINE L\'IMAGE',
     note_visual_needs_images: 'Pas encore assez de musiques avec image pour cette sélection.',
+    note_guess_needs_images: 'Pas encore assez d\'images pour cette sélection.',
     submode_music: 'Musique',
     submode_pixel: 'Pixelisation',
     submode_zoom: 'Dézoom',
+    guess_kind_cover: 'Jaquette',
+    guess_kind_location: 'Lieu',
+    guess_style_text: 'Écrire la réponse',
+    guess_style_choice: '4 choix',
+    placeholder_guess_answer: 'Écris ta réponse...',
     category_games: 'Jeux vidéo',
     category_anime: 'Anime',
     category_tv: 'Série TV',
@@ -398,6 +412,15 @@ const el = {
   gameFilterReset: document.getElementById('game-filter-reset'),
   categoryTabs: document.getElementById('category-tabs'),
   visualSubmodeRow: document.getElementById('visual-submode-row'),
+  guessKindRow: document.getElementById('guess-kind-row'),
+  guessStyleRow: document.getElementById('guess-style-row'),
+  guessModeNote: document.getElementById('guess-mode-note'),
+  guessPictureWrap: document.getElementById('guess-picture-wrap'),
+  guessPictureCanvas: document.getElementById('guess-picture-canvas'),
+  guessChoicesGrid: document.getElementById('guess-choices-grid'),
+  guessTextAnswer: document.getElementById('guess-text-answer'),
+  guessTextInput: document.getElementById('guess-text-input'),
+  guessSuggestions: document.getElementById('guess-suggestions'),
   gameCollapseAllBtn: document.getElementById('game-collapse-all-btn'),
   gameExpandAllBtn: document.getElementById('game-expand-all-btn'),
   modeMenu: document.getElementById('mode-menu'),
@@ -475,6 +498,10 @@ let answerMode = 'text'; // 'text' (blind test, titles) | 'visual' (guess the ma
 let selectedGames = new Set();
 let selectedCategory = 'games';
 let visualSubMode = 'normal'; // 'normal' | 'pixel' | 'zoom' — sub-modes of BLIND IMAGE
+let guessKind = 'cover'; // 'cover' | 'location' — sub-modes of "Guess the picture"
+let guessAnswerStyle = 'text'; // 'text' | 'choice'
+let guessPlaylist = [];
+let guessRevealIntervalId = null;
 
 /* ---------- Game catalog: franchise / console / year metadata ---------- */
 /* Add new entries here as more games are curated in tracks.json — the menu,
@@ -675,13 +702,18 @@ function gameHasVisualTracks(gameId) {
   return allTracks.some((t) => t.game === gameId && !!t.image);
 }
 
+function gameHasGuessImages(gameId) {
+  return allGuessImages.some((e) => e.game === gameId && e.kind === guessKind);
+}
+
 function renderGameMenu() {
   el.gameMenu.innerHTML = '';
   const filterActive = isAnyGameFilterActive();
 
   FRANCHISES.filter((franchise) => franchise.category === selectedCategory).forEach((franchise) => {
     const gamesInFranchise = GAMES.filter((g) => g.franchise === franchise.id
-      && (answerMode !== 'visual' || gameHasVisualTracks(g.id)));
+      && (answerMode !== 'visual' || gameHasVisualTracks(g.id))
+      && (answerMode !== 'guess' || gameHasGuessImages(g.id)));
     if (gamesInFranchise.length === 0) return;
 
     const visibleGames = gamesInFranchise.filter((g) => gameMatchesFilter(g, franchise));
@@ -1040,13 +1072,18 @@ refreshResumeAvailability();
 updateScoreMultiplierDisplay();
 updateMainTitle();
 
+function getGuessPool() {
+  return allGuessImages.filter((e) => e.kind === guessKind && selectedGames.has(e.game));
+}
+
 function updateTotalCount() {
-  const pool = getFilteredPool();
+  const pool = answerMode === 'guess' ? getGuessPool() : getFilteredPool();
   el.totalCount.textContent = pool.length;
   el.customCount.max = pool.length;
   el.customCount.value = Math.min(parseInt(el.customCount.value, 10) || 10, pool.length || 1);
   updateTimeEstimate();
   el.visualModeNote.hidden = !(answerMode === 'visual' && pool.length < 4);
+  el.guessModeNote.hidden = !(answerMode === 'guess' && pool.length < (guessAnswerStyle === 'choice' ? 4 : 1));
 }
 
 /* ---------- Estimated playtime ---------- */
@@ -1054,7 +1091,7 @@ function updateTotalCount() {
 const FAST_ANSWER_MS = 2000;
 
 function getPlannedTrackCount() {
-  const pool = getFilteredPool();
+  const pool = answerMode === 'guess' ? getGuessPool() : getFilteredPool();
   if (pool.length === 0) return 0;
   if (selectedMode === 'all') return pool.length;
   const custom = parseInt(el.customCount.value, 10);
@@ -1095,6 +1132,18 @@ fetch('tracks.json')
     el.setupError.textContent = t('err_load_tracks');
   });
 
+let allGuessImages = [];
+
+fetch('images.json')
+  .then((res) => res.json())
+  .then((data) => {
+    allGuessImages = Array.isArray(data) ? data.filter((e) => e.name && e.image && e.kind) : [];
+    updateTotalCount();
+  })
+  .catch(() => {
+    allGuessImages = [];
+  });
+
 /* ---------- Setup screen ---------- */
 
 renderConsoleFilterPanel();
@@ -1120,10 +1169,28 @@ el.answerModeMenu.querySelectorAll('.menu-option').forEach((btn) => {
       b.classList.toggle('selected', b === btn)
     );
     el.visualSubmodeRow.hidden = answerMode !== 'visual';
+    el.guessKindRow.hidden = answerMode !== 'guess';
+    el.guessStyleRow.hidden = answerMode !== 'guess';
     renderGameMenu();
     updateTotalCount();
     updateMainTitle();
     el.setupError.textContent = '';
+  });
+});
+
+el.guessKindRow.querySelectorAll('.mini-toggle').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    guessKind = btn.dataset.guessKind;
+    el.guessKindRow.querySelectorAll('.mini-toggle').forEach((b) => b.classList.toggle('selected', b === btn));
+    renderGameMenu();
+    updateTotalCount();
+  });
+});
+
+el.guessStyleRow.querySelectorAll('.mini-toggle').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    guessAnswerStyle = btn.dataset.guessStyle;
+    el.guessStyleRow.querySelectorAll('.mini-toggle').forEach((b) => b.classList.toggle('selected', b === btn));
   });
 });
 
@@ -1220,30 +1287,37 @@ function preparePlaylist() {
     return false;
   }
 
-  currentPool = getFilteredPool();
+  const pool = answerMode === 'guess' ? getGuessPool() : getFilteredPool();
+  currentPool = pool;
 
-  const effectiveCount = (writeTitleMode || answerMode === 'visual') ? 4 : getAnswerCount();
-  if (currentPool.length < effectiveCount) {
+  const effectiveCount = answerMode === 'guess'
+    ? (guessAnswerStyle === 'choice' ? 4 : 1)
+    : (writeTitleMode || answerMode === 'visual') ? 4 : getAnswerCount();
+  if (pool.length < effectiveCount) {
     el.setupError.textContent = t('err_min_tracks', { count: effectiveCount });
     return false;
   }
 
   let count;
   if (selectedMode === 'all') {
-    count = currentPool.length;
+    count = pool.length;
   } else {
     count = parseInt(el.customCount.value, 10);
     if (!count || count < 1) {
       el.setupError.textContent = t('err_valid_number');
       return false;
     }
-    if (count > currentPool.length) {
-      el.setupError.textContent = t('err_only_n_tracks', { count: currentPool.length });
+    if (count > pool.length) {
+      el.setupError.textContent = t('err_only_n_tracks', { count: pool.length });
       return false;
     }
   }
 
-  playlist = shuffle(currentPool).slice(0, count);
+  if (answerMode === 'guess') {
+    guessPlaylist = shuffle(pool).slice(0, count);
+  } else {
+    playlist = shuffle(pool).slice(0, count);
+  }
   currentIndex = 0;
   score = 0;
   totalPoints = 0;
@@ -1377,6 +1451,12 @@ async function beginGame(triggerBtn, idleLabel) {
   el.answersGrid.hidden = false;
   el.textAnswer.hidden = true;
   el.gameAnswer.hidden = true;
+
+  if (answerMode === 'guess') {
+    showScreen('game');
+    startGuessRound();
+    return;
+  }
 
   el.startBtn.disabled = true;
   el.resumeBtn.disabled = true;
@@ -1553,7 +1633,8 @@ el.pauseBtn.addEventListener('click', () => {
     el.pauseBtn.classList.remove('paused');
     el.pauseOverlay.hidden = true;
     el.answersGrid.hidden = false;
-    startRound();
+    if (answerMode === 'guess') startGuessRound();
+    else startRound();
   } else if (pauseRequested) {
     pauseRequested = false;
     el.pauseBtn.textContent = t('btn_pause');
@@ -1685,6 +1766,235 @@ function startRound() {
   } else {
     criticalTimeoutId = setTimeout(() => el.hpFill.classList.add('critical'), criticalRemaining);
   }
+}
+
+/* ---------- "Guess the picture" mode: a single image, no music, revealed
+   gradually from pixelated to clear over the round's duration. Two flavors
+   picked via guessKind (box art / location) and answered by typing the name
+   or picking among 4 choices, via guessAnswerStyle. ---------- */
+
+const GUESS_ROUND_DURATION_MS = 15000;
+
+function getGuessSpeedFactor() {
+  const elapsed = Math.max(0, Date.now() - roundStartTime);
+  const ratio = Math.min(1, elapsed / GUESS_ROUND_DURATION_MS);
+  return Math.max(MIN_SPEED_FACTOR, 1 - (1 - MIN_SPEED_FACTOR) * ratio);
+}
+
+function startGuessImageReveal(entry, duration) {
+  const canvas = el.guessPictureCanvas;
+  const loader = new Image();
+  loader.crossOrigin = 'anonymous';
+  loader.onload = () => {
+    const startBlocks = 4;
+    const endBlocks = 48;
+    const tick = () => {
+      const elapsed = Math.max(0, Date.now() - roundStartTime);
+      const progress = Math.min(1, elapsed / duration);
+      const blocks = Math.round(startBlocks + (endBlocks - startBlocks) * progress);
+      drawPixelated(loader, canvas, blocks);
+      if (progress >= 1) clearInterval(guessRevealIntervalId);
+    };
+    tick();
+    guessRevealIntervalId = setInterval(tick, 150);
+  };
+  loader.src = entry.image;
+}
+
+function getUniqueGuessNames() {
+  const seen = new Set();
+  const result = [];
+  currentPool.forEach((e) => {
+    if (seen.has(e.name)) return;
+    seen.add(e.name);
+    result.push(e);
+  });
+  return result;
+}
+
+function updateGuessSuggestions(query) {
+  const q = query.trim().toLowerCase();
+  const matches = getUniqueGuessNames()
+    .filter((e) => !q || e.name.toLowerCase().includes(q))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .slice(0, 40);
+
+  el.guessSuggestions.innerHTML = '';
+  matches.forEach((e) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'suggestion-btn';
+    btn.dataset.name = e.name;
+    btn.textContent = e.name;
+    btn.addEventListener('click', () => onGuessAnswerChosen(e.name));
+    el.guessSuggestions.appendChild(btn);
+  });
+}
+
+el.guessTextInput.addEventListener('input', () => updateGuessSuggestions(el.guessTextInput.value));
+el.guessTextInput.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter') return;
+  const firstBtn = el.guessSuggestions.querySelector('.suggestion-btn');
+  if (firstBtn) onGuessAnswerChosen(firstBtn.dataset.name);
+});
+
+function renderGuessAnswer(entry) {
+  el.guessPictureWrap.hidden = false;
+  el.answersGrid.hidden = true;
+  el.textAnswer.hidden = true;
+  el.visualAnswersGrid.hidden = true;
+  el.gameAnswer.hidden = true;
+
+  if (guessAnswerStyle === 'choice') {
+    el.guessChoicesGrid.hidden = false;
+    el.guessTextAnswer.hidden = true;
+    const decoys = shuffle(currentPool.filter((e) => e.name !== entry.name)).slice(0, 3);
+    const options = shuffle([entry, ...decoys]);
+    el.guessChoicesGrid.innerHTML = '';
+    options.forEach((opt) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'answer-btn';
+      btn.dataset.name = opt.name;
+      btn.textContent = opt.name;
+      btn.addEventListener('click', () => onGuessAnswerChosen(opt.name));
+      el.guessChoicesGrid.appendChild(btn);
+    });
+  } else {
+    el.guessChoicesGrid.hidden = true;
+    el.guessTextAnswer.hidden = false;
+    el.guessTextInput.value = '';
+    el.guessTextInput.disabled = false;
+    updateGuessSuggestions('');
+    el.guessTextInput.focus();
+  }
+}
+
+function onGuessAnswerChosen(name) {
+  if (answerLocked) return;
+  revealGuessAnswer(name);
+}
+
+function startGuessRound() {
+  answerLocked = false;
+  clearTimers();
+
+  const entry = guessPlaylist[currentIndex];
+  el.progressLabel.textContent = t('live_track', { index: currentIndex + 1, total: guessPlaylist.length });
+  updateLiveScore();
+  el.gameHint.hidden = true;
+  el.revealMessage.hidden = true;
+  el.revealCorrectTitle.hidden = true;
+
+  renderGuessAnswer(entry);
+
+  const duration = GUESS_ROUND_DURATION_MS;
+  const now = Date.now();
+  if (!roundStartTime) roundStartTime = now;
+  const elapsed = Math.max(now - roundStartTime, 0);
+  const remaining = Math.max(duration - elapsed, 0);
+  roundAnswered = false;
+  saveGameState();
+
+  if (remaining <= 0) {
+    revealGuessAnswer(null);
+    return;
+  }
+
+  resetTimerBar(remaining, elapsed);
+  startGuessImageReveal(entry, duration);
+  roundTimeoutId = setTimeout(() => revealGuessAnswer(null), remaining);
+
+  const warningRemaining = duration * WARNING_FRACTION - elapsed;
+  if (warningRemaining <= 0) el.hpFill.classList.add('warning');
+  else warningTimeoutId = setTimeout(() => el.hpFill.classList.add('warning'), warningRemaining);
+
+  const criticalRemaining = duration * CRITICAL_FRACTION - elapsed;
+  if (criticalRemaining <= 0) el.hpFill.classList.add('critical');
+  else criticalTimeoutId = setTimeout(() => el.hpFill.classList.add('critical'), criticalRemaining);
+}
+
+function revealGuessAnswer(selectedName) {
+  if (answerLocked) return;
+  answerLocked = true;
+  clearTimers();
+
+  const entry = guessPlaylist[currentIndex];
+  const correct = selectedName === entry.name;
+  let pointsEarned = 0;
+  if (correct) {
+    score++;
+    comboStreak++;
+    pointsEarned = Math.round(BASE_POINTS_PER_CORRECT * getGuessSpeedFactor() * getComboMultiplier());
+    totalPoints += pointsEarned;
+  } else {
+    comboStreak = 0;
+  }
+  roundAnswered = true;
+  updateLiveScore();
+  updateComboDisplay();
+
+  const fullReveal = new Image();
+  fullReveal.crossOrigin = 'anonymous';
+  fullReveal.onload = () => drawPixelated(fullReveal, el.guessPictureCanvas, 64);
+  fullReveal.src = entry.image;
+
+  const noAnswerGiven = selectedName === null;
+  if (guessAnswerStyle === 'choice') {
+    el.guessChoicesGrid.querySelectorAll('.answer-btn').forEach((btn) => {
+      btn.disabled = true;
+      if (btn.dataset.name === entry.name) btn.classList.add('correct');
+      else if (noAnswerGiven || btn.dataset.name === selectedName) btn.classList.add('wrong');
+    });
+  } else {
+    el.guessTextInput.disabled = true;
+  }
+
+  if (correct) {
+    el.revealMessage.textContent = t('reveal_correct', { points: pointsEarned });
+    el.revealMessage.className = 'reveal-message correct';
+    playSfx(sfxCorrect);
+  } else if (noAnswerGiven) {
+    el.revealMessage.textContent = t('reveal_timeout');
+    el.revealMessage.className = 'reveal-message wrong';
+    playSfx(sfxWrong);
+  } else {
+    el.revealMessage.textContent = t('reveal_wrong');
+    el.revealMessage.className = 'reveal-message wrong';
+    playSfx(sfxWrong);
+  }
+  el.revealMessage.hidden = false;
+
+  if (!correct) {
+    el.revealCorrectTitle.textContent = entry.name;
+    el.revealCorrectTitle.hidden = false;
+  } else {
+    el.revealCorrectTitle.hidden = true;
+  }
+
+  revealAdvanceTimeoutId = setTimeout(() => {
+    currentIndex++;
+    roundStartTime = 0;
+    roundAnswered = false;
+    if (currentIndex >= guessPlaylist.length) {
+      finishGame();
+      return;
+    }
+    if (pauseRequested) {
+      pauseRequested = false;
+      isPaused = true;
+      el.progressLabel.textContent = t('live_track', { index: currentIndex + 1, total: guessPlaylist.length });
+      el.pauseBtn.textContent = t('btn_resume');
+      el.pauseBtn.classList.remove('queued');
+      el.pauseBtn.classList.add('paused');
+      el.guessPictureWrap.hidden = true;
+      el.guessChoicesGrid.hidden = true;
+      el.guessTextAnswer.hidden = true;
+      el.pauseOverlay.hidden = false;
+    } else {
+      startGuessRound();
+    }
+  }, REVEAL_PAUSE_MS);
 }
 
 /* ---------- Rendering answers: multiple choice, free text, or game step ---------- */
@@ -1980,6 +2290,7 @@ function clearTimers() {
   clearTimeout(warningTimeoutId);
   clearTimeout(criticalTimeoutId);
   clearTimeout(revealAdvanceTimeoutId);
+  clearInterval(guessRevealIntervalId);
   stopChallengeClip();
   stopFadeOut();
 }
@@ -2167,14 +2478,18 @@ function revealAnswer(selectedTitle, selectedGameId) {
 function finishGame() {
   clearGameState();
   el.mpFinalLeaderboard.hidden = true;
+  el.guessPictureWrap.hidden = true;
+  el.guessChoicesGrid.hidden = true;
+  el.guessTextAnswer.hidden = true;
   if (player && typeof player.stopVideo === 'function') {
     player.stopVideo();
   }
+  const total = answerMode === 'guess' ? guessPlaylist.length : playlist.length;
   el.finalScore.textContent = score;
-  el.finalTotal.textContent = playlist.length;
+  el.finalTotal.textContent = total;
   el.finalPoints.textContent = totalPoints;
 
-  const ratio = score / playlist.length;
+  const ratio = score / total;
   let commentKey;
   if (ratio === 1) commentKey = 'result_perfect';
   else if (ratio >= 0.7) commentKey = 'result_great';
