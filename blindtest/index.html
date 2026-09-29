@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=56">
+<link rel="stylesheet" href="style.css?v=73">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Quiz">
@@ -26,40 +26,6 @@
   <section id="screen-setup" class="screen active">
     <div class="setup-layout">
       <div class="side-boxes side-boxes-left">
-        <div class="box side-box mode-box" id="mode-box">
-          <h2 class="title small" data-i18n="heading_mode">Mode</h2>
-          <div class="menu" id="answer-mode-menu">
-            <button class="menu-option selected" data-answer-mode="text" type="button">
-              <span class="cursor">♥</span>
-              <span data-i18n="mode_text">Blind Test (titles)</span>
-            </button>
-            <button class="menu-option" data-answer-mode="visual" type="button">
-              <span class="cursor">♥</span>
-              <span data-i18n="mode_visual">Visual (images)</span>
-            </button>
-            <button class="menu-option" data-answer-mode="guess" type="button">
-              <span class="cursor">♥</span>
-              <span data-i18n="mode_guess">Guess the picture</span>
-            </button>
-          </div>
-          <div class="visual-submode-row" id="visual-submode-row" hidden>
-            <button class="mini-toggle small selected" data-visual-submode="normal" type="button" data-i18n="submode_music">Music</button>
-            <button class="mini-toggle small" data-visual-submode="pixel" type="button" data-i18n="submode_pixel">Pixelated</button>
-            <button class="mini-toggle small" data-visual-submode="zoom" type="button" data-i18n="submode_zoom">Zoom out</button>
-          </div>
-          <p class="modifier-note" id="visual-mode-note" data-i18n="note_visual_needs_images" hidden>Not enough tracks with an image yet for this selection.</p>
-
-          <div class="visual-submode-row" id="guess-kind-row" hidden>
-            <button class="mini-toggle small selected" data-guess-kind="screenshot" type="button" data-i18n="guess_kind_cover">Screenshot</button>
-            <button class="mini-toggle small" data-guess-kind="location" type="button" data-i18n="guess_kind_location">Location</button>
-          </div>
-          <div class="visual-submode-row" id="guess-style-row" hidden>
-            <button class="mini-toggle small selected" data-guess-style="text" type="button" data-i18n="guess_style_text">Type answer</button>
-            <button class="mini-toggle small" data-guess-style="choice" type="button" data-i18n="guess_style_choice">4 choices</button>
-          </div>
-          <p class="modifier-note" id="guess-mode-note" data-i18n="note_guess_needs_images" hidden>Not enough pictures yet for this selection.</p>
-        </div>
-
         <div class="box side-box mp-box" id="mp-box">
           <h2 class="title small" data-i18n="heading_mp">Multiplayer</h2>
 
@@ -91,64 +57,171 @@
       </div>
 
       <div class="box">
-        <h1 class="title" id="main-title">BLIND TEST</h1>
-        <p class="subtitle" data-i18n="subtitle">Can you recognize every track?</p>
+        <h1 class="title" id="main-title">QUIZ</h1>
 
-        <div class="modifier-row">
-          <span class="modifier-label" data-i18n="label_ui_lang">Language</span>
-          <div class="modifier-options">
-            <button class="mini-toggle" id="lang-en-btn" type="button">EN</button>
-            <button class="mini-toggle" id="lang-fr-btn" type="button">FR</button>
+        <div class="lang-rows">
+          <div class="modifier-row">
+            <span class="modifier-label" data-i18n="label_ui_lang">Site language</span>
+            <div class="modifier-options">
+              <button class="mini-toggle" id="lang-en-btn" type="button">EN</button>
+              <button class="mini-toggle" id="lang-fr-btn" type="button">FR</button>
+            </div>
+          </div>
+
+          <div class="modifier-row">
+            <span class="modifier-label" data-i18n="label_track_lang">Answer language</span>
+            <div class="modifier-options">
+              <button class="mini-toggle" id="track-lang-en-btn" type="button">EN</button>
+              <button class="mini-toggle" id="track-lang-fr-btn" type="button">FR</button>
+            </div>
           </div>
         </div>
 
-        <div class="modifier-row">
-          <span class="modifier-label" data-i18n="label_track_lang">Track titles</span>
-          <div class="modifier-options">
-            <button class="mini-toggle" id="track-lang-en-btn" type="button">EN</button>
-            <button class="mini-toggle" id="track-lang-fr-btn" type="button">FR</button>
+        <div class="mode-section" id="mode-section">
+          <p class="menu-label mode-label" data-i18n="heading_mode">Mode</p>
+          <div class="mode-tabs" id="mode-tabs">
+            <button class="mode-tab selected" data-top-mode="quiz" type="button" data-i18n-tip="tip_mode_quiz" data-i18n="mode_tab_quiz">Quiz</button>
+            <button class="mode-tab" data-top-mode="image" type="button" data-i18n-tip="tip_mode_image" data-i18n="mode_tab_image">Image</button>
+            <button class="mode-tab" data-top-mode="draw" type="button" data-i18n-tip="tip_mode_draw" data-i18n="mode_tab_draw">Drawing</button>
           </div>
+
+          <div class="mode-options" id="quiz-options">
+            <div class="mode-option-row">
+              <span class="mode-option-label" data-i18n="label_image_subject">To guess</span>
+              <div class="mode-option-buttons">
+                <button class="mini-toggle small selected" data-quiz-theme="music" type="button" data-i18n-tip="tip_theme_music" data-i18n="quiz_theme_music">Music</button>
+                <button class="mini-toggle small" data-quiz-theme="describe" type="button" data-i18n-tip="tip_theme_describe" data-i18n="quiz_theme_describe">Description</button>
+                <button class="mini-toggle small" data-quiz-theme="random" type="button" data-i18n-tip="tip_theme_random" data-i18n="subject_random">Random</button>
+                <button class="mini-toggle small" data-quiz-theme="questions" type="button" data-i18n-tip="tip_theme_questions" disabled>
+                  <span data-i18n="quiz_theme_questions">Questions</span>
+                  <span class="soon-tag" data-i18n="tag_soon">soon</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mode-options" id="image-options" hidden>
+            <div class="mode-option-row">
+              <span class="mode-option-label" data-i18n="label_image_subject">To guess</span>
+              <div class="mode-option-buttons" id="image-subject-row">
+                <button class="mini-toggle small" data-image-subject="music" type="button" data-i18n-tip="tip_subject_music" data-i18n="image_subject_music">Music</button>
+                <button class="mini-toggle small" data-image-subject="screenshot" type="button" data-i18n-tip="tip_subject_screenshot" data-i18n="guess_kind_cover">Screenshot</button>
+                <button class="mini-toggle small" data-image-subject="location" type="button" data-i18n-tip="tip_subject_location" data-i18n="guess_kind_location">Location</button>
+                <button class="mini-toggle small" data-image-subject="character" type="button" data-i18n-tip="tip_subject_character" data-i18n="image_subject_character">Character</button>
+                <button class="mini-toggle small" data-image-subject="object" type="button" data-i18n-tip="tip_subject_object" data-i18n="image_subject_object">Object</button>
+                <button class="mini-toggle small" data-image-subject="random" type="button" data-i18n-tip="tip_subject_random" data-i18n="subject_random">Random</button>
+              </div>
+            </div>
+            <div class="mode-option-row" id="image-effect-row">
+              <span class="mode-option-label" data-i18n="label_image_effect">Effect</span>
+              <div class="mode-option-buttons" id="visual-submode-row">
+                <button class="mini-toggle small selected" data-visual-submode="normal" type="button" data-i18n-tip="tip_effect_normal" data-i18n="submode_normal">Normal</button>
+                <button class="mini-toggle small" data-visual-submode="pixel" type="button" data-i18n-tip="tip_effect_pixel" data-i18n="submode_pixel">Pixelated</button>
+                <button class="mini-toggle small" data-visual-submode="zoom" type="button" data-i18n-tip="tip_effect_zoom" data-i18n="submode_zoom">Zoom out</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mode-options" id="draw-options" hidden>
+            <div class="mode-option-row">
+              <span class="mode-option-label" data-i18n="label_draw_game">Game</span>
+              <div class="mode-option-buttons" id="draw-game-row">
+                <button class="mini-toggle small selected" data-draw-game="guess" type="button" data-i18n-tip="tip_draw_game_guess" data-i18n="draw_game_guess">Guessing</button>
+                <button class="mini-toggle small" data-draw-game="contest" type="button" data-i18n-tip="tip_draw_game_contest" data-i18n="draw_game_contest">Contest</button>
+              </div>
+            </div>
+            <div class="mode-option-row" id="draw-who-row-wrap">
+              <span class="mode-option-label" data-i18n="label_draw_who">Who draws</span>
+              <div class="mode-option-buttons" id="draw-who-row">
+                <button class="mini-toggle small selected" data-draw-who="all" type="button" data-i18n-tip="tip_draw_who_all" data-i18n="draw_who_all">Everyone</button>
+                <button class="mini-toggle small" data-draw-who="one" type="button" data-i18n-tip="tip_draw_who_one" data-i18n="draw_who_one">One at a time</button>
+              </div>
+            </div>
+            <div class="mode-option-row">
+              <span class="mode-option-label" data-i18n="label_draw_subject">Subject</span>
+              <div class="mode-option-buttons" id="draw-subject-row">
+                <button class="mini-toggle small selected" data-draw-subject="random" type="button" data-i18n-tip="tip_draw_subject_random" data-i18n="draw_subject_random">Random</button>
+                <button class="mini-toggle small" data-draw-subject="free" type="button" data-i18n-tip="tip_draw_subject_free" data-i18n="draw_subject_free">Free</button>
+              </div>
+            </div>
+            <div class="mode-option-row" id="draw-kind-row-wrap">
+              <span class="mode-option-label" data-i18n="label_image_subject">To guess</span>
+              <div class="mode-option-buttons" id="draw-kind-row">
+                <button class="mini-toggle small selected" data-draw-kind="all" type="button" data-i18n="draw_kind_all">All</button>
+                <button class="mini-toggle small" data-draw-kind="character" type="button" data-i18n="image_subject_character">Character</button>
+                <button class="mini-toggle small" data-draw-kind="object" type="button" data-i18n="image_subject_object">Object</button>
+                <button class="mini-toggle small" data-draw-kind="location" type="button" data-i18n="guess_kind_location">Location</button>
+              </div>
+            </div>
+            <div class="mode-option-row">
+              <span class="mode-option-label" data-i18n="label_draw_time">Draw time</span>
+              <div class="mode-option-buttons" id="draw-time-row">
+                <button class="mini-toggle small" data-draw-time="30000" type="button">30s</button>
+                <button class="mini-toggle small selected" data-draw-time="60000" type="button">60s</button>
+                <button class="mini-toggle small" data-draw-time="90000" type="button">90s</button>
+                <button class="mini-toggle small" data-draw-time="120000" type="button">120s</button>
+              </div>
+            </div>
+            <div class="mode-option-row">
+              <span class="mode-option-label" data-i18n="label_draw_rounds">Rounds</span>
+              <div class="mode-option-buttons" id="draw-rounds-row">
+                <button class="mini-toggle small" data-draw-rounds="1" type="button">1</button>
+                <button class="mini-toggle small selected" data-draw-rounds="2" type="button">2</button>
+                <button class="mini-toggle small" data-draw-rounds="3" type="button">3</button>
+                <button class="mini-toggle small" data-draw-rounds="5" type="button">5</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mode-option-row" id="answer-style-row-wrap">
+            <span class="mode-option-label" data-i18n="label_image_answer">Answer</span>
+            <div class="mode-option-buttons" id="answer-style-row">
+              <button class="mini-toggle small selected" data-answer-style="choice" type="button" data-i18n-tip="tip_answer_choice" id="answer-choice-btn">4 choices</button>
+              <button class="mini-toggle small" data-answer-style="text" type="button" data-i18n-tip="tip_answer_text">
+                <span data-i18n="guess_style_text">Type answer</span>
+                <span class="rules-tag" data-bonus-key="writeTitle"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="mode-option-row" id="clip-row-wrap">
+            <span class="mode-option-label" data-i18n="label_duration">Duration</span>
+            <div class="mode-option-buttons" id="clip-row">
+              <button class="mini-toggle small selected" data-clip="off" type="button" data-i18n="duration_full">Full</button>
+              <button class="mini-toggle small" data-clip="on" type="button">
+                <span data-i18n="duration_1s">1 second</span>
+                <span class="rules-tag" data-bonus-key="clip1s"></span>
+              </button>
+            </div>
+          </div>
+
+          <p class="mode-description" id="mode-description"></p>
+          <p class="modifier-note" id="visual-mode-note" data-i18n="note_visual_needs_images" hidden>Not enough tracks with an image yet for this selection.</p>
+          <p class="modifier-note" id="guess-mode-note" data-i18n="note_guess_needs_images" hidden>Not enough pictures yet for this selection.</p>
         </div>
 
-        <div class="category-tabs" id="category-tabs">
-          <button class="category-tab selected" data-category="games" type="button" data-i18n="category_games">Video games</button>
-          <button class="category-tab" data-category="anime" type="button" data-i18n="category_anime">Anime</button>
-          <button class="category-tab" data-category="tv" type="button" data-i18n="category_tv">TV Series</button>
-          <button class="category-tab" data-category="cartoon" type="button" data-i18n="category_cartoon">Cartoon</button>
+        <div class="modifier-row">
+          <label class="modifier-label" for="category-select" data-i18n="label_category">Category</label>
+          <div class="category-select-wrap">
+            <select id="category-select" class="category-select"></select>
+          </div>
         </div>
 
         <div class="menu-label-row">
-          <p class="menu-label" data-i18n="label_game">Game (multi-select)</p>
-          <div class="game-collapse-actions">
-            <button type="button" id="game-collapse-all-btn" class="franchise-select-all" data-i18n="btn_collapse_all">Collapse all</button>
-            <button type="button" id="game-expand-all-btn" class="franchise-select-all" data-i18n="btn_expand_all">Expand all</button>
-          </div>
+          <p class="menu-label" data-i18n="label_game">Games</p>
+          <span class="game-selection-summary" id="game-selection-summary"></span>
+          <button type="button" id="game-select-all-btn" class="franchise-select-all" data-i18n="btn_select_all_games">Select all</button>
+          <button type="button" id="game-clear-btn" class="franchise-select-all" data-i18n="btn_clear_selection" hidden>Clear</button>
         </div>
 
-        <div class="game-filter-bar" id="game-filter-bar">
-          <input type="text" id="game-search-input" class="game-search-input" data-i18n-placeholder="placeholder_game_search" placeholder="Search a game...">
-
-          <div class="filter-dropdown" id="console-filter-dropdown">
-            <button type="button" class="filter-dropdown-btn" id="console-filter-btn">
-              <span data-i18n="label_filter_console">Console</span>
-              <span class="filter-dropdown-badge" id="console-filter-badge" hidden></span>
-              <span class="filter-dropdown-arrow">▾</span>
-            </button>
-            <div class="filter-dropdown-panel" id="console-filter-panel" hidden></div>
-          </div>
-
-          <div class="game-filter-years">
-            <input type="number" id="game-filter-year-from" class="game-filter-year-input" data-i18n-placeholder="placeholder_year_from" placeholder="From">
-            <span class="game-filter-years-sep">–</span>
-            <input type="number" id="game-filter-year-to" class="game-filter-year-input" data-i18n-placeholder="placeholder_year_to" placeholder="To">
-          </div>
-
-          <button id="game-filter-reset" class="franchise-select-all" type="button" data-i18n="btn_reset_filters">Reset</button>
-        </div>
+        <input type="search" id="game-search-input" class="game-search-input" data-i18n-placeholder="placeholder_game_search" placeholder="Search: game, console, year, company...">
         <div class="menu menu-scroll" id="game-menu"></div>
 
-        <p class="menu-label" data-i18n="label_track_count">Number of tracks</p>
-        <div class="menu" id="mode-menu">
+        <div class="menu-label-row track-count-part">
+          <p class="menu-label" data-i18n="label_track_count">Number of tracks</p>
+          <span class="time-estimate" id="time-estimate"></span>
+        </div>
+        <div class="menu track-count-part" id="mode-menu">
           <button class="menu-option selected" data-mode="all" type="button">
             <span class="cursor">♥</span>
             <span><span data-i18n="mode_all">All tracks</span> (<span id="total-count">0</span>)</span>
@@ -160,8 +233,6 @@
           </button>
         </div>
 
-        <p class="modifier-note" id="time-estimate"></p>
-        <p class="modifier-note" id="score-multiplier"></p>
 
         <div class="start-actions" id="start-actions">
           <button id="start-btn" class="battle-btn primary" type="button" data-i18n="btn_start">START</button>
@@ -190,77 +261,49 @@
       </div>
 
       <div class="side-boxes">
-        <div class="box side-box defi-box">
-          <h2 class="title small" data-i18n="heading_defi">Défi</h2>
+        <div class="box side-box rules-box">
+          <h2 class="title small" data-i18n="heading_rules">Rules</h2>
 
-          <div class="modifier-row">
-            <span class="modifier-label" data-i18n="label_answer_time">Answer time</span>
-            <div class="modifier-options">
-              <button class="mini-toggle" data-challenge="time10" type="button">10s</button>
-              <button class="mini-toggle" data-challenge="time5" type="button">5s</button>
-              <button class="mini-toggle" data-challenge="time3" type="button">3s</button>
-            </div>
+          <div class="rules-multiplier">
+            <span class="rules-multiplier-label" data-i18n="label_points">Points</span>
+            <span class="rules-multiplier-value" id="score-multiplier">x1.00</span>
           </div>
-          <p class="modifier-note" data-i18n="note_default_time">Default answer time: 15s</p>
+          <p class="rules-points-note" id="score-points-note"></p>
 
-          <div class="modifier-row">
-            <span class="modifier-label" data-i18n="label_choices">Choices</span>
-            <div class="modifier-options">
-              <button class="mini-toggle" data-challenge="count6" type="button">6</button>
-              <button class="mini-toggle" data-challenge="count8" type="button">8</button>
-              <button class="mini-toggle" data-challenge="count10" type="button">10</button>
-            </div>
+          <p class="rules-section-label" data-i18n="label_answer_time">Answer time</p>
+          <div class="rules-options" id="time-options">
+            <button class="mini-toggle" data-challenge="time3" type="button">3s</button>
+            <button class="mini-toggle" data-challenge="time5" type="button">5s</button>
+            <button class="mini-toggle" data-challenge="time10" type="button">10s</button>
+            <button class="mini-toggle" data-default-time type="button">15s</button>
+            <button class="mini-toggle" data-handicap="time20" type="button">20s</button>
+            <button class="mini-toggle" data-handicap="time25" type="button">25s</button>
+            <button class="mini-toggle" data-handicap="time30" type="button">30s</button>
           </div>
-          <p class="modifier-note" data-i18n="note_default_choices">Default: 4 choices</p>
 
-          <div class="menu" id="challenge-menu">
-            <button class="menu-option" data-challenge="clip1s" type="button">
-              <span class="cursor">♥</span>
-              <span data-i18n="opt_clip1s">1-second clip (from the middle)</span>
-            </button>
-            <button class="menu-option" data-challenge="writeTitle" type="button">
-              <span class="cursor">♥</span>
-              <span data-i18n="opt_write_title">Write the title (no choices)</span>
-            </button>
-            <button class="menu-option" data-challenge="guessGame" type="button">
-              <span class="cursor">♥</span>
-              <span data-i18n="opt_guess_game">Also guess the game it's from</span>
-            </button>
+          <p class="rules-section-label" data-i18n="label_choices">Choices</p>
+          <div class="rules-options" id="count-options">
+            <button class="mini-toggle" data-handicap="count2" type="button">2</button>
+            <button class="mini-toggle" data-handicap="count3" type="button">3</button>
+            <button class="mini-toggle" data-default-count type="button">4</button>
+            <button class="mini-toggle" data-challenge="count6" type="button">6</button>
+            <button class="mini-toggle" data-challenge="count8" type="button">8</button>
+            <button class="mini-toggle" data-challenge="count10" type="button">10</button>
           </div>
-        </div>
 
-        <div class="box side-box handicap-box">
-          <h2 class="title small" data-i18n="heading_handicap">Handicap</h2>
-
-          <div class="modifier-row">
-            <span class="modifier-label" data-i18n="label_answer_time">Answer time</span>
-            <div class="modifier-options">
-              <button class="mini-toggle" data-handicap="time20" type="button">20s</button>
-              <button class="mini-toggle" data-handicap="time25" type="button">25s</button>
-              <button class="mini-toggle" data-handicap="time30" type="button">30s</button>
-            </div>
-          </div>
-          <p class="modifier-note" data-i18n="note_default_time">Default answer time: 15s</p>
-
-          <div class="modifier-row">
-            <span class="modifier-label" data-i18n="label_choices">Choices</span>
-            <div class="modifier-options">
-              <button class="mini-toggle" data-handicap="count3" type="button">3</button>
-              <button class="mini-toggle" data-handicap="count2" type="button">2</button>
-            </div>
-          </div>
-          <p class="modifier-note" data-i18n="note_default_choices">Default: 4 choices</p>
-
-          <div class="menu" id="handicap-menu">
+          <div class="menu rules-menu" id="handicap-menu">
             <button class="menu-option" data-handicap="showGameLabel" type="button">
               <span class="cursor">♥</span>
-              <span data-i18n="opt_show_game_label">Show the game name under each choice</span>
+              <span class="rules-option-text" data-i18n="opt_show_game_label">Show the game name under each choice</span>
+              <span class="rules-tag" data-bonus-key="showGameLabel"></span>
             </button>
             <button class="menu-option" data-handicap="gameHint" type="button">
               <span class="cursor">♥</span>
-              <span data-i18n="opt_game_hint">Hint: which game it's from</span>
+              <span class="rules-option-text" data-i18n="opt_game_hint">Hint: which game it's from</span>
+              <span class="rules-tag" data-bonus-key="gameHint"></span>
             </button>
           </div>
+
         </div>
       </div>
     </div>
@@ -321,6 +364,11 @@
         <canvas id="guess-picture-canvas" width="480" height="360"></canvas>
       </div>
 
+      <div class="describe-box" id="describe-box" hidden>
+        <p class="describe-kind" id="describe-kind"></p>
+        <p class="describe-text" id="describe-text"></p>
+      </div>
+
       <div class="answers-grid" id="guess-choices-grid" hidden>
       </div>
 
@@ -353,6 +401,100 @@
     </div>
   </section>
 
+  <section id="screen-draw" class="screen">
+    <div class="draw-layout">
+      <div class="box draw-frame">
+        <div class="draw-header">
+          <button id="draw-leave-btn" class="back-btn" type="button" data-i18n-aria="aria_back" aria-label="Back to menu"></button>
+          <span class="draw-round-label" id="draw-round-label"></span>
+          <span class="draw-phase-label" id="draw-phase-label"></span>
+          <span class="draw-clock" id="draw-clock"></span>
+        </div>
+        <div class="hp-bar"><div id="draw-timer-fill" class="hp-fill"></div></div>
+
+        <div class="draw-panel" id="draw-panel-pick" hidden>
+          <p class="draw-instructions" id="draw-pick-text"></p>
+          <div class="draw-pick-cards" id="draw-pick-cards"></div>
+          <form class="draw-free-form" id="draw-free-form" hidden>
+            <label class="draw-free-label" for="draw-free-subject" data-i18n="draw_free_subject_label">What will you draw?</label>
+            <input type="text" id="draw-free-subject" class="answer-text-input" maxlength="60" autocomplete="off">
+            <div class="draw-free-wrong" id="draw-free-wrong">
+              <p class="draw-free-label" data-i18n="draw_free_wrong_label">3 wrong answers (shown as choices)</p>
+              <input type="text" class="answer-text-input draw-free-wrong-input" maxlength="60" autocomplete="off">
+              <input type="text" class="answer-text-input draw-free-wrong-input" maxlength="60" autocomplete="off">
+              <input type="text" class="answer-text-input draw-free-wrong-input" maxlength="60" autocomplete="off">
+            </div>
+            <button type="submit" class="battle-btn primary" data-i18n="btn_draw_confirm">CONFIRM</button>
+          </form>
+        </div>
+
+        <div class="draw-panel" id="draw-panel-board" hidden>
+          <div class="draw-subject-bar" id="draw-subject-bar">
+            <span class="draw-subject-text" id="draw-subject-text"></span>
+          </div>
+          <div class="draw-editor" id="draw-editor"></div>
+          <div class="draw-tools" id="draw-tools">
+            <div class="draw-tool-row">
+              <button class="mini-toggle small" id="draw-ref-btn" type="button" data-i18n-tip="tip_draw_reference">
+                <span data-i18n="draw_reference">Reference</span>
+                <span class="rules-tag easier">-30%</span>
+              </button>
+              <button class="mini-toggle small" id="draw-trace-btn" type="button" data-i18n-tip="tip_draw_trace">
+                <span data-i18n="draw_trace">Trace</span>
+                <span class="rules-tag easier">-60%</span>
+              </button>
+            </div>
+            <button class="battle-btn primary" id="draw-done-btn" type="button" data-i18n="btn_draw_done">DONE</button>
+          </div>
+        </div>
+
+        <div class="draw-panel" id="draw-panel-guess" hidden>
+          <p class="draw-instructions" id="draw-guess-label"></p>
+          <img class="draw-guess-img" id="draw-guess-img" alt="">
+          <div class="answers-grid" id="draw-guess-choices"></div>
+          <div class="text-answer" id="draw-guess-text">
+            <input type="text" id="draw-guess-input" class="answer-text-input" autocomplete="off" data-i18n-placeholder="placeholder_guess_answer">
+            <div class="answer-suggestions" id="draw-guess-suggestions"></div>
+          </div>
+          <p class="draw-feedback" id="draw-guess-feedback"></p>
+        </div>
+
+        <div class="draw-validate" id="draw-validate" hidden>
+          <p class="draw-validate-title" data-i18n="draw_validate_title">Validate the answers to your drawing</p>
+          <ul class="draw-validate-list" id="draw-validate-list"></ul>
+        </div>
+
+        <div class="draw-panel" id="draw-panel-vote" hidden>
+          <p class="draw-instructions" id="draw-vote-text"></p>
+          <div class="draw-reveal-grid" id="draw-vote-grid"></div>
+        </div>
+
+        <div class="draw-panel" id="draw-panel-wait" hidden>
+          <p class="draw-wait-text" id="draw-wait-text"></p>
+        </div>
+
+        <div class="draw-panel" id="draw-panel-reveal" hidden>
+          <div class="draw-reveal-grid" id="draw-reveal-grid"></div>
+        </div>
+
+        <div class="draw-panel" id="draw-panel-end" hidden>
+          <h2 class="title small" id="draw-end-title"></h2>
+          <ol class="mp-scoreboard-list" id="draw-final-list"></ol>
+          <div class="draw-compare" id="draw-compare"></div>
+          <div class="start-actions">
+            <button class="battle-btn primary" id="draw-again-btn" type="button" data-i18n="btn_draw_again">NEW DRAWING</button>
+            <button class="battle-btn" id="draw-back-btn" type="button" data-i18n="btn_draw_back">BACK</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mp-scoreboard-panel box side-box" id="draw-scoreboard" hidden>
+        <h2 class="title small" data-i18n="heading_mp_scoreboard">Scoreboard</h2>
+        <ol class="mp-scoreboard-list" id="draw-scoreboard-list"></ol>
+      </div>
+    </div>
+  </section>
+
   <section id="screen-results" class="screen">
     <div class="box">
       <h2 class="title small" data-i18n="heading_results">RESULTS</h2>
@@ -375,6 +517,8 @@
   rights reserved to their respective creators.
 </footer>
 
-<script src="app.js?v=50"></script>
+<script src="app.js?v=70"></script>
+<script src="paint.js?v=2"></script>
+<script src="draw.js?v=6"></script>
 </body>
 </html>

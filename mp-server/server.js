@@ -1,5 +1,6 @@
 const http = require('http');
 const { WebSocketServer } = require('ws');
+const { createDrawGame } = require('./draw-game');
 
 const PORT = process.env.PORT || 3000;
 const ROOM_TTL_MS = 4 * 60 * 60 * 1000; // rooms with no activity for 4h are dropped
@@ -47,6 +48,8 @@ function broadcastPlayers(room) {
 function broadcastScoreboard(room) {
   broadcast(room, { type: 'scoreboard', players: scoreboard(room) });
 }
+
+const drawGame = createDrawGame({ send, broadcast, broadcastScoreboard, scoreboard });
 
 function startServerRound(room) {
   clearTimeout(room.roundTimeoutId);
@@ -135,6 +138,7 @@ function removePlayerFromRoom(room, player) {
   room.players.delete(player.id);
   if (room.players.size === 0) {
     clearTimeout(room.roundTimeoutId);
+    drawGame.stop(room);
     rooms.delete(room.code);
     return;
   }
@@ -224,6 +228,7 @@ wss.on('connection', (ws) => {
         settings: room.settings,
         trackIds: room.tracks,
         syncMode: room.syncMode,
+        drawing: !!room.draw,
       });
       const willAutoResume = room.paused && room.pauseReason === 'sync' && allPlayersConnected(room);
       if (room.started && room.currentIndex >= 0 && room.currentIndex < room.tracks.length && !willAutoResume) {
@@ -241,6 +246,7 @@ wss.on('connection', (ws) => {
       }
       broadcastPlayers(room);
       broadcastScoreboard(room);
+      drawGame.onJoin(room, player);
       if (willAutoResume) {
         resumeRoom(room);
       }
@@ -249,6 +255,8 @@ wss.on('connection', (ws) => {
 
     if (!room || !player) return;
     room.lastActivity = Date.now();
+
+    if (drawGame.handle(room, player, msg)) return;
 
     if (msg.type === 'startGame' && player.id === room.hostId) {
       room.tracks = Array.isArray(msg.trackIds) ? msg.trackIds.slice(0, 500).map(String) : [];
@@ -327,7 +335,9 @@ wss.on('connection', (ws) => {
       player.connected = false;
       broadcastPlayers(room);
       broadcastScoreboard(room);
-      if (room.started) {
+      if (room.draw) {
+        drawGame.onDisconnect(room);
+      } else if (room.started) {
         if (room.syncMode) {
           pauseRoom(room, 'sync');
         } else if (everyConnectedPlayerAnswered(room)) {
@@ -343,6 +353,7 @@ setInterval(() => {
   for (const [code, room] of rooms) {
     if (now - room.lastActivity > ROOM_TTL_MS) {
       clearTimeout(room.roundTimeoutId);
+      drawGame.stop(room);
       rooms.delete(code);
     }
   }
