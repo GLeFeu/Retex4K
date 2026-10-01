@@ -154,7 +154,15 @@ const server = http.createServer((req, res) => {
   res.end('ostquiz multiplayer server is running\n');
 });
 
-const wss = new WebSocketServer({ server });
+const wss = new WebSocketServer({ noServer: true });
+
+// WawaWare (retex4k.com/wawaware) partage ce serveur : ses connexions arrivent sur /wawaware,
+// tout le reste continue d'aller au blind test comme avant.
+const wawaware = require('./wawaware')();
+server.on('upgrade', (req, socket, head) => {
+  if ((req.url || '').startsWith('/wawaware')) return wawaware.handleUpgrade(req, socket, head);
+  wss.handleUpgrade(req, socket, head, (ws) => wss.emit('connection', ws, req));
+});
 
 wss.on('connection', (ws) => {
   let room = null;
