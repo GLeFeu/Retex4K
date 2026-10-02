@@ -262,6 +262,7 @@ const Engine = {
     try { this.cs = game.start(this.ctx); } catch (err) { this.cs = {}; this.gameCrash(err); }
     this.gameT = 0;
     this.lastTick = Math.ceil(game.duration);
+    this.teleDezoom = !!this.snap && this.state !== 'speedup'; // après « PLUS VITE ! » on est déjà dans la chambre
     this.setState('instruction');
     Sfx.instruction();
   },
@@ -476,10 +477,10 @@ const Engine = {
       case 'gameover': Draw.stripes(g, this.t, '#3a0ca3', '#480ca8'); break;
       case 'between':
         if (this.multi) this.drawMultiBetween(g);
-        else if (this.played === 0) this.drawBetween(g);
+        else if (this.played === 0) { if (Tele.ready()) this.drawTeleMessage(g, 'PRÊT ?'); else this.drawBetween(g); }
         else this.drawTransition(g);
         break;
-      case 'speedup': this.drawSpeedup(g); break;
+      case 'speedup': if (Tele.ready()) this.drawTeleMessage(g, 'PLUS VITE !', true); else this.drawSpeedup(g); break;
       case 'instruction': this.drawInstruction(g); break;
       case 'play': this.drawGame(g); break;
       case 'outro': this.drawGame(g); this.drawOutro(g); this.drawEliminated(g); break;
@@ -525,7 +526,20 @@ const Engine = {
   // ----- transitions : zoom avant sur le mini-jeu, dézoom à la fin -----
   ZOOM: 0.55,
 
-  instrTotal() { return this.instructionTime() + this.ZOOM; },
+  instrTotal() {
+    if (!Tele.ready()) return this.instructionTime() + this.ZOOM;
+    const P = this.telePhases();
+    return P.fin;
+  },
+
+  // transition télé : durée de chaque étape (plus courte quand ça accélère)
+  // A : dézoom depuis le jeu fini jusqu'à la chambre · B : la télé montre l'appareil et les vies
+  // C : plongée dans l'écran · D : la consigne en gros · E : elle disparaît, le jeu démarre
+  telePhases() {
+    const k = 1 / Math.sqrt(this.speed);
+    const a = this.teleDezoom ? 0.45 * k : 0, b = (this.played === 0 ? 1.5 : 1.15) * k, c = 0.32 * k, d = 0.8 * k, e = 0.16 * k;
+    return { a, b: a + b, c: a + b + c, d: a + b + c + d, fin: a + b + c + d + e };
+  },
 
   // dessine le mini-jeu (son vrai état) dans un rectangle de l'écran : miniature puis zoom
   drawGameIn(g, r) {
@@ -727,7 +741,78 @@ const Engine = {
   // 3 s pour lire la consigne au début, un peu moins quand ça accélère (jamais moins de 2 s)
   instructionTime() { return Math.max(2, 3 / Math.sqrt(this.speed)); },
 
+  // infos affichées sur la télé : titre, vies (et le cœur qu'on vient de perdre)
+  teleInfo() {
+    let vies = this.lives, viesMax = this.maxLives();
+    if (this.multi) { const me = Net.me(); vies = me && me.vivant ? me.vies : null; }
+    return {
+      titre: this.practiceId ? this.cur && this.cur.name.toUpperCase().slice(0, 22) : `JEU ${this.played + 1}`,
+      vies: this.practiceId ? null : vies, viesMax, perdu: this.lastWin === false && !this.practiceId,
+    };
+  },
+
+  drawTeleMessage(g, msg, rapide) {
+    const t = this.stateT, info = this.teleInfo();
+    if (this.state === 'speedup') info.titre = `VITESSE x${this.speed.toFixed(2)}`;
+    const flash = rapide && Math.floor(t * 8) % 2;
+    Tele.draw(g, {
+      t: this.t, cam: 0, mood: this.lastWin, moodT: t,
+      ecran: (e) => Tele.info(e, this.t, { ...info, message: msg, messageTaille: rapide ? 50 : 60, messageCouleur: flash ? '#ff5c7a' : '#ffe14d' }),
+    });
+    this.drawEliminated(g);
+  },
+
   drawInstruction(g) {
+    if (Tele.ready()) { this.drawTeleInstruction(g); return; }
+    this.drawInstructionAncienne(g);
+  },
+
+  drawTeleInstruction(g) {
+    const P = this.telePhases(), t = this.stateT, game = this.cur;
+    const ease = (x) => x * x * (3 - 2 * x);
+    const info = { ...this.teleInfo(), game };
+    const ecranInfo = (e) => Tele.info(e, this.t, info);
+    if (t < P.c) {
+      let cam = 0, ecran = ecranInfo;
+      if (t < P.a) { // A : l'image du jeu fini rétrécit dans la télé, puis parasites et l'écran bleu
+        const q = t / P.a;
+        cam = 1 - ease(q);
+        ecran = (e) => {
+          if (q < 0.65) {
+            e.fillStyle = '#000'; e.fillRect(0, 0, Tele.V.w, Tele.V.h);
+            const hh = Tele.V.w * 9 / 16;
+            if (this.snap) e.drawImage(this.snap, 0, (Tele.V.h - hh) / 2, Tele.V.w, hh);
+            Tele.neige(e, Math.max(0, (q - 0.4) / 0.25) * 0.9);
+          } else { ecranInfo(e); Tele.neige(e, Math.max(0, 1 - (q - 0.65) / 0.2) * 0.9); }
+        };
+      } else if (t >= P.b) { // C : plongée dans l'écran (de plus en plus vite)
+        const q = (t - P.b) / (P.c - P.b);
+        cam = q * q * q;
+      }
+      Tele.draw(g, { t: this.t, cam, ecran, mood: this.lastWin, moodT: t });
+      this.drawEliminated(g);
+      return;
+    }
+    // D-E : le jeu apparaît (figé) derrière la consigne en gros, qui disparaît juste avant le départ
+    const q = (t - P.c) / (P.d - P.c), out = clamp((t - P.d) / (P.fin - P.d), 0, 1);
+    this.drawGameIn(g, { x: 0, y: 0, w: W, h: H, full: 1 });
+    g.save();
+    g.fillStyle = `rgba(15,25,90,${(0.55 - Math.min(1, q * 1.5) * 0.25) * (1 - out)})`; g.fillRect(0, 0, W, H);
+    g.globalAlpha = 1 - out;
+    g.save(); g.scale(W / Tele.V.w, H / Tele.V.h * (Tele.V.h / (Tele.V.w * 9 / 16))); Tele.crt(g, this.t, 0.6 * (1 - Math.min(1, q * 2))); g.restore();
+    const pop = easeOutBack(clamp(q / 0.35, 0, 1)) * (1 - out * 0.4);
+    g.translate(W / 2, H / 2 - 20);
+    g.rotate(-0.04);
+    g.scale(pop, pop);
+    g.font = `120px ${FONT}`;
+    const size = Math.min(120, 120 * 880 / g.measureText(game.instruction).width);
+    Draw.text(g, game.instruction, 0, 0, size, '#fff', '#1a1a1a');
+    if (game.hint && out === 0) Draw.text(g, game.hint, 0, size * 0.75, 26, '#ffe14d', '#1a1a1a');
+    g.restore();
+    this.drawEliminated(g);
+  },
+
+  drawInstructionAncienne(g) {
     const tI = this.instructionTime(), t = this.stateT;
     const thumb = (r) => this.drawGameIn(g, { ...r, full: 0 });
     if (t < tI) {
