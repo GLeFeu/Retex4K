@@ -1,4 +1,4 @@
-// SOURIS : « Écrase la mouche », ESSAI IMAGES IA (galerie uniquement).
+// SOURIS : « Écrase les mouches » (2 mouches), ESSAI IMAGES IA (galerie uniquement).
 // Décor, mouche, tapette et tache générés en local (SDXL + LoRA Pixel Art XL, dossier ia/), nettoyés en
 // vrai pixel art (grille 320×180 affichée ×3). Animation "par morceaux" dans le code : les ailes de la
 // mouche sont des images séparées qui battent, le corps tangue et suit la direction du vol ; la tache
@@ -21,13 +21,59 @@
   Engine.register({
     ...A,
     id: 'moucheia',
-    name: 'Écrase la mouche (images IA)',
+    name: 'Écrase les mouches (images IA)',
     apercu: true,
     pixel: false,
 
+    instruction: 'ÉCRASE-LES !',
+    hint: 'ÉCRASE LES 2 MOUCHES',
+    duration: 6,
+    NB: 2, // nombre de mouches
+
+    start(c) {
+      const d = Math.min(c.diff, 8);
+      const flies = Array.from({ length: this.NB }, (_, i) => ({
+        x: 160 + i * (640 / Math.max(1, this.NB - 1)) * 0.9 + c.rng() * 80, y: 110 + c.rng() * 220,
+        vx: 0, vy: 0, dirT: 0, ph: i * 1.7 + c.rng(), t: 0, splat: null, splatT: 0, goo: null,
+      }));
+      return { t: 0, swat: 0, whoosh: [], flies, lastSplat: null, sp: 230 + 40 * d, flee: 250 + 110 * d };
+    },
+
+    // même vol que la mouche du jeu de base, pour chaque mouche
+    moveFly(f, s, dt, c) {
+      const inp = c.input;
+      f.dirT -= dt;
+      if (f.dirT <= 0) { const a = c.rng() * Math.PI * 2; f.vx = Math.cos(a) * s.sp; f.vy = Math.sin(a) * s.sp; f.dirT = 0.15 + c.rng() * 0.4; }
+      const dx = f.x - inp.x, dy = f.y - inp.y, d = Math.hypot(dx, dy) || 1;
+      if (d < 150) { f.vx += (dx / d) * s.flee * 4 * dt; f.vy += (dy / d) * s.flee * 4 * dt; }
+      const v = Math.hypot(f.vx, f.vy), max = s.sp * 1.5;
+      if (v > max) { f.vx *= max / v; f.vy *= max / v; }
+      f.x += f.vx * dt; f.y += f.vy * dt;
+      if (f.x < 50) { f.x = 50; f.vx = Math.abs(f.vx); }
+      if (f.x > W - 50) { f.x = W - 50; f.vx = -Math.abs(f.vx); }
+      if (f.y < 50) { f.y = 50; f.vy = Math.abs(f.vy); }
+      if (f.y > H - 140) { f.y = H - 140; f.vy = -Math.abs(f.vy); }
+    },
+
     update(s, dt, c) {
-      A.baseUpdate.call(this, s, dt, c);
-      if (s.splat) { if (!s.goo) this.initGoo(s, c); this.updateGoo(s, dt); }
+      const inp = c.input;
+      s.t += dt;
+      s.swat = Math.max(0, s.swat - dt);
+      for (const w of s.whoosh) w.t += dt;
+      s.whoosh = s.whoosh.filter(w => w.t < 0.25);
+      for (const f of s.flies) {
+        f.t = s.t + f.ph;
+        if (f.splat) { f.splatT += dt; this.updateGoo(f, dt); } else if (!s.won) this.moveFly(f, s, dt, c);
+      }
+      if (s.won || !inp.clicked || c.over) return;
+      s.swat = 0.15;
+      let hit = null, best = 55;
+      for (const f of s.flies) if (!f.splat) { const d = Math.hypot(inp.x - f.x, inp.y - f.y); if (d < best) { best = d; hit = f; } }
+      if (hit) {
+        hit.splat = true; hit.splatT = 0; this.initGoo(hit, c); s.lastSplat = hit;
+        c.sfx.splat();
+        if (s.flies.every(f => f.splat)) s.won = true;
+      } else { c.sfx.swat(); s.whoosh.push({ x: inp.x, y: inp.y, t: 0 }); }
     },
 
     initGoo(s, c) {
@@ -137,13 +183,14 @@
         const r = 6 + w.t * 50, cx = w.x / K, cy = w.y / K;
         for (let a = -0.7; a < 0.7; a += 0.15) px(l, cx + Math.cos(a - 1.7) * r, cy + Math.sin(a - 1.7) * r, `rgba(255,250,235,${1 - w.t / 0.25})`);
       }
-      if (s.splat && s.goo) this.drawSplat(l, s); else if (!s.splat) this.drawFly(l, s);
+      for (const f of s.flies) if (f.splat) this.drawSplat(l, f);
+      for (const f of s.flies) if (!f.splat) this.drawFly(l, f);
       // tapette : la tête du filet est sous le curseur ; écrasée pendant le coup
       const tp = IM.tapette, mx = Math.round(c.input.x / K), my = Math.round(c.input.y / K);
       if (s.swat > 0) { l.globalAlpha = 0.35; l.drawImage(tp, mx - 12, my - 22); l.globalAlpha = 1; l.drawImage(tp, mx - 13, my - 9, tp.width + 2, Math.round(tp.height * 0.88)); }
       else l.drawImage(tp, mx - 12, my - 13);
 
-      const shake = s.splat && s.splatT < 0.22 ? Math.round(Math.sin(s.splatT * 90) * 4) : 0;
+      const ls = s.lastSplat, shake = ls && ls.splatT < 0.22 ? Math.round(Math.sin(ls.splatT * 90) * 4) : 0;
       g.save();
       g.imageSmoothingEnabled = false;
       g.drawImage(low, shake, 0, W, H);
@@ -157,7 +204,7 @@
       gl.addColorStop(0, 'rgba(255,220,160,0.14)'); gl.addColorStop(1, 'rgba(255,220,160,0)');
       g.fillStyle = gl; g.fillRect(0, 0, W, H);
       g.globalCompositeOperation = 'source-over';
-      if (s.splat && s.splatT < 0.07) { g.fillStyle = `rgba(255,255,230,${0.5 * (1 - s.splatT / 0.07)})`; g.fillRect(0, 0, W, H); }
+      if (ls && ls.splatT < 0.07) { g.fillStyle = `rgba(255,255,230,${0.5 * (1 - ls.splatT / 0.07)})`; g.fillRect(0, 0, W, H); }
       g.restore();
     },
   });
