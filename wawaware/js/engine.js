@@ -325,7 +325,7 @@ const Engine = {
       for (let i = 0; i < 24; i++) game.update(st, 1 / 60, ctx);
       g.save();
       g.scale(width / W, width / W);
-      game.draw(st, g, ctx);
+      Pixel.draw(game, st, g, ctx);
       g.restore();
       g.save();
       g.scale(width / W, width / W);
@@ -489,7 +489,7 @@ const Engine = {
   drawGame(g) {
     g.save();
     if (!this.cs.crashed) {
-      try { this.cur.draw(this.cs, g, this.ctx); } catch (err) { this.gameCrash(err); }
+      try { Pixel.draw(this.cur, this.cs, g, this.ctx); } catch (err) { this.gameCrash(err); }
     }
     g.restore();
     if (this.cs.crashed) {
@@ -534,7 +534,7 @@ const Engine = {
     Draw.rrect(g, r.x, r.y, r.w, r.h, 12 * (1 - r.full)); g.clip();
     g.translate(r.x, r.y);
     g.scale(r.w / W, r.h / H);
-    try { this.cur.draw(this.cs, g, this.ctx); } catch (err) { this.gameCrash(err); }
+    try { Pixel.draw(this.cur, this.cs, g, this.ctx); } catch (err) { this.gameCrash(err); }
     g.restore();
   },
 

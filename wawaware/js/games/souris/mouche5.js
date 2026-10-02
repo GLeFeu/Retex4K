@@ -4,7 +4,7 @@
 //   violet, lumières vers le jaune), pas de contour noir.
 // - Eastward : pixel art + éclairage "3D" lisse posé par-dessus (ombres violettes, halo chaud de la
 //   fenêtre, rayons), décor chargé et vivant.
-// Essai de direction artistique : visible seulement dans la galerie.
+// C'est le rendu officiel du jeu : il remplace le dessin de souris/mouche.js.
 (() => {
   const A = Engine.games.find(g => g.id === 'mouche'); // même gameplay que le style 1
   const LW = 480, LH = 270, K = 2, T = 200; // T : haut de la table (pixels basse résolution)
@@ -70,11 +70,10 @@
     T: ['11111', '00100', '00100', '00100', '00100', '00100', '00100'], '!': ['1', '1', '1', '1', '1', '0', '1'],
   };
 
-  Engine.register({
-    ...A,
-    id: 'mouche5',
-    name: 'Écrase la mouche (pixel HD)',
-    apercu: true,
+  const baseUpdate = A.update;
+  A.baseUpdate = baseUpdate; // le gameplay seul (réutilisé par l'essai moucheia.js)
+  Object.assign(A, { // remplace le dessin du jeu « Écrase la mouche » (le gameplay ne change pas)
+    pixel: false, // déjà dessiné en pixel art à la main : pas de filtre pixel par-dessus
     _bg: null,
     WX: 325, WY: 23, WW: 110, WH: 100,
 
@@ -388,7 +387,7 @@
     },
 
     update(s, dt, c) {
-      A.update.call(this, s, dt, c);
+      baseUpdate.call(this, s, dt, c);
       if (s.splat) { if (!s.goo) this.initGoo(s); this.updateGoo(s, dt); }
     },
 
