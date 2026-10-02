@@ -104,22 +104,20 @@ const Tele = (() => {
   function info(g, t, o) {
     bleu(g, t);
     const game = o.game;
-    if (o.titre) Draw.text(g, o.titre, V.w / 2, 30, 36, '#fff', '#0b1a5c');
+    if (o.titre && o.message) Draw.text(g, o.titre, V.w / 2, 30, 36, '#fff', '#0b1a5c'); // pas de texte sur l'écran de l'outil
     if (o.message) {
       const p = 1 + 0.06 * Math.sin(t * 14);
       g.save(); g.translate(V.w / 2, V.h / 2 - 10); g.scale(p, p);
       Draw.text(g, o.message, 0, 0, o.messageTaille || 56, o.messageCouleur || '#ffe14d', '#0b1a5c');
       g.restore();
     } else if (game) {
-      const inp = INPUTS[game.input];
       g.save();
-      g.translate(V.w / 2, 146);
-      g.scale(0.72, 0.72);
+      g.translate(V.w / 2, 140);
+      g.scale(1.05, 1.05);
       if (game.input === 'clavier') Consigne.keyboard(g, 0, -10, game, t, '#ffe14d');
       else if (game.input === 'micro') Consigne.mic(g, 0, 0, game.needsVoice, t, '#ffe14d');
       else Consigne.mouse(g, 0, 0, game.input, t, '#ffe14d', /CLIC DROIT/.test(game.hint || ''));
       g.restore();
-      Draw.text(g, game.needsVoice ? 'PARLE !' : inp.label, V.w / 2, 236, 40, '#ffe14d', '#0b1a5c');
     }
     if (o.vies != null) {
       const n = o.viesMax, sp = Math.min(40, 320 / n);
