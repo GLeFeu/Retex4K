@@ -1,7 +1,7 @@
 // Liste de tous les mini-jeux, rangés par dossier (= type de contrôle).
 // Pour ajouter un jeu : crée js/games/<dossier>/<nom>.js puis ajoute <nom> ici.
 const GAME_FILES = {
-  souris: ['mouche', 'mouche2', 'mouche3', 'mouche4', 'crever', 'taupe', 'intrus', 'clou', 'nourris', 'cible', 'oeuf', 'lumieres', 'fil', 'bonneteau',
+  souris: ['mouche', 'mouche2', 'mouche3', 'mouche4', 'mouche5', 'crever', 'taupe', 'intrus', 'clou', 'nourris', 'cible', 'oeuf', 'lumieres', 'fil', 'bonneteau',
     'grand', 'popups', 'pommes', 'verre', 'basket', 'puzzle', 'duel', 'combien', 'trouve', 'jongle', 'peinture',
     'dessine', 'golf', 'tri', 'ordre', 'zip', 'flechettes', 'ombre', 'paire', 'boutonfuyant', 'clicdroit', 'captcha'],
   curseur: ['suis', 'labyrinthe', 'secoue', 'evite', 'tranche', 'aimant', 'lampe', 'caresse', 'pong', 'bouclier',
