@@ -123,14 +123,14 @@
       l.translate(-Math.round(w / 2), -Math.round(h / 2));
       l.drawImage(IM.corps, 0, 0);
       // ailes : 3 positions qui alternent vite (battement), + une "trace" transparente
-      const frame = Math.floor(s.t * 36) % 4, ang = [0.15, -0.35, -0.75, -0.35][frame];
+      const frame = Math.floor(s.t * 36) % 4, ang = [-0.25, -0.75, -1.15, -0.75][frame]; // ailes repliées -> grandes ouvertes
       const wing = (im, side, a, alpha) => {
         l.save(); l.globalAlpha = alpha;
-        const rx = w / 2 + side * 3, ry = 11; // racine de l'aile, sur le dos
+        const rx = w / 2 + side * 5, ry = 10; // racine de l'aile, aux épaules
         l.translate(rx, ry); l.rotate(side * a); l.translate(-rx, -ry);
         l.drawImage(im, 0, 0); l.restore();
       };
-      wing(IM.ailG, -1, ang + 0.5, 0.3); wing(IM.ailD, 1, ang + 0.5, 0.3);
+      wing(IM.ailG, -1, ang + 0.45, 0.3); wing(IM.ailD, 1, ang + 0.45, 0.3);
       wing(IM.ailG, -1, ang, 0.9); wing(IM.ailD, 1, ang, 0.9);
       l.restore();
     },
