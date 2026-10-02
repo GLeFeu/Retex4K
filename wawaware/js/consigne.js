@@ -141,7 +141,9 @@ const Consigne = {
     return lines;
   },
 
-  draw(g, game, t, k) {
+  THUMB: { x: 60, y: 118, w: 480, h: 270 },
+
+  draw(g, game, t, k, drawThumb) {
     const inp = INPUTS[game.input], col = inp.cols[0];
     // fond noir avec une lueur de la couleur du type de contrôle
     g.fillStyle = '#07070d'; g.fillRect(0, 0, W, H);
@@ -149,41 +151,42 @@ const Consigne = {
     glow.addColorStop(0, inp.cols[1] + '55'); glow.addColorStop(1, '#07070d00');
     g.fillStyle = glow; g.fillRect(0, 0, W, H);
 
-    // le cadre arrive en glissant
+    // tout arrive en glissant
     const p = easeOutBack(clamp(t / 0.35, 0, 1));
     g.save();
-    g.translate(0, (1 - p) * 60);
-    g.globalAlpha = clamp(t / 0.2, 0, 1);
-    Draw.rrect(g, 40, 70, 880, 360, 26); Draw.fillStroke(g, '#12121c', col, 6);
+    g.translate(0, (1 - p) * 50);
+    g.globalAlpha *= clamp(t / 0.2, 0, 1);
 
-    // appareil à utiliser (à gauche)
-    const dx = 255, dy = 250;
-    if (game.input === 'clavier') this.keyboard(g, dx, dy - 10, game, t, col);
-    else if (game.input === 'micro') this.mic(g, dx, dy, game.needsVoice, t, col);
-    else this.mouse(g, dx, dy, game.input, t, col, /CLIC DROIT/.test(game.hint || ''));
-    const label = game.needsVoice ? 'MICRO · PARLE' : inp.label;
-    Draw.text(g, label, dx, 400, 30, col, '#000');
+    // la consigne, en gros
+    g.font = `60px ${FONT}`;
+    const size = Math.min(60, 60 * 860 / g.measureText(game.instruction).width);
+    Draw.text(g, game.instruction, W / 2, 62, size, '#fff', '#000');
 
-    // séparation
-    g.fillStyle = '#2b2d42'; g.fillRect(492, 100, 4, 300);
+    // miniature : le vrai premier plan du mini-jeu à venir (dessinée par le moteur)
+    const r = this.THUMB;
+    Draw.rrect(g, r.x - 6, r.y - 6, r.w + 12, r.h + 12, 18); Draw.fillStroke(g, col, '#000', 3);
+    if (drawThumb) drawThumb(r);
+    // petite aide discrète sous la miniature
+    if (game.hint) {
+      g.font = `20px ${FONT}`;
+      const hs = Math.min(20, (20 * r.w) / Math.max(1, g.measureText(game.hint).width));
+      Draw.text(g, game.hint, r.x + r.w / 2, r.y + r.h + 32, hs, '#adb5bd', null);
+    }
 
-    // consigne + comment jouer (à droite)
-    const tx = 705, maxW = 380;
-    let size = 64, lines = this.wrap(g, game.instruction, size, maxW);
-    const tooWide = () => lines.some(l => g.measureText(l).width > maxW);
-    while ((lines.length > 2 || tooWide()) && size > 30) { size -= 4; lines = this.wrap(g, game.instruction, size, maxW); }
-    const hintLines = this.wrap(g, game.hint || '', 26, maxW);
-    const total = lines.length * size * 1.05 + 30 + hintLines.length * 34;
-    let y = 250 - total / 2 + size / 2;
-    for (const l of lines) { Draw.text(g, l, tx, y, size, '#fff', '#000'); y += size * 1.05; }
-    y += 30 - size * 0.05;
-    for (const l of hintLines) { Draw.text(g, l, tx, y, 26, '#ffe14d', null); y += 34; }
+    // appareil à utiliser (à droite)
+    const dx = 745, dy = 245;
+    g.save();
+    g.translate(dx, dy);
+    g.scale(0.78, 0.78);
+    if (game.input === 'clavier') this.keyboard(g, 0, -10, game, t, col);
+    else if (game.input === 'micro') this.mic(g, 0, 0, game.needsVoice, t, col);
+    else this.mouse(g, 0, 0, game.input, t, col, /CLIC DROIT/.test(game.hint || ''));
+    g.restore();
+    Draw.text(g, game.needsVoice ? '🗣️ PARLE' : inp.label, dx, 400, 26, col, '#000');
     g.restore();
 
-    // titre du jeu + temps de lecture restant
-    Draw.text(g, `${game.icon}  ${game.name.toUpperCase()}`, W / 2, 38, 26, '#adb5bd', null);
-    Draw.rrect(g, W / 2 - 200, 470, 400, 16, 8); Draw.fillStroke(g, '#1a1a2e', '#2b2d42', 2);
-    if (k > 0.01) { Draw.rrect(g, W / 2 - 198, 472, 396 * k, 12, 6); g.fillStyle = col; g.fill(); }
-    Draw.text(g, k > 0.66 ? 'PRÊT…' : k > 0.33 ? 'ATTENTION…' : 'C\'EST PARTI !', W / 2, 508, 24, '#fff', null);
+    // temps de lecture restant
+    Draw.rrect(g, W / 2 - 200, 482, 400, 14, 7); Draw.fillStroke(g, '#1a1a2e', '#2b2d42', 2);
+    if (k > 0.01) { Draw.rrect(g, W / 2 - 198, 484, 396 * k, 10, 5); g.fillStyle = col; g.fill(); }
   },
 };

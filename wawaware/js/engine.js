@@ -199,6 +199,7 @@ const Engine = {
   startRun({ practiceId = null, seed, level = 0 } = {}) {
     if (document.activeElement) document.activeElement.blur();
     this.multi = null;
+    this.snap = null; // pas de dézoom d'un jeu d'une partie précédente
     this.seed = seed ?? (Math.random() * 2 ** 32) >>> 0;
     this.rng = mulberry32(this.seed);
     this.practiceId = practiceId;
@@ -268,6 +269,7 @@ const Engine = {
   },
 
   afterOutro() {
+    this.takeSnapshot();
     if (this.multi) {
       const m = this.multi;
       if (this.amAlive()) Net.send({ t: 'resultat', manche: m.playing, gagne: this.lastWin });
@@ -406,10 +408,10 @@ const Engine = {
       case 'instruction': {
         // écran de consigne seul (le jeu est caché) : le temps de lire et de comprendre
         const late = this.multi ? this.multi.late : 0;
-        if (this.stateT >= this.instructionTime() - late) {
+        if (this.stateT >= this.instrTotal() - late) {
           this.setState('play');
-          if (late > this.instructionTime()) { // vraiment en retard : on entame aussi le chrono du jeu
-            const lag = (late - this.instructionTime()) * (this.cur.noSpeedup ? 1 : this.speed);
+          if (late > this.instrTotal()) { // vraiment en retard : on entame aussi le chrono du jeu
+            const lag = (late - this.instrTotal()) * (this.cur.noSpeedup ? 1 : this.speed);
             this.gameT = Math.min(this.cur.duration - 0.5, lag);
           }
         }
@@ -445,7 +447,7 @@ const Engine = {
     }
 
     const inGame = this.state === 'play' || this.state === 'outro';
-    this.canvas.style.cursor = inGame && this.cur.cursor ? this.cur.cursor : 'default';
+    this.canvas.style.cursor = inGame ? 'none' : 'default';
   },
 
   draw() {
@@ -487,6 +489,55 @@ const Engine = {
       if (!this.amAlive()) Draw.text(g, '👻 TU ES ÉLIMINÉ : TU JOUES EN FANTÔME', W / 2, H - 80, 22, '#fff');
     }
     this.drawHud(g);
+    this.drawMyCursor(g);
+  },
+
+  // mon curseur, à ma couleur (sauf dans les jeux qui dessinent leur propre outil : tapette, marteau…)
+  myColor() {
+    const me = this.multi && Net.me();
+    return (me && me.couleur) || UI.cursorColor();
+  },
+
+  drawMyCursor(g) {
+    if (this.cur.cursor === 'none' || this.cur.input === 'clavier') return;
+    Net.drawCursor(g, Input.x, Input.y, this.myColor());
+  },
+
+  // ----- transitions : zoom avant sur le mini-jeu, dézoom à la fin -----
+  ZOOM: 0.55,
+
+  instrTotal() { return this.instructionTime() + this.ZOOM; },
+
+  // dessine le mini-jeu (son vrai état) dans un rectangle de l'écran : miniature puis zoom
+  drawGameIn(g, r) {
+    if (this.cs.crashed) return;
+    g.save();
+    Draw.rrect(g, r.x, r.y, r.w, r.h, 12 * (1 - r.full)); g.clip();
+    g.translate(r.x, r.y);
+    g.scale(r.w / W, r.h / H);
+    try { this.cur.draw(this.cs, g, this.ctx); } catch (err) { this.gameCrash(err); }
+    g.restore();
+  },
+
+  // garde une image de la fin du mini-jeu, pour la faire rétrécir pendant la consigne suivante
+  takeSnapshot() {
+    const c = this.snapCanvas || (this.snapCanvas = document.createElement('canvas'));
+    c.width = W; c.height = H;
+    c.getContext('2d').drawImage(this.canvas, 0, 0);
+    this.snap = c;
+  },
+
+  drawSnapshot(g, q) { // q : 0 = plein écran, 1 = disparu
+    if (!this.snap) return;
+    const e = q * q * (3 - 2 * q), k = 1 - e;
+    if (k <= 0.01) return;
+    g.save();
+    g.globalAlpha = 1 - e * 0.6;
+    g.translate(W / 2, H / 2);
+    g.rotate(e * 0.5);
+    g.scale(k, k);
+    g.drawImage(this.snap, -W / 2, -H / 2);
+    g.restore();
   },
 
   // petite liste des joueurs (en haut à gauche) : qui est encore en vie
@@ -513,6 +564,7 @@ const Engine = {
   drawTransition(g) {
     g.fillStyle = '#07070d';
     g.fillRect(0, 0, W, H);
+    this.drawSnapshot(g, 0); // la fin du jeu précédent reste affichée jusqu'au dézoom
   },
 
   drawMultiBetween(g) {
@@ -627,9 +679,27 @@ const Engine = {
   instructionTime() { return Math.max(2, 3 / Math.sqrt(this.speed)); },
 
   drawInstruction(g) {
+    const tI = this.instructionTime(), t = this.stateT;
+    const thumb = (r) => this.drawGameIn(g, { ...r, full: 0 });
+    if (t < tI) {
+      g.save();
+      Consigne.draw(g, this.cur, t, clamp(1 - t / tI, 0, 1), thumb);
+      g.restore();
+      // dézoom : l'image du jeu précédent rétrécit en tournant
+      if (this.snap && t < 0.5) this.drawSnapshot(g, t / 0.5);
+      return;
+    }
+    // zoom avant : la miniature grandit jusqu'au plein écran, puis le jeu démarre
+    const p = clamp((t - tI) / this.ZOOM, 0, 1), e = p * p * (3 - 2 * p);
     g.save();
-    Consigne.draw(g, this.cur, this.stateT, clamp(1 - this.stateT / this.instructionTime(), 0, 1));
+    g.globalAlpha = 1 - e;
+    Consigne.draw(g, this.cur, t, 0, null);
     g.restore();
+    const a = Consigne.THUMB;
+    this.drawGameIn(g, {
+      x: a.x * (1 - e), y: a.y * (1 - e),
+      w: a.w + (W - a.w) * e, h: a.h + (H - a.h) * e, full: e,
+    });
   },
 
   drawOutro(g) {

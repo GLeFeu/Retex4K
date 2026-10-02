@@ -11,6 +11,7 @@
     try {
       if (playing) playing.pause();
       playing = new Audio(MEDIA[kind].voice);
+      playing.volume = Sfx.volume;
       playing.play().catch(() => {});
     } catch { /* audio indisponible */ }
   };

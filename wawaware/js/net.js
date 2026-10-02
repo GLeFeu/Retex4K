@@ -128,17 +128,17 @@ const Net = {
       const pos = this.ghostPos(buf, round);
       if (!pos) continue;
       g.save();
-      g.globalAlpha = 0.5;
+      g.globalAlpha = 0.3; // les autres restent discrets : c'est ton jeu qui compte
       if (game.drawGhost) game.drawGhost(g, pos, pl.couleur);
       else this.drawCursor(g, pos.x, pos.y, pl.couleur);
       g.restore();
       const ny = game.ghostLabelY ? game.ghostLabelY(pos) : pos.y - 26;
       g.save();
-      g.globalAlpha = 0.85;
-      g.font = `18px ${FONT}`;
-      const w = g.measureText(pl.nom).width + 16;
-      Draw.rrect(g, pos.x - w / 2, ny - 13, w, 24, 12); g.fillStyle = pl.couleur; g.fill();
-      Draw.text(g, pl.nom, pos.x, ny, 18, '#1a1a1a', null);
+      g.globalAlpha = 0.45;
+      g.font = `15px ${FONT}`;
+      const w = g.measureText(pl.nom).width + 14;
+      Draw.rrect(g, pos.x - w / 2, ny - 11, w, 20, 10); g.fillStyle = pl.couleur; g.fill();
+      Draw.text(g, pl.nom, pos.x, ny, 15, '#1a1a1a', null);
       g.restore();
     }
   },

@@ -122,6 +122,15 @@ button.multi { background: #3a86ff; }
 #podium-list .rank { width: 2em; }
 #podium-list .pts { margin-left: auto; font-family: system-ui, sans-serif; font-size: 0.6em; }
 
+/* ===== Couleur du curseur ===== */
+.swatches { display: inline-flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.swatch {
+  width: clamp(18px, 3vmin, 28px); height: clamp(18px, 3vmin, 28px);
+  border-radius: 50%; border: 3px solid #1a1a1a; cursor: pointer; display: inline-block;
+}
+.swatch.on { outline: 4px solid #1a1a1a; outline-offset: 2px; transform: scale(1.15); }
+.panel input[type=range] { accent-color: #ff3c6e; width: clamp(120px, 24vmin, 240px); }
+
 /* ===== Panneau micro du menu ===== */
 #mic-panel {
   background: #fff;

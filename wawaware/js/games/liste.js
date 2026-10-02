@@ -21,5 +21,5 @@ const GAME_FILES = {
 
 // Chargement dans l'ordre (document.write fonctionne aussi en ouvrant index.html directement)
 for (const [dir, names] of Object.entries(GAME_FILES)) {
-  for (const n of names) document.write(`<script src="js/games/${dir}/${n}.js"><\/script>`);
+  for (const n of names) document.write(`<script src="js/games/${dir}/${n}.js?v=${WAWAWARE_VERSION}"><\/script>`);
 }

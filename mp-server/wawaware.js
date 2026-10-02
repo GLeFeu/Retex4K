@@ -38,17 +38,23 @@ module.exports = function creerWawaWare() {
     };
   }
 
+  const validColor = (c) => typeof c === 'string' && /^#[0-9a-fA-F]{6}$/.test(c);
+
   function joinRoom(p, wanted) {
     let code = (wanted || '').toUpperCase().replace(/[^A-Z]/g, '').slice(0, 4);
     let room = code && rooms.get(code);
     if (!room) {
       if (!code || code.length !== 4) code = newCode();
-      room = { code, players: [], hostId: p.id, state: 'salon', micro: false, round: 0, seed: 0, results: new Map(), timer: null, startCount: 0 };
+      room = { code, players: [], hostId: p.id, state: 'salon', micro: false, round: 0, seed: 0, results: new Map(), timer: null, startCount: 0, version: p.version };
       rooms.set(code, room);
     }
     if (room.players.length >= MAX_PLAYERS) return send(p, { t: 'erreur', texte: 'Salle pleine.' });
+    // même version du jeu obligatoire, sinon les mini-jeux ne seraient pas les mêmes pour tous
+    if (room.version && p.version && room.version !== p.version) {
+      return send(p, { t: 'erreur', texte: 'Ta version du jeu est différente de celle de la salle : recharge la page (Ctrl+F5) puis réessaie.' });
+    }
     const used = new Set(room.players.map(o => o.color));
-    p.color = COLORS.find(c => !used.has(c)) || COLORS[p.id % COLORS.length];
+    p.color = validColor(p.wantedColor) ? p.wantedColor : (COLORS.find(c => !used.has(c)) || COLORS[p.id % COLORS.length]);
     p.room = room;
     p.lives = MAX_LIVES; p.score = 0;
     p.alive = room.state !== 'jeu'; // arriver pendant une partie = attendre la suivante
@@ -128,9 +134,17 @@ module.exports = function creerWawaWare() {
       case 'rejoindre':
         if (room) leaveRoom(p);
         p.name = String(m.nom || 'Joueur').replace(/[<>]/g, '').trim().slice(0, 12) || 'Joueur';
+        p.wantedColor = validColor(m.couleur) ? m.couleur.toLowerCase() : null;
+        p.version = typeof m.version === 'string' ? m.version.slice(0, 40) : '';
         joinRoom(p, m.salle);
         break;
       case 'quitter': leaveRoom(p); break;
+      case 'couleur': // couleur de curseur choisie par le joueur
+        if (validColor(m.couleur)) {
+          p.wantedColor = m.couleur.toLowerCase();
+          if (room) { p.color = p.wantedColor; broadcast(room, roomInfo(room)); }
+        }
+        break;
       case 'options':
         if (room && room.hostId === p.id && room.state === 'salon') { room.micro = !!m.micro; broadcast(room, roomInfo(room)); }
         break;

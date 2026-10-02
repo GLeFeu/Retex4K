@@ -1,11 +1,26 @@
 // Effets sonores synthétisés (aucun fichier audio nécessaire)
+// Deux volumes réglables (0 à 1) : bruitages et musique. La musique passe par son propre canal
+// (Sfx.musicOut) pour le jour où le jeu en aura.
 const Sfx = (() => {
-  let ac = null;
+  let ac = null, sfxGain = null, musicGain = null;
+  const read = (k, d) => { try { const v = localStorage.getItem(k); return v === null ? d : Number(v); } catch { return d; } };
+  const vol = { sfx: read('wawaware-vol-sfx', 0.8), music: read('wawaware-vol-music', 0.6) };
 
   function ctx() {
-    if (!ac) ac = new (window.AudioContext || window.webkitAudioContext)();
+    if (!ac) {
+      ac = new (window.AudioContext || window.webkitAudioContext)();
+      sfxGain = ac.createGain(); sfxGain.gain.value = vol.sfx; sfxGain.connect(ac.destination);
+      musicGain = ac.createGain(); musicGain.gain.value = vol.music; musicGain.connect(ac.destination);
+    }
     if (ac.state === 'suspended') ac.resume();
     return ac;
+  }
+
+  function setVolume(kind, v) {
+    vol[kind] = Math.max(0, Math.min(1, v));
+    try { localStorage.setItem(`wawaware-vol-${kind}`, String(vol[kind])); } catch { /* stockage indisponible */ }
+    const node = kind === 'sfx' ? sfxGain : musicGain;
+    if (node) node.gain.value = vol[kind];
   }
 
   function tone(freq, dur = 0.12, type = 'square', vol = 0.12, when = 0, slide = 0) {
@@ -16,7 +31,7 @@ const Sfx = (() => {
     if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(20, freq * slide), t + dur);
     g.gain.setValueAtTime(vol, t);
     g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-    o.connect(g).connect(a.destination);
+    o.connect(g).connect(sfxGain);
     o.start(t);
     o.stop(t + dur + 0.02);
   }
@@ -36,12 +51,15 @@ const Sfx = (() => {
       src.connect(f);
       node = f;
     }
-    node.connect(g).connect(a.destination);
+    node.connect(g).connect(sfxGain);
     src.start(a.currentTime + when);
   }
 
   return {
-    ctx, tone, noise,
+    ctx, tone, noise, setVolume,
+    get volume() { return vol.sfx; },
+    get musicVolume() { return vol.music; },
+    get musicOut() { ctx(); return musicGain; }, // à brancher pour une future musique
     instruction() { tone(660, 0.08, 'square', 0.1); tone(990, 0.12, 'square', 0.1, 0.08); },
     win() { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.12, 'square', 0.1, i * 0.07)); },
     lose() { [392, 330, 262, 175].forEach((f, i) => tone(f, 0.18, 'sawtooth', 0.08, i * 0.1)); },

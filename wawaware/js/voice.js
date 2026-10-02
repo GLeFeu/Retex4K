@@ -78,7 +78,13 @@ const Voice = {
           document.head.appendChild(s);
         });
       }
-      const model = await Vosk.createModel('assets/vosk/modele-fr.tar.gz');
+      // adresse complète : le moteur charge le modèle depuis un "worker" qui ne connaît pas le dossier
+      // de la page (sinon, sur retex4k.com/wawaware/, il cherchait retex4k.com/assets/...)
+      const modelUrl = new URL('assets/vosk/modele-fr.tar.gz', location.href).href;
+      const model = await Promise.race([
+        Vosk.createModel(modelUrl),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('modèle trop long à charger')), 90000)),
+      ]);
       const rec = new model.KaldiRecognizer(audioCtx.sampleRate, JSON.stringify(this.vocabulary()));
       let cur = null;
       rec.on('partialresult', (m) => { cur = this.addHeard(cur, m.result.partial || ''); });

@@ -13,7 +13,7 @@ const UI = {
   previewQueue: [],
 
   show(name) {
-    for (const n of ['menu', 'gallery', 'gameover', 'lobby', 'podium']) this.el(n).classList.toggle('hidden', n !== name);
+    for (const n of ['menu', 'gallery', 'gameover', 'lobby', 'podium', 'settings']) this.el(n).classList.toggle('hidden', n !== name);
   },
 
   gameOver(score) {
@@ -121,6 +121,8 @@ const UI = {
       this.el('mic-panel').classList.remove('hidden');
       status.textContent = 'Micro activé. Règle la sensibilité si la jauge bouge sans que tu parles.';
       await Voice.begin(Sfx.ctx(), Input.mic.source);
+      // la voix vient d'être prête (ou en erreur) : la galerie déverrouille ses jeux tout de suite
+      if (!this.el('gallery').classList.contains('hidden')) this.buildGallery();
       if (!Voice.supported) status.textContent = 'Micro activé. Pour les jeux à la voix, ouvre le jeu avec lancer.bat.';
     } catch (err) {
       status.textContent = '⚠ ' + (err.message || 'Accès au micro refusé');
@@ -140,6 +142,42 @@ const sens = UI.el('mic-sens');
 sens.value = store.get('micromania-sens', 1);
 Input.mic.sensitivity = Number(sens.value);
 sens.oninput = () => { Input.mic.sensitivity = Number(sens.value); store.set('micromania-sens', sens.value); };
+
+// ----- Réglages : volumes + couleur du curseur -----
+const CURSOR_COLORS = ['#ff3c6e', '#3a86ff', '#06d6a0', '#ffd400', '#9d4edd', '#fb8500', '#4cc9f0', '#ff6b9d', '#80ed99', '#e5e5e5', '#c77dff', '#1a1a1a'];
+
+UI.cursorColor = () => store.get('wawaware-couleur', '#ff3c6e');
+
+UI.setCursorColor = (c) => {
+  store.set('wawaware-couleur', c);
+  if (Net.room) Net.send({ t: 'couleur', couleur: c });
+  UI.renderSwatches();
+};
+
+UI.renderSwatches = () => {
+  for (const box of document.querySelectorAll('[data-swatches]')) {
+    box.innerHTML = '';
+    for (const c of CURSOR_COLORS) {
+      const sw = document.createElement('span');
+      sw.className = 'swatch' + (c === UI.cursorColor() ? ' on' : '');
+      sw.style.background = c;
+      sw.title = c;
+      sw.onclick = () => UI.setCursorColor(c);
+      box.appendChild(sw);
+    }
+  }
+};
+
+for (const [id, kind] of [['vol-sfx', 'sfx'], ['vol-music', 'music']]) {
+  const el = UI.el(id), val = UI.el(id + '-val');
+  el.value = kind === 'sfx' ? Sfx.volume : Sfx.musicVolume;
+  val.textContent = Math.round(el.value * 100) + '%';
+  el.oninput = () => { Sfx.setVolume(kind, Number(el.value)); val.textContent = Math.round(el.value * 100) + '%'; };
+  if (kind === 'sfx') el.onchange = () => Sfx.win(); // petit son pour entendre le niveau
+}
+UI.el('btn-settings').onclick = () => { Sfx.ctx(); UI.renderSwatches(); UI.show('settings'); };
+UI.el('btn-settings-back').onclick = () => UI.show('menu');
+UI.renderSwatches();
 
 // ----- Salon multijoueur -----
 const Lobby = {
@@ -168,7 +206,7 @@ const Lobby = {
     }
     if (!ok) { this.msg('⚠ Impossible de joindre le serveur multijoueur. Réessaie dans une minute.'); return; }
     this.msg('');
-    Net.send({ t: 'rejoindre', nom, salle: code });
+    Net.send({ t: 'rejoindre', nom, salle: code, couleur: UI.cursorColor(), version: `${WAWAWARE_VERSION}/${Engine.games.length}` });
   },
 
   leave() {
