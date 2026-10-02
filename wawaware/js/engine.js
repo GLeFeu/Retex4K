@@ -748,6 +748,7 @@ const Engine = {
     return {
       titre: this.practiceId ? this.cur && this.cur.name.toUpperCase().slice(0, 22) : `JEU ${this.played + 1}`,
       vies: this.practiceId ? null : vies, viesMax, perdu: this.lastWin === false && !this.practiceId,
+      numero: this.played + 1,
     };
   },
 
@@ -804,8 +805,8 @@ const Engine = {
     g.translate(W / 2, H / 2 - 20);
     g.rotate(-0.04);
     g.scale(pop, pop);
-    g.font = `120px ${FONT}`;
-    const size = Math.min(120, 120 * 880 / g.measureText(game.instruction).width);
+    g.font = `48px ${FONT}`; // consigne : 60 % plus petite qu'avant
+    const size = Math.min(48, 48 * 880 / g.measureText(game.instruction).width);
     Draw.text(g, game.instruction, 0, 0, size, '#fff', '#1a1a1a');
     g.restore();
     this.drawEliminated(g);
