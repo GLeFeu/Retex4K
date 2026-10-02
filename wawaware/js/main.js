@@ -168,13 +168,31 @@ UI.renderSwatches = () => {
   }
 };
 
-for (const [id, kind] of [['vol-sfx', 'sfx'], ['vol-music', 'music']]) {
-  const el = UI.el(id), val = UI.el(id + '-val');
-  el.value = kind === 'sfx' ? Sfx.volume : Sfx.musicVolume;
-  val.textContent = Math.round(el.value * 100) + '%';
-  el.oninput = () => { Sfx.setVolume(kind, Number(el.value)); val.textContent = Math.round(el.value * 100) + '%'; };
+// curseurs de volume : présents dans les Réglages ET dans le salon multijoueur, toujours synchronisés
+UI.syncVolumes = () => {
+  for (const kind of ['sfx', 'music']) {
+    const v = kind === 'sfx' ? Sfx.volume : Sfx.musicVolume;
+    document.querySelectorAll(`[data-vol="${kind}"]`).forEach(el => { el.value = v; });
+    document.querySelectorAll(`[data-vol-val="${kind}"]`).forEach(el => { el.textContent = Math.round(v * 100) + '%'; });
+  }
+};
+document.querySelectorAll('[data-vol]').forEach(el => {
+  const kind = el.dataset.vol;
+  el.oninput = () => { Sfx.setVolume(kind, Number(el.value)); UI.syncVolumes(); };
   if (kind === 'sfx') el.onchange = () => Sfx.win(); // petit son pour entendre le niveau
-}
+});
+UI.syncVolumes();
+
+// nombre de cœurs : solo (réglages) et multijoueur (choisi par l'hôte)
+const fillHearts = (sel, value) => {
+  sel.innerHTML = '';
+  for (let n = 1; n <= 9; n++) sel.add(new Option(`${n} ${'♥'.repeat(Math.min(n, 5))}${n > 5 ? '…' : ''}`, n, false, n === value));
+};
+UI.soloLives = () => Math.max(1, Math.min(9, Number(store.get('wawaware-coeurs', 4)) || 4));
+fillHearts(UI.el('solo-coeurs'), UI.soloLives());
+UI.el('solo-coeurs').onchange = (e) => store.set('wawaware-coeurs', e.target.value);
+fillHearts(UI.el('sel-coeurs'), 4);
+UI.el('sel-coeurs').onchange = (e) => Net.send({ t: 'options', coeurs: Number(e.target.value) });
 UI.el('btn-settings').onclick = () => { Sfx.ctx(); UI.renderSwatches(); UI.show('settings'); };
 UI.el('btn-settings-back').onclick = () => UI.show('menu');
 UI.renderSwatches();
@@ -186,6 +204,7 @@ const Lobby = {
   open(code = '') {
     Sfx.ctx();
     UI.show('lobby');
+    UI.syncVolumes();
     const pseudo = UI.el('pseudo');
     if (!pseudo.value) pseudo.value = store.get('wawaware-pseudo', '') || `Joueur${Math.floor(Math.random() * 90 + 10)}`;
     if (code) UI.el('code-salle').value = code;
@@ -237,6 +256,9 @@ const Lobby = {
     const chk = UI.el('chk-micro');
     chk.checked = room.micro;
     chk.disabled = !host || !idle;
+    const selH = UI.el('sel-coeurs');
+    selH.value = room.coeurs || 4;
+    selH.disabled = !host || !idle;
     UI.el('btn-launch').classList.toggle('hidden', !host || !idle);
     const me = Net.me();
     let text = '';

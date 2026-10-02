@@ -1,0 +1,10 @@
+Musique du jeu
+==============
+
+Dépose ici un fichier nommé  musique.mp3  : il sera joué en boucle pendant les parties,
+accéléré (et plus aigu) quand le niveau monte, au volume "Musique" des réglages.
+
+N'utilise qu'un morceau que tu as le droit de diffuser sur ton site (le tien, une musique
+sous licence libre, ou un morceau dont l'artiste t'a donné l'autorisation).
+
+Sans fichier musique.mp3, le jeu joue sa propre musique originale.

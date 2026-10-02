@@ -33,7 +33,7 @@ module.exports = function creerWawaWare() {
 
   function roomInfo(room) {
     return {
-      t: 'salle', code: room.code, hote: room.hostId, etat: room.state, micro: room.micro, manche: room.round,
+      t: 'salle', code: room.code, hote: room.hostId, etat: room.state, micro: room.micro, coeurs: room.lives, manche: room.round,
       joueurs: room.players.map(p => ({ id: p.id, nom: p.name, couleur: p.color, vies: p.lives, score: p.score, vivant: p.alive, enJeu: p.inGame })),
     };
   }
@@ -45,7 +45,7 @@ module.exports = function creerWawaWare() {
     let room = code && rooms.get(code);
     if (!room) {
       if (!code || code.length !== 4) code = newCode();
-      room = { code, players: [], hostId: p.id, state: 'salon', micro: false, round: 0, seed: 0, results: new Map(), timer: null, startCount: 0, version: p.version };
+      room = { code, players: [], hostId: p.id, state: 'salon', micro: false, lives: MAX_LIVES, round: 0, seed: 0, results: new Map(), timer: null, startCount: 0, version: p.version };
       rooms.set(code, room);
     }
     if (room.players.length >= MAX_PLAYERS) return send(p, { t: 'erreur', texte: 'Salle pleine.' });
@@ -56,7 +56,7 @@ module.exports = function creerWawaWare() {
     const used = new Set(room.players.map(o => o.color));
     p.color = validColor(p.wantedColor) ? p.wantedColor : (COLORS.find(c => !used.has(c)) || COLORS[p.id % COLORS.length]);
     p.room = room;
-    p.lives = MAX_LIVES; p.score = 0;
+    p.lives = room.lives; p.score = 0;
     p.alive = room.state !== 'jeu'; // arriver pendant une partie = attendre la suivante
     p.inGame = false;
     room.players.push(p);
@@ -82,7 +82,7 @@ module.exports = function creerWawaWare() {
     room.seed = Math.floor(Math.random() * 2 ** 31);
     room.round = 0;
     room.results = new Map();
-    for (const p of room.players) { p.lives = MAX_LIVES; p.score = 0; p.alive = true; p.inGame = true; p.outRound = -1; }
+    for (const p of room.players) { p.lives = room.lives; p.score = 0; p.alive = true; p.inGame = true; p.outRound = -1; }
     room.startCount = room.players.length;
     broadcast(room, { t: 'debut', graine: room.seed, micro: room.micro, manche: 0, a: Date.now() + 1500 });
     broadcast(room, roomInfo(room));
@@ -146,7 +146,12 @@ module.exports = function creerWawaWare() {
         }
         break;
       case 'options':
-        if (room && room.hostId === p.id && room.state === 'salon') { room.micro = !!m.micro; broadcast(room, roomInfo(room)); }
+        if (room && room.hostId === p.id && room.state === 'salon') {
+          if ('micro' in m) room.micro = !!m.micro;
+          if ('coeurs' in m) room.lives = Math.max(1, Math.min(9, Math.round(Number(m.coeurs)) || MAX_LIVES)); // nombre de cœurs choisi par l'hôte
+          for (const o of room.players) o.lives = room.lives;
+          broadcast(room, roomInfo(room));
+        }
         break;
       case 'lancer':
         if (room && room.hostId === p.id && room.state === 'salon') startGame(room);
@@ -155,6 +160,9 @@ module.exports = function creerWawaWare() {
         if (room && room.state === 'jeu' && p.inGame && p.alive) {
           broadcast(room, { t: 'p', i: p.id, m: m.m, x: m.x, y: m.y, f: m.f }, p);
         }
+        break;
+      case 'perdu': // ce joueur a raté le mini-jeu en cours : son fantôme disparaît chez les autres
+        if (room && room.state === 'jeu' && p.inGame && p.alive) broadcast(room, { t: 'perdu', i: p.id, m: m.m }, p);
         break;
       case 'resultat':
         if (room && room.state === 'jeu' && p.alive && p.inGame && m.manche === room.round && !room.results.has(p.id)) {

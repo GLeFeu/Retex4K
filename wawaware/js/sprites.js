@@ -1,5 +1,42 @@
 // Dessins réutilisés par plusieurs mini-jeux (complète l'objet Draw du moteur)
 Object.assign(Draw, {
+  // ----- outils de la nouvelle direction artistique (plus détaillée) -----
+  // dégradé linéaire vertical rapide
+  vgrad(g, y0, y1, stops) {
+    const gr = g.createLinearGradient(0, y0, 0, y1);
+    stops.forEach((c, i) => gr.addColorStop(i / (stops.length - 1), c));
+    return gr;
+  },
+
+  // dégradé radial (reflets, volumes)
+  rgrad(g, x, y, r0, r1, inner, outer, ox = 0, oy = 0) {
+    const gr = g.createRadialGradient(x + ox, y + oy, r0, x, y, r1);
+    gr.addColorStop(0, inner); gr.addColorStop(1, outer);
+    return gr;
+  },
+
+  // ombre douce posée au sol
+  softShadow(g, x, y, rx, ry, alpha = 0.25) {
+    const gr = g.createRadialGradient(x, y, 0, x, y, rx);
+    gr.addColorStop(0, `rgba(30,20,10,${alpha})`); gr.addColorStop(1, 'rgba(30,20,10,0)');
+    g.save(); g.translate(x, y); g.scale(1, ry / rx); g.translate(-x, -y);
+    g.fillStyle = gr; g.beginPath(); g.arc(x, y, rx, 0, Math.PI * 2); g.fill();
+    g.restore();
+  },
+
+  // assombrit doucement les bords de l'écran
+  vignette(g, strength = 0.35) {
+    const gr = g.createRadialGradient(W / 2, H / 2, H * 0.35, W / 2, H / 2, W * 0.7);
+    gr.addColorStop(0, 'rgba(20,10,0,0)'); gr.addColorStop(1, `rgba(20,10,0,${strength})`);
+    g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  },
+
+  // remplissage + contour fin et teinté (au lieu du gros trait noir)
+  fillLine(g, fill, line, lw = 2.5) {
+    g.fillStyle = fill; g.fill();
+    if (line) { g.lineWidth = lw; g.strokeStyle = line; g.lineJoin = 'round'; g.stroke(); }
+  },
+
   sky(g, top, bottom, h = H) {
     const gr = g.createLinearGradient(0, 0, 0, h);
     gr.addColorStop(0, top); gr.addColorStop(1, bottom);

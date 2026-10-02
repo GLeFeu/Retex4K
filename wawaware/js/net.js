@@ -12,6 +12,7 @@ const Net = {
   offset: 0,           // heure serveur - heure locale (ms)
   bestRtt: Infinity,
   ghosts: new Map(),   // id -> [{ t, m, x, y, f }]
+  lostRound: new Map(), // id -> manche où ce joueur a raté (son fantôme est caché)
   lastSend: 0,
   handlers: {},        // callbacks de l'interface (salle, fin, erreur…)
   SEND_EVERY: 30, // ≈ 30 envois/s (marge pour les images à 16,7 ms)
@@ -77,10 +78,20 @@ const Net = {
         break;
       }
       case 'bienvenue': this.id = m.id; break;
-      case 'salle': this.room = m; this.emit('salle', m); break;
+      case 'salle': {
+        const wasAlive = this.me() && this.me().vivant;
+        this.room = m;
+        const me = this.me();
+        // je viens d'être éliminé : le jeu affiche le grand écran "TU ES ÉLIMINÉ"
+        if (Engine.multi && wasAlive && me && me.enJeu && !me.vivant) Engine.multi.deadAt = performance.now();
+        this.emit('salle', m);
+        break;
+      }
+      case 'perdu': this.lostRound.set(m.i, m.m); break;
       case 'erreur': this.emit('erreur', m.texte); break;
       case 'debut':
         this.ghosts.clear();
+        this.lostRound.clear();
         Engine.startMulti({ seed: m.graine, micro: m.micro, round: m.manche, at: this.toLocal(m.a) });
         this.emit('debut');
         break;
@@ -125,16 +136,17 @@ const Net = {
     for (const [id, buf] of this.ghosts) {
       const pl = this.player(id);
       if (!pl || !pl.vivant) continue; // les éliminés ne sont plus montrés
+      if (this.lostRound.get(id) === round) continue; // a raté ce mini-jeu : son fantôme disparaît
       const pos = this.ghostPos(buf, round);
       if (!pos) continue;
       g.save();
-      g.globalAlpha = 0.3; // les autres restent discrets : c'est ton jeu qui compte
+      g.globalAlpha = 0.18; // les autres restent très discrets : c'est ton jeu qui compte
       if (game.drawGhost) game.drawGhost(g, pos, pl.couleur);
       else this.drawCursor(g, pos.x, pos.y, pl.couleur);
       g.restore();
       const ny = game.ghostLabelY ? game.ghostLabelY(pos) : pos.y - 26;
       g.save();
-      g.globalAlpha = 0.45;
+      g.globalAlpha = 0.3;
       g.font = `15px ${FONT}`;
       const w = g.measureText(pl.nom).width + 14;
       Draw.rrect(g, pos.x - w / 2, ny - 11, w, 20, 10); g.fillStyle = pl.couleur; g.fill();

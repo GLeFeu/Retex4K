@@ -6,7 +6,7 @@
   <title>WawaWare</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap">
-  <link rel="stylesheet" href="css/style.css?v=2026.10.02-1">
+  <link rel="stylesheet" href="css/style.css?v=2026.10.02-2">
 </head>
 <body>
   <div id="app">
@@ -39,8 +39,9 @@
     <div id="settings" class="screen hidden">
       <h2>RÉGLAGES</h2>
       <div class="panel">
-        <label class="field">🔊 Bruitages <input type="range" id="vol-sfx" min="0" max="1" step="0.05"> <b id="vol-sfx-val"></b></label>
-        <label class="field">🎵 Musique <input type="range" id="vol-music" min="0" max="1" step="0.05"> <b id="vol-music-val"></b></label>
+        <label class="field">🔊 Bruitages <input type="range" data-vol="sfx" min="0" max="1" step="0.05"> <b data-vol-val="sfx"></b></label>
+        <label class="field">🎵 Musique <input type="range" data-vol="music" min="0" max="1" step="0.05"> <b data-vol-val="music"></b></label>
+        <label class="field">❤️ Cœurs en solo <select id="solo-coeurs"></select></label>
         <div class="field">🖱️ Mon curseur <span class="swatches" data-swatches></span></div>
       </div>
       <button id="btn-settings-back" class="small">← Menu</button>
@@ -66,9 +67,14 @@
         <ul id="room-players"></ul>
         <div class="field">Ta couleur <span class="swatches" data-swatches></span></div>
         <label class="field check"><input type="checkbox" id="chk-micro"> Inclure les mini-jeux au micro (chacun active son micro)</label>
+        <label class="field">❤️ Cœurs par joueur <select id="sel-coeurs"></select></label>
         <button id="btn-launch" class="big">▶ LANCER LA PARTIE</button>
         <p id="room-msg" class="tag small"></p>
         <button id="btn-leave" class="small">Quitter la salle</button>
+      </div>
+      <div class="vol-row">
+        <label>🔊 <input type="range" data-vol="sfx" min="0" max="1" step="0.05"> <b data-vol-val="sfx"></b></label>
+        <label>🎵 <input type="range" data-vol="music" min="0" max="1" step="0.05"> <b data-vol-val="music"></b></label>
       </div>
       <button id="btn-lobby-back" class="small">← Menu</button>
     </div>
@@ -101,17 +107,18 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=2026.10.02-1"></script>
-  <script src="js/audio.js?v=2026.10.02-1"></script>
-  <script src="js/input.js?v=2026.10.02-1"></script>
-  <script src="js/voice.js?v=2026.10.02-1"></script>
-  <script src="js/engine.js?v=2026.10.02-1"></script>
-  <script src="js/sprites.js?v=2026.10.02-1"></script>
-  <script src="js/consigne.js?v=2026.10.02-1"></script>
+  <script src="js/config.js?v=2026.10.02-2"></script>
+  <script src="js/audio.js?v=2026.10.02-2"></script>
+  <script src="js/musique.js?v=2026.10.02-2"></script>
+  <script src="js/input.js?v=2026.10.02-2"></script>
+  <script src="js/voice.js?v=2026.10.02-2"></script>
+  <script src="js/engine.js?v=2026.10.02-2"></script>
+  <script src="js/sprites.js?v=2026.10.02-2"></script>
+  <script src="js/consigne.js?v=2026.10.02-2"></script>
   <!-- tous les mini-jeux (voir la liste dans ce fichier) -->
-  <script src="js/games/liste.js?v=2026.10.02-1"></script>
-  <script src="js/fantomes.js?v=2026.10.02-1"></script>
-  <script src="js/net.js?v=2026.10.02-1"></script>
-  <script src="js/main.js?v=2026.10.02-1"></script>
+  <script src="js/games/liste.js?v=2026.10.02-2"></script>
+  <script src="js/fantomes.js?v=2026.10.02-2"></script>
+  <script src="js/net.js?v=2026.10.02-2"></script>
+  <script src="js/main.js?v=2026.10.02-2"></script>
 </body>
 </html>

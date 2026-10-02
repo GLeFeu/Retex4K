@@ -187,6 +187,11 @@ const Engine = {
     this.setState('menu');
   },
 
+  maxLives() {
+    if (this.multi) return (Net.room && Net.room.coeurs) || MAX_LIVES;
+    return UI.soloLives ? UI.soloLives() : MAX_LIVES;
+  },
+
   amAlive() { const me = Net.me(); return !this.multi || (me && me.vivant); },
 
   // ce que les autres voient de moi : la position de mon perso (si le jeu la donne) ou de ma souris
@@ -203,7 +208,7 @@ const Engine = {
     this.seed = seed ?? (Math.random() * 2 ** 32) >>> 0;
     this.rng = mulberry32(this.seed);
     this.practiceId = practiceId;
-    this.lives = MAX_LIVES;
+    this.lives = this.maxLives();
     this.score = 0;
     this.played = 0;
     this.level = level;
@@ -343,12 +348,22 @@ const Engine = {
     this.last = now;
     try {
       Input.updateMic(dt);
+      this.updateMusic(dt);
       this.update(dt);
       this.draw();
       if (this.state === 'menu' && UI.tick) UI.tick();
     } finally {
       Input.endFrame();
     }
+  },
+
+  // musique : pendant les parties seulement, à la vitesse du niveau, baissée pendant les jeux au micro
+  updateMusic(dt) {
+    const inRun = !['menu', 'gameover'].includes(this.state);
+    if (!inRun) { if (Music.playing) Music.stop(); return; }
+    if (!Music.playing) Music.start();
+    const micGame = this.cur && this.cur.input === 'micro' && ['instruction', 'play', 'outro'].includes(this.state);
+    Music.update(dt, this.speed || 1, micGame);
   },
 
   // ----- résistance aux plantages -----
@@ -426,10 +441,13 @@ const Engine = {
         if (left <= 3 && Math.ceil(left) < this.lastTick) { this.lastTick = Math.ceil(left); Sfx.tick(); }
         if (this.multi) {
           // en multijoueur la manche dure jusqu'au bout pour tout le monde
-          try { Net.sendGhost(this.multi.playing, this.ghostOf()); } catch (err) { this.report('fantôme (envoi)', err); }
           const m = this.multi;
+          if (m.myResult !== false) {
+            try { Net.sendGhost(m.playing, this.ghostOf()); } catch (err) { this.report('fantôme (envoi)', err); }
+          }
           if (m.myResult === null && (this.cs.won || this.cs.lost)) {
             m.myResult = !!this.cs.won;
+            if (!m.myResult && this.amAlive()) Net.send({ t: 'perdu', m: m.playing });
             this.ctx.over = true;
             if (m.myResult) Sfx.win(); else Sfx.lose();
           }
@@ -463,7 +481,7 @@ const Engine = {
       case 'speedup': this.drawSpeedup(g); break;
       case 'instruction': this.drawInstruction(g); break;
       case 'play': this.drawGame(g); break;
-      case 'outro': this.drawGame(g); this.drawOutro(g); break;
+      case 'outro': this.drawGame(g); this.drawOutro(g); this.drawEliminated(g); break;
     }
   },
 
@@ -482,13 +500,13 @@ const Engine = {
       try { Net.drawGhosts(g, this.cur, this.multi.playing); } catch (err) { this.report('fantôme (dessin)', err); }
       this.drawPlayersPanel(g);
       const r = this.multi.myResult;
-      if (r !== null && this.state === 'play') {
+      if (r !== null && this.state === 'play' && this.amAlive()) {
         Draw.rrect(g, W / 2 - 230, 70, 460, 50, 25); Draw.fillStroke(g, r ? '#06d6a0' : '#ef233c', '#1a1a1a', 4);
         Draw.text(g, r ? 'RÉUSSI ! ON ATTEND LES AUTRES…' : 'RATÉ… ON ATTEND LES AUTRES', W / 2, 96, 22, '#fff', null);
       }
-      if (!this.amAlive()) Draw.text(g, '👻 TU ES ÉLIMINÉ : TU JOUES EN FANTÔME', W / 2, H - 80, 22, '#fff');
     }
     this.drawHud(g);
+    if (this.state !== 'outro') this.drawEliminated(g); // en fin de manche, il passe par-dessus "RATÉ !"
     this.drawMyCursor(g);
   },
 
@@ -565,6 +583,35 @@ const Engine = {
     g.fillStyle = '#07070d';
     g.fillRect(0, 0, W, H);
     this.drawSnapshot(g, 0); // la fin du jeu précédent reste affichée jusqu'au dézoom
+    this.drawEliminated(g);
+  },
+
+  // Joueur éliminé : grand écran au moment où ça arrive, puis bandeau permanent.
+  // Il peut continuer à jouer pour s'amuser, mais il n'est plus dans la partie.
+  drawEliminated(g) {
+    if (!this.multi || this.amAlive()) return;
+    const room = Net.room;
+    const alive = room ? room.joueurs.filter(j => j.enJeu && j.vivant).length : 0;
+    const since = performance.now() - (this.multi.deadAt || -1e9);
+    if (since < 4500) {
+      const a = Math.min(1, since / 250, (4500 - since) / 400);
+      g.save();
+      g.globalAlpha = a;
+      g.fillStyle = 'rgba(10,8,20,0.94)'; g.fillRect(0, 0, W, H);
+      g.font = '70px "Segoe UI Emoji", "Apple Color Emoji", sans-serif';
+      g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.fillText('💀', W / 2, 95);
+      Draw.text(g, 'TU ES ÉLIMINÉ', W / 2, 185, 80, '#ff5c7a', '#000');
+      Draw.text(g, 'Tu n\'es plus dans la partie.', W / 2, 270, 32, '#fff', null);
+      Draw.text(g, 'Tu peux continuer à jouer pour t\'amuser, mais ça ne compte plus.', W / 2, 315, 24, '#adb5bd', null);
+      Draw.text(g, `Attends la fin (encore ${alive} joueur${alive > 1 ? 's' : ''} en vie) pour relancer une partie.`, W / 2, 360, 24, '#ffe14d', null);
+      g.restore();
+      return;
+    }
+    g.save();
+    Draw.rrect(g, W / 2 - 330, H - 46, 660, 34, 17); g.fillStyle = 'rgba(10,8,20,0.75)'; g.fill();
+    Draw.text(g, `💀 ÉLIMINÉ · ça ne compte plus · encore ${alive} en vie · attends la fin pour rejouer`, W / 2, H - 29, 17, '#ff8fa3', null);
+    g.restore();
   },
 
   drawMultiBetween(g) {
@@ -611,7 +658,7 @@ const Engine = {
     const msg = m.waiting || !isFinite(left) ? 'EN ATTENTE DES AUTRES…' : `PROCHAIN JEU DANS ${Math.max(0, Math.ceil(left))}`;
     Draw.text(g, msg, W / 2, H - 60, 34, '#ffe14d');
     if (!m.waiting && next > 0 && next % GAMES_PER_LEVEL === 0) Draw.text(g, 'PLUS VITE !', W / 2, H - 110, 40, '#fff');
-    if (!this.amAlive()) Draw.text(g, '👻 TU ES ÉLIMINÉ : TU CONTINUES EN FANTÔME', W / 2, H - 20, 22, '#fff');
+    this.drawEliminated(g);
   },
 
   drawBetween(g) {
@@ -631,8 +678,9 @@ const Engine = {
     if (this.practiceId) {
       Draw.text(g, '∞', W / 2, 345, 60, '#ff3c6e');
     } else {
-      for (let i = 0; i < MAX_LIVES; i++) {
-        const x = W / 2 + (i - (MAX_LIVES - 1) / 2) * 95;
+      const ml = this.maxLives(), sp = Math.min(95, 640 / ml);
+      for (let i = 0; i < ml; i++) {
+        const x = W / 2 + (i - (ml - 1) / 2) * sp;
         let y = 345;
         if (i < this.lives) {
           y += Math.sin(this.t * 6 + i) * 5;
@@ -685,6 +733,7 @@ const Engine = {
       g.save();
       Consigne.draw(g, this.cur, t, clamp(1 - t / tI, 0, 1), thumb);
       g.restore();
+      this.drawEliminated(g);
       // dézoom : l'image du jeu précédent rétrécit en tournant
       if (this.snap && t < 0.5) this.drawSnapshot(g, t / 0.5);
       return;
@@ -718,8 +767,9 @@ const Engine = {
     // vies avant cette manche (la perte n'est comptée qu'après l'écran)
     let lives = this.lives;
     if (this.multi) { const me = Net.me(); if (!me || !me.vivant) return; lives = me.vies; }
-    for (let i = 0; i < MAX_LIVES; i++) {
-      const x = W / 2 + (i - (MAX_LIVES - 1) / 2) * 70, y = H - 95;
+    const ml = this.maxLives(), sp = Math.min(70, 560 / ml);
+    for (let i = 0; i < ml; i++) {
+      const x = W / 2 + (i - (ml - 1) / 2) * sp, y = H - 95;
       const breaking = !win && i === lives - 1;
       if (i >= lives) { Draw.heart(g, x, y, 50); Draw.fillStroke(g, 'rgba(0,0,0,0.3)', '#1a1a1a', 4); continue; }
       if (!breaking) { Draw.heart(g, x, y, 50); Draw.fillStroke(g, '#ff3c6e', '#1a1a1a', 4); continue; }

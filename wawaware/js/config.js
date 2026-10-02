@@ -1,6 +1,6 @@
 // Version du jeu : à changer à chaque mise en ligne. Elle force le navigateur à recharger les
 // fichiers, et deux joueurs de versions différentes ne peuvent pas se retrouver dans la même salle.
-const WAWAWARE_VERSION = '2026.10.02-1';
+const WAWAWARE_VERSION = '2026.10.02-2';
 
 // Réglages de mise en ligne.
 //
