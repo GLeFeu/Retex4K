@@ -114,7 +114,7 @@ const Tele = (() => {
     } else if (game) {
       g.save();
       g.translate(V.w / 2, 155);
-      g.scale(0.6, 0.6);
+      g.scale(0.7, 0.7);
       if (game.input === 'clavier') Consigne.keyboard(g, 0, -10, game, t, '#ffe14d');
       else if (game.input === 'micro') Consigne.mic(g, 0, 0, game.needsVoice, t, '#ffe14d');
       else Consigne.mouse(g, 0, 0, game.input, t, '#ffe14d', /CLIC DROIT/.test(game.hint || ''));

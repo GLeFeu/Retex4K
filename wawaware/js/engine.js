@@ -680,7 +680,7 @@ const Engine = {
     const pal = PALETTES[this.level % PALETTES.length];
     Draw.stripes(g, this.t, pal[0], pal[1]);
 
-    const title = this.practiceId ? this.games.find(gm => gm.id === this.practiceId).name.toUpperCase() : `JEU ${this.played + 1}`;
+    const title = this.practiceId ? this.games.find(gm => gm.id === this.practiceId).name.toUpperCase() : String(this.played + 1).padStart(3, '0');
     Draw.text(g, title, W / 2, 70, 42);
 
     const pop = this.lastWin && this.stateT < 0.3 ? 1 + 0.25 * Math.sin((this.stateT / 0.3) * Math.PI) : 1;
@@ -746,7 +746,7 @@ const Engine = {
     let vies = this.lives, viesMax = this.maxLives();
     if (this.multi) { const me = Net.me(); vies = me && me.vivant ? me.vies : null; }
     return {
-      titre: this.practiceId ? this.cur && this.cur.name.toUpperCase().slice(0, 22) : `JEU ${this.played + 1}`,
+      titre: this.practiceId ? this.cur && this.cur.name.toUpperCase().slice(0, 22) : String(this.played + 1).padStart(3, '0'),
       vies: this.practiceId ? null : vies, viesMax, perdu: this.lastWin === false && !this.practiceId,
       numero: this.played + 1,
     };
