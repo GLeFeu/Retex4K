@@ -85,7 +85,8 @@ const UI = {
           <div class="title">${game.icon} ${game.name}</div>
           <div class="meta">${INPUTS[game.input].icon} ${INPUTS[game.input].label} · ${game.hint}</div>
         </div>
-        ${lock ? `<span class="lock">${lock}</span>` : '<span class="play">▶ JOUER</span>'}`);
+        ${lock ? `<span class="lock">${lock}</span>` : '<span class="play">▶ JOUER</span>'}
+        ${game.apercu ? '<span class="lock" style="left:auto;right:8px;top:auto;bottom:62px;background:#7b2cbf">🎨 essai de style</span>' : ''}`);
       card.onclick = async () => {
         if (lock) {
           await this.enableMic();

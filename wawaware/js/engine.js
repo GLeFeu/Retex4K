@@ -162,8 +162,9 @@ const Engine = {
 
   playable() {
     // en multijoueur, la liste ne doit dépendre que des options de la salle (identique pour tous)
-    if (this.multi) return this.games.filter(gm => !gm.needsMic || this.multi.micro);
-    return this.games.filter(gm => this.canPlay(gm));
+    // les essais de style (apercu) ne sont visibles que dans la galerie
+    if (this.multi) return this.games.filter(gm => !gm.apercu && (!gm.needsMic || this.multi.micro));
+    return this.games.filter(gm => !gm.apercu && this.canPlay(gm));
   },
 
   // ----- multijoueur -----
