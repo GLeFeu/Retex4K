@@ -105,7 +105,6 @@ const Tele = (() => {
     bleu(g, t);
     const game = o.game;
     if (o.titre && o.message) Draw.text(g, o.titre, V.w / 2, 30, 36, '#fff', '#0b1a5c');
-    if (o.numero != null && !o.message) Draw.text(g, String(o.numero).padStart(3, '0'), V.w / 2, 70, 34, '#fff', '#0b1a5c'); // numéro du jeu : 001, 002…
     if (o.message) {
       const p = 1 + 0.06 * Math.sin(t * 14);
       g.save(); g.translate(V.w / 2, V.h / 2 - 10); g.scale(p, p);
