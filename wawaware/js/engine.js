@@ -807,7 +807,6 @@ const Engine = {
     g.font = `120px ${FONT}`;
     const size = Math.min(120, 120 * 880 / g.measureText(game.instruction).width);
     Draw.text(g, game.instruction, 0, 0, size, '#fff', '#1a1a1a');
-    if (game.hint && out === 0) Draw.text(g, game.hint, 0, size * 0.75, 26, '#ffe14d', '#1a1a1a');
     g.restore();
     this.drawEliminated(g);
   },
