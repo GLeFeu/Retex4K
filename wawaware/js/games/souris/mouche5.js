@@ -86,7 +86,7 @@
       // papier peint rayé + petites fleurs, plafond dans l'ombre
       for (let y = 0; y < 140; y++) for (let x = 0; x < LW; x++) {
         const stripe = (x >> 3) % 2 ? 4 : 3.6;
-        const shadeTop = y < 22 ? (22 - y) / 22 * 1.6 : 0;
+        const shadeTop = y < 16 ? (16 - y) / 16 * 1 : 0;
         px(l, x, y, ramp(R.wall, stripe - shadeTop + bay(x, y) * 0.6));
       }
       for (let y = 30, row = 0; y < 132; y += 18, row++) for (let x = row % 2 ? 4 : 12; x < LW; x += 16) {
@@ -101,7 +101,7 @@
       }
       for (let ty = 141; ty < T; ty += 11) rect(l, 0, ty, LW, 1, R.tile[1]);
       for (let ty = 142, row = 0; ty < T; ty += 11, row++) for (let tx = row % 2 ? 7 : 15; tx < LW; tx += 16) rect(l, tx, ty, 1, 10, R.tile[1]);
-      dband(l, 0, T - 8, LW, 8, R.wall, 3, 1.2); // ombre au contact de la table
+      dband(l, 0, T - 6, LW, 6, R.wall, 3.2, 2); // ombre au contact de la table
 
       // fenêtre : ciel, nuages, collines (lointaines bleutées, proches vertes)
       dband(l, WX, WY, WW, WH, R.sky, 0.6, 4.4);
@@ -151,7 +151,7 @@
       // table : planches, veinage, reflet de la fenêtre, chant plus sombre
       for (let y = T; y < LH; y++) for (let x = 0; x < LW; x++) {
         const top = y < T + 23;
-        let v = top ? 3.3 - (y - T) / 23 * 0.8 : 1.6 - (y - T - 23) / 47;
+        let v = top ? 3.5 - (y - T) / 23 * 0.7 : 2.3 - (y - T - 23) / 60;
         v += Math.sin((x + Math.sin(y * 0.7) * 6) * 0.08 + y * 1.3) * 0.25;
         if (top && (x % 118 === 0)) v -= 1.5;
         if (y === T) v = 5; if (y === T + 23) v = 4.2;
@@ -420,18 +420,20 @@
       const shake = s.splat && s.splatT < 0.22 ? Math.round(Math.sin(s.splatT * 90) * 3) : 0;
       g.save();
       g.imageSmoothingEnabled = false;
+      g.filter = 'saturate(1.18) brightness(1.08)'; // un peu plus lumineux et coloré, sans brûler
       g.drawImage(low, shake, 0, W, H);
+      g.filter = 'none';
       g.restore();
 
       // ---------- éclairage "à la Eastward", lisse, posé sur les pixels ----------
       g.save();
       g.globalCompositeOperation = 'multiply'; // ombres violettes loin de la fenêtre
       const amb = g.createRadialGradient(760, 150, 60, 760, 150, 900);
-      amb.addColorStop(0, '#ffffff'); amb.addColorStop(0.45, '#efe4f0'); amb.addColorStop(1, '#8a76a8');
+      amb.addColorStop(0, '#ffffff'); amb.addColorStop(0.5, '#f8f2f8'); amb.addColorStop(1, '#cbbedd');
       g.fillStyle = amb; g.fillRect(0, 0, W, H);
       g.globalCompositeOperation = 'lighter'; // halo chaud de la fenêtre + rayons
       const glow = g.createRadialGradient(760, 146, 20, 760, 146, 260);
-      glow.addColorStop(0, 'rgba(255,225,160,0.28)'); glow.addColorStop(1, 'rgba(255,225,160,0)');
+      glow.addColorStop(0, 'rgba(255,225,160,0.22)'); glow.addColorStop(1, 'rgba(255,225,160,0)');
       g.fillStyle = glow; g.fillRect(0, 0, W, H);
       for (const [x0, x1, a] of [[660, 440, 0.07], [730, 540, 0.055], [800, 650, 0.045]]) {
         const sh = g.createLinearGradient(0, 250, 0, 430);
