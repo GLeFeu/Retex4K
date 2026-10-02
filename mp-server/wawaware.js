@@ -81,6 +81,7 @@ module.exports = function creerWawaWare() {
     room.state = 'jeu';
     room.seed = Math.floor(Math.random() * 2 ** 31);
     room.round = 0;
+    room.teams = null;
     room.results = new Map();
     for (const p of room.players) { p.lives = room.lives; p.score = 0; p.alive = true; p.inGame = true; p.outRound = -1; }
     room.startCount = room.players.length;
@@ -89,6 +90,20 @@ module.exports = function creerWawaWare() {
   }
 
   const alivePlayers = (room) => room.players.filter(p => p.inGame && p.alive);
+
+  // Manches en DUO : une manche sur trois, s'il reste un nombre pair de joueurs (4, 6…).
+  // Les équipes sont tirées au hasard ; si l'un des deux réussit, l'équipe réussit.
+  function makeTeams(room) {
+    const alive = alivePlayers(room);
+    if (alive.length < 4 || alive.length % 2 || room.round % 3 !== 2) return null;
+    let a = (room.seed + room.round * 7919) >>> 0;
+    const rnd = () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+    const ids = alive.map(p => p.id).sort((x, y) => x - y);
+    for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
+    const teams = [];
+    for (let i = 0; i < ids.length; i += 2) teams.push([ids[i], ids[i + 1]]);
+    return teams;
+  }
 
   function checkRound(room) {
     if (alivePlayers(room).every(p => room.results.has(p.id))) finishRound(room);
@@ -99,8 +114,11 @@ module.exports = function creerWawaWare() {
     room.timer = null;
     if (room.state !== 'jeu') return;
     const res = {};
+    const teamOf = new Map();
+    for (const t of room.teams || []) for (const id of t) teamOf.set(id, t);
     for (const p of alivePlayers(room)) {
-      const win = room.results.get(p.id) === true; // pas de réponse = raté
+      const team = teamOf.get(p.id);
+      const win = team ? team.some(id => room.results.get(id) === true) : room.results.get(p.id) === true; // pas de réponse = raté
       res[p.id] = win;
       if (win) p.score++;
       else if (--p.lives <= 0) { p.alive = false; p.outRound = room.round; }
@@ -123,7 +141,8 @@ module.exports = function creerWawaWare() {
       return;
     }
     room.round++;
-    broadcast(room, { t: 'manche', manche: room.round, a: Date.now() + BETWEEN_MS });
+    room.teams = makeTeams(room);
+    broadcast(room, { t: 'manche', manche: room.round, a: Date.now() + BETWEEN_MS, equipes: room.teams });
   }
 
   // traitement d'un message d'un joueur (une erreur ici ne doit jamais arrêter le serveur)

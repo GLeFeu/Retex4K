@@ -3,6 +3,7 @@
 // Les coordonnées du jeu restent en 960×540 : on divise par PA.K pour dessiner.
 //   const IM = PA.images('taupe', ['fond', 'taupe', 'marteau']);   // assets/ia/taupe/*.webp
 //   draw(s, g, c) { const l = PA.debut(g); if (!l) return; ...; PA.fin(g); }
+let PA_FORCER = false; // tests : dessiner même si les images ne sont pas chargées
 const PA = (() => {
   const K = 3, LW = W / K, LH = H / K;
   const FONT_PIX = '"Pixelify Sans", ' + FONT;
@@ -18,11 +19,19 @@ const PA = (() => {
     }
     return o;
   }
+  // filet de sécurité : dessiner une image introuvable (« broken ») ne fait plus planter le mini-jeu
+  const drawImage0 = CanvasRenderingContext2D.prototype.drawImage;
+  CanvasRenderingContext2D.prototype.drawImage = function (im, ...a) {
+    if (im instanceof HTMLImageElement && im.complete && !im.naturalWidth) return;
+    return drawImage0.call(this, im, ...a);
+  };
   const pret = (im) => im && (im instanceof HTMLCanvasElement || (im.complete && im.naturalWidth > 0));
 
   // commence l'image : renvoie la petite toile (ou null si les images ne sont pas encore chargées)
   function debut(g, imgs, fond = '#2e222f') {
-    if (imgs && !Object.values(imgs).every(pret)) { g.fillStyle = fond; g.fillRect(0, 0, W, H); return null; }
+    // on attend seulement les images encore en chargement : une image introuvable est sautée (jamais d'écran vide)
+    const charge = (im) => pret(im) || (im instanceof HTMLImageElement && im.complete);
+    if (imgs && !PA_FORCER && !Object.values(imgs).every(charge)) { g.fillStyle = fond; g.fillRect(0, 0, W, H); return null; }
     if (!low) { low = document.createElement('canvas'); low.width = LW; low.height = LH; l = low.getContext('2d'); }
     l.setTransform(1, 0, 0, 1, 0, 0);
     l.globalAlpha = 1; l.globalCompositeOperation = 'source-over'; l.filter = 'none';
@@ -34,6 +43,7 @@ const PA = (() => {
 
   // fond plein écran (image 336×192 nettoyée : on prend le centre 320×180)
   function fond(im, dx = 0, dy = 0) {
+    if (!pret(im)) return;
     const ox = Math.max(0, (im.width - LW) / 2) | 0, oy = Math.max(0, (im.height - LH) / 2) | 0;
     l.drawImage(im, ox + dx, oy + dy, LW, LH, 0, 0, LW, LH);
   }
@@ -83,6 +93,15 @@ const PA = (() => {
     l.fillStyle = teintes[0]; l.fillRect(X, Y + Hd - 1, Wd, 1);
     l.fillStyle = teintes[1];
     for (let i = 0; i < Wd; i += 7) if (Hd > 3) l.fillRect(X + i + ((i * 13) % 5), Y + 1 + ((i * 7) % (Hd - 2)), 3, 1);
+    if (Hd > 6) { // grosse planche : veinage en longues lignes, bas plus sombre
+      l.fillStyle = teintes[3]; l.fillRect(X, Y + 1, Wd, 1);
+      for (let j = 3; j < Hd - 2; j += 3) {
+        let x = X + ((j * 17) % 11);
+        while (x < X + Wd - 2) { const n = 6 + ((x * 7 + j * 3) % 14); l.fillStyle = (x + j) % 3 ? teintes[1] : mix(teintes[2], teintes[3], 0.5); l.fillRect(x, Y + j, Math.min(n, X + Wd - x), 1); x += n + 3 + ((x + j) % 5); }
+      }
+      l.fillStyle = mix(teintes[1], teintes[0], 0.5); l.fillRect(X, Y + Hd - 2, Wd, 1);
+      l.fillStyle = teintes[0]; l.fillRect(X - 1, Y, 1, Hd); l.fillRect(X + Wd, Y, 1, Hd);
+    }
   }
   // couleurs : mélange de deux teintes '#rrggbb'
   const hex = (c) => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
@@ -163,7 +182,9 @@ const PA = (() => {
     if (!pret(im)) return im;
     const c = toile(im.width, im.height), x = c.getContext('2d');
     x.drawImage(im, 0, 0);
-    const d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+    let d;
+    try { d = x.getImageData(0, 0, c.width, c.height); } catch (e) { return (variantes[k] = im); } // page ouverte en file:// : pas de lecture de pixels
+    const p = d.data;
     const rampes = regles.map(([h, tol, coul]) => [h, tol, hex(mix(coul, '#1a0f2a', 0.62)), hex(coul), hex(mix(coul, '#fff4d0', 0.5))]);
     for (let i = 0; i < p.length; i += 4) {
       if (p[i + 3] < 10) continue;
@@ -198,7 +219,9 @@ const PA = (() => {
     const base = recolore(im, [[0, 180, coul]], 'tout' + coul);
     const c = toile(im.width, im.height), x = c.getContext('2d');
     x.drawImage(im, 0, 0);
-    const d = x.getImageData(0, 0, c.width, c.height), p = d.data, cc = hex(coul), fo = hex(mix(coul, '#1a0f2a', 0.5)), cl = hex(mix(coul, '#ffffff', 0.7));
+    let d;
+    try { d = x.getImageData(0, 0, c.width, c.height); } catch (e) { return (variantes[k] = im); } // page ouverte en file:// : pas de lecture de pixels
+    const p = d.data, cc = hex(coul), fo = hex(mix(coul, '#1a0f2a', 0.5)), cl = hex(mix(coul, '#ffffff', 0.7));
     for (let y = 0; y < c.height; y++) for (let xx = 0; xx < c.width; xx++) {
       const i = (y * c.width + xx) * 4;
       if (p[i + 3] < 10) continue;
@@ -211,6 +234,15 @@ const PA = (() => {
     }
     x.putImageData(d, 0, 0);
     void base;
+    c.cle = k; return (variantes[k] = c);
+  }
+  // image retournée (miroir gauche-droite), pour qu'un perso regarde de l'autre côté
+  function retourne(im) {
+    const k = (im.src || im.cle || '') + '<>';
+    if (variantes[k]) return variantes[k];
+    if (!pret(im)) return im;
+    const c = toile(im.width, im.height), x = c.getContext('2d');
+    x.translate(im.width, 0); x.scale(-1, 1); x.drawImage(im, 0, 0);
     c.cle = k; return (variantes[k] = c);
   }
   // silhouette d'une couleur (pour un contour de sélection)
@@ -257,11 +289,13 @@ const PA = (() => {
   const flash = (a, c = '255,255,230') => { effet.flash = [a, c]; };
 
   // termine l'image : agrandit, ajoute la lumière douce, les textes et les effets
-  function fin(g, { lumiere = true } = {}) {
+  function fin(g, { lumiere = true, flou = 0 } = {}) {
     const sh = effet.secousse ? Math.round((Math.random() * 2 - 1) * effet.secousse) * K : 0;
     g.save();
     g.imageSmoothingEnabled = false;
+    if (flou > 0.5) g.filter = `blur(${flou.toFixed(1)}px)`; // image floue (mise au point)
     g.drawImage(low, sh, 0, W, H);
+    g.filter = 'none';
     if (lumiere) {
       g.globalCompositeOperation = 'multiply';
       const v = cacheLumiere(g);
@@ -296,5 +330,29 @@ const PA = (() => {
     return lum;
   }
 
-  return { K, LW, LH, images, pret, debut, fond, spr, px, rect, disque, cercle, bois, boule, fenetre, bouton, forme, mix, recolore, reduit, motif, silhouette, sprContour, ombre, trait, texte, secousse, flash, fin, get l() { return l; } };
+  // ---- le héros commun (moustachu, casquette) ----
+  const HEROS = images('commun', ['heros', 'heros_course']);
+  // (x, y) = ses pieds ; run : avance de l'animation de course ; shirt/pants : autres couleurs ; k : échelle
+  function heros(x, y, o = {}) {
+    const { face = 1, rot = 0, run = null, shirt = '#ffd400', pants = '#7b2cbf', k = 1, alpha = 1 } = o;
+    let im = run != null && Math.floor(run / Math.PI) % 2 ? HEROS.heros_course : HEROS.heros;
+    if (shirt !== '#ffd400' || pants !== '#7b2cbf') im = recolore(im, [[45, 12, shirt], [295, 40, pants]], shirt + pants);
+    if (k !== 1) im = reduit(im, k);
+    const bob = run != null ? Math.round(Math.abs(Math.sin(run)) * 1) * K : 0;
+    spr(im, x, y - bob, { ay: 1, flip: HEROS_GAUCHE ? face > 0 : face < 0, rot, alpha });
+  }
+  const HEROS_GAUCHE = true; // l'image du héros le montre tourné vers la gauche
+
+  // ---- le chien commun (même chien dans tous les jeux), avec ses poses ----
+  const CHIEN = images('chien', ['debout', 'assis', 'couche', 'saute', 'patte', 'court']);
+  // (x, y) = ses pattes ; face : 1 = regarde à droite, -1 = à gauche
+  function chien(x, y, o = {}) {
+    const { pose = 'debout', face = 1, k = 1, t = 0, rot = 0 } = o;
+    let im = CHIEN[pose] || CHIEN.debout;
+    if (k !== 1) im = reduit(im, k);
+    const bob = pose === 'court' ? Math.round(Math.abs(Math.sin(t * 22)) * 2) * K : pose === 'debout' ? Math.round(Math.sin(t * 3)) * K : 0;
+    spr(im, x, y - bob, { ay: 1, flip: face < 0, rot });
+  }
+
+  return { K, LW, LH, HEROS, heros, CHIEN, chien, images, pret, debut, fond, spr, px, rect, disque, cercle, bois, boule, fenetre, bouton, forme, mix, recolore, reduit, motif, retourne, silhouette, sprContour, ombre, trait, texte, secousse, flash, fin, get l() { return l; } };
 })();

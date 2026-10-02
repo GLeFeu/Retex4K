@@ -41,11 +41,11 @@ const UI = {
   buildFilters() {
     const box = this.el('gallery-filters');
     box.innerHTML = '';
-    for (const key of ['tous', ...INPUT_ORDER]) {
-      const count = key === 'tous' ? Engine.games.length : Engine.games.filter(gm => gm.input === key).length;
+    for (const key of ['tous', ...INPUT_ORDER, 'duo']) {
+      const count = key === 'tous' ? Engine.games.length : key === 'duo' ? Engine.games.filter(gm => gm.duo).length : Engine.games.filter(gm => gm.input === key && !gm.duo).length;
       if (!count) continue;
       const b = document.createElement('button');
-      b.textContent = key === 'tous' ? `Tous (${count})` : `${INPUTS[key].icon} ${INPUTS[key].label} (${count})`;
+      b.textContent = key === 'tous' ? `Tous (${count})` : key === 'duo' ? `🤝 DUO (${count})` : `${INPUTS[key].icon} ${INPUTS[key].label} (${count})`;
       b.classList.toggle('on', this.filter === key);
       b.onclick = () => { this.filter = key; this.buildFilters(); this.buildGallery(); };
       box.appendChild(b);
@@ -67,7 +67,7 @@ const UI = {
     grid.innerHTML = '';
     this.previewQueue = [];
     const games = Engine.games
-      .filter(gm => this.filter === 'tous' || gm.input === this.filter)
+      .filter(gm => this.filter === 'tous' || (this.filter === 'duo' ? gm.duo : gm.input === this.filter && !gm.duo))
       .sort((a, b) => INPUT_ORDER.indexOf(a.input) - INPUT_ORDER.indexOf(b.input));
 
     for (const game of games) {

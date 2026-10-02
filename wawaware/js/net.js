@@ -95,7 +95,7 @@ const Net = {
         Engine.startMulti({ seed: m.graine, micro: m.micro, round: m.manche, at: this.toLocal(m.a) });
         this.emit('debut');
         break;
-      case 'manche': Engine.multiNextRound(m.manche, this.toLocal(m.a)); break;
+      case 'manche': Engine.multiNextRound(m.manche, this.toLocal(m.a), m.equipes); break;
       case 'bilan': Engine.multiResults(m.resultats); break;
       case 'fin': Engine.multiEnd(); this.emit('fin', m.classement); break;
       case 'parti': this.ghosts.delete(m.i); break;
@@ -116,7 +116,7 @@ const Net = {
     const me = this.me();
     if (!me || !me.vivant) return;
     this.lastSend = now;
-    this.send({ t: 'p', m: round, x: Math.round(pos.x), y: Math.round(pos.y), f: pos.f });
+    this.send({ t: 'p', m: round, x: Math.round(pos.x), y: Math.round(pos.y), f: pos.f }); // f : petite info en plus (clic, compteur…) pour les jeux en duo
   },
 
   // Position interpolée d'un fantôme, affichée avec DELAY ms de retard
@@ -136,6 +136,7 @@ const Net = {
     for (const [id, buf] of this.ghosts) {
       const pl = this.player(id);
       if (!pl || !pl.vivant) continue; // les éliminés ne sont plus montrés
+      if (game.duo && id === this.partnerId) continue; // jeu en duo : le jeu dessine lui-même le coéquipier
       if (this.lostRound.get(id) === round) continue; // a raté ce mini-jeu : son fantôme disparaît
       const pos = this.ghostPos(buf, round);
       if (!pos) continue;

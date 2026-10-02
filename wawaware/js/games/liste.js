@@ -17,6 +17,9 @@ const GAME_FILES = {
     // à la voix (reconnaissance de mots)
     'dresse', 'aupied', 'attrape', 'couleur', 'compte', 'animal', 'direction', 'calculvoix', 'chifoumi',
     'ouinon', 'magie', 'photo', 'contraire', 'lis'],
+  // jeux d'équipe (manches en duo, à 4 ou 6 joueurs) — commun.js d'abord : outils partagés
+  duo: ['commun', 'd_gateau', 'd_filet', 'd_rayon', 'd_trampoline', 'd_grue', 'd_souffleur', 'd_noir', 'd_boutons', 'd_volley',
+    'd_peinture', 'd_tandem', 'd_piano', 'd_code', 'd_pont', 'd_lampes', 'd_soulever', 'd_liftier', 'd_lance', 'd_clap', 'd_miroir'],
 };
 
 // Chargement dans l'ordre (document.write fonctionne aussi en ouvrant index.html directement)

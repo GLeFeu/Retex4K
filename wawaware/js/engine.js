@@ -163,8 +163,8 @@ const Engine = {
   playable() {
     // en multijoueur, la liste ne doit dépendre que des options de la salle (identique pour tous)
     // les essais de style (apercu) ne sont visibles que dans la galerie
-    if (this.multi) return this.games.filter(gm => !gm.apercu && (!gm.needsMic || this.multi.micro));
-    return this.games.filter(gm => !gm.apercu && this.canPlay(gm));
+    if (this.multi) return this.games.filter(gm => !gm.apercu && !gm.duo && (!gm.needsMic || this.multi.micro));
+    return this.games.filter(gm => !gm.apercu && !gm.duo && this.canPlay(gm));
   },
 
   // ----- multijoueur -----
@@ -174,9 +174,10 @@ const Engine = {
     UI.show(null);
   },
 
-  multiNextRound(round, at) {
+  multiNextRound(round, at, equipes) {
     if (!this.multi || round < this.multi.round) return;
     this.multi.round = round;
+    this.multi.equipes = { round, liste: equipes || null };
     this.multi.nextAt = at;
     this.multi.waiting = false;
   },
@@ -197,7 +198,7 @@ const Engine = {
 
   // ce que les autres voient de moi : la position de mon perso (si le jeu la donne) ou de ma souris
   ghostOf() {
-    if (this.cur.ghost) return this.cur.ghost(this.cs);
+    if (this.cur.ghost) return this.cur.ghost(this.cs, this.ctx);
     if (this.cur.input === 'souris' || this.cur.input === 'curseur') return { x: Input.x, y: Input.y };
     return null;
   },
@@ -223,6 +224,10 @@ const Engine = {
 
   pick() {
     if (this.practiceId) return this.games.find(gm => gm.id === this.practiceId);
+    if (this.multi && this.multi.duo) { // manche en duo : un jeu d'équipe
+      const list = this.games.filter(gm => gm.duo), n = list.length;
+      return shuffle(list.slice(), mulberry32((this.seed + 77 + Math.floor(this.played / n) * 1013) >>> 0))[this.played % n];
+    }
     if (this.multi) {
       // choix sans mémoire : le jeu de la manche N ne dépend que de la graine et de N,
       // donc un joueur un peu en retard retombe toujours sur le même jeu que les autres
@@ -259,12 +264,28 @@ const Engine = {
       heard() { return ' ' + this.heardWords().slice(this.skipWords).join(' ') + ' '; },
       clearHeard() { this.skipWords = this.heardWords().length; },
     };
+    if (game.duo) this.ctx.duo = this.duoContexte(game);
     try { this.cs = game.start(this.ctx); } catch (err) { this.cs = {}; this.gameCrash(err); }
     this.gameT = 0;
     this.lastTick = Math.ceil(game.duration);
     this.teleDezoom = !!this.snap && this.state !== 'speedup'; // après « PLUS VITE ! » on est déjà dans la chambre
     this.setState('instruction');
     Sfx.instruction();
+  },
+
+  // Jeu en duo : rôle (0 ou 1), nom/couleur du coéquipier, et sa position en direct (ou un robot en galerie)
+  duoContexte(game) {
+    const m = this.multi;
+    if (m && m.duo) {
+      const pid = m.duo.partenaire, pl = Net.player(pid) || {};
+      return {
+        role: m.duo.role, nom: pl.nom || 'AMI', couleur: pl.couleur || '#06d6a0', robot: false,
+        ami: () => { const buf = Net.ghosts.get(pid); return buf ? Net.ghostPos(buf, m.playing) : null; },
+      };
+    }
+    const role = game.roleSolo != null ? game.roleSolo : 0; // galerie : on joue avec un robot
+    const ctx = this.ctx;
+    return { role, nom: 'ROBOT', couleur: '#06d6a0', robot: true, ami: () => (game.bot ? game.bot(this.cs, ctx) : null) };
   },
 
   finish(win, silent = false) {
@@ -403,6 +424,10 @@ const Engine = {
             this.level = Math.floor(m.round / GAMES_PER_LEVEL);
             this.speed = Math.min(2.2, 1 + this.level * 0.15);
             m.myResult = null;
+            const eq = m.equipes && m.equipes.round === m.round && m.equipes.liste;
+            const team = eq && eq.find(t => t.includes(Net.id));
+            m.duo = team ? { partenaire: team[0] === Net.id ? team[1] : team[0], role: team.indexOf(Net.id) } : null;
+            Net.partnerId = m.duo ? m.duo.partenaire : null;
             // en retard (onglet en arrière-plan, ordi lent…) : on raccourcit la consigne puis le jeu
             m.late = Math.max(0, (performance.now() - m.nextAt) / 1000);
             this.loadNext();
@@ -444,7 +469,7 @@ const Engine = {
         if (this.multi) {
           // en multijoueur la manche dure jusqu'au bout pour tout le monde
           const m = this.multi;
-          if (m.myResult !== false) {
+          if (m.myResult !== false || m.duo) { // en duo, mon coéquipier a toujours besoin de ma position
             try { Net.sendGhost(m.playing, this.ghostOf()); } catch (err) { this.report('fantôme (envoi)', err); }
           }
           if (m.myResult === null && (this.cs.won || this.cs.lost)) {
@@ -749,6 +774,7 @@ const Engine = {
       titre: this.practiceId ? this.cur && this.cur.name.toUpperCase().slice(0, 22) : String(this.played + 1).padStart(3, '0'),
       vies: this.practiceId ? null : vies, viesMax, perdu: this.lastWin === false && !this.practiceId,
       numero: this.played + 1,
+      duo: this.cur && this.cur.duo && this.ctx && this.ctx.duo ? { nom: this.ctx.duo.nom, couleur: this.ctx.duo.couleur } : null,
     };
   },
 

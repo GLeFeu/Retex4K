@@ -119,6 +119,13 @@ const Tele = (() => {
       else Consigne.mouse(g, 0, 0, game.input, t, '#ffe14d', /CLIC DROIT/.test(game.hint || ''));
       g.restore();
     }
+    if (o.duo && !o.message) { // manche en duo : avec qui je joue
+      g.save();
+      g.fillStyle = '#0b1a5c'; g.fillRect(V.w / 2 - 120, 22, 240, 46);
+      g.fillStyle = o.duo.couleur; g.fillRect(V.w / 2 - 116, 26, 232, 38);
+      g.restore();
+      Draw.text(g, 'DUO · ' + o.duo.nom.toUpperCase(), V.w / 2, 46, 26, '#fff', '#0b1a5c');
+    }
     if (o.vies != null) {
       const n = o.viesMax, sp = Math.min(40, 320 / n);
       for (let i = 0; i < n; i++) {
