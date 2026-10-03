@@ -1,33 +1,37 @@
-// DUO (curseur) : volley à deux. Chacun a sa raquette dans sa moitié, il ne faut pas laisser tomber la balle.
+// DUO (curseur) : le panier volant. L'un tient la RAQUETTE en bas et fait rebondir la balle,
+// l'autre déplace le CERCEAU pour que la balle passe dedans en retombant. 3 paniers.
 Engine.register({
-  id: 'd_volley', name: 'Le volley', icon: '🏐', instruction: 'PAS PAR TERRE !', input: 'curseur',
-  hint: 'CHACUN SA MOITIÉ, FAITES 6 PASSES', duration: 8, cursor: 'none', duo: true, NEED: 6, PY: 460,
+  id: 'd_volley', name: 'Le panier volant', icon: '🏐', instruction: 'MARQUEZ !', input: 'curseur',
+  hint: 'L\'UN FAIT REBONDIR, L\'AUTRE PLACE LE CERCEAU', duration: 9, cursor: 'none', duo: true, NEED: 3, PY: 470,
   IM: PA.images('d_volley', ['fond', 'ballon']),
 
-  start(c) { return { t: 0, x: 300 + c.rng() * 360, y: 80, vx: (c.rng() < 0.5 ? -1 : 1) * 150, vy: -260, passes: 0, rot: 0 }; },
-  ghost(s, c) { return { x: c.input.x, y: c.input.y }; },
-  bot(s, c) { // robot : suit la balle quand elle est dans sa moitié
-    const b = s.bot || (s.bot = { x: 720, y: this.PY });
-    const sienne = c.duo.role === 0 ? s.x > W / 2 : s.x < W / 2;
-    return Duo.suivre(b, sienne ? s.x : (c.duo.role === 0 ? 720 : 240), this.PY, 900, Duo.dtRobot(s));
+  start(c) { return { t: 0, x: 300 + c.rng() * 360, y: 80, vx: (c.rng() < 0.5 ? -1 : 1) * 120, vy: -260, paniers: 0, rot: 0, flash: 0 }; },
+  ghost(s, c) { return Duo.fantome(s, c); },
+  bot(s, c) {
+    const b = s.bot || (s.bot = { x: 480, y: c.duo.role === 1 ? this.PY : 220 }), dt = Duo.dtRobot(s);
+    if (c.duo.role === 1) return Duo.suivre(b, s.x + s.vx * 0.15, this.PY, 900, dt); // le robot tient la raquette
+    // le robot place le cerceau sur le chemin de la balle quand elle retombe
+    const tps = s.vy < 0 ? -s.vy / 520 + 0.25 : 0.25;
+    return Duo.suivre(b, clamp(s.x + s.vx * tps, 80, W - 80), 230, 500, dt);
   },
 
   update(s, dt, c) {
-    s.t += dt;
-    const [A, B] = Duo.paire(c, { x: 240, y: this.PY }, { x: 720, y: this.PY });
-    s.ax = clamp(A.x, 60, W / 2 - 50); s.bx = clamp(B.x, W / 2 + 50, W - 60); // chacun reste dans sa moitié
-    if (s.lost) return;
+    s.t += dt; s.flash = Math.max(0, s.flash - dt);
+    const [A, B] = Duo.paire(c, { x: 480, y: this.PY }, { x: 480, y: 220 });
+    s.A = A; s.B = B;
+    s.rx = clamp(A.x, 70, W - 70); s.hx = clamp(B.x, 70, W - 70); s.hy = clamp(B.y, 90, 380);
+    if (s.lost || s.won) return;
     const py = s.y;
     s.vy += 520 * dt; s.x += s.vx * dt; s.y += s.vy * dt; s.rot += s.vx * dt * 0.02;
-    if (s.x < 30 || s.x > W - 30) s.vx = -s.vx;
-    if (Math.abs(s.x - W / 2) < 12 && s.y > 330) s.vx = -s.vx; // le filet
-    for (const rx of [s.ax, s.bx]) {
-      if (s.vy > 0 && py <= this.PY - 18 && s.y >= this.PY - 18 && Math.abs(s.x - rx) < 70) {
-        s.y = this.PY - 18; s.vy = -580;
-        s.vx = (rx < W / 2 ? 1 : -1) * (170 + Math.abs(s.x - rx) * 2.2); // renvoyée vers l'autre moitié
-        s.passes++; c.sfx.tone(500, 0.05, 'square', 0.1);
-        if (s.passes >= this.NEED) s.won = true;
-      }
+    if (s.x < 30 || s.x > W - 30) { s.vx = -s.vx; s.x = clamp(s.x, 30, W - 30); }
+    // la raquette renvoie la balle (l'endroit touché donne la direction)
+    if (s.vy > 0 && py <= this.PY - 18 && s.y >= this.PY - 18 && Math.abs(s.x - s.rx) < 70) {
+      s.y = this.PY - 18; s.vy = -600; s.vx = clamp((s.x - s.rx) * 5, -260, 260); c.sfx.tone(500, 0.05, 'square', 0.1);
+    }
+    // panier : la balle traverse le cerceau en descendant
+    if (s.vy > 0 && py <= s.hy && s.y >= s.hy && Math.abs(s.x - s.hx) < 46) {
+      s.paniers++; s.flash = 0.4; c.sfx.tone(900, 0.12, 'square', 0.1);
+      if (s.paniers >= this.NEED) s.won = true;
     }
     if (s.y > H + 20 && !s.won) { s.lost = true; c.sfx.hit(); }
   },
@@ -36,19 +40,19 @@ Engine.register({
     const l = PA.debut(g, this.IM, '#ffd6a5');
     if (!l) return;
     PA.fond(this.IM.fond);
-    PA.rect(W / 2 - 4, 326, 8, 164, '#1a1222'); PA.rect(W / 2 - 2, 326, 4, 164, '#8a5a3a'); // poteau du filet
-    for (let y = 336; y < 420; y += 9) PA.rect(W / 2 - 12, y, 24, 3, 'rgba(26,18,34,0.55)');
-    for (let x = -12; x <= 12; x += 9) PA.rect(W / 2 + x, 330, 3, 90, 'rgba(26,18,34,0.55)');
-    PA.rect(W / 2 - 15, 324, 30, 8, '#f8f4ea');
     const [moiCoul, amiCoul] = Duo.couleurs(c);
-    [[s.ax ?? 240, 0], [s.bx ?? 720, 1]].forEach(([x, role]) => {
-      const col = role === c.duo.role ? moiCoul : amiCoul;
-      PA.forme((xx) => xx.roundRect(x - 70, this.PY - 8, 140, 16, 8), col.length === 7 ? col : '#ffd400');
-    });
+    const hx = s.hx ?? 480, hy = s.hy ?? 220;
+    // le cerceau (arrière, puis la balle, puis l'avant)
+    PA.forme((x) => x.ellipse(hx, hy, 52, 14, 0, Math.PI, Math.PI * 2), '#ef476f', 6);
     PA.ombre(s.x, 500, 20, 5, 0.3);
     PA.spr(this.IM.ballon, s.x, s.y, { rot: s.rot });
-    PA.texte(`${s.passes} / ${this.NEED}`, W / 2, 50, 44);
-    PA.texte(c.duo.role === 0 ? 'TOI : À GAUCHE' : 'TOI : À DROITE', W / 2, 95, 22, '#ffd400');
+    PA.forme((x) => x.ellipse(hx, hy, 52, 14, 0, 0, Math.PI), '#ef476f', 6);
+    for (let k = -2; k <= 2; k++) PA.trait(hx + k * 18, hy + 10, hx + k * 10, hy + 46, 'rgba(255,255,255,0.8)'); // le filet
+    const rx = s.rx ?? 480, col = c.duo.role === 0 ? moiCoul : amiCoul;
+    PA.forme((xx) => xx.roundRect(rx - 70, this.PY - 8, 140, 16, 8), col.length === 7 ? col : '#ffd400');
+    PA.texte(`${s.paniers} / ${this.NEED}`, W - 90, 50, 44, s.flash ? '#06d6a0' : '#f8f4ea');
+    PA.texte(c.duo.role === 0 ? 'TOI : LA RAQUETTE' : 'TOI : LE CERCEAU', W / 2, 40, 24, '#ffd400');
+    Duo.mains(c, s.A || { x: 480, y: this.PY }, s.B || { x: 480, y: 220 });
     PA.fin(g);
   },
 });

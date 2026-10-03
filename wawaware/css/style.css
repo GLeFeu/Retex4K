@@ -112,6 +112,8 @@ button.multi { background: #3a86ff; }
 }
 #room-players li.me { background: #fff3b0; }
 #room-players .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #1a1a1a; flex-shrink: 0; }
+#room-players .btn-equipe { margin-left: 6px; padding: 2px 8px; font-size: 0.7em; }
+#room-players .btn-equipe.on { background: #06d6a0; }
 #room-players .tagline { margin-left: auto; font-family: system-ui, sans-serif; font-size: 0.7em; opacity: 0.7; }
 #podium-list { list-style: none; display: flex; flex-direction: column; gap: 8px; width: min(520px, 90%); max-height: 60%; overflow-y: auto; }
 #podium-list li {

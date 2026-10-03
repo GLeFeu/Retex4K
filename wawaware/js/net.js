@@ -92,7 +92,7 @@ const Net = {
       case 'debut':
         this.ghosts.clear();
         this.lostRound.clear();
-        Engine.startMulti({ seed: m.graine, micro: m.micro, round: m.manche, at: this.toLocal(m.a) });
+        Engine.startMulti({ seed: m.graine, micro: m.micro, round: m.manche, at: this.toLocal(m.a), equipes: m.equipes });
         this.emit('debut');
         break;
       case 'manche': Engine.multiNextRound(m.manche, this.toLocal(m.a), m.equipes); break;

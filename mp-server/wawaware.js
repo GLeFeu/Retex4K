@@ -33,8 +33,8 @@ module.exports = function creerWawaWare() {
 
   function roomInfo(room) {
     return {
-      t: 'salle', code: room.code, hote: room.hostId, etat: room.state, micro: room.micro, coeurs: room.lives, manche: room.round,
-      joueurs: room.players.map(p => ({ id: p.id, nom: p.name, couleur: p.color, vies: p.lives, score: p.score, vivant: p.alive, enJeu: p.inGame })),
+      t: 'salle', code: room.code, hote: room.hostId, etat: room.state, micro: room.micro, coeurs: room.lives, manche: room.round, duo: room.duo,
+      joueurs: room.players.map(p => ({ id: p.id, nom: p.name, couleur: p.color, vies: p.lives, score: p.score, vivant: p.alive, enJeu: p.inGame, partenaire: p.partner || null })),
     };
   }
 
@@ -45,7 +45,7 @@ module.exports = function creerWawaWare() {
     let room = code && rooms.get(code);
     if (!room) {
       if (!code || code.length !== 4) code = newCode();
-      room = { code, players: [], hostId: p.id, state: 'salon', micro: false, lives: MAX_LIVES, round: 0, seed: 0, results: new Map(), timer: null, startCount: 0, version: p.version };
+      room = { code, players: [], hostId: p.id, state: 'salon', micro: false, lives: MAX_LIVES, duo: 3, round: 0, seed: 0, results: new Map(), timer: null, startCount: 0, version: p.version };
       rooms.set(code, room);
     }
     if (room.players.length >= MAX_PLAYERS) return send(p, { t: 'erreur', texte: 'Salle pleine.' });
@@ -68,7 +68,7 @@ module.exports = function creerWawaWare() {
     const room = p.room;
     if (!room) return;
     room.players = room.players.filter(o => o !== p);
-    p.room = null;
+    p.room = null; p.partner = null;
     if (!room.players.length) { clearTimeout(room.timer); rooms.delete(room.code); return; }
     if (room.hostId === p.id) room.hostId = room.players[0].id;
     broadcast(room, { t: 'parti', id: p.id });
@@ -85,22 +85,28 @@ module.exports = function creerWawaWare() {
     room.results = new Map();
     for (const p of room.players) { p.lives = room.lives; p.score = 0; p.alive = true; p.inGame = true; p.outRound = -1; }
     room.startCount = room.players.length;
-    broadcast(room, { t: 'debut', graine: room.seed, micro: room.micro, manche: 0, a: Date.now() + 1500 });
+    room.teams = makeTeams(room); // la première manche peut déjà être en duo
+    broadcast(room, { t: 'debut', graine: room.seed, micro: room.micro, manche: 0, a: Date.now() + 1500, equipes: room.teams });
     broadcast(room, roomInfo(room));
   }
 
   const alivePlayers = (room) => room.players.filter(p => p.inGame && p.alive);
 
-  // Manches en DUO : une manche sur trois, s'il reste un nombre pair de joueurs (4, 6…).
-  // Les équipes sont tirées au hasard ; si l'un des deux réussit, l'équipe réussit.
+  // Manches en DUO : selon le réglage de l'hôte (room.duo = une manche sur N, 0 = jamais), s'il reste
+  // un nombre pair de joueurs. Les partenaires choisis l'un l'autre dans le salon restent ensemble ;
+  // les autres sont tirés au hasard. Si l'un des deux réussit, l'équipe réussit.
   function makeTeams(room) {
-    const alive = alivePlayers(room);
-    if (alive.length < 4 || alive.length % 2 || room.round % 3 !== 2) return null;
+    const alive = alivePlayers(room), n = room.duo || 0;
+    if (!n || alive.length < 2 || alive.length % 2 || room.round % n !== n - 1) return null;
     let a = (room.seed + room.round * 7919) >>> 0;
     const rnd = () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
-    const ids = alive.map(p => p.id).sort((x, y) => x - y);
+    const teams = [], pris = new Set();
+    for (const p of alive) { // d'abord les équipes choisies (les deux se sont choisis)
+      const q = alive.find(o => o.id === p.partner && o.partner === p.id);
+      if (q && !pris.has(p.id) && !pris.has(q.id)) { teams.push([p.id, q.id].sort((x, y) => x - y)); pris.add(p.id); pris.add(q.id); }
+    }
+    const ids = alive.map(p => p.id).filter(id => !pris.has(id)).sort((x, y) => x - y);
     for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
-    const teams = [];
     for (let i = 0; i < ids.length; i += 2) teams.push([ids[i], ids[i + 1]]);
     return teams;
   }
@@ -158,6 +164,13 @@ module.exports = function creerWawaWare() {
         joinRoom(p, m.salle);
         break;
       case 'quitter': leaveRoom(p); break;
+      case 'partenaire': // le joueur choisit avec qui il veut faire équipe (ou annule : null)
+        if (room) {
+          const id = Number(m.id);
+          p.partner = room.players.some(o => o.id === id && o !== p) ? id : null;
+          broadcast(room, roomInfo(room));
+        }
+        break;
       case 'couleur': // couleur de curseur choisie par le joueur
         if (validColor(m.couleur)) {
           p.wantedColor = m.couleur.toLowerCase();
@@ -167,6 +180,7 @@ module.exports = function creerWawaWare() {
       case 'options':
         if (room && room.hostId === p.id && room.state === 'salon') {
           if ('micro' in m) room.micro = !!m.micro;
+          if ('duo' in m) room.duo = [0, 1, 2, 3, 4].includes(Number(m.duo)) ? Number(m.duo) : 3; // manches en duo : une sur N
           if ('coeurs' in m) room.lives = Math.max(1, Math.min(9, Math.round(Number(m.coeurs)) || MAX_LIVES)); // nombre de cœurs choisi par l'hôte
           for (const o of room.players) o.lives = room.lives;
           broadcast(room, roomInfo(room));

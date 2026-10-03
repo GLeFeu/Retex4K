@@ -168,9 +168,9 @@ const Engine = {
   },
 
   // ----- multijoueur -----
-  startMulti({ seed, micro, round, at }) {
+  startMulti({ seed, micro, round, at, equipes }) {
     this.startRun({ seed });
-    this.multi = { micro, round, playing: round, late: 0, nextAt: at, myResult: null, lastResults: {}, waiting: false };
+    this.multi = { micro, round, playing: round, late: 0, nextAt: at, myResult: null, lastResults: {}, waiting: false, equipes: { round, liste: equipes || null } };
     UI.show(null);
   },
 
@@ -283,7 +283,8 @@ const Engine = {
         ami: () => { const buf = Net.ghosts.get(pid); return buf ? Net.ghostPos(buf, m.playing) : null; },
       };
     }
-    const role = game.roleSolo != null ? game.roleSolo : 0; // galerie : on joue avec un robot
+    // galerie : on joue avec un robot, et on change de rôle à chaque essai (pour essayer les deux)
+    const role = game.roleSolo != null ? game.roleSolo : (this.roleGalerie = this.roleGalerie === 0 ? 1 : 0);
     const ctx = this.ctx;
     return { role, nom: 'ROBOT', couleur: '#06d6a0', robot: true, ami: () => (game.bot ? game.bot(this.cs, ctx) : null) };
   },

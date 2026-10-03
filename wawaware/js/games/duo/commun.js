@@ -19,6 +19,26 @@ const Duo = {
     return Math.max(0, n - avant);
   },
 
+  // combien de fois le joueur qui a ce rôle vient de cliquer (ou d'appuyer sur la touche) ? (0 = pas du tout)
+  // moi : mon clic ; lui : son compteur f.n a augmenté. ⚠ ghost() doit envoyer f.n = s.mesClics
+  clicDe(s, c, role, touche = null) {
+    if (c.duo.role === role) {
+      if (touche ? c.input.wasPressed(touche) : c.input.clicked) { s.mesClics = (s.mesClics || 0) + 1; return 1; }
+      return 0;
+    }
+    return this.nouveauxClics(s, c); // nombre d'appuis du coéquipier depuis la dernière fois
+  },
+  // le joueur qui a ce rôle tient-il le bouton (ou la touche) ? ⚠ ghost() doit envoyer f.d
+  tenuDe(c, role, touche = null) {
+    if (c.duo.role === role) return touche ? c.input.keys.has(touche) : c.input.down;
+    const a = c.duo.ami();
+    return !!(a && a.f && a.f.d);
+  },
+  // mes infos à envoyer (position + clics + bouton tenu)
+  fantome(s, c, touche = null, plus = {}) {
+    return { x: c.input.x, y: c.input.y, f: { n: s.mesClics || 0, d: touche ? c.input.keys.has(touche) : c.input.down, ...plus } };
+  },
+
   // main (curseur) en pixels, à la couleur du joueur, avec son nom au-dessus
   main(p, coul, nom) {
     PA.forme((x) => { x.moveTo(p.x, p.y); x.lineTo(p.x, p.y + 26); x.lineTo(p.x + 7, p.y + 19); x.lineTo(p.x + 12, p.y + 30); x.lineTo(p.x + 17, p.y + 28); x.lineTo(p.x + 12, p.y + 17); x.lineTo(p.x + 21, p.y + 17); x.closePath(); }, coul.length === 7 ? coul : '#ffd400');

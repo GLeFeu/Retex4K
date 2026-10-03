@@ -1,37 +1,51 @@
-// DUO (curseur) : un filet tendu entre les deux souris pour rattraper les œufs
+// DUO (curseur + clic) : les œufs du poulailler. L'un tient le PANIER et rattrape les bons œufs,
+// l'autre CLIQUE sur les œufs pourris (verts) pour les éclater avant qu'ils tombent dans le panier.
 Engine.register({
-  id: 'd_filet', name: 'Le filet', icon: '🥚', instruction: 'RATTRAPEZ !', input: 'curseur',
-  hint: 'LE FILET VA DE TA SOURIS À CELLE DE TON AMI', duration: 7, cursor: 'none', duo: true, NEED: 5,
+  id: 'd_filet', name: 'Les œufs pourris', icon: '🥚', instruction: 'TRIEZ LES ŒUFS !', input: 'curseur',
+  hint: 'L\'UN RATTRAPE LES BONS ŒUFS, L\'AUTRE ÉCLATE LES POURRIS', duration: 8, cursor: 'none', duo: true, NEED: 5, PY: 470,
   IM: PA.images('d_filet', ['fond', 'poule']),
 
   start(c) {
     const eggs = [];
-    for (let i = 0; i < 9; i++) eggs.push({ x: 120 + c.rng() * 720, t: 0.4 + i * 0.62 + c.rng() * 0.2, y: 160, vy: 0, etat: 0 });
+    for (let i = 0; i < 11; i++) {
+      const pourri = i % 3 === 1; // un œuf sur trois est pourri
+      eggs.push({ x: 150 + Math.floor(c.rng() * 4) * 220, t: 0.6 + i * 0.6, y: 170, vy: 0, etat: 0, pourri });
+    }
     return { t: 0, eggs, got: 0, broken: 0 };
   },
-  ghost(s, c) { return { x: c.input.x, y: c.input.y }; },
-  bot(s, c) { // le robot se met à côté du prochain œuf
-    const b = s.bot || (s.bot = { x: 700, y: 420 });
-    const next = s.eggs.find(e => e.etat === 0 && s.t > e.t - 0.6);
-    const cx = next ? next.x + (c.input.x < next.x ? 70 : -70) : 700;
-    return Duo.suivre(b, cx, 420, 650, Duo.dtRobot(s));
+  ghost(s, c) { return Duo.fantome(s, c); },
+  bot(s, c) {
+    const b = s.bot || (s.bot = { x: 480, y: c.duo.role === 0 ? 300 : this.PY, n: 0, tc: 0 }), dt = Duo.dtRobot(s);
+    const tombent = s.eggs.filter(e => e.etat === 0 && s.t >= e.t);
+    if (c.duo.role === 1) { // le robot tient le panier : sous le bon œuf le plus bas
+      const bon = tombent.filter(e => !e.pourri).sort((p, q) => q.y - p.y)[0];
+      return Duo.suivre(b, bon ? bon.x : 480, this.PY, 700, dt);
+    }
+    // le robot éclate les pourris : il vise le plus bas et clique quand il est dessus
+    const p = tombent.filter(e => e.pourri).sort((u, v) => v.y - u.y)[0];
+    if (p) { Duo.suivre(b, p.x, p.y, 900, dt); if (Math.hypot(b.x - p.x, b.y - p.y) < 20 && s.t - b.tc > 0.25) { b.n++; b.tc = s.t; } }
+    return { x: b.x, y: b.y, f: { n: b.n } };
   },
 
   update(s, dt, c) {
     s.t += dt;
-    const [A, B] = Duo.paire(c, { x: 300, y: 420 }, { x: 600, y: 420 });
-    s.A = A; s.B = B;
+    const [A, B] = Duo.paire(c, { x: 480, y: this.PY }, { x: 480, y: 300 });
+    s.A = A; s.B = B; s.bx = clamp(A.x, 80, W - 80);
+    if (s.won || s.lost) return;
+    const clic = !c.over && Duo.clicDe(s, c, 1);
+    if (clic) c.sfx.swat();
     for (const e of s.eggs) {
       if (e.etat !== 0 || s.t < e.t) continue;
+      if (clic && e.pourri && Math.hypot(B.x - e.x, B.y - e.y) < 36) { e.etat = 3; c.sfx.splat(); continue; } // éclaté en l'air
       const py = e.y;
-      e.vy += 500 * dt; e.y += e.vy * dt;
-      // a-t-il traversé le filet ?
-      const lo = Math.min(A.x, B.x), hi = Math.max(A.x, B.x);
-      if (e.x > lo && e.x < hi && !s.won && !s.lost) {
-        const k = (e.x - A.x) / ((B.x - A.x) || 1), ny = A.y + (B.y - A.y) * k;
-        if (py <= ny && e.y >= ny) { e.etat = 1; s.got++; c.sfx.tone(700, 0.06, 'square', 0.1); if (s.got >= this.NEED) s.won = true; continue; }
+      e.vy += (e.pourri ? 260 : 420) * dt; e.y += e.vy * dt;
+      if (py <= this.PY - 20 && e.y >= this.PY - 20 && Math.abs(e.x - s.bx) < 70) { // dans le panier
+        if (e.pourri) { e.etat = 4; s.lost = true; s.raison = 'POUAH, UN ŒUF POURRI !'; c.sfx.hit(); return; }
+        e.etat = 1; s.got++; c.sfx.tone(700, 0.06, 'square', 0.1);
+        if (s.got >= this.NEED) s.won = true;
+        continue;
       }
-      if (e.y > 500) { e.etat = 2; s.broken++; c.sfx.splat(); if (s.broken >= 2 && !s.won) s.lost = true; }
+      if (e.y > 510) { e.etat = 2; if (!e.pourri) { s.broken++; c.sfx.hit(); if (s.broken >= 2) { s.lost = true; s.raison = 'DEUX ŒUFS CASSÉS !'; } } }
     }
   },
 
@@ -41,18 +55,23 @@ Engine.register({
     PA.fond(this.IM.fond);
     for (let i = 0; i < 4; i++) PA.spr(this.IM.poule, 150 + i * 220, 166, { ay: 1 });
     PA.bois(0, 164, W, 12);
-    const A = s.A || { x: 300, y: 420 }, B = s.B || { x: 600, y: 420 };
-    // filet : maille en pixels entre les deux mains
-    const n = Math.max(2, Math.round(Math.hypot(B.x - A.x, B.y - A.y) / 24));
-    for (let i = 0; i <= n; i++) { const k = i / n, x = A.x + (B.x - A.x) * k, y = A.y + (B.y - A.y) * k + Math.sin(k * Math.PI) * 18; PA.disque(x, y, 3, '#f2eee8'); if (i < n) PA.trait(x, y, A.x + (B.x - A.x) * (i + 1) / n, A.y + (B.y - A.y) * (i + 1) / n + Math.sin((i + 1) / n * Math.PI) * 18, '#d8d2c4'); }
     for (const e of s.eggs) {
       if (e.etat === 1 || s.t < e.t) continue;
-      if (e.etat === 2) { PA.forme((x) => x.ellipse(e.x, 505, 34, 8, 0, 0, Math.PI * 2), '#f6efd9'); PA.disque(e.x, 503, 9, '#ffb703'); continue; }
-      PA.forme((x) => x.ellipse(e.x, e.y, 14, 18, 0, 0, Math.PI * 2), '#f6efd9');
+      const coq = e.pourri ? '#8ab34a' : '#f6efd9';
+      if (e.etat === 3) { for (let i = 0; i < 6; i++) PA.disque(e.x + Math.cos(i) * 20, e.y + Math.sin(i) * 20, 4, '#6a8a2a'); continue; }
+      if (e.etat === 2) { PA.forme((x) => x.ellipse(e.x, 512, 30, 7, 0, 0, Math.PI * 2), coq); PA.disque(e.x, 510, 8, e.pourri ? '#4a6a1a' : '#ffb703'); continue; }
+      PA.forme((x) => x.ellipse(e.x, e.y, 14, 18, 0, 0, Math.PI * 2), coq);
+      if (e.pourri) { PA.px((e.x - 4) / 3, (e.y - 5) / 3, '#4a6a1a'); PA.px((e.x + 5) / 3, (e.y + 3) / 3, '#4a6a1a'); PA.texte('~', e.x, e.y - 34, 22, '#8ab34a'); }
     }
+    // le panier
+    const bx = s.bx ?? 480, y = this.PY;
+    PA.forme((x) => { x.moveTo(bx - 72, y - 22); x.lineTo(bx + 72, y - 22); x.lineTo(bx + 56, y + 26); x.lineTo(bx - 56, y + 26); x.closePath(); }, '#b07a3a');
+    for (let k = -1; k <= 1; k++) PA.rect(bx - 62, y - 8 + k * 12, 124, 3, '#7a5228');
     PA.texte(`${s.got} / ${this.NEED}`, W - 90, 215, 40);
     if (s.broken) PA.texte('✕'.repeat(s.broken), 90, 215, 40, '#ef233c');
-    Duo.mains(c, A, B);
+    if (s.lost) PA.texte(s.raison, W / 2, 300, 40, '#ef233c');
+    PA.texte(c.duo.role === 0 ? 'TOI : LE PANIER (BONS ŒUFS)' : 'TOI : CLIQUE LES ŒUFS POURRIS', W / 2, 40, 24, '#ffd400');
+    Duo.mains(c, s.A || { x: 480, y: this.PY }, s.B || { x: 480, y: 300 });
     PA.fin(g);
   },
 });

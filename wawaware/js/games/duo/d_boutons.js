@@ -1,47 +1,58 @@
-// DUO (souris) : chacun a son gros bouton, il faut appuyer EN MÊME TEMPS (3 fois)
+// DUO (souris) : le démarrage de la machine. L'un TIENT LA CLÉ (clic maintenu) : l'aiguille du compteur
+// ne bouge que tant qu'il la tient ; l'autre appuie sur START quand l'aiguille est dans la zone verte. 3 fois.
 Engine.register({
-  id: 'd_boutons', name: 'En même temps', icon: '🔴', instruction: 'ENSEMBLE !', input: 'souris',
-  hint: 'CLIQUEZ VOS BOUTONS AU MÊME MOMENT', duration: 7, cursor: 'none', duo: true, NEED: 3, FENETRE: 0.35,
+  id: 'd_boutons', name: 'Le démarrage', icon: '🔴', instruction: 'DÉMARREZ !', input: 'souris',
+  hint: 'L\'UN TIENT LA CLÉ, L\'AUTRE APPUIE DANS LE VERT', duration: 8, cursor: 'none', duo: true, NEED: 3,
   IM: PA.images('d_boutons', ['fond', 'bouton']),
 
-  start(c) { return { t: 0, clics: 0, moiT: -9, amiT: -9, ok: 0, flash: 0, rate: 0 }; },
-  ghost(s, c) { return { x: c.input.x, y: c.input.y, f: { n: s.clics } }; },
-  bot(s, c) { // robot : appuie en rythme, toutes les 1,2 s
-    const b = s.bot || (s.bot = { x: 700, y: 330, n: 0, prochain: 1 });
-    if (s.t >= b.prochain) { b.n++; b.prochain += 1.2; }
-    return { x: 700, y: 330 + (s.t - b.prochain + 1.2 < 0.15 ? 10 : 0), f: { n: b.n } };
+  start(c) { return { t: 0, aig: 0, tenu: 0, ok: 0, flash: 0, rate: 0, zone: 0.55 + c.rng() * 0.3 }; },
+  ghost(s, c) { return Duo.fantome(s, c); },
+  bot(s, c) {
+    if (c.duo.role === 1) return { x: 280, y: 330, f: { d: true } }; // le robot tient la clé
+    const b = s.bot || (s.bot = { n: 0, tc: 0 }); // le robot appuie quand l'aiguille est dans le vert
+    if (Math.abs(s.aig - s.zone) < 0.05 && s.t - b.tc > 0.5) { b.n++; b.tc = s.t; }
+    return { x: 680, y: 330, f: { n: b.n } };
   },
-  btnX(role) { return role === 0 ? 280 : 680; },
 
   update(s, dt, c) {
     s.t += dt;
     s.flash = Math.max(0, s.flash - dt); s.rate = Math.max(0, s.rate - dt);
-    const [A, B] = Duo.paire(c, { x: 280, y: 330 }, { x: 680, y: 330 });
-    s.A = A; s.B = B;
     if (s.won || c.over) return;
-    const mx = this.btnX(c.duo.role);
-    if (c.input.clicked && Math.abs(c.input.x - mx) < 110 && Math.abs(c.input.y - 330) < 100) { s.clics++; s.moiT = s.t; c.sfx.tone(300, 0.05, 'square', 0.08); }
-    if (Duo.nouveauxClics(s, c)) s.amiT = s.t - (c.duo.robot ? 0 : Net.DELAY / 1000);
-    if (s.moiT > -9 && s.amiT > -9) {
-      if (Math.abs(s.moiT - s.amiT) <= this.FENETRE) { s.ok++; s.flash = 0.4; s.moiT = s.amiT = -9; c.sfx.tone(800, 0.1, 'square', 0.1); if (s.ok >= this.NEED) s.won = true; }
-      else if (s.t - Math.min(s.moiT, s.amiT) > this.FENETRE + 0.15) { s.rate = 0.4; if (s.moiT < s.amiT) s.moiT = -9; else s.amiT = -9; }
+    s.cle = Duo.tenuDe(c, 0);
+    if (s.cle) { s.tenu += dt; s.aig = 0.5 - 0.5 * Math.cos(s.tenu * 2.6); } // l'aiguille balance de 0 à 1
+    else { s.tenu = 0; s.aig = Math.max(0, s.aig - dt * 2); }
+    if (Duo.clicDe(s, c, 1)) {
+      if (Math.abs(s.aig - s.zone) < 0.09) {
+        s.ok++; s.flash = 0.4; c.sfx.tone(500 + s.ok * 150, 0.12, 'square', 0.1);
+        s.zone = 0.25 + ((s.ok * 0.37 + s.zone) % 0.6); // la zone change de place
+        if (s.ok >= this.NEED) s.won = true;
+      } else { s.rate = 0.4; c.sfx.hit(); }
     }
   },
 
   draw(s, g, c) {
-    const l = PA.debut(g, this.IM, '#1a1a2e');
+    const l = PA.debut(g, this.IM, '#2a2440');
     if (!l) return;
     PA.fond(this.IM.fond);
-    const [moiCoul, amiCoul] = Duo.couleurs(c);
-    for (const role of [0, 1]) {
-      const x = this.btnX(role), moi = role === c.duo.role, appui = moi ? s.t - s.moiT < 0.15 : s.t - s.amiT < 0.15;
-      PA.spr(this.IM.bouton, x, 430, { ay: 1, sy: appui ? 0.85 : 1 });
-      PA.texte(moi ? 'TOI' : c.duo.nom, x, 470, 26, moi ? moiCoul : amiCoul);
-    }
-    for (let i = 0; i < this.NEED; i++) { PA.disque(W / 2 - 40 + i * 40, 70, 14, '#1a1222'); PA.disque(W / 2 - 40 + i * 40, 70, 11, i < s.ok ? '#06d6a0' : '#5a5d6e'); }
-    if (s.flash > 0) PA.texte('PILE ENSEMBLE !', W / 2, 150, 44, '#06d6a0');
-    if (s.rate > 0) PA.texte('PAS EN MÊME TEMPS…', W / 2, 150, 36, '#ef233c');
-    Duo.mains(c, s.A || { x: 280, y: 330 }, s.B || { x: 680, y: 330 });
-    PA.fin(g);
+    // le compteur
+    const cx = W / 2, cy = 250, R = 130;
+    PA.forme((x) => { x.arc(cx, cy, R, Math.PI, 0); x.closePath(); }, '#f8f4ea');
+    const a0 = Math.PI + (s.zone - 0.09) * Math.PI, a1 = Math.PI + (s.zone + 0.09) * Math.PI;
+    PA.forme((x) => { x.moveTo(cx, cy); x.arc(cx, cy, R - 8, a0, a1); x.closePath(); }, '#06d6a0');
+    const aa = Math.PI + (s.aig || 0) * Math.PI;
+    PA.forme((x) => { x.moveTo(cx, cy); x.lineTo(cx + Math.cos(aa) * (R - 14), cy + Math.sin(aa) * (R - 14)); }, '#1a1222', 12);
+    PA.forme((x) => { x.moveTo(cx, cy); x.lineTo(cx + Math.cos(aa) * (R - 14), cy + Math.sin(aa) * (R - 14)); }, '#ef233c', 6);
+    PA.rect(cx - R, cy, 2 * R, 6, '#1a1222'); // le bas du cadran
+    PA.disque(cx, cy, 10, '#1a1222');
+    // la clé (rôle 0) et le bouton START (rôle 1)
+    PA.rect(230, 320, 100, 70, '#5a5d6c'); PA.rect(240, 330, 80, 50, '#3a3b48');
+    PA.forme((x) => { x.save(); x.translate(280, 355); x.rotate(s.cle ? 1.2 : 0); x.rect(-8, -34, 16, 40); x.restore(); }, '#ffd166');
+    PA.texte('CLÉ', 280, 420, 22, '#f8f4ea');
+    PA.spr(this.IM.bouton, 680, 345 + (s.flash > 0.3 ? 6 : 0));
+    PA.texte('START', 680, 420, 22, '#f8f4ea');
+    for (let i = 0; i < this.NEED; i++) PA.disque(W / 2 - 40 + i * 40, 60, 14, i < s.ok ? '#06d6a0' : '#3a3b48');
+    if (s.rate) PA.texte('PAS DANS LE VERT !', W / 2, 470, 34, '#ef233c');
+    PA.texte(c.duo.role === 0 ? 'TOI : TIENS LA CLÉ (CLIC MAINTENU)' : 'TOI : CLIQUE QUAND C\'EST VERT', W / 2, 510, 24, '#ffd400');
+    PA.fin(g, { lumiere: s.flash > 0 });
   },
 });

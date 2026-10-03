@@ -194,6 +194,7 @@ fillHearts(UI.el('solo-coeurs'), UI.soloLives());
 UI.el('solo-coeurs').onchange = (e) => store.set('wawaware-coeurs', e.target.value);
 fillHearts(UI.el('sel-coeurs'), 4);
 UI.el('sel-coeurs').onchange = (e) => Net.send({ t: 'options', coeurs: Number(e.target.value) });
+UI.el('sel-duo').onchange = (e) => Net.send({ t: 'options', duo: Number(e.target.value) });
 UI.el('btn-settings').onclick = () => { Sfx.ctx(); UI.renderSwatches(); UI.show('settings'); };
 UI.el('btn-settings-back').onclick = () => UI.show('menu');
 UI.renderSwatches();
@@ -249,8 +250,23 @@ const Lobby = {
       if (j.id === Net.id) li.className = 'me';
       let tag = '';
       if (room.etat === 'jeu') tag = j.enJeu ? (j.vivant ? '♥'.repeat(j.vies) : '👻 éliminé') : 'attend la prochaine partie';
-      li.innerHTML = `<span class="dot" style="background:${j.couleur}"></span>${room.hote === j.id ? '👑 ' : ''}<span></span><span class="tagline">${tag}</span>`;
+      // équipe choisie : les deux se sont choisis l'un l'autre
+      const moi = room.joueurs.find(o => o.id === Net.id) || {};
+      const ensemble = j.id !== Net.id && moi.partenaire === j.id && j.partenaire === Net.id;
+      const partJ = room.joueurs.find(o => o.id === j.partenaire && o.partenaire === j.id);
+      if (!tag && partJ) tag = '🤝 ' + partJ.nom;
+      else if (!tag && j.id !== Net.id && j.partenaire === Net.id) tag = '🤝 veut faire équipe avec toi !';
+      li.innerHTML = `<span class="dot" style="background:${j.couleur}"></span>${room.hote === j.id ? '👑 ' : ''}<span></span><span class="tagline"></span>`;
       li.children[1].textContent = j.nom + (j.id === Net.id ? ' (toi)' : '');
+      li.children[2].textContent = tag;
+      if (j.id !== Net.id && room.etat === 'salon') {
+        const b = document.createElement('button');
+        b.className = 'small btn-equipe' + (moi.partenaire === j.id ? ' on' : '');
+        b.textContent = ensemble ? '🤝 Équipe ✓' : moi.partenaire === j.id ? '⏳ Annuler' : '🤝 Équipe';
+        b.title = 'Faire équipe avec ce joueur pendant les manches en duo';
+        b.onclick = () => Net.send({ t: 'partenaire', id: moi.partenaire === j.id ? null : j.id });
+        li.appendChild(b);
+      }
       list.appendChild(li);
     }
     const host = Net.isHost(), idle = room.etat === 'salon';
@@ -260,6 +276,9 @@ const Lobby = {
     const selH = UI.el('sel-coeurs');
     selH.value = room.coeurs || 4;
     selH.disabled = !host || !idle;
+    const selD = UI.el('sel-duo');
+    selD.value = String(room.duo ?? 3);
+    selD.disabled = !host || !idle;
     UI.el('btn-launch').classList.toggle('hidden', !host || !idle);
     const me = Net.me();
     let text = '';
