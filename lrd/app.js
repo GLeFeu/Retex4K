@@ -342,33 +342,38 @@ function renderCharlieActif() {
   const progress = state.avecTimer
     ? `<div class="timer-bar"><i style="width:100%"></i></div><div class="timer-text"></div>`
     : '';
+
   const dilemmasHtml = state.dilemmes.map((d, i) => {
+    const cat = CATS.find(c => c.id === d.c);
+    const catLabel = cat ? `${cat.em} ${cat.label}` : '';
+
     if (i < done) {
       const pick = state.picks[i];
       const isLft = pick === 'gauche';
-      return `<div class="dilemma-card">
-        <div class="dilemma-num">Dilemme ${i+1}</div>
-        <div class="dilemma-done">
-          <span class="done-dir ${isLft?'lft':'rgt'}">${isLft?'←':'→'}</span>
-          <span>${esc(isLft?d.g:d.d)}</span>
-          <span class="done-check">✓</span>
-        </div>
+      return `<div class="dilemma-done-card">
+        <span class="dc-num">${i+1}</span>
+        <span class="dc-choice ${isLft?'lft':'rgt'}">${isLft?'← ':'→ '}${esc(isLft?d.g:d.d)}</span>
+        <span class="dc-check">✓</span>
       </div>`;
     }
     if (i > done) return '';
-    return `<div class="dilemma-card" id="activeD">
-      <div class="dilemma-num">Dilemme ${i+1} sur 3</div>
-      <div class="dilemma-vs">
-        <button class="choice-card lft" data-d="${i}" data-dir="gauche">
-          <div class="cc-header">←</div>
-          <div class="cc-body">${esc(d.g)}</div>
-          <div class="cc-footer">Gauche</div>
+
+    return `<div class="dilemma-active">
+      <div class="dca-header">
+        <span class="dca-cat">${esc(catLabel)}</span>
+        <span class="dca-num">Dilemme ${i+1} / 3</span>
+      </div>
+      <div class="dilemma-split">
+        <button class="split-side lft" data-dir="gauche">
+          <div class="split-arrow">←</div>
+          <div class="split-text">${esc(d.g)}</div>
+          <div class="split-label">Gauche</div>
         </button>
-        <div class="vs-sep">VS</div>
-        <button class="choice-card rgt" data-d="${i}" data-dir="droite">
-          <div class="cc-header">→</div>
-          <div class="cc-body">${esc(d.d)}</div>
-          <div class="cc-footer">Droite</div>
+        <div class="split-div"><span class="split-vs">VS</span></div>
+        <button class="split-side rgt" data-dir="droite">
+          <div class="split-arrow">→</div>
+          <div class="split-text">${esc(d.d)}</div>
+          <div class="split-label">Droite</div>
         </button>
       </div>
     </div>`;
@@ -396,13 +401,22 @@ function renderCharlieActif() {
   </div>`;
 }
 function bindCharlieActif() {
-  document.querySelectorAll('.choice-card').forEach(b => {
+  document.querySelectorAll('.split-side').forEach(b => {
     b.addEventListener('click', () => {
       const dir = b.dataset.dir;
       if (state.picks.length < 3) {
-        state.picks.push(dir);
-        send({ t:'choix', dir });
-        render(); tickTimer();
+        // visuellement montrer le choix : highlight côté choisi, griser l'autre
+        const card = b.closest('.dilemma-active');
+        if (card) {
+          card.querySelectorAll('.split-side').forEach(s => {
+            s.classList.add(s === b ? 'picked' : 'faded');
+          });
+        }
+        setTimeout(() => {
+          state.picks.push(dir);
+          send({ t:'choix', dir });
+          render(); tickTimer();
+        }, 220);
       }
     });
   });
