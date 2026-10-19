@@ -157,10 +157,13 @@ const server = http.createServer((req, res) => {
 const wss = new WebSocketServer({ noServer: true });
 
 // WawaWare (retex4k.com/wawaware) partage ce serveur : ses connexions arrivent sur /wawaware,
+// Left Right Dilemma (retex4k.com/lrd) arrive sur /lrd,
 // tout le reste continue d'aller au blind test comme avant.
 const wawaware = require('./wawaware')();
+const lrd = require('./lrd')();
 server.on('upgrade', (req, socket, head) => {
   if ((req.url || '').startsWith('/wawaware')) return wawaware.handleUpgrade(req, socket, head);
+  if ((req.url || '').startsWith('/lrd')) return lrd.handleUpgrade(req, socket, head);
   wss.handleUpgrade(req, socket, head, (ws) => wss.emit('connection', ws, req));
 });
 

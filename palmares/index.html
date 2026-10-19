@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Palmarès — Classe tes musiques</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Lecteur YouTube caché (audio uniquement), comme le blindtest -->
+  <div id="yt-host" aria-hidden="true"><div id="yt-player"></div></div>
+
+  <header class="app">
+    <div class="wrap hbar">
+      <div class="brand"><div class="logo"></div><b>Palmarès</b></div>
+      <span class="who" id="who"></span>
+      <button class="icbtn" id="theme" title="Changer de thème">◐</button>
+    </div>
+    <nav class="tabs wrap" id="tabs">
+      <button class="tab" data-v="classer" aria-current="true">À classer <span class="b" id="bQueue">0</span></button>
+      <button class="tab" data-v="palmares">Mon palmarès</button>
+      <button class="tab" data-v="amis">Amis <span class="b" id="bFriends">0</span></button>
+      <button class="tab" data-v="jeu">Devine le goût</button>
+    </nav>
+  </header>
+
+  <main class="wrap" id="main">
+    <section class="view" id="v-classer" hidden><div class="card" id="npCard"></div></section>
+
+    <section class="view" id="v-palmares" hidden>
+      <div class="vhead">
+        <div class="eyebrow">Ton classement</div>
+        <h2>Ta playlist, du meilleur au pire</h2>
+        <p class="muted">Clique un morceau pour l'écouter, le déplacer ou changer son tier. Tu peux tout réorganiser quand tu veux.</p>
+      </div>
+      <div id="tierBoard"></div>
+      <div class="card" id="shareCard" hidden>
+        <div class="eyebrow">Partager</div>
+        <p class="muted small">Envoie ton lien à un ami&nbsp;: il verra ton palmarès et pourra deviner ton goût. (Ou copie le code et colle-le dans l'onglet Amis.)</p>
+        <div class="row" style="margin:12px 0 10px"><button class="btn primary" id="copyLink">Copier le lien</button><button class="btn" id="copyCode">Copier le code</button><button class="btn ghost" id="resetBtn">Tout reclasser</button></div>
+        <textarea class="txt mono" id="shareCode" rows="2" readonly></textarea>
+      </div>
+    </section>
+
+    <section class="view" id="v-amis" hidden>
+      <div class="card">
+        <div class="eyebrow">Importer un ami</div>
+        <p class="muted small">Colle le code (ou ouvre son lien) pour ajouter son palmarès.</p>
+        <textarea class="txt mono" id="importCode" rows="2" placeholder="Colle un code de palmarès…"></textarea>
+        <div class="row" style="margin-top:10px"><button class="btn primary" id="importBtn">Ajouter l'ami</button></div>
+        <p class="note">🔴 <span><b>Le direct</b> (voir vos classements bouger en même temps) se branchera ensuite sur ton serveur multijoueur.</span></p>
+      </div>
+      <div id="friendsList"></div>
+    </section>
+
+    <section class="view" id="v-jeu" hidden><div id="gameHome"></div></section>
+  </main>
+
+  <!-- Barre de lecture -->
+  <div class="playbar" id="playbar" hidden>
+    <div class="wrap pbinner">
+      <img class="pbthumb" id="pbThumb" alt="">
+      <div class="pbmeta"><div class="t" id="pbTitle"></div><div class="a" id="pbArtist"></div></div>
+      <button class="pbplay" id="pbPlay" title="Lecture / pause">▶</button>
+      <div class="pbseek"><input type="range" id="pbSeek" min="0" max="1000" value="0"><span class="pbtime tnum" id="pbTime">0:00</span></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+  <script>
+    (function(){ var s=document.createElement('script'); s.src='https://www.youtube.com/iframe_api'; document.head.appendChild(s); })();
+  </script>
+</body>
+</html>
