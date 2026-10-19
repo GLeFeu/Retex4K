@@ -42,6 +42,7 @@ module.exports = function createLRD() {
       mancheActuelle: room.roundIdx,
       scoreGroupe: room.groupScore,
       categories: room.categories,
+      avecTimer: room.avecTimer,
       joueurs: room.players.map(p => ({ id:p.id, nom:p.nom, points:p.points, connecte:p.connected })),
     };
   }
@@ -92,10 +93,11 @@ module.exports = function createLRD() {
       tDebut: room.tDebut,
     });
 
+    const charlieMs = room.avecTimer ? CHARLIE_MS : 30 * 60 * 1000;
     room.timer = setTimeout(() => {
       while (room.picks.length < 3) room.picks.push(Math.random()<.5?'gauche':'droite');
       startVote(room);
-    }, CHARLIE_MS);
+    }, charlieMs);
   }
 
   function startVote(room) {
@@ -104,9 +106,10 @@ module.exports = function createLRD() {
     room.chalet = chalet(room.picks);
     room.tVote  = Date.now();
 
-    bcast(room, { t:'vote_debut', dureeMs:VOTE_MS, tDebut:room.tVote });
+    const voteMs = room.avecTimer ? VOTE_MS : 30 * 60 * 1000;
+    bcast(room, { t:'vote_debut', dureeMs:voteMs, tDebut:room.tVote });
 
-    room.timer = setTimeout(() => endVote(room), VOTE_MS);
+    room.timer = setTimeout(() => endVote(room), voteMs);
     checkAllVoted(room);
   }
 
@@ -187,6 +190,7 @@ module.exports = function createLRD() {
             players:[], state:'salon',
             rounds:6, roundIdx:-1, groupScore:0,
             categories:['normal','fun'],
+            avecTimer: true,
             dilemmas:[], charlie:null, picks:[], chalet:0,
             votes:new Map(), usedIds:new Set(),
             timer:null, tDebut:0, tVote:0,
@@ -211,6 +215,8 @@ module.exports = function createLRD() {
           room.categories = m.categories.filter(c=>['normal','fun','18plus','wtf','extreme'].includes(c));
         if (typeof m.manches==='number'&&m.manches>=3&&m.manches<=20)
           room.rounds = m.manches;
+        if (typeof m.avecTimer==='boolean')
+          room.avecTimer = m.avecTimer;
         bcast(room, snap(room));
         return;
       }

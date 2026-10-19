@@ -42,6 +42,7 @@ let state = {
   dilemmes: [],      // [{id,c,g,d}]
   picks: [],         // mes choix perso (Charlie) ['gauche'|'droite']
   monVote: 0,        // mon vote chalet (1-8)
+  avecTimer: true,   // minuterie activée
   timerEnd: 0,       // timestamp fin timer
   nbVotes: 0,
   nbEligibles: 0,
@@ -115,6 +116,7 @@ function handle(m) {
       state.joueurs = m.joueurs || [];
       state.categories = m.categories || state.categories;
       state.manches = m.manches || state.manches;
+      if (typeof m.avecTimer === 'boolean') state.avecTimer = m.avecTimer;
       if (state.phase !== 'accueil') render();
       break;
 
@@ -179,6 +181,7 @@ let timerInterval;
 function startTimer() { clearTimer(); timerInterval = setInterval(tickTimer, 500); }
 function clearTimer() { clearInterval(timerInterval); }
 function tickTimer() {
+  if (!state.avecTimer) return;
   const rem = Math.max(0, (state.timerEnd - Date.now()) / 1000);
   const bar = document.querySelector('.timer-bar i');
   const txt = document.querySelector('.timer-text');
@@ -275,6 +278,12 @@ function renderSalon() {
       <button class="rnd-btn" id="rndMinus">−</button>
       <span class="rnd-val" id="rndVal">${state.manches}</span>
       <button class="rnd-btn" id="rndPlus">+</button>
+    </div>
+    <div class="timer-row">
+      <span class="label">⏱ Minuterie :</span>
+      <button class="toggle-btn${state.avecTimer?' on':''}" id="timerToggle">
+        ${state.avecTimer ? 'Activée' : 'Désactivée'}
+      </button>
     </div>` : `<p class="muted small">Seul l'hôte peut choisir les réglages.</p>`;
 
   return `<div class="screen">
@@ -300,6 +309,11 @@ function bindSalon() {
     navigator.clipboard?.writeText(state.code).then(()=>toast('Code copié !')).catch(()=>toast(state.code));
   });
   document.getElementById('startBtn')?.addEventListener('click', () => send({ t:'demarrer' }));
+  document.getElementById('timerToggle')?.addEventListener('click', () => {
+    state.avecTimer = !state.avecTimer;
+    send({ t:'settings', categories:state.categories, manches:state.manches, avecTimer:state.avecTimer });
+    render();
+  });
   document.querySelectorAll('.cat-btn').forEach(b => {
     b.addEventListener('click', () => {
       const cat = b.dataset.cat;
@@ -309,15 +323,15 @@ function bindSalon() {
       } else {
         state.categories = [...state.categories, cat];
       }
-      send({ t:'settings', categories:state.categories, manches:state.manches });
+      send({ t:'settings', categories:state.categories, manches:state.manches, avecTimer:state.avecTimer });
       render();
     });
   });
   document.getElementById('rndMinus')?.addEventListener('click', () => {
-    if (state.manches > 3) { state.manches--; send({t:'settings',categories:state.categories,manches:state.manches}); render(); }
+    if (state.manches > 3) { state.manches--; send({t:'settings',categories:state.categories,manches:state.manches,avecTimer:state.avecTimer}); render(); }
   });
   document.getElementById('rndPlus')?.addEventListener('click', () => {
-    if (state.manches < 20) { state.manches++; send({t:'settings',categories:state.categories,manches:state.manches}); render(); }
+    if (state.manches < 20) { state.manches++; send({t:'settings',categories:state.categories,manches:state.manches,avecTimer:state.avecTimer}); render(); }
   });
 }
 
@@ -325,25 +339,36 @@ function bindSalon() {
 function renderCharlieActif() {
   const done = state.picks.length;
   const allDone = done === 3;
-  const progress = `<div class="timer-bar"><i style="width:100%"></i></div><div class="timer-text"></div>`;
+  const progress = state.avecTimer
+    ? `<div class="timer-bar"><i style="width:100%"></i></div><div class="timer-text"></div>`
+    : '';
   const dilemmasHtml = state.dilemmes.map((d, i) => {
     if (i < done) {
       const pick = state.picks[i];
+      const isLft = pick === 'gauche';
       return `<div class="dilemma-card">
         <div class="dilemma-num">Dilemme ${i+1}</div>
-        <div class="dilemma-done">✓ Tu as choisi : <b>${pick==='gauche'?'← Gauche':'Droite →'}</b></div>
+        <div class="dilemma-done">
+          <span class="done-dir ${isLft?'lft':'rgt'}">${isLft?'←':'→'}</span>
+          <span>${esc(isLft?d.g:d.d)}</span>
+          <span class="done-check">✓</span>
+        </div>
       </div>`;
     }
     if (i > done) return '';
     return `<div class="dilemma-card" id="activeD">
       <div class="dilemma-num">Dilemme ${i+1} sur 3</div>
       <div class="dilemma-vs">
-        <button class="choice-btn lft" data-d="${i}" data-dir="gauche">
-          <span class="dir-icon">←</span>${esc(d.g)}
+        <button class="choice-card lft" data-d="${i}" data-dir="gauche">
+          <div class="cc-header">←</div>
+          <div class="cc-body">${esc(d.g)}</div>
+          <div class="cc-footer">Gauche</div>
         </button>
         <div class="vs-sep">VS</div>
-        <button class="choice-btn rgt" data-d="${i}" data-dir="droite">
-          ${esc(d.d)}<span class="dir-icon">→</span>
+        <button class="choice-card rgt" data-d="${i}" data-dir="droite">
+          <div class="cc-header">→</div>
+          <div class="cc-body">${esc(d.d)}</div>
+          <div class="cc-footer">Droite</div>
         </button>
       </div>
     </div>`;
@@ -371,7 +396,7 @@ function renderCharlieActif() {
   </div>`;
 }
 function bindCharlieActif() {
-  document.querySelectorAll('.choice-btn').forEach(b => {
+  document.querySelectorAll('.choice-card').forEach(b => {
     b.addEventListener('click', () => {
       const dir = b.dataset.dir;
       if (state.picks.length < 3) {
@@ -385,13 +410,14 @@ function bindCharlieActif() {
 
 /* ---- Attente pendant que Charlie choisit ---- */
 function renderCharlieAttend() {
-  const picks = Math.min(3, Math.round((1 - Math.max(0, state.timerEnd - Date.now()) / 45000) * 3));
+  const timerHtml = state.avecTimer
+    ? `<div class="timer-bar"><i style="width:100%"></i></div><div class="timer-text"></div>`
+    : '';
   return `<div class="screen">
     <div class="row">
       <div class="eyebrow">Manche ${state.mancheActuelle} / ${state.mancheTotal}</div>
     </div>
-    <div class="timer-bar"><i style="width:100%"></i></div>
-    <div class="timer-text"></div>
+    ${timerHtml}
     <div class="wait-anim">
       <div class="mountain-pulse">🏔️</div>
       <div style="font-family:var(--display);font-weight:800;font-size:22px">
@@ -430,8 +456,7 @@ function renderVote() {
         <div class="small muted">Parlez, comparez, puis votez pour un chalet.</div>
       </div>
     </div>
-    <div class="timer-bar"><i style="width:100%"></i></div>
-    <div class="timer-text"></div>
+    ${state.avecTimer ? `<div class="timer-bar"><i style="width:100%"></i></div><div class="timer-text"></div>` : ''}
     <div class="card">
       <div class="eyebrow" style="margin-bottom:10px">Les 3 dilemmes</div>
       <div class="dilemma-list">${state.dilemmes.map((d,i)=>`
@@ -485,7 +510,7 @@ function renderVoteCharlie() {
         <div class="small muted">Ils essaient de deviner où tu es allé !</div>
       </div>
     </div>
-    <div class="timer-bar"><i style="width:100%"></i></div><div class="timer-text"></div>
+    ${state.avecTimer ? `<div class="timer-bar"><i style="width:100%"></i></div><div class="timer-text"></div>` : ''}
     <div class="vote-charlie-view">
       <div class="small muted" style="margin-bottom:10px">Tes choix (secret jusqu'à la révélation)</div>
       <div class="picks-reveal">${picksHtml}</div>
